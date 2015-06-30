@@ -2,44 +2,24 @@
 <meta charset="utf-8" />
 <body>
 <link href='css/custom.css' rel="stylesheet" type="text/css" />
-<h1><img src='./img/logo.png' /><span>Events for Bernie<span></h1>
-<div id='map-container'></div>
-<div id='map-event-list'>
-  <h2>State Name</h2>
-  <div><button>Membership A</button>&nbsp;<button>Membership B</button> <button>Membership B</button></dv>
-  <table>
-    <tbody>
-      <tr>
-        <th>Date</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>Event</th>
-        <th>Links</th>
-      </tr>
-      <tr>
-        <td>July 1</td>
-        <td>&nbsp</td>
-        <td>&nbsp</td>
-        <td>Town-hall meeting with Bernie</td>
-        <td><a href='#'>Reddit</a></td>
-      </tr>
-      <tr>
-        <td>July 5</td>
-        <td>4 PM</td>
-        <td>&nbsp;</td>
-        <td>Meetup in Toledo</td>
-        <td><a href='#'>Facebook</a></td>
-      </tr>
-      <tr>
-        <td>July 15</td>
-        <td>10 AM</td>
-        <td>12 PM</td>
-        <td>Rally in Wisconsin</td>
-        <td><a href='#'>Facebook</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h1>
+  <img src='./img/logo.png' style='float: left; margin-left: 10px;' />&nbsp;<span>Events for Bernie<span><br/>
+<span style='font-size: 14px; font-weight: normal; margin-left: 10px; color: #999999;'>All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.
+</span>
+</h1>
+
+<section>
+  <div id='map-container'></div>
+  <div id='map-event-list'>
+    <article id="event-state-name">
+      <h2>State Name</h2>
+    </article>
+    <ul id='event-list'>
+    </ul>
+    <p style='text-align: center; margin-top: 50px;'><img src='./img/list-end.png' width='100px'/></p>
+  </div>
+  <div style="clear: both"></div>
+</section>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
 <script src="js/hexbin.js"></script>
@@ -110,11 +90,26 @@ var bernie = bernie || {};
 var bernie = bernie || {};
     bernie.Events = function () {
       this.clickState = function(d) {
-        if (d) {
-          console.log(d);
-          d3.selectAll("[data-state]").classed("highlight", false);
-          d3.selectAll("[data-state='" + d.abbr + "']").classed("highlight", true);
+        window.location.hash = d.abbr;
+      };
+
+      this.hashchange = function() {
+        var that = this;
+        var currentHash = window.location.hash;
+        if (!currentHash) {
+          return false;
         }
+        currentHash = currentHash.substr(1);
+
+        //Color state
+        if (currentHash) {
+          // console.log(d);
+          d3.selectAll("[data-state]").classed("highlight", false);
+          d3.selectAll("[data-state='" + currentHash + "']").classed("highlight", true);
+        }
+
+        //List events
+        bernieEventList.listEvents(currentHash);
       };
 
     };
@@ -122,6 +117,53 @@ var bernie = bernie || {};
 var bernie = bernie || {};
     bernie.EventList = function(container) {
       this.container = container;
+      this.listEvents = function(state) {
+
+
+        $(container).find("#event-state-name h2").html("<img src='./img/states/" + state + ".png' /> <span>" + bernie.constants.states[state][0] + "</span>");
+
+        var dateFormat = d3.time.format("%B %d");
+        var targetList = bernie.d.events.filter(function(d) { return d.State == state });
+
+        $(container).find("ul#event-list li").remove();
+
+        var eventListArea = d3.select(container).select("ul").attr("id", "event-list");
+
+        var eventListItems = eventListArea.selectAll("li").data(targetList).enter().append("li").attr("class", "event-list-item");
+
+      /*<li>
+        <h3>July 1: Town-hall meeting with Bernie</h3>
+        <h5>Location of Town Hall</h5>
+        <p><a href='#' class='official-link'>Official Bernie Campaign</a> &bull; <a href='#' class='reddit-link'>Reddit</a> &bull; <a href='#' class='facebook-link'>Facebook</a> &bull; <a href='#' class='other-link'>People for Bernie</a></p>
+      </li>
+      */
+        eventListItems.each(function(d, i) {
+          console.log(d, i, this);
+          // var date = rawDateFormat.parse(d.Date);
+          //Gather links
+
+          var links = [];
+          for ( var i = 1; i <= 9; i++) {
+            var link = "Link" + i;
+
+            if ( d[link] ) {
+              var name_link = d[link].split(/,(.+)?/)
+              links.push ( {name: name_link[0], link: name_link[1]} );
+            }
+          }
+
+          var linkText = links.map(function(d) { return "<a target='_blank' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
+
+
+          d3.select(this).html(
+            "<h3><span class='event-item-date'>" + dateFormat(d.Date)
+              + ":</span> <a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
+              + "<h5>" + d.Location + "</h5>"
+              + (d.TimeStart ? "<p>" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "</p>" : "")
+              + "<p>" + linkText.join(" &bull; ")+ "</p>"
+          );
+        });
+      }
     };
 
 var bernieEventList = new bernie.EventList('#map-event-list');
@@ -130,10 +172,10 @@ var bernie = bernie || {};
     bernie.States = function(container) {
 
       this.container = container;
-      this.margin = {top: 50, right: 50, bottom: 50, left: 50};
-      this.radiusSize = 30;
-      this.width = 960 - this.margin.left - this.margin.right;
-      this.height = 500 + this.radiusSize - this.margin.top - this.margin.bottom;
+      this.margin = {top: 40, right: 40, bottom: 40, left: 40};
+      this.radiusSize = 24;
+      this.width = 768 - this.margin.left - this.margin.right;
+      this.height = 400 + this.radiusSize - this.margin.top - this.margin.bottom;
 
       this.svg = null,
       this.statesArea = null,
@@ -158,7 +200,7 @@ var bernie = bernie || {};
 
       this.hexbin = d3.hexbin()
                         .size([this.width, this.height+this.radiusSize])
-                        .radius(32);
+                        .radius(25);
 
       this.collatedStates = function() {
         var statesItem = [];
@@ -168,8 +210,7 @@ var bernie = bernie || {};
              "state": bernie.constants.states[key][0],
              "abbr": key,
              "x" : bernie.constants.states[key][1],
-             "y" : bernie.constants.states[key][2],
-             "event_count" : Math.ceil(Math.random() * 20)
+             "y" : bernie.constants.states[key][2]
           });
         }
         return statesItem;
@@ -274,11 +315,39 @@ var bernie = bernie || {};
 
 var statesDraw = new bernie.States('#map-container');
 
+/*Styling */
+$("#map-event-list").width($(window).width()-768-40);
+$(window).on("hashchange", statesDraw.eventsHandler.hashchange);
+
 //Load data
 d3.csv(bernie.constants.eventsFile,
   function(data) {
     bernie.d.events = data;
+
+    var rawDateFormat = d3.time.format("%m/%d/%Y");
+    $(bernie.d.events).each(function(i, item) {
+      item.Date = rawDateFormat.parse(item.Date);
+    });
+
+    bernie.d.events = bernie.d.events.filter(function(d){
+      var today = new Date();
+      today.setDate(today.getDate() - 1);
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
+
+      return d.Date >= today;
+    });
+
+    bernie.d.events.sort(function(a,b){
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      return a.Date - b.Date;
+    });
+
+    // console.log("EVENTS", bernie.d.events);
     statesDraw.updateEventCount();
+    $(window).trigger("hashchange");
   }
 );
 
@@ -296,8 +365,14 @@ d3.csv(bernie.constants.eventsFile,
 // var y = d3.scale.linear()
 //     .domain([0, height])
 //     .range([height, 0]);
+
+
+
 </script>
-<sub>
-  Inspired by <a href='http://www.r-bloggers.com/animated-us-hexbin-map-of-the-avian-flu-outbreak/'>r-bloggers</a>. This uses <a href='http://www.d3js.org'>d3</a> plugin <a href='https://github.com/d3/d3-plugins/tree/master/hexbin'>hexagonal binning</a>
+<div style="clear: both"></div>
+<sub style='color: #999999;'>
+  &reg; Rapinski for Bernie 2016. Inspired by <a target='_blank' href='http://www.r-bloggers.com/animated-us-hexbin-map-of-the-avian-flu-outbreak/'>r-bloggers</a>. Submit an event or be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. Uses <a href='http://www.d3js.org'>d3</a> plugin <a target='_blank' href='https://github.com/d3/d3-plugins/tree/master/hexbin'>hexagonal binning</a>.
 </sub>
+<br/>
+<sub style='color: #999999;'><a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href=''>here</a>!</sub>
 </body>

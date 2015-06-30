@@ -1,12 +1,25 @@
 html,body{
   margin: 0;
   padding: 0;
-  text-align: center;
-
 }
 body {
   font-family: sans-serif;
   color: #333333;
+}
+section {
+  width: 100%;
+  text-align: center;
+  & > div#map-container {
+    display: inline-block;
+    width: 768px;
+    float: left;
+    padding: 0.5% 10px;
+  }
+  & > div#map-event-list {
+    width: 450px;
+    float: right;
+    padding: 0.5% 10px 0.5% 10px;
+  }
 }
 .axis text {
   font: 10px sans-serif;
@@ -44,4 +57,49 @@ body {
   cursor: pointer;
 }
 
+#map-event-list {
+  text-align: left;
+  & > h2 {
+    text-align: left;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
+    li {
+      padding: 0;
+      margin: 0;
+      margin-top: 10px;
+
+      border: 1px dotted lightgray;
+      border-width: 1px 0 0 0;
+
+      // &:last-child { border: none; }
+
+      p {
+        padding: 0;
+      }
+    }
+  }
+}
+
+sub {
+  padding: 2%;
+}
+
+#map-event-list {
+  #event-state-name {
+    h2 {
+      img {
+        height: 30px;
+        vertical-align: middle;
+        // border: solid 1px lightgray;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
