@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Doodle AG//Doodle//EN
+CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/New_York
+METHOD:PUBLISH
+BEGIN:VEVENT
+ORGANIZER:MAILTO:mailer@doodle.com
+SUMMARY:Edit.ed Project (meeting 1) [Doodle]
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+URL:http://doodle.com/t7reiyhcs3tbqktc
+DESCRIPTION:Initiated by Abigail Razon\n\n\nParticipants:\n- Abigail Razon\n- ninoy.arnaldo\n- eightq\n- darrelalvin\n\n\nhttp://doodle.com/t7reiyhcs3tbqktc
+DTSTAMP:20150627T114555Z
+UID:1435406400000-814866263@doodle.biz
+DTSTART:20150627T120000Z
+DTEND:20150627T130000Z
+END:VEVENT
+END:VCALENDAR
