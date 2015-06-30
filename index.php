@@ -378,5 +378,5 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 </script>
 <div style="clear: both"></div>
 <sub style='color: #999999;'>
-  &reg; Rapinski for Bernie 2016. <a href='http://goo.gl/forms/1dCkCj4zi9'>Submit an event</a> or to be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. <a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
+  &reg; <a href='https://github.com/rapicastillo/bernie-events' target='_blank'>Rapinski for Bernie 2016</a>. <a href='http://goo.gl/forms/1dCkCj4zi9'>Submit an event</a> or to be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. <a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
 </body>
