@@ -375,5 +375,5 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
   &reg; Rapinski for Bernie 2016. Inspired by <a target='_blank' href='http://www.r-bloggers.com/animated-us-hexbin-map-of-the-avian-flu-outbreak/'>r-bloggers</a>. Submit an event or be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. Uses <a href='http://www.d3js.org'>d3</a> plugin <a target='_blank' href='https://github.com/d3/d3-plugins/tree/master/hexbin'>hexagonal binning</a>.
 </sub>
 <br/>
-<sub style='color: #999999;'><a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href=''>here</a>!</sub>
+<sub style='color: #999999;'><a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
 </body>
