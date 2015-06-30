@@ -4,7 +4,7 @@
 <link href='css/custom.css' rel="stylesheet" type="text/css" />
 <h1>
   <img src='./img/logo.png' style='float: left; margin-left: 10px;' />&nbsp;<span>Events for Bernie<span><br/>
-<span style='font-size: 14px; font-weight: normal; margin-left: 10px; color: #999999;'>All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.
+<span style='font-size: 14px; font-weight: normal; margin-left: 10px; color: #999999;'>All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results. <a target="_blank" href='http://goo.gl/forms/1dCkCj4zi9'>Submit an Event</a>
 </span>
 </h1>
 
@@ -25,6 +25,11 @@
 <script src="js/hexbin.js"></script>
 <script src="js/jquery.js"></script>
 <script>
+
+/**
+ub style='color: #999999;'>
+  &reg; Rapinski for Bernie 2016. Inspired by http://www.r-bloggers.com/animated-us-hexbin-map-of-the-avian-flu-outbreak/ @ r-bloggers. Uses http://www.d3js.org ( d3 ) https://github.com/d3/d3-plugins/tree/master/hexbin.
+**/
 var $jq = jQuery;
 var bernie = bernie || {};
 bernie.constants = {};
@@ -372,8 +377,5 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 </script>
 <div style="clear: both"></div>
 <sub style='color: #999999;'>
-  &reg; Rapinski for Bernie 2016. Inspired by <a target='_blank' href='http://www.r-bloggers.com/animated-us-hexbin-map-of-the-avian-flu-outbreak/'>r-bloggers</a>. Submit an event or be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. Uses <a href='http://www.d3js.org'>d3</a> plugin <a target='_blank' href='https://github.com/d3/d3-plugins/tree/master/hexbin'>hexagonal binning</a>.
-</sub>
-<br/>
-<sub style='color: #999999;'><a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
+  &reg; Rapinski for Bernie 2016. <a href='http://goo.gl/forms/1dCkCj4zi9'>Submit an event</a> or to be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. <a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
 </body>
