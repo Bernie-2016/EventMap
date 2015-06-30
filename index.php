@@ -3,7 +3,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.">
-<meta name="keywords" content="Humanitarian Aid, UNOCHA, OCHA, United Nations">
+<meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern">
 <meta property="og:image" content="http://www.bernie2016events.org/img/bernie-logo.png"/>
 <meta property="og:title" content="Bernie 2016 - Events Around the States"/>
 <meta property="og:description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results."/>
@@ -50,7 +50,7 @@
     <ul id='event-list'>
       <li><span style='color: lightgray; font-weight:600;'>LOADING EVENTS...</span></li>
     </ul>
-
+    <p style='text-align: center'><a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute contribute-big' target='_blank'>Contribute to the Campaign</a></p>
     <div id='event-nationwide'>
       <h4>NATIONWIDE EVENTS</h4>
       <ul id='event-nationwide-event-list'>
@@ -480,16 +480,10 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 </script>
 <div style="clear: both"></div>
 <div id='social'>
-  <a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=homepage_main_nav' class='contribute' target='_blank'>Contribute to the Campaign</a>
+  <a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute' target='_blank'>Contribute to the Campaign</a>
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="#bernie2016 events! All events related to Bernie Sanders. Townhall meetings,meetups, etc." data-via="BernieSanders" data-related="Coders4Sanders">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  <div
-    class="fb-like"
-    data-share="true"
-    data-width="450"
-    data-show-faces="true"
-    href="http://www.bernie2016events.org/">
-  </div>
+<div class="fb-like" href="http://www.bernie2016events.org/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 </div>
 <sub style='color: #999999;'>
   &reg; <a href='https://github.com/rapicastillo/bernie-events' target='_blank'>Rapinski for Bernie 2016</a>. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a> or to be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. <a href='http://www.reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. Report a bug <a target='_blank' href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>

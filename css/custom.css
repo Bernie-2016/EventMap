@@ -13,11 +13,18 @@ a {
     text-decoration: underline; }
   a.contribute {
     padding: 3px 8px;
-    background-color: #147FD7;
+    background-color: #ea504e;
     color: white;
     font-size: 11px;
     vertical-align: middle;
-    border-radius: 3px; }
+    border-radius: 3px;
+    display: inline-block; }
+    a.contribute.contribute-big {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      background-color: #ea504e;
+      padding: 12px 32px; }
 
 body {
   font-family: 'Open Sans', sans-serif;
