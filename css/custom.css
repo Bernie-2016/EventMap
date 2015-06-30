@@ -78,5 +78,9 @@ sub {
 #map-event-list #event-state-name h2 span {
   display: inline-block;
   vertical-align: middle; }
+#map-event-list .event-item-date {
+  color: #babbba;
+  display: block;
+  font-size: 14px; }
 
 /*# sourceMappingURL=custom.css.map */

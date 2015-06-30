@@ -162,9 +162,10 @@ var bernie = bernie || {};
 
           d3.select(this).html(
             "<h3><span class='event-item-date'>" + dateFormat(d.Date)
-              + ":</span> <a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
+              + " &nbsp;&nbsp; "
+              + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
+              + "</span> <a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
               + "<h5>" + d.Location + "</h5>"
-              + (d.TimeStart ? "<p>" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "</p>" : "")
               + "<p>" + linkText.join(" &bull; ")+ "</p>"
           );
         });
