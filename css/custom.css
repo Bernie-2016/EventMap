@@ -3,11 +3,21 @@ html, body {
   padding: 0;
   font-family: 'Open Sans', sans-serif; }
 
+#social > * {
+  vertical-align: middle; }
+
 a {
   text-decoration: none;
   color: #147FD7; }
   a:hover {
     text-decoration: underline; }
+  a.contribute {
+    padding: 3px 8px;
+    background-color: #147FD7;
+    color: white;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 3px; }
 
 body {
   font-family: 'Open Sans', sans-serif;

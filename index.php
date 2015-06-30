@@ -51,15 +51,15 @@
       <li><span style='color: lightgray; font-weight:600;'>LOADING EVENTS...</span></li>
     </ul>
 
-    <!-- div id='event-nationwide'>
+    <div id='event-nationwide'>
       <h4>NATIONWIDE EVENTS</h4>
       <ul id='event-nationwide-event-list'>
-        <li class='event-nationwide-item'>
+     <!--    <li class='event-nationwide-item'>
           <h3><span class="event-item-date">July 04 &nbsp;&nbsp; </span> <a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march"><span class="event-item-name">March for Bernie in Ann Arbor Parade</span></a></h3>
           <p><a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march" class="sign-up-site-link">Sign Up site</a> • <a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march" class="reddit-link">Reddit</a></p>
-        </li>
+        </li> -->
       </ul>
-    </div-->
+    </div>
     <p style='text-align: center; margin-top: 50px;'><img src='./img/list-end.png' width='100px'/></p>
   </div>
   <div style="clear: both"></div>
@@ -166,6 +166,53 @@ var bernie = bernie || {};
 var bernie = bernie || {};
     bernie.EventList = function(container) {
       this.container = container;
+
+
+      this.listNationwideEvents = function() {
+        var targetList = bernie.d.events.filter(function(d) { return d.State == "ALL" });
+        var dateFormat = d3.time.format("%B %d");
+
+        if (targetList.length == 0) {
+          d3.select("#event-nationwide").style("display", "none");
+          return;
+        }
+
+        $(container).find("ul#event-nationwide-event-list li").remove();
+
+        var nationwideItem = d3.select("#event-nationwide").select("ul")
+          .selectAll("li").data(targetList).enter()
+            .append("li")
+            .attr("class", "event-nationwide-item");
+
+        nationwideItem.each(function(d, i) {
+          // console.log(d, i, this);
+          // var date = rawDateFormat.parse(d.Date);
+          //Gather links
+
+          var links = [];
+          for ( var i = 1; i <= 9; i++) {
+            var link = "Link" + i;
+
+            if ( d[link] ) {
+              var name_link = d[link].split(/,(.+)?/)
+              links.push ( {name: name_link[0], link: name_link[1]} );
+            }
+          }
+
+          var linkText = links.map(function(d) { return "<a target='_blank' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
+
+
+          d3.select(this).html(
+            "<h3><span class='event-item-date'>" + dateFormat(d.Date)
+              + " &nbsp;&nbsp; "
+              + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
+              + "</span> <a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
+              + "<p>" + linkText.join(" &bull; ")+ "</p>"
+          );
+        });
+      };
+
+
       this.listEvents = function(state) {
 
       //<img src='./img/states/" + state + ".png' />
@@ -187,7 +234,7 @@ var bernie = bernie || {};
       </li>
       */
         eventListItems.each(function(d, i) {
-          console.log(d, i, this);
+          // console.log("THIS", d, i, this);
           // var date = rawDateFormat.parse(d.Date);
           //Gather links
 
@@ -290,7 +337,7 @@ var bernie = bernie || {};
         that.statesText.style("fill", function(d) {
           var count = eventCounts[d.abbr];
 
-          console.log(count);
+          // console.log(count);
           if (!count || count == 0) { return "lightgray"; }
           else {
             return "#333333";
@@ -358,7 +405,7 @@ var bernie = bernie || {};
         .attr("y", function(d) { return that.scale.ordinalY(d.y) + 14; })
         .attr("text-anchor", "middle");
 
-    console.log("Initializing Events");
+    // console.log("Initializing Events");
     that.statesEventCount.on("click", that.eventsHandler.clickState);
     that.statesHexes.on("click", that.eventsHandler.clickState);
     that.statesText.on("click", that.eventsHandler.clickState);
@@ -377,7 +424,7 @@ $(window).on("hashchange", statesDraw.eventsHandler.hashchange);
 $(window).trigger("resize");
 
 //Load data
-console.log("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl));
+// console.log("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl));
 d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl),
   function(data) {
     bernie.d.events = data;
@@ -405,8 +452,11 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 
     // console.log("EVENTS", bernie.d.events);
     statesDraw.updateEventCount();
-    $(window).trigger("hashchange");
+    bernieEventList.listNationwideEvents();
     $("ul#event-list li").remove();
+
+    $(window).trigger("hashchange");
+
   }
 );
 
@@ -430,6 +480,7 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 </script>
 <div style="clear: both"></div>
 <div id='social'>
+  <a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=homepage_main_nav' class='contribute' target='_blank'>Contribute to the Campaign</a>
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="#bernie2016 events! All events related to Bernie Sanders. Townhall meetings,meetups, etc." data-via="BernieSanders" data-related="Coders4Sanders">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <div
