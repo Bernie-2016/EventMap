@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: 'Open Sans', sans-serif; }
 
 a {
   text-decoration: none;
@@ -9,7 +10,7 @@ a {
     text-decoration: underline; }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #333333; }
 
 section {
@@ -17,7 +18,7 @@ section {
   text-align: center; }
   section > div#map-container {
     display: inline-block;
-    width: 768px;
+    width: 698px;
     float: left;
     padding: 0.5% 10px; }
   section > div#map-event-list {
@@ -64,23 +65,56 @@ section {
       padding: 0;
       margin: 0;
       margin-top: 10px;
-      border: 1px dotted lightgray;
-      border-width: 1px 0 0 0; }
+      border: 1px dotted #eaeaea;
+      border-width: 0 0 1px 0; }
+      #map-event-list ul li:last-child {
+        border: none; }
       #map-event-list ul li p {
         padding: 0; }
 
 sub {
-  padding: 2%; }
+  margin: 1%; }
+
+div#social {
+  margin: 0 1%; }
 
 #map-event-list #event-state-name h2 img {
   height: 30px;
   vertical-align: middle; }
 #map-event-list #event-state-name h2 span {
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  color: #ea504e;
+  text-transform: uppercase;
+  font-size: 19px; }
 #map-event-list .event-item-date {
   color: #babbba;
   display: block;
   font-size: 14px; }
+
+#header {
+  padding: 2%; }
+
+#event-nationwide > h4 {
+  color: #ea504e;
+  border: 2px whitesmoke solid;
+  border-width: 10px 0 0;
+  padding-top: 22px;
+  margin-top: 40px; }
+
+/* For Phones! */
+@media only screen and (min-width: 320px) and (max-width: 950px) {
+  section {
+    padding: 0; }
+    section #map-container {
+      width: 96% !important;
+      margin: 2%;
+      float: none !important;
+      display: block; }
+    section #map-event-list {
+      display: block;
+      width: 96% !important;
+      margin: 2%;
+      float: none !important; } }
 
 /*# sourceMappingURL=custom.css.map */

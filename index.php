@@ -1,12 +1,45 @@
 <!DOCTYPE html>
+<head>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.">
+<meta name="keywords" content="Humanitarian Aid, UNOCHA, OCHA, United Nations">
+<meta property="og:image" content="http://www.bernie2016events.org/img/bernie-logo.png"/>
+<meta property="og:title" content="Bernie 2016 - Events Around the States"/>
+<meta property="og:description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results."/>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
+<title>#Bernie2016 Events Around the States - All events related to Bernie Sanders. Townhall meetings, meetups, etc. Click on state to filter results.</title>
+<link rel="shortcut icon" href="http://www.bernie2016events.org/favicon.ico">
+</head>
 <body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1465128650469416',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <link href='css/custom.css' rel="stylesheet" type="text/css" />
-<h1>
-  <img src='./img/logo.png' style='float: left; margin-left: 10px;' />&nbsp;<span>Events for Bernie<span><br/>
-<span style='font-size: 14px; font-weight: normal; margin-left: 10px; color: #999999;'>All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results. <a target="_blank" href='http://goo.gl/forms/1dCkCj4zi9'>Submit an Event</a>
-</span>
-</h1>
+
+<div id='header'>
+  <a href='http://www.berniesanders.com' target='_blank'><img src='./img/logo.png' style='float: left; margin-left: 10px;' /></a>
+  <h1 style='margin: 0; margin-left: 10px;'><span style='padding-left: 10px; color: #454545;'>Events Around the States<span></h1>
+  <div><span style='font-size: 14px; font-weight: normal; margin-left: 10px; color: #999999;'>All events related to Bernie Sanders. Townhall meetings, meetups, etc. Click on state to filter results. <a target="_blank" href='http://goo.gl/forms/1dCkCj4zi9'>Submit an Event</a>
+    </span>
+  </div>
+</div>
+
 
 <section>
   <div id='map-container'></div>
@@ -15,7 +48,18 @@
       <h2></h2>
     </article>
     <ul id='event-list'>
+      <li><span style='color: lightgray; font-weight:600;'>LOADING EVENTS...</span></li>
     </ul>
+
+    <!-- div id='event-nationwide'>
+      <h4>NATIONWIDE EVENTS</h4>
+      <ul id='event-nationwide-event-list'>
+        <li class='event-nationwide-item'>
+          <h3><span class="event-item-date">July 04 &nbsp;&nbsp; </span> <a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march"><span class="event-item-name">March for Bernie in Ann Arbor Parade</span></a></h3>
+          <p><a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march" class="sign-up-site-link">Sign Up site</a> • <a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march" class="reddit-link">Reddit</a></p>
+        </li>
+      </ul>
+    </div-->
     <p style='text-align: center; margin-top: 50px;'><img src='./img/list-end.png' width='100px'/></p>
   </div>
   <div style="clear: both"></div>
@@ -124,8 +168,8 @@ var bernie = bernie || {};
       this.container = container;
       this.listEvents = function(state) {
 
-
-        $(container).find("#event-state-name h2").html("<img src='./img/states/" + state + ".png' /> <span>" + bernie.constants.states[state][0] + "</span>");
+      //<img src='./img/states/" + state + ".png' />
+        $(container).find("#event-state-name h2").html("<span>" + bernie.constants.states[state][0] + "</span>");
 
         var dateFormat = d3.time.format("%B %d");
         var targetList = bernie.d.events.filter(function(d) { return d.State == state });
@@ -265,12 +309,13 @@ var bernie = bernie || {};
 
  //Render map
  bernie.States.prototype.initialize = function() {
+
         var that = this;
-        console.log(that);
+
 
         that.svg = d3.select(that.container).append("svg")
-                    .attr("width", that.width + that.margin.left + that.margin.right)
-                    .attr("height", that.height + that.radiusSize + that.margin.top + that.margin.bottom)
+                    .attr("width", that.width )
+                    .attr("height", that.height + that.radiusSize + that.margin.top )
                     .append("g")
                     .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")")
 
@@ -317,13 +362,19 @@ var bernie = bernie || {};
     that.statesEventCount.on("click", that.eventsHandler.clickState);
     that.statesHexes.on("click", that.eventsHandler.clickState);
     that.statesText.on("click", that.eventsHandler.clickState);
+
+
 };
 
 var statesDraw = new bernie.States('#map-container');
 
 /*Styling */
-$("#map-event-list").width($(window).width()-768-40);
+$(window).on("resize",function() {
+  $("#map-event-list").width($(window).width()-780);
+});
 $(window).on("hashchange", statesDraw.eventsHandler.hashchange);
+
+$(window).trigger("resize");
 
 //Load data
 console.log("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl));
@@ -355,6 +406,7 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
     // console.log("EVENTS", bernie.d.events);
     statesDraw.updateEventCount();
     $(window).trigger("hashchange");
+    $("ul#event-list li").remove();
   }
 );
 
@@ -377,6 +429,28 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 
 </script>
 <div style="clear: both"></div>
+<div id='social'>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="#bernie2016 events! All events related to Bernie Sanders. Townhall meetings,meetups, etc." data-via="BernieSanders" data-related="Coders4Sanders">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true"
+    href="http://www.bernie2016events.org/">
+  </div>
+</div>
 <sub style='color: #999999;'>
-  &reg; <a href='https://github.com/rapicastillo/bernie-events' target='_blank'>Rapinski for Bernie 2016</a>. <a href='http://goo.gl/forms/1dCkCj4zi9'>Submit an event</a> or to be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. <a href='reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. See something wrong? Let me know <a href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
+  &reg; <a href='https://github.com/rapicastillo/bernie-events' target='_blank'>Rapinski for Bernie 2016</a>. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a> or to be a moderator: contact <a href='mailto:bernie2016-events@gmail.com'>bernie2016-events@gmail.com</a>. <a href='http://www.reddit.com/r/SandersForPresident'>reddit.com/r/SandersForPresident</a>. Report a bug <a target='_blank' href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64649524-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>

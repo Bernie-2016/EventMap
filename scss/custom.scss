@@ -1,6 +1,7 @@
 html,body{
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -12,7 +13,7 @@ a {
   }
 }
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #333333;
 }
 section {
@@ -20,7 +21,7 @@ section {
   text-align: center;
   & > div#map-container {
     display: inline-block;
-    width: 768px;
+    width: 698px;
     float: left;
     padding: 0.5% 10px;
   }
@@ -81,10 +82,10 @@ section {
       margin: 0;
       margin-top: 10px;
 
-      border: 1px dotted lightgray;
-      border-width: 1px 0 0 0;
+      border: 1px dotted rgb(234, 234, 234);
+      border-width: 0 0 1px 0;
 
-      // &:last-child { border: none; }
+      &:last-child { border: none; }
 
       p {
         padding: 0;
@@ -94,7 +95,11 @@ section {
 }
 
 sub {
-  padding: 2%;
+  margin: 1%;
+}
+
+div#social {
+  margin: 0 1%;
 }
 
 #map-event-list {
@@ -106,8 +111,11 @@ sub {
         // border: solid 1px lightgray;
       }
       span {
-        display: inline-block;
-        vertical-align: middle;
+          display: inline-block;
+          vertical-align: middle;
+          color: #ea504e;
+          text-transform: uppercase;
+          font-size: 19px;
       }
     }
   }
@@ -116,4 +124,44 @@ sub {
     display: block;
     font-size: 14px;
   }
+}
+
+#header {
+  padding: 2%;
+}
+
+#event-nationwide {
+  & > h4 {
+    color: #ea504e;
+    border: 2px whitesmoke solid;
+    border-width: 10px 0 0;
+    padding-top: 22px;
+    margin-top: 40px;
+  }
+}
+
+$phone-min-width: 320px;
+$phone-max-width: 950px;
+
+/* For Phones! */
+@media only screen
+  and (min-width: $phone-min-width)
+  and (max-width: $phone-max-width) {
+
+  section {
+    padding: 0;
+    #map-container {
+      width: 96% !important;
+      margin: 2%;
+      float: none !important;
+      display: block;
+    }
+    #map-event-list {
+      display: block;
+      width: 96% !important;
+      margin: 2%;
+      float: none !important;
+    }
+  }
+
 }
