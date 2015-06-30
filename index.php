@@ -12,7 +12,7 @@
   <div id='map-container'></div>
   <div id='map-event-list'>
     <article id="event-state-name">
-      <h2>State Name</h2>
+      <h2></h2>
     </article>
     <ul id='event-list'>
     </ul>
@@ -320,7 +320,8 @@ $("#map-event-list").width($(window).width()-768-40);
 $(window).on("hashchange", statesDraw.eventsHandler.hashchange);
 
 //Load data
-d3.csv(bernie.constants.eventsFile,
+console.log("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl));
+d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl),
   function(data) {
     bernie.d.events = data;
 

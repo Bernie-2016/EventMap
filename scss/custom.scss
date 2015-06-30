@@ -2,6 +2,15 @@ html,body{
   margin: 0;
   padding: 0;
 }
+
+a {
+  text-decoration: none;
+  color: #147FD7;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
 body {
   font-family: sans-serif;
   color: #333333;
