@@ -199,7 +199,7 @@ var bernie = bernie || {};
             }
           }
 
-          var linkText = links.map(function(d) { return "<a target='_blank' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
+          var linkText = links.map(function(d) { return "<a target='" + (d.link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
 
 
           d3.select(this).html(
@@ -248,14 +248,14 @@ var bernie = bernie || {};
             }
           }
 
-          var linkText = links.map(function(d) { return "<a target='_blank' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
+          var linkText = links.map(function(d) { return "<a target='"+ (d.link.indexOf("mailto")!=0?"_blank":"_self") +"' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
 
 
           d3.select(this).html(
             "<h3><span class='event-item-date'>" + dateFormat(d.Date)
               + " &nbsp;&nbsp; "
               + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
-              + "</span> <a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
+              + "</span> <a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
               + "<h5>" + d.Location + "</h5>"
               + "<p>" + linkText.join(" &bull; ")+ "</p>"
           );
