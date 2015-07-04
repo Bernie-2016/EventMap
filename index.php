@@ -30,7 +30,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<link href='css/custom.css?v=1.0.2' rel="stylesheet" type="text/css" />
+<link href='css/custom.css?v=1.0.2.1' rel="stylesheet" type="text/css" />
 
 <?php require_once('./inc/_header.php'); ?>
 
@@ -283,7 +283,7 @@ var bernie = bernie || {};
 
       this.container = container;
       this.margin = this.mobileFormat ? {top:0,right: 0, left: 0, bottom: 0} : {top: 40, right: 40, bottom: 40, left: 40} ;
-      this.radiusSize = this.mobileFormat ? 18 : 25;
+      this.radiusSize = this.mobileFormat ? 17 : 25;
       this.width = this.mobileFormat ? 600 : (768 - this.margin.left - this.margin.right);
       this.height = this.mobileFormat ? 300 : 400 + this.radiusSize - this.margin.top - this.margin.bottom;
 
@@ -298,10 +298,10 @@ var bernie = bernie || {};
       this.scale = {
           ordinalX : d3.scale.ordinal()
                           .domain(d3.range(24))
-                          .rangeRoundBands([this.mobileFormat ? this.radiusSize*.35 : this.radiusSize, this.mobileFormat ? this.width-this.radiusSize*9 : this.width-this.radiusSize*3]),
+                          .rangeRoundBands([this.mobileFormat ? this.radiusSize*.35 : this.radiusSize, this.mobileFormat ? this.width-this.radiusSize*12 : this.width-this.radiusSize*3]),
           ordinalY : d3.scale.ordinal()
                         .domain(d3.range(8))
-                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 2: this.height+this.radiusSize]),
+                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 3: this.height+this.radiusSize]),
           color : d3.scale.linear()
                           .domain([0, 20])
                           .range(["white", "#147FD7"])

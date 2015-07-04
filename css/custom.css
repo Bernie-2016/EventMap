@@ -202,6 +202,8 @@ div#social {
       display: block;
       padding: 0 !important;
       margin: 0; }
+    section .state-label {
+      font-size: 10px !important; }
     section #map-event-list {
       display: block;
       width: 96% !important;

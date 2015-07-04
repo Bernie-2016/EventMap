@@ -268,7 +268,12 @@ $phone-max-width: 950px;
       display: block;
       padding: 0 !important;
       margin: 0;
+
+
     }
+
+    .state-label { font-size: 10px !important; }
+
     #map-event-list {
       display: block;
       width: 96% !important;
@@ -284,5 +289,7 @@ $phone-max-width: 950px;
       margin-top: 12px;
     }
   }
+
+
 
 }
