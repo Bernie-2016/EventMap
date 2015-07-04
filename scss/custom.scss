@@ -8,6 +8,78 @@ html,body{
   vertical-align: middle;
 }
 
+
+
+h2.page-title {
+  font-size: 2em;
+    text-transform: uppercase;
+  color: #EA504E;
+  letter-spacing: 3px;
+  text-shadow: 0 1px 0 rgba(128,128,128,0.5);
+}
+h5.page-subtitle {
+  margin-top: 0;
+  color: lightgray;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+/**
+  HEADER AREA
+*/
+div#header {
+  padding: 1%;
+  border: 1px solid whitesmoke;
+  border-width: 0 0 1px;
+  a#header-logo {
+    position: absolute;
+    top: 0; left: 0;
+    padding: 0.5%;
+    img {
+      height: 50px;
+    }
+  }
+  nav {
+    width: 100%;
+    text-align: right;
+
+    ul {
+      width: 100%;
+      list-style-type: none;
+      margin-top: 5px;
+      margin-bottom: 0;
+      padding: 0;
+      word-spacing: -0.26em;
+
+      li {
+        display: inline-block;
+        list-style: none;
+        padding: 0 1.5%;
+        word-spacing: initial;
+        margin-right: -1px;
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 12px;
+
+        &:last-child { padding-right: 0; margin-top: -3px; }
+        &:first-child { padding-left: 0; }
+      }
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+/** FOOTER */
+footer {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
 a {
   text-decoration: none;
   color: #147FD7;
@@ -25,9 +97,8 @@ a {
     display: inline-block;
 
     &.contribute-big {
-      margin-top: 20px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 12px;
       background-color: #ea504e;
       padding: 12px 32px;
 
@@ -125,6 +196,23 @@ div#social {
 }
 
 #map-event-list {
+   li.event-nationwide-item, li.event-list-item {
+      a[href='javascript: void(0);'] {
+        color: rgb(51, 51, 51);
+        text-decoration: none;
+        cursor: text;
+      }
+      h5 { margin-bottom: 0; }
+      h3 { margin-top: 0; margin-bottom: 0;
+
+      }
+      h4.event-organizer { margin-top: 0;
+      font-size: 0.75em;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 1px;}
+    }
+
   #event-state-name {
     h2 {
       img {
@@ -140,16 +228,13 @@ div#social {
           font-size: 19px;
       }
     }
+
   }
   .event-item-date {
     color: rgb(186, 187, 186);
     display: block;
     font-size: 14px;
   }
-}
-
-#header {
-  padding: 2%;
 }
 
 #event-nationwide {
@@ -159,6 +244,9 @@ div#social {
     border-width: 10px 0 0;
     padding-top: 22px;
     margin-top: 40px;
+  }
+
+  ul#event-nationwide-event-list {
   }
 }
 
@@ -171,18 +259,29 @@ $phone-max-width: 950px;
   and (max-width: $phone-max-width) {
 
   section {
+    #event-state-name h2 { margin-top: 0; }
     padding: 0;
     #map-container {
-      width: 96% !important;
-      margin: 2%;
+      width: 100% !important;
+      // margin: 2%;
       float: none !important;
       display: block;
+      padding: 0 !important;
+      margin: 0;
     }
     #map-event-list {
       display: block;
       width: 96% !important;
       margin: 2%;
+      margin-top: 0;
       float: none !important;
+    }
+  }
+
+  #header {
+    .contribute-big {
+      padding: 5px 10px;
+      margin-top: 12px;
     }
   }
 
