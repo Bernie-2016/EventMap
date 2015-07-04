@@ -30,7 +30,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<link href='css/custom.css' rel="stylesheet" type="text/css" />
+<link href='css/custom.css?v=1.0.2' rel="stylesheet" type="text/css" />
 
 <?php require_once('./inc/_header.php'); ?>
 
