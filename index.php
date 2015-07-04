@@ -138,6 +138,10 @@ var bernie = bernie || {};
         window.location.hash = d.abbr;
       };
 
+      this.resizeWindow = function () {
+        statesDraw.redraw();
+      };
+
       this.hashchange = function() {
         var that = this;
         var currentHash = window.location.hash;
@@ -298,10 +302,11 @@ var bernie = bernie || {};
       this.scale = {
           ordinalX : d3.scale.ordinal()
                           .domain(d3.range(24))
-                          .rangeRoundBands([this.mobileFormat ? this.radiusSize*.35 : this.radiusSize, this.mobileFormat ? this.width-this.radiusSize*12 : this.width-this.radiusSize*3]),
+                          .rangeRoundBands([this.mobileFormat ? this.radiusSize : this.radiusSize,
+                                            this.mobileFormat ? this.width-this.radiusSize*11 : this.width-this.radiusSize*3]),
           ordinalY : d3.scale.ordinal()
                         .domain(d3.range(8))
-                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 3: this.height+this.radiusSize]),
+                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 3.5: this.height+this.radiusSize]),
           color : d3.scale.linear()
                           .domain([0, 20])
                           .range(["white", "#147FD7"])
@@ -312,6 +317,18 @@ var bernie = bernie || {};
                         .size([this.width, this.height+this.radiusSize])
                         .radius(this.radiusSize);
 
+      this.redraw = function () {
+          var that = this;
+          if (that.mobileFormat) {
+            // console.log(that.svg);
+            var winWidth = $(window).width();
+            var svgWidth = $(that.svg[0])[0].getBoundingClientRect().width;
+
+            // console.log(svgWidth, winWidth);
+            that.svg.attr("transform", "translate(" + (winWidth/2 - svgWidth/2) + ",0)");
+          }
+
+      }
       this.collatedStates = function() {
         var statesItem = [];
         for ( var key in bernie.constants.states ) {
@@ -374,8 +391,9 @@ var bernie = bernie || {};
 
 
         that.svg = d3.select(that.container).append("svg")
-                    .attr("width", that.mobileFormat ? $(window).width() : that.width )
-                    .attr("height", that.height + that.radiusSize + that.margin.top )
+                    .attr("id", "main-svg")
+                    .attr("width", that.mobileFormat ? "100%" : that.width )
+                    .attr("height", that.mobileFormat ? (that.height - that.radiusSize*2) : that.height + that.radiusSize + that.margin.top )
                     .append("g")
                     .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")")
 
@@ -423,16 +441,12 @@ var bernie = bernie || {};
     that.statesHexes.on("click", that.eventsHandler.clickState);
     that.statesText.on("click", that.eventsHandler.clickState);
 
-    //Reposition
+    $jq(window).on("resize", function() {
+        //Reposition
+        that.redraw();
+    });
 
-    if (that.mobileFormat) {
-      // console.log(that.svg);
-      var winWidth = $(window).width();
-      var svgWidth = $(that.svg[0])[0].getBoundingClientRect().width;
-
-      // console.log(svgWidth, winWidth);
-      that.svg.attr("transform", "translate(" + (winWidth/2 - svgWidth/2) + ",0)");
-    }
+    $jq(window).trigger("resize");
 };
 
 var statesDraw = new bernie.States('#map-container');

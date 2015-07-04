@@ -194,6 +194,8 @@ div#social {
 @media only screen and (min-width: 320px) and (max-width: 950px) {
   section {
     padding: 0; }
+    section .page-subtitle a {
+      display: block !important; }
     section #event-state-name h2 {
       margin-top: 0; }
     section #map-container {
@@ -211,8 +213,21 @@ div#social {
       margin-top: 0;
       float: none !important; }
 
-  #header .contribute-big {
-    padding: 5px 10px;
-    margin-top: 12px; } }
+  #header a#header-logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    position: relative !important; }
+    #header a#header-logo img {
+      float: none !important;
+      margin-left: 10px;
+      height: 35px !important; }
+  #header nav {
+    text-align: center !important; }
+    #header nav ul li:last-child {
+      display: block; }
+    #header nav .contribute-big {
+      padding: 5px 10px;
+      margin-top: 12px; } }
 
 /*# sourceMappingURL=custom.css.map */

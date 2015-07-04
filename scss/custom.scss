@@ -259,6 +259,10 @@ $phone-max-width: 950px;
   and (max-width: $phone-max-width) {
 
   section {
+    .page-subtitle a {
+      display: block !important;
+    }
+
     #event-state-name h2 { margin-top: 0; }
     padding: 0;
     #map-container {
@@ -284,9 +288,30 @@ $phone-max-width: 950px;
   }
 
   #header {
-    .contribute-big {
-      padding: 5px 10px;
-      margin-top: 12px;
+    a#header-logo {
+      display: block;
+      width: 100%;
+      text-align: center;
+      position: relative !important;
+
+      img  {
+        float: none !important;
+        margin-left: 10px;
+        height: 35px !important;
+      }
+    }
+    nav {
+      text-align: center !important;
+
+      ul {
+        li:last-child {
+          display: block;
+        }
+      }
+      .contribute-big {
+        padding: 5px 10px;
+        margin-top: 12px;
+      }
     }
   }
 
