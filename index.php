@@ -287,7 +287,7 @@ var bernie = bernie || {};
 
       this.container = container;
       this.margin = this.mobileFormat ? {top:0,right: 0, left: 0, bottom: 0} : {top: 40, right: 40, bottom: 40, left: 40} ;
-      this.radiusSize = this.mobileFormat ? 17 : 25;
+      this.radiusSize = this.mobileFormat ? 15 : 25;
       this.width = this.mobileFormat ? 600 : (768 - this.margin.left - this.margin.right);
       this.height = this.mobileFormat ? 300 : 400 + this.radiusSize - this.margin.top - this.margin.bottom;
 
@@ -303,10 +303,10 @@ var bernie = bernie || {};
           ordinalX : d3.scale.ordinal()
                           .domain(d3.range(24))
                           .rangeRoundBands([this.mobileFormat ? this.radiusSize : this.radiusSize,
-                                            this.mobileFormat ? this.width-this.radiusSize*11 : this.width-this.radiusSize*3]),
+                                            this.mobileFormat ? this.width-this.radiusSize*16.5 : this.width-this.radiusSize*3]),
           ordinalY : d3.scale.ordinal()
                         .domain(d3.range(8))
-                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 3.5: this.height+this.radiusSize]),
+                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 6: this.height+this.radiusSize]),
           color : d3.scale.linear()
                           .domain([0, 20])
                           .range(["white", "#147FD7"])
@@ -433,7 +433,7 @@ var bernie = bernie || {};
         .attr("class", "state-label state-events")
         .attr("data-state", function(d) { return d.abbr; })
         .attr("x", function(d) { return that.scale.ordinalX(d.x); })
-        .attr("y", function(d) { return that.scale.ordinalY(d.y) + 14; })
+        .attr("y", function(d) { return that.scale.ordinalY(d.y) + (that.mobileFormat ? 10 : 14); })
         .attr("text-anchor", "middle");
 
     // console.log("Initializing Events");
