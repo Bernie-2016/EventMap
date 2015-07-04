@@ -224,7 +224,7 @@ var bernie = bernie || {};
 
         var eventListArea = d3.select(container).select("ul").attr("id", "event-list");
 
-        console.log(targetList);
+        // console.log(targetList);
 
         var eventListItems = targetList.length > 0
               ? eventListArea.selectAll("li").data(targetList).enter().append("li").attr("class", "event-list-item")
@@ -430,7 +430,7 @@ var bernie = bernie || {};
       var winWidth = $(window).width();
       var svgWidth = $(that.svg[0])[0].getBoundingClientRect().width;
 
-      console.log(svgWidth, winWidth);
+      // console.log(svgWidth, winWidth);
       that.svg.attr("transform", "translate(" + (winWidth/2 - svgWidth/2) + ",0)");
     }
 };
