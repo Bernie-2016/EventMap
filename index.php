@@ -36,7 +36,7 @@
 
 
 <section>
-  <h2 class='page-title'>Meetups and Events Around the States</h2>
+  <h2 class='page-title'><span id='page-title-event-count'></span> Meetups and Events Around the States</h2>
   <h5 class='page-subtitle'>Click on a state to filter results OR <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
   <div id='map-container'></div>
   <div id='map-event-list'>
@@ -348,6 +348,9 @@ var bernie = bernie || {};
       this.updateEventCount = function() {
         var that = this;
         //Arrange events into pig-holes
+
+        d3.select("#page-title-event-count").text(bernie.d.events.length);
+
         var eventCounts = bernie.d.events.filter(function(d) { return d.State != "ALL"; })
             .map(function(d) { return d.State; })
             .reduce(function(prev, curr, ind) {
@@ -470,6 +473,9 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
       item.Date = rawDateFormat.parse(item.Date);
     });
 
+    var weekStart = rawDateFormat.parse("6/28/2015");
+    var weekEnd = rawDateFormat.parse("7/04/2015");
+
     bernie.d.events = bernie.d.events.filter(function(d){
       var today = new Date();
       today.setDate(today.getDate() - 1);
@@ -478,6 +484,7 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
       today.setSeconds(0);
 
       return d.Date >= today;
+      // return d.Date <= weekEnd && d.Date >= weekStart;
     });
 
     bernie.d.events.sort(function(a,b){
