@@ -531,7 +531,7 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
   <div class="fb-like" href="http://www.bernie2016events.org/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
   <sub style='color: #999999; text-align: center;' >
-    &reg; <a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Reddit for Bernie 2016</a>. Report a bug <a target='_blank' href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
+    &reg; <a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Reddit for Bernie 2016</a>. This site is not affiliated with the Official Bernie Sanders 2016 Campaign. Report a bug <a target='_blank' href='http://www.reddit.com/r/CodersForSanders/comments/3blip8/events_aggregator_for_bernie_takes_data_from/' target="_blank">here</a>!</sub>
 </footer>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
