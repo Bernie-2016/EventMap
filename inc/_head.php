@@ -2,7 +2,7 @@
 <head>
 
 <meta charset="utf-8" />
-<meta name="google-site-verification" content="<meta name="google-site-verification" content="-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI" />" />
+<meta name='google-site-verification' content='-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI' />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.">
