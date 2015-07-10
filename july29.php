@@ -1,4 +1,3 @@
-<?php require_once('./inc/_variables.inc'); ?>
 <?php require_once('./inc/_header.inc'); ?>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
 <link href='./css/map.css?version=<?php echo $APPVERSION ?>' rel='stylesheet' />

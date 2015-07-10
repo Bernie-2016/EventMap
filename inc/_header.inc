@@ -1,3 +1,4 @@
+<?php require_once('./inc/_variables.inc'); ?>
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8" />
@@ -32,7 +33,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<link href='css/custom.css?v=1.0.2.1' rel="stylesheet" type="text/css" />
+<link href='css/custom.css?v=<?php echo $APPVERSION; ?>' rel="stylesheet" type="text/css" />
 
 <div id='header'>
   <a id='header-logo' href='http://www.berniesanders.com' target='_blank'><img src='./img/logo.png' style='float: left; margin-left: 10px;' /></a>
