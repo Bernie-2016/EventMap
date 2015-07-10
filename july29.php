@@ -326,6 +326,7 @@ bernMap.eventList = function(container) {
     $("#event-counter").text(finalCollatedList.length);
 
     //Render list
+    $("ul#event-list").children("li").remove();
     var ul = d3.select(that.containerLabel).select("ul#event-list");
 
     var liContent = ul.selectAll("li.event-list-item")
