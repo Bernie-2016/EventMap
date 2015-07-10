@@ -1,28 +1,4 @@
-<?php require_once('./inc/_head.php'); ?>
-<body>
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1465128650469416',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<link href='css/custom.css?v=1.0.2.1' rel="stylesheet" type="text/css" />
-
-<?php require_once('./inc/_header.php'); ?>
-
-
+<?php require_once('./inc/_header.inc'); ?>
 <section>
   <h2 class='page-title'><span id='page-title-event-count'></span> Meetups and Events Around the States</h2>
   <h5 class='page-subtitle'>Click on a state to filter results OR <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
@@ -48,7 +24,6 @@
   </div>
   <div style="clear: both"></div>
 </section>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
 <script src="js/hexbin.js"></script>
 <script src="js/jquery.js"></script>
@@ -461,15 +436,16 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
       item.Date = rawDateFormat.parse(item.Date);
     });
 
-    var weekStart = rawDateFormat.parse("6/28/2015");
-    var weekEnd = rawDateFormat.parse("7/04/2015");
+    var weekStart = rawDateFormat.parse("7/05/2015");
+    var weekEnd = rawDateFormat.parse("7/12/2015");
+
+    var today = new Date();
+          today.setDate(today.getDate() - 1);
+          today.setHours(0);
+          today.setMinutes(0);
+          today.setSeconds(0);
 
     bernie.d.events = bernie.d.events.filter(function(d){
-      var today = new Date();
-      today.setDate(today.getDate() - 1);
-      today.setHours(0);
-      today.setMinutes(0);
-      today.setSeconds(0);
 
       return d.Date >= today;
       // return d.Date <= weekEnd && d.Date >= weekStart;
@@ -510,25 +486,4 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl)
 
 </script>
 <div style="clear: both"></div>
-
-<footer>
-  <div id='social'>
-    <a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute' target='_blank'>Contribute to the Campaign</a>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="Look Up #Bernie2016 Meetups&amp;events From All 50 States. Organizers Submit Your Meet Up. #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
-  </div>
-  <sub style='color: #999999; text-align: center;' >
-    &reg; <a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Reddit for Bernie 2016</a>. This site is not affiliated with the Official Bernie Sanders 2016 Campaign. <a target='_blank' href='rapi@bernie2016events.org' target="_blank">Contact us</a></sub>
-</footer>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-64649524-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-</body>
+<?php require_once('./inc/_footer.inc'); ?>

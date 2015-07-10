@@ -1,3 +1,6 @@
+$blue: #147FD7;
+$red: #ea504e;
+
 html,body{
   margin: 0;
   padding: 0;
@@ -13,7 +16,7 @@ html,body{
 h2.page-title {
   font-size: 2em;
     text-transform: uppercase;
-  color: #EA504E;
+  color: $red;
   letter-spacing: 3px;
   text-shadow: 0 1px 0 rgba(128,128,128,0.5);
 }
@@ -99,7 +102,7 @@ a {
     &.contribute-big {
       font-weight: bold;
       font-size: 12px;
-      background-color: #ea504e;
+      background-color: $red;
       padding: 12px 32px;
 
     }
