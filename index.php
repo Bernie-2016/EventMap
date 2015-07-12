@@ -7,7 +7,7 @@
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4><strong><span id="meetup-counter">Loading</span> Bernie Grassroots events nationwide.</strong> <span>Search for nearby events or</span> <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;an&nbsp;event</a></h4>
+  <h4><strong><span id="meetup-counter">Loading</span> Bernie Sanders Events &amp; Meetups.</strong> <span>Discover upcoming events nearby or</span> <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;your&nbsp;group&apos;s&nbsp;meetup</a></h4>
 </section>
 <section id='map-section' />
   <div id='map'></div>

@@ -7,7 +7,7 @@
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4><strong><span id="meetup-counter">Loading</span> Organizing Kick-off events nationwide - July 29.</strong> <span>Find an event nearby or</span> <a href='https://go.berniesanders.com/page/s/organizing-meetings' target='_blank'>Host a Meeting</a>&nbsp;&nbsp;
+  <h4><strong><span id="meetup-counter">Loading</span> Organizing Meetings on July 29.</strong> <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/s/organizing-meetings' target='_blank'>Host a Meeting</a>&nbsp;&nbsp;
     <!-- <div id='social' style="padding-top: 4px;"> -->
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

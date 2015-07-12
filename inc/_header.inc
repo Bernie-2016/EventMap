@@ -39,7 +39,7 @@
   <a id='header-logo' href='./' ><img src='./img/logo.png' style='float: left; margin-left: 10px;' /></a>
   <nav>
     <ul id="nav">
-      <li><a href='./july29'><strong style="color: #ea504e">July 29 Organizing Kick-off events</strong></a></li>
+      <!-- <li><a href='./july29'><strong style="color: #ea504e">July 29 Organizing Kick-off events</strong></a></li> -->
       <li><a href='./'>All Events</a></li>
       <li><a href='./by-state' >By state</a></li>
       <li><a href='https://medium.com/@BernieMeetups/' target='_blank'>News</a></li>
