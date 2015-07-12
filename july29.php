@@ -7,7 +7,13 @@
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4><strong>July 29</strong> - Nationwide organizing meetings. Find a meeting nearby or <a href='https://go.berniesanders.com/page/s/organizing-meetings' target='_blank'>Host a meeting</a> </h4>
+  <h4><strong><span id="meetup-counter">Loading</span> Organizing Kick-off events nationwide - July 29.</strong> <span>Find an event nearby or</span> <a href='https://go.berniesanders.com/page/s/organizing-meetings' target='_blank'>Host a Meeting</a>&nbsp;&nbsp;
+    <!-- <div id='social' style="padding-top: 4px;"> -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <div class="fb-share-button" data-href="http://www.bernie2016events.org/july29" data-layout="button_count"></div>
+  <!-- </div> -->
+</h4>
 </section>
 <section id='map-section' />
   <div id='map'></div>
@@ -29,7 +35,7 @@
 
         </div>
       </form>
-      <h2 id='event-results-count'><span id='event-counter'></span> Events within <span id='event-distance'></span></h2>
+      <h2 id='event-results-count'><span id='event-counter'></span> within <span id='event-distance'></span></h2>
       <div id='event-list-area'>
         <ul id='event-list'>
         </ul>
@@ -71,18 +77,22 @@ var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z
 
 var WIDTH = $jq(window).width();
 
-
 var bernMap = bernMap || {};
+bernMap.constants = {};
+bernMap.constants.spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv";
+
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
 bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
-bernMap.zipcodes = null;
-bernMap.allZipcodes = null;
-bernMap.meetupData = null;
-bernMap.targetZipcodes = null;
-bernMap.aggregatedRSVP = null;
+bernMap.d = {};
+bernMap.d.zipcodes = null;
+bernMap.d.allZipcodes = null;
+bernMap.d.meetupData = null;
+bernMap.d.rawMeetupData = null;
+bernMap.d.targetZipcodes = null;
+bernMap.d.aggregatedRSVP = null;
 
 var bernMap = bernMap || {};
 bernMap.draw = function() {
@@ -113,7 +123,7 @@ bernMap.draw = function() {
     var that = this;
     var params = that._deserialize(hash);
 
-    var target = bernMap.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
+    var target = bernMap.d.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
     // console.log(target);
     if (target.length == 0) {
       bernieEvents.setError("Zipcode does not exist.");
@@ -151,7 +161,7 @@ bernMap.draw = function() {
   //   if ( str == '' ) { that.filteredZipcode = null; }
   //   else {
   //     if ( that.filteredZipcode == null ) {
-  //       that.filteredZipcode = bernMap.allZipcodes.filter(function(d) { return d.zip.indexOf(str) >= 0; });
+  //       that.filteredZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip.indexOf(str) >= 0; });
   //     } else {
   //       that.filteredZipcode = that.filteredZipcode.filter(function(d) { return d.zip.indexOf(str) >= 0; });
   //     }
@@ -161,19 +171,26 @@ bernMap.draw = function() {
 
   this.plot = function () {
     var that = this;
-    if (!bernMap.zipcodes) return;
+    if (!bernMap.d.zipcodes) return;
 
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
-                              .data(bernMap.zipcodes.features).enter()
+                              .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
+                              .attr("r", bernMap.mapBox.getZoom() * 3)
+                              .attr("opacity", 0.35)
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
-                                      .attr("r", bernMap.mapBox.getZoom() * 3)
-                                      .attr("opacity", 0.4)
                                   ;
                               });
+
+    console.log(that.zipcodeElements);
+    // that.zipcodeElements
+          // .transition()
+          // .duration(500)
+          // .delay(function() { return Math.random() * 3000})
+          // .attr("r", bernMap.mapBox.getZoom() * 3);
 
     //initialize event for zipcode
     that.zipcodeElements.on("click", function(d) {
@@ -185,18 +202,18 @@ bernMap.draw = function() {
     // var bounds = that.activityLayer[0][0].getBoundingClientRect();
     var bounds = that.activityLayer[0][0].getBBox();
     // console.log(bounds);
-    that.svg.attr("width", (bounds.width + 0) + "px")
-      .attr("height", (bounds.height + 0) + "px")
+    that.svg.attr("width", (bounds.width + 20) + "px")
+      .attr("height", (bounds.height + 20) + "px")
       // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
-      .style("left", bounds.x + "px")
-      .style("top", bounds.y + "px");
+      .style("left", bounds.x-10 + "px")
+      .style("top", bounds.y-10 + "px");
 
-    that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
+    that.activityLayer.attr("transform", "translate(" + -(bounds.x-10) + "," + -(bounds.y-10) + ")");
   };
 
   this.replot = function () {
     var that = this;
-    if (!bernMap.zipcodes) return;
+    if (!bernMap.d.zipcodes) return;
 
 
     // console.log(that.centerItem);
@@ -294,14 +311,14 @@ bernMap.eventList = function(container) {
 
   this.filterEvents = function(zipcode, allowedDistance) {
     var that = this;
-    var targetZipcode = bernMap.allZipcodes.filter(function(d) { return d.zip == zipcode; });
+    var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
     $("h2#event-results-count").show();
-    $("#event-counter").text("0");
+    $("#event-counter").text("0 events");
     $("#event-distance").text(allowedDistance + "mi");
     if (targetZipcode.length == 0 ) return ;
     var target = targetZipcode[0];
     var targC = [parseFloat(target.lat), target.lon];
-    var nearByZipcodes = bernMap.zipcodes.features.filter(function(d) {
+    var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
                             var compC = [parseFloat(d.properties.lat), parseFloat(d.properties.lon)];
                             var distance = that._getDistanceInMi(targC[0], targC[1], compC[0], compC[1]);
                             d.properties.distance = distance;
@@ -317,7 +334,7 @@ bernMap.eventList = function(container) {
 
     // collate list:
     var collatedList = nearByZipcodes.map(function(d) {
-       var events = bernMap.aggregatedRSVP[d.zipcode];
+       var events = bernMap.d.aggregatedRSVP[d.zipcode];
        events.forEach(function(t) {
           t['distance'] = d.distance;
        });
@@ -327,32 +344,48 @@ bernMap.eventList = function(container) {
     var finalCollatedList = [];
     collatedList.forEach(function(item) { finalCollatedList = finalCollatedList.concat(item); });
 
-    $("#event-counter").text(finalCollatedList.length);
+    $("#event-counter").text(finalCollatedList.length + " " + (finalCollatedList.length == 1 ? "event" : "events") );
 
     //Render list
     $("ul#event-list").children("li").remove();
     var ul = d3.select(that.containerLabel).select("ul#event-list");
 
-    var liContent = ul.selectAll("li.event-list-item")
-                .data(finalCollatedList, function(d){ return d.ID ;});
 
-              liContent.enter()
-                .append("li")
-                  .attr("class", "event-list-item")
-                  .html(function(d) {
-                    var type = d.LinkType;
-                    var url = d[type+"URL"];
-                      return "<h5 class='event-basics'>" +
-                            "<span class='distance'>" + d3.round(d.distance, 1) + "MI </span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='event-item-date'>" + d.Time + "</span>" +
-                        "</h5>" +
-                        "<h3>" +
-                          "<a target='_blank' href='" + url + "'>" +
-                            "<span class='event-item-name'>" + d.Title + "</span>" +
-                            "</a>" +
-                        "</h3>" +
-                        "<h5 class='event-location'>" + d.Location + "</h5>";
-                  })
-                  ;
+    var dateFormat = d3.time.format("%B %d");
+    var liContent = ul.selectAll("li.event-list-item")
+                .data(finalCollatedList, function(d){ return d["ID#"] ;});
+
+    console.log(finalCollatedList);
+    liContent.enter()
+      .append("li")
+        .attr("class", "event-list-item")
+        .html(function(d) {
+          var links = [];
+          for ( var i = 1; i <= 9; i++) {
+            var link = "Link" + i;
+
+            if ( d[link] ) {
+              var name_link = d[link].split(/,(.+)?/)
+              links.push ( {name: name_link[0], link: name_link[1]} );
+            }
+          }
+
+          var linkText = links.map(function(d) { return "<a target='" + (d.link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
+
+          return "<h5><span class='event-item-date'>"
+            + d3.round(d.distance,1) + "MI"
+            + " &nbsp;&nbsp; "
+            + dateFormat(d.Date)
+            + " &nbsp;&nbsp; "
+            + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
+            + "</span></h5>"
+            + "<h3><a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
+            + (d.Organizer != "" ? ("<h4 class='event-organizer'>by <a target='_blank' href='" + (d.OrganizerWebsite ? d.OrganizerWebsite : "javascript: void(0);") + "'>" + d.Organizer + "</a></h4>") : "")
+            + "<h5 class='event-location'>" + d.Location + "</h5>"
+            + "<p>" + linkText.join(" &bull; ")+ "</p>"
+              ;
+        })
+        ;
 
 //<li class='event-list-item'>
           //   <h5 class='event-basics'><span class='distance'>12MI</span>&nbsp;&bull;&nbsp;<span class="event-item-date">7:00 PM</span></h5>
@@ -371,11 +404,34 @@ var qtree = null;
 var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
-d3.csv('./d/july29.csv', function(data) {
-  bernMap.meetupData = data;
+d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl), function(data) {
+  bernMap.d.meetupData = data;
+  bernMap.d.rawMeetupData = data;
 
-  var map = bernMap.meetupData.map(function(d) { return [d.Zipcode, d]; });
-  bernMap.aggregatedRSVP = map.reduce(
+  var rawDateFormat = d3.time.format("%m/%d/%Y");
+  $(bernMap.d.meetupData).each(function(i, item) {
+    item.Date = rawDateFormat.parse(item.Date);
+  });
+
+  var weekStart = rawDateFormat.parse("7/05/2015");
+  var weekEnd = rawDateFormat.parse("7/12/2015");
+
+  var today = new Date();
+      today.setDate(today.getDate() - 1);
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
+
+  bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
+
+    return d.Date >= today && d.July29 == "YES";
+    // return d.Date <= weekEnd && d.Date >= weekStart;
+  });
+
+  $("#meetup-counter").text(bernMap.d.meetupData.length);
+
+  var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
+  bernMap.d.aggregatedRSVP = map.reduce(
       function(init, next) {
         // console.log("X", init);
         if (init[next[0]]) {
@@ -396,10 +452,10 @@ d3.csv('./d/july29.csv', function(data) {
 
 function loadZipcodeData() {
   d3.tsv('./d/zipcodes.tsv', function(data) {
-    bernMap.allZipcodes = data;
+    bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {
-      return bernMap.aggregatedRSVP[d.zip];
+      return bernMap.d.aggregatedRSVP[d.zip];
     });
     // console.log(data);
 
@@ -407,7 +463,7 @@ function loadZipcodeData() {
       var data = [];
       array.map(function(d,i) {
         //add rsvps
-        d["rsvp"] = bernMap.aggregatedRSVP[d.zip];
+        d["rsvp"] = bernMap.d.aggregatedRSVP[d.zip];
         data.push({
           id : i,
           type : "Feature",
@@ -423,7 +479,7 @@ function loadZipcodeData() {
     }
 
     // console.log(data);
-    bernMap.zipcodes = {type: "FeatureCollection", features: reformat(data) };
+    bernMap.d.zipcodes = {type: "FeatureCollection", features: reformat(data) };
     bernie.plot();
 
     $jq(window).trigger("hashchange");

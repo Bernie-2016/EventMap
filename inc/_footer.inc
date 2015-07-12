@@ -2,7 +2,7 @@
 <footer>
   <div id='social'>
     <a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute' target='_blank'>Contribute to the Campaign</a>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="Look Up #Bernie2016 Meetups&amp;events From All 50 States. Organizers Submit Your Meet Up. #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="Find @BernieSanders grassroots events near you #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
   </div>

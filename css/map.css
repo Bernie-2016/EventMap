@@ -5,7 +5,10 @@ section#main-title-area h4 {
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: gray; }
+  color: gray;
+  font-size: 0.8em; }
+  section#main-title-area h4 > * {
+    vertical-align: middle; }
 
 section#map-section {
   position: relative;

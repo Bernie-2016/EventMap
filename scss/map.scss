@@ -10,6 +10,9 @@ section#main-title-area {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: gray;
+    font-size: 0.8em;
+
+    & > * { vertical-align: middle; }
   }
 }
 section#map-section {

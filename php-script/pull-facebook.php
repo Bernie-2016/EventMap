@@ -104,8 +104,9 @@ function printEvents($session, $events) {
             $item->is_date_only ? '' : $start_time->format('h:i A'),
             $item->is_date_only || !$end_time ? '' : $end_time->format('h:i A'),
             isset($item->place->location) ? join(" ", array($item->place->name, $item->place->location->street,
-                      $item->place->location->city, $item->place->location->state)) : $item->place->name,
+                      $item->place->location->city, $item->place->location->state, $item->place->location->zip)) : $item->place->name,
             isset($item->place->location) ? $item->place->location->state : "NONE",
+            isset($item->place->location) ? $item->place->location->zip : "",
             isset($item->owner->category) && $item->owner->category == "Community" ?
               $item->owner->name : "",
             isset($item->owner->category) && $item->owner->category == "Community" ?
