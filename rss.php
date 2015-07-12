@@ -1,6 +1,6 @@
 <?php
 
-define("PAGE_LIMIT", 500);
+define("PAGE_LIMIT", 100);
 define("RESOURCE_URL", "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv");
 
 $contents = file_get_contents(RESOURCE_URL);
@@ -26,10 +26,10 @@ $atom->addAttribute('href', 'http://www.bernie2016events.org'); //add atom node 
 $atom->addAttribute('rel', 'self');
 $atom->addAttribute('type', 'application/rss+xml');
 
-$title = $rss->addChild('title','Bernie2016events.org RSS Feed'); //title of the feed
-$description = $rss->addChild('description','Discover meetups and events about Bernie Sanders near you'); //feed description
-$link = $rss->addChild('link','www.bernie2016events.org'); //feed site
-$language = $rss->addChild('language','en-us'); //language
+$title = $channel->addChild('title','Bernie2016events.org RSS Feed'); //title of the feed
+$description = $channel->addChild('description','Discover meetups and events about Bernie Sanders near you'); //feed description
+$link = $channel->addChild('link','www.bernie2016events.org'); //feed site
+$language = $channel->addChild('language','en-us'); //language
 
 //Create RFC822 Date format to comply with RFC822
 $date_f = date("D, d M Y H:i:s T", time());
@@ -101,7 +101,7 @@ $generator = $rss->addChild('generator','PHP Simple XML'); //add generator node
                         "local_date"=> isset($csv[1]) ? $csv[1] : "" )
                   );
 
-      $item = $rss->addChild('item'); //add item node
+      $item = $channel->addChild('item'); //add item node
       $xml_title = $item->addChild('title', htmlentities($title)); //add title node under item
       $xml_link = $item->addChild('link', $link); //add link node under item
       $xml_guid = $item->addChild('guid', $link ); //add guid node under item
