@@ -1,6 +1,6 @@
 <?php
 
-define("PAGE_LIMIT", 100);
+define("PAGE_LIMIT", 500);
 define("RESOURCE_URL", "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv");
 
 $contents = file_get_contents(RESOURCE_URL);
@@ -105,6 +105,7 @@ $generator = $rss->addChild('generator','PHP Simple XML'); //add generator node
       $xml_title = $item->addChild('title', htmlentities($title)); //add title node under item
       $xml_link = $item->addChild('link', $link); //add link node under item
       $xml_guid = $item->addChild('guid', $link ); //add guid node under item
+      $xml_loc = $item->addChild('description', (isset($csv[1]) ? $csv[1] : "") . " " . (isset($csv[2]) ? $csv[2] : "") . " - " . $address);
       $xml_loc = $item->addChild('location');
         $xml_loc->addChild('address', $address);
         $xml_loc->addChild('state', $state);
