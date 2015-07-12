@@ -71,8 +71,10 @@ var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z
 
 var WIDTH = $jq(window).width();
 
-
 var bernMap = bernMap || {};
+bernMap.constants = {};
+bernMap.constants.spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv";
+
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
@@ -396,7 +398,7 @@ var qtree = null;
 var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
-d3.csv('./d/events.csv', function(data) {
+d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl), function(data) {
   bernMap.d.meetupData = data;
   bernMap.d.rawMeetupData = data;
 
