@@ -36,7 +36,7 @@ $date_f = date("D, d M Y H:i:s T", time());
 $build_date = gmdate(DATE_RFC2822, strtotime($date_f));
 $lastBuildDate = $rss->addChild('lastBuildDate',$date_f); //feed last build date
 
-$generator = $rss->addChild('generator','PHP Simple XML'); //add generator node
+$generator = $rss->addChild('generator','Bernie2016Events generator'); //add generator node
 
 
 //connect to MySQL - mysqli(HOST, USERNAME, PASSWORD, DATABASE);
