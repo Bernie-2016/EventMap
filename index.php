@@ -1,157 +1,357 @@
 <?php require_once('./inc/_header.inc'); ?>
-<section>
-  <h2 class='page-title'><span id='page-title-event-count'></span> Meetups and Events Around the States</h2>
-  <h5 class='page-subtitle'>Click on a state to filter results OR <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
-  <div id='map-container'></div>
-  <div id='map-event-list'>
-    <article id="event-state-name">
-      <h2></h2>
-    </article>
-    <ul id='event-list'>
-      <li><span style='color: lightgray; font-weight:600;'>LOADING EVENTS...</span></li>
-    </ul>
-    <p style='text-align: center'></p>
-    <div id='event-nationwide'>
-      <h4>NATIONWIDE EVENTS</h4>
-      <ul id='event-nationwide-event-list'>
-     <!--    <li class='event-nationwide-item'>
-          <h3><span class="event-item-date">July 04 &nbsp;&nbsp; </span> <a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march"><span class="event-item-name">March for Bernie in Ann Arbor Parade</span></a></h3>
-          <p><a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march" class="sign-up-site-link">Sign Up site</a> • <a target="_blank" href="http://www.signupgenius.com/go/20f0549a5ad22a0ff2-march" class="reddit-link">Reddit</a></p>
-        </li> -->
-      </ul>
-    </div>
-    <p style='text-align: center; margin-top: 50px;'><img src='./img/list-end.png' width='100px'/></p>
-  </div>
-  <div style="clear: both"></div>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+<link href='./css/map.css?version=<?php echo $APPVERSION ?>' rel='stylesheet' />
+<!-- <section>
+  <h2 class='page-title'><span id='page-title-event-count'></span> 07/29: Growing our political revolution</h2>
+  <h4 class='page-subtitle'>34 meetings with 23,059 RSVPs. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
+  <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
+</section> -->
+<section id='main-title-area'>
+  <h4><strong>157 Meetups and events nationwide.</strong> Search for nearby events or <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;an&nbsp;event</a></h4>
 </section>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-<script src="js/hexbin.js"></script>
-<script src="js/jquery.js"></script>
-<script>
+<section id='map-section' />
+  <div id='map'></div>
+  <div id='map-event-list'>
+      <form id='zip-and-distance' action="#">
+        <div id="error-box"></div>
+        <div>
+          <input type='text' name='zipcode' id='input-text-zipcode' placeholder='Enter zipcode' maxlength='5'/>
+        </div>
+        <div>
+          <ul id='distance-list'>
+            <li><input type='radio' id='mile-5' name='distance' value='5' checked='checked'/> <label for='mile-5'>5mi</label></li>
+            <li><input type='radio' id='mile-10' name='distance' value='10'/><label for='mile-10'>10mi</label></li>
+            <li><input type='radio' id='mile-20' name='distance' value='20'/><label for='mile-20'>20mi</label></li>
+            <li><input type='radio' id='mile-50' name='distance' value='50'/><label for='mile-50'>50mi</label></li>
+            <li><input type='radio' id='mile-100' name='distance' value='100'/> <label for='mile-100'>100mi</label></li>
+            <li><input type='radio' id='mile-250' name='distance' value='250'/><label for='mile-250'>250mi</label></li>
+          </ul>
 
-/**
-ub style='color: #999999;'>
-  &reg; Rapinski for Bernie 2016. Inspired by http://www.r-bloggers.com/animated-us-hexbin-map-of-the-avian-flu-outbreak/ @ r-bloggers. Uses http://www.d3js.org ( d3 ) https://github.com/d3/d3-plugins/tree/master/hexbin.
-**/
+        </div>
+      </form>
+      <h2 id='event-results-count'><span id='event-counter'></span> within <span id='event-distance'></span></h2>
+      <div id='event-list-area'>
+        <ul id='event-list'>
+        </ul>
+        <p style='text-align: center; margin-top: 20px;'><img src='./img/list-end.png' width='100px'/></p>
+      </div>
+  </div>
+</section>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+<script src="js/jquery.js"></script>
+<script src='./js/mapbox.js'></script>
+<script type='text/javascript'>
+
 var $jq = jQuery;
-var bernie = bernie || {};
-bernie.constants = {};
-bernie.constants.spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv";
-bernie.constants.eventsFile = "./d/bernie.csv";
-bernie.constants.states = {
-    "AL": ["Alabama", 15, 6],
-    "AK": ["Alaska", 1, 0],
-    "AZ": ["Arizona", 7, 6],
-    "AR": ["Arkansas", 12, 5],
-    "CA": ["California", 4, 5],
-    "CO": ["Colorado", 7, 4],
-    "CT": ["Connecticut", 22, 3],
-    "DC": ["District of Columbia",20,5],
-    "DE": ["Delaware", 21, 4],
-    "FL": ["Florida",16,7],
-    "GA": ["Georgia",17,6],
-    "HI": ["Hawaii",0,7],
-    "ID": ["Idaho",4,3],
-    "IL": ["Illinois",12,3],
-    "IN": ["Indiana",14,3],
-    "IA": ["Iowa",10,3],
-    "KS": ["Kansas",10,5],
-    "KY": ["Kentucky",13,4],
-    "LA": ["Louisiana",11,6],
-    "ME": ["Maine",23,0],
-    "MD": ["Maryland",19,4],
-    "MA": ["Massachusetts",21,2],
-    "MI": ["Michigan", 15,2],
-    "MN": ["Minnesota", 9,2],
-    "MS": ["Mississippi",13,6],
-    "MO": ["Missouri",11,4],
-    "MT": ["Montana", 5,2],
-    "NE": ["Nebraska",9,4],
-    "NV": ["Nevada",5,4],
-    "NH": ["New Hampshire",22,1],
-    "NJ": ["New Jersey",20,3],
-    "NM": ["New Mexico",8,5],
-    "NY": ["New York",19,2],
-    "NC": ["North Carolina",16,5],
-    "ND": ["North Dakota", 7,2],
-    "OH": ["Ohio",16,3],
-    "OK": ["Oklahoma",9,6],
-    "OR": ["Oregon",3,4],
-    "PA": ["Pennsylvania",18,3],
-    "RI": ["Rhode Island",23,2],
-    "SC": ["South Carolina",18,5],
-    "SD": ["South Dakota",8,3],
-    "TN": ["Tennessee",14,5],
-    "TX": ["Texas",10,7],
-    "UT": ["Utah",6,5],
-    "VT": ["Vermont",20,1],
-    "VA": ["Virginia",17,4],
-    "WA": ["Washington", 3, 2],
-    "WV": ["West Virginia",15,4],
-    "WI": ["Wisconsin",11,2],
-    "WY": ["Wyoming",6,3]
+
+//Initialize items
+$("h2#event-results-count").hide();
+
+//Window Resize
+$jq(window).on("resize", function() {
+  var h = $jq("#header").height() + $jq("#main-title-area").height();
+  var wH = $jq(window).height();
+  var padding = 20;
+
+  console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
+  $("#map-section, #map").height(wH - h);
+  $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240);
+
+  console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));
+
+});
+$jq(window).trigger("resize");
+
+
+L.mapbox.accessToken = "pk.eyJ1IjoicmFwaWNhc3RpbGxvIiwiYSI6IjBlMGI3NTNhMWFiNGU4NmY4YmI4ZTNmOGRjYmQzZWVjIn0.KyTcvG8fiIStw8BkZjfvLA";
+var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
+    attribution: '<a href="https://secure.actblue.com/contribute/page/reddit-for-bernie/" target="_blank">Contribute to the Campaign</a>'
+});
+
+var WIDTH = $jq(window).width();
+
+
+var bernMap = bernMap || {};
+bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
+
+var offset = bernMap.mapBox.getSize().x * 0.15;
+bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+
+bernMap.d = {};
+bernMap.d.zipcodes = null;
+bernMap.d.allZipcodes = null;
+bernMap.d.meetupData = null;
+bernMap.d.rawMeetupData = null;
+bernMap.d.targetZipcodes = null;
+bernMap.d.aggregatedRSVP = null;
+
+var bernMap = bernMap || {};
+bernMap.draw = function() {
+  this.filteredZipcode = null;
+
+  this.svg = d3.select(bernMap.mapBox.getPanes().overlayPane).append("svg");
+  this.activityLayer = this.svg.append("g").attr("class","leaflet-zoom-hide");
+  this.zipcodeElements = null;
+
+  this.centerItem = null;
+
+  this._projectPoint = function(x,y) {
+    var point = bernMap.mapBox.latLngToLayerPoint(new L.LatLng(y, x));
+    // console.log(x,y);
+    // var point = bernMap.mapBox.latLngToContainerPoint(new L.LatLng(y,x));
+    // this.stream.point(point.x, point.y);
+    return [point.x, point.y];
+  };
+
+  this._deserialize = function(query) {
+    return query.split("&").map(function(d) { var q = d.split("="); return [q[0], q[1]]; }).reduce(function(init, next) { init[next[0]] = next[1]; return init;}, {});
+  };
+
+  // *********************
+  // FOCUS ZIPCODE
+  // *********************
+  this.focusZipcode = function(hash) {
+    var that = this;
+    var params = that._deserialize(hash);
+
+    var target = bernMap.d.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
+    // console.log(target);
+    if (target.length == 0) {
+      bernieEvents.setError("Zipcode does not exist.");
+    }
+    else {
+      var t = target[0];
+
+      // console.log("XXX", t);
+
+      //Plot zipcode center
+      $("circle#center-item").remove();
+      var centerCoords = that._projectPoint(t.lon, t.lat);
+
+      that.centerItem = that.activityLayer.append("circle")
+            .datum(t)
+            .attr("id", "center-item")
+            .attr("cx", centerCoords[0])
+            .attr("cy", centerCoords[1])
+            .attr("r", bernMap.mapBox.getZoom() * 1 )
+            .attr("fill", "#147FD7")
+            .attr("opacity", 0.9);
+
+      //Focus on map
+      that.replot();
+      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], 12, { animate: true });
+      var offset = bernMap.mapBox.getSize().x * 0.15;
+      bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+    }
+
+
+  };
+
+  // this.filter = function(str) {
+  //   var that = this;
+  //   if ( str == '' ) { that.filteredZipcode = null; }
+  //   else {
+  //     if ( that.filteredZipcode == null ) {
+  //       that.filteredZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip.indexOf(str) >= 0; });
+  //     } else {
+  //       that.filteredZipcode = that.filteredZipcode.filter(function(d) { return d.zip.indexOf(str) >= 0; });
+  //     }
+  //   }
+  //   console.log( that.filteredZipcode );
+  // };
+
+  this.plot = function () {
+    var that = this;
+    if (!bernMap.d.zipcodes) return;
+
+    that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
+                              .data(bernMap.d.zipcodes.features).enter()
+                              .append("circle")
+                              .attr("r", bernMap.mapBox.getZoom() * 3)
+                              .attr("opacity", 0.35)
+                              .each(function(d) {
+                                var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
+                                  d3.select(this).attr("cx", coordinates[0])
+                                      .attr("cy", coordinates[1])
+                                  ;
+                              });
+
+    console.log(that.zipcodeElements);
+    // that.zipcodeElements
+          // .transition()
+          // .duration(500)
+          // .delay(function() { return Math.random() * 3000})
+          // .attr("r", bernMap.mapBox.getZoom() * 3);
+
+    //initialize event for zipcode
+    that.zipcodeElements.on("click", function(d) {
+      // console.log(d.properties.zip);
+      $("input[name=zipcode]").val(d.properties.zip);
+      $jq("form#zip-and-distance").submit();
+    });
+
+    // var bounds = that.activityLayer[0][0].getBoundingClientRect();
+    var bounds = that.activityLayer[0][0].getBBox();
+    // console.log(bounds);
+    that.svg.attr("width", (bounds.width + 20) + "px")
+      .attr("height", (bounds.height + 20) + "px")
+      // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
+      .style("left", bounds.x-10 + "px")
+      .style("top", bounds.y-10 + "px");
+
+    that.activityLayer.attr("transform", "translate(" + -(bounds.x-10) + "," + -(bounds.y-10) + ")");
+  };
+
+  this.replot = function () {
+    var that = this;
+    if (!bernMap.d.zipcodes) return;
+
+
+    // console.log(that.centerItem);
+    if (that.centerItem) {
+      that.centerItem.each(function(d) {
+                      var coordinates = that._projectPoint(d.lon, d.lat)
+                        // console.log(coordinates);
+                        d3.select(this).attr("cx", coordinates[0])
+                            .attr("cy", coordinates[1])
+                            .attr("r", bernMap.mapBox.getZoom())
+                            .attr("opacity", 0.9)
+                        ;
+                    });
+    }
+
+    that.zipcodeElements.each(function(d) {
+                                var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
+
+                                  // console.log(coordinates);
+                                  d3.select(this).attr("cx", coordinates[0])
+                                      .attr("cy", coordinates[1])
+                                      .attr("r", bernMap.mapBox.getZoom() * 3)
+                                      .attr("opacity", 0.6)
+                                  ;
+                              });
+
+    var bounds = that.activityLayer[0][0].getBBox();
+    // console.log(bounds);
+    that.svg.attr("width", (bounds.width + 0) + "px")
+      .attr("height", (bounds.height + 0) + "px")
+      // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
+      .style("left", bounds.x + "px")
+      .style("top", bounds.y + "px");
+
+    that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
+
+  };
+
+  var _that = this;
+  this.initialize = function() {
+
+    // console.log(_that);
+    bernMap.mapBox.on('zoomstart', function() {
+      _that.activityLayer.style("display","none");
+      // in_need_layer.style("visibility", "hidden");
+      // percent_change_layer.style("visibility", "hidden");
+      // funding_layer.style("visibility", "hidden");
+    });
+    bernMap.mapBox.on('zoomend', function() {
+        // triggerLayerChange();
+        _that.replot();
+        _that.activityLayer.style("display","block");
+        // regionalLayer.recalibrateLayer();
+    });
+  }();
 };
 
-var bernie = bernie || {};
-    bernie.d = {}; //d for data;
+var bernMap = bernMap || {};
+bernMap.eventList = function(container) {
+  this.containerLabel = container;
+  this.container = $jq(container);
+  this.errorBox = this.container.find("#error-box");
 
-var bernie = bernie || {};
-    bernie.Events = function () {
-      this.clickState = function(d) {
-        window.location.hash = d.abbr;
-      };
+  this._getDistanceInMi = function (lat1,lon1,lat2,lon2) {
+    var that = this;
+    var distance = that._getDistanceInKm(lat1, lon1, lat2, lon2);
 
-      this.resizeWindow = function () {
-        statesDraw.redraw();
-      };
+    return distance * 0.62;
+  };
 
-      this.hashchange = function() {
-        var that = this;
-        var currentHash = window.location.hash;
-        if (!currentHash) {
-          return false;
-        }
-        currentHash = currentHash.substr(1);
+  this._getDistanceInKm = function (lat1,lon1,lat2,lon2) {
+    var that = this;
+    var R = 6371; // Radius of the earth in km
+    var dLat = that._deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = that._deg2rad(lon2-lon1);
+    var a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(that._deg2rad(lat1)) * Math.cos(that._deg2rad(lat2)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+    return d;
+  };
 
-        //Color state
-        if (currentHash) {
-          // console.log(d);
-          d3.selectAll("[data-state]").classed("highlight", false);
-          d3.selectAll("[data-state='" + currentHash + "']").classed("highlight", true);
-        }
+  this._deg2rad = function (deg) {
+    return deg * (Math.PI/180)
+  };
 
-        //List events
-        bernieEventList.listEvents(currentHash);
-      };
+  this.hideError = function() { this.errorBox.text(''); };
+  this.setError = function(message) {
+    var that = this;
+    that.errorBox.text(message);
+  };
 
-    };
+  this.filterEvents = function(zipcode, allowedDistance) {
+    var that = this;
+    var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
+    $("h2#event-results-count").show();
+    $("#event-counter").text("0 events");
+    $("#event-distance").text(allowedDistance + "mi");
+    if (targetZipcode.length == 0 ) return ;
+    var target = targetZipcode[0];
+    var targC = [parseFloat(target.lat), target.lon];
+    var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
+                            var compC = [parseFloat(d.properties.lat), parseFloat(d.properties.lon)];
+                            var distance = that._getDistanceInMi(targC[0], targC[1], compC[0], compC[1]);
+                            d.properties.distance = distance;
+                            return  distance <= allowedDistance;
+                        }).map(function(d) { return { "distance" : d.properties.distance, "zipcode" : d.properties.zip}; });
 
-var bernie = bernie || {};
-    bernie.EventList = function(container) {
-      this.container = container;
+    if (nearByZipcodes.length == 0) return;
 
 
-      this.listNationwideEvents = function() {
-        var targetList = bernie.d.events.filter(function(d) { return d.State == "ALL" });
-        var dateFormat = d3.time.format("%B %d");
+    nearByZipcodes.sort(function(a,b) {
+      return a.distance - b.distance;
+    })
 
-        if (targetList.length == 0) {
-          d3.select("#event-nationwide").style("display", "none");
-          return;
-        }
+    // collate list:
+    var collatedList = nearByZipcodes.map(function(d) {
+       var events = bernMap.d.aggregatedRSVP[d.zipcode];
+       events.forEach(function(t) {
+          t['distance'] = d.distance;
+       });
+       return events;
+    });
 
-        $(container).find("ul#event-nationwide-event-list li").remove();
+    var finalCollatedList = [];
+    collatedList.forEach(function(item) { finalCollatedList = finalCollatedList.concat(item); });
 
-        var nationwideItem = d3.select("#event-nationwide").select("ul")
-          .selectAll("li").data(targetList).enter()
-            .append("li")
-            .attr("class", "event-nationwide-item");
+    $("#event-counter").text(finalCollatedList.length + " " + (finalCollatedList.length == 1 ? "event" : "events") );
 
-        nationwideItem.each(function(d, i) {
-          // console.log(d, i, this);
-          // var date = rawDateFormat.parse(d.Date);
-          //Gather links
+    //Render list
+    $("ul#event-list").children("li").remove();
+    var ul = d3.select(that.containerLabel).select("ul#event-list");
 
+
+    var dateFormat = d3.time.format("%B %d");
+    var liContent = ul.selectAll("li.event-list-item")
+                .data(finalCollatedList, function(d){ return d["ID#"] ;});
+
+    console.log(finalCollatedList);
+    liContent.enter()
+      .append("li")
+        .attr("class", "event-list-item")
+        .html(function(d) {
           var links = [];
           for ( var i = 1; i <= 9; i++) {
             var link = "Link" + i;
@@ -164,326 +364,179 @@ var bernie = bernie || {};
 
           var linkText = links.map(function(d) { return "<a target='" + (d.link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
 
-
-          d3.select(this).html(
-            "<h5><span class='event-item-date'>" + dateFormat(d.Date)
-              + " &nbsp;&nbsp; "
-              + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
-              + "</span></h5>"
-
+          return "<h5><span class='event-item-date'>"
+            + d3.round(d.distance,1) + "MI"
+            + " &nbsp;&nbsp; "
+            + dateFormat(d.Date)
+            + " &nbsp;&nbsp; "
+            + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
+            + "</span></h5>"
             + "<h3><a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
-              + (d.Organizer != "" ? ("<h4 class='event-organizer'>by <a target='_blank' href='" + (d.OrganizerWebsite ? d.OrganizerWebsite : "javascript: void(0);") + "'>" + d.Organizer + "</a></h4>") : "")
-              + "<p>" + linkText.join(" &bull; ")+ "</p>"
-          );
-        });
-      };
+            + (d.Organizer != "" ? ("<h4 class='event-organizer'>by <a target='_blank' href='" + (d.OrganizerWebsite ? d.OrganizerWebsite : "javascript: void(0);") + "'>" + d.Organizer + "</a></h4>") : "")
+            + "<h5 class='event-location'>" + d.Location + "</h5>"
+            + "<p>" + linkText.join(" &bull; ")+ "</p>"
+              ;
+        })
+        ;
 
+//<li class='event-list-item'>
+          //   <h5 class='event-basics'><span class='distance'>12MI</span>&nbsp;&bull;&nbsp;<span class="event-item-date">7:00 PM</span></h5>
+          //   <h3><a target="_blank" href="http://www.facebook.com/1470121326632561"><span class="event-item-name">March for Bernie Sanders!  Everson-Nooksack parade and Bellingham Pride!</span></a></h3><h5>Bellingham High School 2020 Cornwall Ave Bellingham WA</h5>
+          // </li>
 
-      this.listEvents = function(state) {
+    liContent.exit().remove();
 
-      //<img src='./img/states/" + state + ".png' />
-        $(container).find("#event-state-name h2").html("<span>" + bernie.constants.states[state][0] + "</span>");
+    // console.log("NEW LIST", li);
 
-        var dateFormat = d3.time.format("%B %d");
-        var targetList = bernie.d.events.filter(function(d) { return d.State == state });
-
-        $(container).find("ul#event-list li").remove();
-
-        var eventListArea = d3.select(container).select("ul").attr("id", "event-list");
-
-        // console.log(targetList);
-
-        var eventListItems = targetList.length > 0
-              ? eventListArea.selectAll("li").data(targetList).enter().append("li").attr("class", "event-list-item")
-              : eventListArea.append("li").attr("class", "event-list-item")
-                  .html("<h5 class='page-subtitle'>No events lined up. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>");
-
-      /*<li>
-        <h3>July 1: Town-hall meeting with Bernie</h3>
-        <h5>Location of Town Hall</h5>
-        <p><a href='#' class='official-link'>Official Bernie Campaign</a> &bull; <a href='#' class='reddit-link'>Reddit</a> &bull; <a href='#' class='facebook-link'>Facebook</a> &bull; <a href='#' class='other-link'>People for Bernie</a></p>
-      </li>
-      */
-          if ( targetList.length ) {
-              eventListItems.each(function(d, i) {
-                // console.log("THIS", d, i, this);
-                // var date = rawDateFormat.parse(d.Date);
-                //Gather links
-
-                var links = [];
-                for ( var i = 1; i <= 9; i++) {
-                  var link = "Link" + i;
-
-                  if ( d[link] ) {
-                    var name_link = d[link].split(/,(.+)?/)
-                    links.push ( {name: name_link[0], link: name_link[1]} );
-                  }
-                }
-
-                var linkText = links.map(function(d) { return "<a target='"+ (d.link.indexOf("mailto")!=0?"_blank":"_self") +"' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
-
-
-                d3.select(this).html(
-                  "<h5><span class='event-item-date'>" + dateFormat(d.Date)
-                    + " &nbsp;&nbsp; "
-                    + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
-                    + "</span></h5>"
-
-                  + "<h3><a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
-
-                    + (d.Organizer != "" ? ("<h4 class='event-organizer'>by <a target='_blank' href='" + (d.OrganizerWebsite ? d.OrganizerWebsite : "javascript: void(0);") + "'>" + d.Organizer + "</a></h4>") : "")
-
-                    + "<h5>" + d.Location + "</h5>"
-                    + "<p>" + linkText.join(" &bull; ")+ "</p>"
-                );
-              });
-          }
-      }
-    };
-
-var bernieEventList = new bernie.EventList('#map-event-list');
-
-var bernie = bernie || {};
-    bernie.States = function(container) {
-
-      this.mobileFormat = $(window).width() < 700;
-
-      this.container = container;
-      this.margin = this.mobileFormat ? {top:0,right: 0, left: 0, bottom: 0} : {top: 40, right: 40, bottom: 40, left: 40} ;
-      this.radiusSize = this.mobileFormat ? 15 : 25;
-      this.width = this.mobileFormat ? 600 : (768 - this.margin.left - this.margin.right);
-      this.height = this.mobileFormat ? 300 : 400 + this.radiusSize - this.margin.top - this.margin.bottom;
-
-      this.svg = null,
-      this.statesArea = null,
-      this.statesHexes = null,
-      this.statesText = null
-      ;
-
-      this.eventsHandler = new bernie.Events();
-
-      this.scale = {
-          ordinalX : d3.scale.ordinal()
-                          .domain(d3.range(24))
-                          .rangeRoundBands([this.mobileFormat ? this.radiusSize : this.radiusSize,
-                                            this.mobileFormat ? this.width-this.radiusSize*16.5 : this.width-this.radiusSize*3]),
-          ordinalY : d3.scale.ordinal()
-                        .domain(d3.range(8))
-                        .rangeRoundBands([this.radiusSize, this.mobileFormat ? this.height - this.radiusSize * 6: this.height+this.radiusSize]),
-          color : d3.scale.linear()
-                          .domain([0, 20])
-                          .range(["white", "#147FD7"])
-                          .interpolate(d3.interpolateLab)
-      };
-
-      this.hexbin = d3.hexbin()
-                        .size([this.width, this.height+this.radiusSize])
-                        .radius(this.radiusSize);
-
-      this.redraw = function () {
-          var that = this;
-          if (that.mobileFormat) {
-            // console.log(that.svg);
-            var winWidth = $(window).width();
-            var svgWidth = $(that.svg[0])[0].getBoundingClientRect().width;
-
-            // console.log(svgWidth, winWidth);
-            that.svg.attr("transform", "translate(" + (winWidth/2 - svgWidth/2) + ",0)");
-          }
-
-      }
-      this.collatedStates = function() {
-        var statesItem = [];
-        for ( var key in bernie.constants.states ) {
-
-          statesItem.push({
-             "state": bernie.constants.states[key][0],
-             "abbr": key,
-             "x" : bernie.constants.states[key][1],
-             "y" : bernie.constants.states[key][2]
-          });
-        }
-        return statesItem;
-      }();
-
-      this.initialize();
-
-      this.updateEventCount = function() {
-        var that = this;
-        //Arrange events into pig-holes
-
-        d3.select("#page-title-event-count").text(bernie.d.events.length);
-
-        var eventCounts = bernie.d.events.filter(function(d) { return d.State != "ALL"; })
-            .map(function(d) { return d.State; })
-            .reduce(function(prev, curr, ind) {
-                if (ind == 1) {
-                  var obj = {};
-                  obj[prev] = 1;
-                  prev = obj;
-                }
-
-                prev[curr] = prev[curr] ? prev[curr] + 1 : 1;
-                return prev;
-            });
-        that.statesHexes.style("fill", function(d) {
-            var count = eventCounts[d.abbr] || 0;
-            return that.scale.color(count);
-        });
-        that.statesText.style("fill", function(d) {
-          var count = eventCounts[d.abbr];
-
-          // console.log(count);
-          if (!count || count == 0) { return "lightgray"; }
-          else {
-            return "#333333";
-          }
-        });
-
-        that.statesEventCount.text(function(d) {
-          var count = eventCounts[d.abbr];
-          if (!count || count == 0) { return ""; }
-          else {
-            return count;
-          }
-        });
-      };
-    };
-
- //Render map
- bernie.States.prototype.initialize = function() {
-
-        var that = this;
-
-
-        that.svg = d3.select(that.container).append("svg")
-                    .attr("id", "main-svg")
-                    .attr("width", that.mobileFormat ? "100%" : that.width )
-                    .attr("height", that.mobileFormat ? (that.height - that.radiusSize*2) : that.height + that.radiusSize + that.margin.top )
-                    .append("g")
-                    .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")")
-
-        that.svg.append("clipPath")
-            .attr("id", "clip")
-            .append("rect")
-            .attr("class", "mesh")
-            .attr("width", that.width)
-            .attr("height", that.height+that.radiusSize);
-
-        that.statesArea = that.svg.append("g")
-          .attr("clip-path", "url(#clip)");
-
-        that.statesHexes = that.statesArea.selectAll("path.hexagon")
-            .data(that.collatedStates)
-            .enter().append("path")
-            .attr("class", "hexagon")
-            .attr("data-state", function(d) { return d.abbr; })
-            .attr("d", that.hexbin.hexagon())
-            .attr("transform", function(d) {
-                return "translate(" + that.scale.ordinalX(d.x) + "," + that.scale.ordinalY(d.y) + ")"; });
-
-
-        that.statesText = that.statesArea.selectAll("text.state-label state-country")
-          .data(that.collatedStates)
-          .enter().append("text")
-            .attr("class", "state-label")
-            .attr("data-state", function(d) { return d.abbr; })
-            .attr("x", function(d) { return that.scale.ordinalX(d.x); })
-            .attr("y", function(d) { return that.scale.ordinalY(d.y); })
-            .attr("text-anchor", "middle")
-            .text(function(d) { return d.abbr; });
-
-    that.statesEventCount = that.statesArea.selectAll("text.state-events")
-      .data(that.collatedStates)
-      .enter().append("text")
-        .attr("class", "state-label state-events")
-        .attr("data-state", function(d) { return d.abbr; })
-        .attr("x", function(d) { return that.scale.ordinalX(d.x); })
-        .attr("y", function(d) { return that.scale.ordinalY(d.y) + (that.mobileFormat ? 10 : 14); })
-        .attr("text-anchor", "middle");
-
-    // console.log("Initializing Events");
-    that.statesEventCount.on("click", that.eventsHandler.clickState);
-    that.statesHexes.on("click", that.eventsHandler.clickState);
-    that.statesText.on("click", that.eventsHandler.clickState);
-
-    $jq(window).on("resize", function() {
-        //Reposition
-        that.redraw();
-    });
-
-    $jq(window).trigger("resize");
+  };
 };
 
-var statesDraw = new bernie.States('#map-container');
 
-/*Styling */
-$(window).on("resize",function() {
-  $("#map-event-list").width($(window).width()-780);
+var qtree = null;
+var bernie = new bernMap.draw();
+var bernieEvents = new bernMap.eventList("#map-event-list");
+
+d3.csv('./d/events.csv', function(data) {
+  bernMap.d.meetupData = data;
+  bernMap.d.rawMeetupData = data;
+
+  var rawDateFormat = d3.time.format("%m/%d/%Y");
+  $(bernMap.d.meetupData).each(function(i, item) {
+    item.Date = rawDateFormat.parse(item.Date);
+  });
+
+  var weekStart = rawDateFormat.parse("7/05/2015");
+  var weekEnd = rawDateFormat.parse("7/12/2015");
+
+  var today = new Date();
+      today.setDate(today.getDate() - 1);
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
+
+    bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
+
+    return d.Date >= today;
+    // return d.Date <= weekEnd && d.Date >= weekStart;
+  });
+
+  var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
+  bernMap.d.aggregatedRSVP = map.reduce(
+      function(init, next) {
+        // console.log("X", init);
+        if (init[next[0]]) {
+          init[next[0]].push(next[1]);
+        } else {
+          init[next[0]] = [next[1]];
+        }
+        return init;
+        //  = init[next[0]]
+        // ? init[next[0]] + parseInt(next[1])
+        // : [next[1]]; return init;
+      }
+  , {});
+
+  loadZipcodeData();
 });
-$(window).on("hashchange", statesDraw.eventsHandler.hashchange);
 
-$(window).trigger("resize");
 
-//Load data
-// console.log("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl));
-d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernie.constants.spreadsheetUrl),
-  function(data) {
-    bernie.d.events = data;
+function loadZipcodeData() {
+  d3.tsv('./d/zipcodes.tsv', function(data) {
+    bernMap.d.allZipcodes = data;
 
-    var rawDateFormat = d3.time.format("%m/%d/%Y");
-    $(bernie.d.events).each(function(i, item) {
-      item.Date = rawDateFormat.parse(item.Date);
+    data = data.filter(function(d) {
+      return bernMap.d.aggregatedRSVP[d.zip];
     });
+    // console.log(data);
 
-    var weekStart = rawDateFormat.parse("7/05/2015");
-    var weekEnd = rawDateFormat.parse("7/12/2015");
+    function reformat(array) {
+      var data = [];
+      array.map(function(d,i) {
+        //add rsvps
+        d["rsvp"] = bernMap.d.aggregatedRSVP[d.zip];
+        data.push({
+          id : i,
+          type : "Feature",
+          geometry: {
+            coordinates: [+d.lon,+d.lat],
+            type: "Point"
+          },
+          properties: d
+        });
+      });
 
-    var today = new Date();
-          today.setDate(today.getDate() - 1);
-          today.setHours(0);
-          today.setMinutes(0);
-          today.setSeconds(0);
+      return data;
+    }
 
-    bernie.d.events = bernie.d.events.filter(function(d){
+    // console.log(data);
+    bernMap.d.zipcodes = {type: "FeatureCollection", features: reformat(data) };
+    bernie.plot();
 
-      return d.Date >= today;
-      // return d.Date <= weekEnd && d.Date >= weekStart;
-    });
+    $jq(window).trigger("hashchange");
+  });
+}
 
-    bernie.d.events.sort(function(a,b){
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
-      return a.Date - b.Date;
-    });
-
-    // console.log("EVENTS", bernie.d.events);
-    statesDraw.updateEventCount();
-    bernieEventList.listNationwideEvents();
-    $("ul#event-list li").remove();
-
-    $(window).trigger("hashchange");
-
+$jq("form input[type=radio]").on("click", function(d) {
+  if( $jq("form input[name=zipcode]").val().length == 5 ) {
+    window.location.hash = $(this).closest("form").serialize();
   }
-);
+});
+$jq("form input[name=zipcode]").on("keyup", function(e) {
+  // bernie.filter($(this).val());
+  if (e.keyCode == 13|| e.which == 13) {
+    return false;
+  }
 
-//Arranging states by spot
-// var randomX = d3.random.normal(width / 2, 80),
-//     randomY = d3.random.normal(height / 2, 80);
-    // points = [[ordinalX(2), ordinalY(3)]];
-    // points = d3.range(2000).map(function() { return [randomX(), randomY()]; });
+  if ( $(this).val().length == 5 ) {
+    window.location.hash = $(this).closest("form").serialize();
+  } else {
+    bernieEvents.hideError();
+  }
+});
 
-// var hexbin = ;
+$jq("form#zip-and-distance").on("submit", function() {
+  if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-// var x = d3.scale.identity()
-//     .domain([0, width]);
+    // console.log(window.location.hash,$(this).closest("form").serialize());
 
-// var y = d3.scale.linear()
-//     .domain([0, height])
-//     .range([height, 0]);
+    if( window.location.hash == "#" + $(this).closest("form").serialize()) {
+      $jq(window).trigger("hashchange");
+    } else {
+      window.location.hash = $(this).closest("form").serialize();
+    }
+
+  } else {
+    bernieEvents.setError("Complete Zipcode");
+  }
+  return false;
+});
+
+//Window Hashchange
+$jq(window).on("hashchange", function(){
+  var hash = window.location.hash;
+
+  if (hash.length > 1) {
+    //Set it on the form
+    var parameters = bernie._deserialize(hash.substr(1));
+
+
+console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
+    if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
+      $jq("form input[name=distance]").removeAttr("checked");
+      $jq("form input[name=distance][value=" + parameters.distance + "]").prop("checked", true);
+    }
+
+    if ($jq("form input[name=zipcode]").val() != parameters.zipcode) {
+      $jq("form input[name=zipcode]").val(parameters.zipcode);
+    }
+
+    bernie.focusZipcode(hash.substr(1));
+    bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
+  }
+
+});
 
 
 
 </script>
-<div style="clear: both"></div>
 <?php require_once('./inc/_footer.inc'); ?>

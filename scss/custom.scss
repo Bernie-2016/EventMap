@@ -67,6 +67,24 @@ div#header {
 
         &:last-child { padding-right: 0; margin-top: -3px; }
         &:first-child { padding-left: 0; }
+
+        a.subscribe-icon {
+          opacity: 0.3;
+          display: inline-block;
+          vertical-align: middle;
+          &:hover {
+            opacity: 0.9;
+            transition: opacity .5s ease-out;
+            -moz-transition: opacity .5s ease-out;
+            -webkit-transition: opacity .5s ease-out;
+            -o-transition: opacity .5s ease-out;
+          }
+
+          img {
+            height: 2em;
+            width: 2em;
+          }
+        }
       }
     }
 
@@ -238,6 +256,12 @@ div#social {
     display: block;
     font-size: 14px;
   }
+
+  h5.event-location {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #555555;
+  }
 }
 
 #event-nationwide {
@@ -291,6 +315,10 @@ $phone-max-width: 950px;
   }
 
   #header {
+    li#social-buttons {
+      display: block;
+      margin-top: 0.7em;
+    }
     a#header-logo {
       display: block;
       width: 100%;

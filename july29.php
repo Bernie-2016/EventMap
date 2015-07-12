@@ -19,7 +19,7 @@
         </div>
         <div>
           <ul id='distance-list'>
-            <li><input type='radio' id='mile-5' name='distance' value='5' checked='checked'b/> <label for='mile-5'>5mi</label></li>
+            <li><input type='radio' id='mile-5' name='distance' value='5' checked='checked'/> <label for='mile-5'>5mi</label></li>
             <li><input type='radio' id='mile-10' name='distance' value='10'/><label for='mile-10'>10mi</label></li>
             <li><input type='radio' id='mile-20' name='distance' value='20'/><label for='mile-20'>20mi</label></li>
             <li><input type='radio' id='mile-50' name='distance' value='50'/><label for='mile-50'>50mi</label></li>
@@ -32,19 +32,6 @@
       <h2 id='event-results-count'><span id='event-counter'></span> Events within <span id='event-distance'></span></h2>
       <div id='event-list-area'>
         <ul id='event-list'>
-          <!-- <li class='event-list-item'>
-            <h5 class='event-basics'><span class='distance'>12MI</span>&nbsp;&bull;&nbsp;<span class="event-item-date">7:00 PM</span></h5>
-            <h3><a target="_blank" href="http://www.facebook.com/1470121326632561"><span class="event-item-name">March for Bernie Sanders!  Everson-Nooksack parade and Bellingham Pride!</span></a></h3><h5>Bellingham High School 2020 Cornwall Ave Bellingham WA</h5>
-          </li>
-          <li class='event-list-item'>
-            <h5 class='event-basics'><span class='distance'>12MI</span>&nbsp;&bull;&nbsp;<span class="event-item-date">7:00 PM</span></h5>
-            <h3><a target="_blank" href="http://www.facebook.com/1470121326632561"><span class="event-item-name">March for Bernie Sanders!  Everson-Nooksack parade and Bellingham Pride!</span></a></h3><h5>Bellingham High School 2020 Cornwall Ave Bellingham WA</h5>
-          </li>
-          <li class='event-list-item'>
-            <h5 class='event-basics'><span class='distance'>12MI</span>&nbsp;&bull;&nbsp;<span class="event-item-date">7:00 PM</span></h5>
-            <h3><a target="_blank" href="http://www.facebook.com/1470121326632561"><span class="event-item-name">March for Bernie Sanders!  Everson-Nooksack parade and Bellingham Pride!</span></a></h3><h5>Bellingham High School 2020 Cornwall Ave Bellingham WA</h5>
-          </li>
-           -->
         </ul>
         <p style='text-align: center; margin-top: 20px;'><img src='./img/list-end.png' width='100px'/></p>
       </div>
@@ -56,15 +43,31 @@
 <script src='./js/mapbox.js'></script>
 <script type='text/javascript'>
 
+var $jq = jQuery;
+
 //Initialize items
 $("h2#event-results-count").hide();
+
+//Window Resize
+$jq(window).on("resize", function() {
+  var h = $jq("#header").height() + $jq("#main-title-area").height();
+  var wH = $jq(window).height();
+  var padding = 20;
+
+  console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
+  $("#map-section, #map").height(wH - h);
+  $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240);
+
+  console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));
+
+});
+$jq(window).trigger("resize");
+
 
 L.mapbox.accessToken = "pk.eyJ1IjoicmFwaWNhc3RpbGxvIiwiYSI6IjBlMGI3NTNhMWFiNGU4NmY4YmI4ZTNmOGRjYmQzZWVjIn0.KyTcvG8fiIStw8BkZjfvLA";
 var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="https://secure.actblue.com/contribute/page/reddit-for-bernie/" target="_blank">Contribute to the Campaign</a>'
 });
-
-var $jq = jQuery;
 
 var WIDTH = $jq(window).width();
 
@@ -134,6 +137,7 @@ bernMap.draw = function() {
             .attr("opacity", 0.9);
 
       //Focus on map
+      that.replot();
       bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], 12, { animate: true });
       var offset = bernMap.mapBox.getSize().x * 0.15;
       bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
@@ -461,6 +465,7 @@ $jq("form#zip-and-distance").on("submit", function() {
   return false;
 });
 
+//Window Hashchange
 $jq(window).on("hashchange", function(){
   var hash = window.location.hash;
 
@@ -469,9 +474,10 @@ $jq(window).on("hashchange", function(){
     var parameters = bernie._deserialize(hash.substr(1));
 
 
-
-    if ($jq("form input[type=radio]").val() != parameters.distance ) {
-      $jq("form input[type=radio][value=" + parameters.distance + "]").attr("checked", "checked");
+console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
+    if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
+      $jq("form input[name=distance]").removeAttr("checked");
+      $jq("form input[name=distance][value=" + parameters.distance + "]").prop("checked", true);
     }
 
     if ($jq("form input[name=zipcode]").val() != parameters.zipcode) {

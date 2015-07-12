@@ -8,7 +8,8 @@ section#main-title-area h4 {
   color: gray; }
 
 section#map-section {
-  position: relative; }
+  position: relative;
+  min-height: 300px; }
   section#map-section div#map-event-list {
     position: absolute;
     top: 20px;
@@ -79,6 +80,8 @@ section#map-section {
             display: inline-block; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-location {
           margin-top: 0.7em; }
+        section#map-section div#map-event-list #event-list-area .event-list-item > p {
+          margin-bottom: 0; }
   section#map-section div#map {
     width: 100%;
     height: 600px; }
@@ -96,5 +99,24 @@ section#map-section {
 footer {
   padding-top: 10px;
   background-color: whitesmoke; }
+
+/* For Phones! */
+@media only screen and (min-width: 320px) and (max-width: 950px) {
+  section#map-section {
+    min-height: 0;
+    height: auto !important;
+    box-shadow: none !important; }
+    section#map-section div#map {
+      display: none; }
+    section#map-section div#map-event-list {
+      position: relative;
+      border: none;
+      min-height: 0;
+      max-height: auto;
+      top: auto;
+      box-shadow: none !important; }
+      section#map-section div#map-event-list div#event-list-area {
+        max-height: inherit !important;
+        overflow: none; } }
 
 /*# sourceMappingURL=map.css.map */

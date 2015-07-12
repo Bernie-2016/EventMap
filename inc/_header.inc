@@ -36,13 +36,19 @@
 <link href='css/custom.css?v=<?php echo $APPVERSION; ?>' rel="stylesheet" type="text/css" />
 
 <div id='header'>
-  <a id='header-logo' href='http://www.berniesanders.com' target='_blank'><img src='./img/logo.png' style='float: left; margin-left: 10px;' /></a>
+  <a id='header-logo' href='./' ><img src='./img/logo.png' style='float: left; margin-left: 10px;' /></a>
   <nav>
     <ul id="nav">
       <li><a href='./'>All Events</a></li>
+      <li><a href='./by-state' >By state</a></li>
       <li><a href='https://medium.com/@BernieMeetups/' target='_blank'>News</a></li>
-      <li><a href='http://bernie2016events.us11.list-manage.com/subscribe?u=7101205eff90b8bd4cc638328&id=fcdf771f70' target='_blank'>Subscribe</a></li>
-      <li><a href='https://twitter.com/intent/follow?screen_name=BernieMeetups' >Follow</a></li>
+      <li id='social-buttons'>
+        <!-- <a class='subscribe-icon' href='https://twitter.com/intent/follow?screen_name=BernieMeetups' ><img src='./img/icon/twitter.png' /></a> -->
+        <a class='subscribe-icon' href='http://twitter.com/BernieMeetups' target='_blank'><img src='./img/icon/twitter.png' /></a>
+        <a class='subscribe-icon' href='http://www.facebook.com/berniemeetups' target='_blank'><img src='./img/icon/facebook.png' /></a>
+        <a class='subscribe-icon' href='http://bernie2016events.us11.list-manage.com/subscribe?u=7101205eff90b8bd4cc638328&id=fcdf771f70' target='_blank'><img src='./img/icon/mailchimp.png' /></a>
+      </li>
+      <!-- <li><a href='https://twitter.com/intent/follow?screen_name=BernieMeetups' >Follow</a></li> -->
       <li><a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute contribute-big' target='_blank'>Contribute to the Campaign</a></li>
     </ul>
   </nav>

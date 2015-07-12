@@ -57,6 +57,19 @@ div#header {
           margin-top: -3px; }
         div#header nav ul li:first-child {
           padding-left: 0; }
+        div#header nav ul li a.subscribe-icon {
+          opacity: 0.3;
+          display: inline-block;
+          vertical-align: middle; }
+          div#header nav ul li a.subscribe-icon:hover {
+            opacity: 0.9;
+            transition: opacity .5s ease-out;
+            -moz-transition: opacity .5s ease-out;
+            -webkit-transition: opacity .5s ease-out;
+            -o-transition: opacity .5s ease-out; }
+          div#header nav ul li a.subscribe-icon img {
+            height: 2em;
+            width: 2em; }
     div#header nav::after {
       clear: both; }
 
@@ -182,6 +195,10 @@ div#social {
   color: #babbba;
   display: block;
   font-size: 14px; }
+#map-event-list h5.event-location {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: #555555; }
 
 #event-nationwide > h4 {
   color: #ea504e;
@@ -213,6 +230,9 @@ div#social {
       margin-top: 0;
       float: none !important; }
 
+  #header li#social-buttons {
+    display: block;
+    margin-top: 0.7em; }
   #header a#header-logo {
     display: block;
     width: 100%;
