@@ -7,7 +7,7 @@
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4><strong>157 Meetups and events nationwide.</strong> Search for nearby events or <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;an&nbsp;event</a></h4>
+  <h4><strong><span id="meetup-counter"></span> Meetups and events nationwide.</strong> Search for nearby events or <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;an&nbsp;event</a></h4>
 </section>
 <section id='map-section' />
   <div id='map'></div>
@@ -414,11 +414,13 @@ d3.csv('./d/events.csv', function(data) {
       today.setMinutes(0);
       today.setSeconds(0);
 
-    bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
+  bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
 
     return d.Date >= today;
     // return d.Date <= weekEnd && d.Date >= weekStart;
   });
+
+  $("#meetup-counter").text(bernMap.d.meetupData.length);
 
   var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
