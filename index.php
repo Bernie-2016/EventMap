@@ -15,7 +15,7 @@
   </div></h4>
 </section>
 <section id='map-section' />
-  <div id='ad-push-banner'><a href='http://berniemoneybomb.com/' target='_blank'><img src='http://i.imgur.com/yeqZV4r.png'></a></div>
+  <div id='ad-push-banner'><a href='http://berniemoneybomb.com/' target='_blank'><img src='http://i.imgur.com/NRCq5Ao.png'></a></div>
   <div id='map'></div>
   <div id='map-event-list'>
       <form id='zip-and-distance' action="#">
