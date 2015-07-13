@@ -12,6 +12,9 @@ section#main-title-area {
     color: gray;
     font-size: 0.8em;
 
+    div#social {
+      display: inline-block;
+    }
     & > * { vertical-align: middle; }
   }
 }
@@ -98,7 +101,7 @@ section#map-section {
     }
     #event-list-area {
       max-height: 300px;
-      overflow: scroll;
+      overflow: auto;
       .event-list-item {
         padding-bottom: 20px;
         h5.event-basics {

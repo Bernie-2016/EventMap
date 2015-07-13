@@ -7,6 +7,8 @@ section#main-title-area h4 {
   letter-spacing: 2px;
   color: gray;
   font-size: 0.8em; }
+  section#main-title-area h4 div#social {
+    display: inline-block; }
   section#main-title-area h4 > * {
     vertical-align: middle; }
 
@@ -74,7 +76,7 @@ section#map-section {
       box-shadow: 0 5px 1px rgba(0, 0, 0, 0.03); }
     section#map-section div#map-event-list #event-list-area {
       max-height: 300px;
-      overflow: scroll; }
+      overflow: auto; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
         padding-bottom: 20px; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics {
