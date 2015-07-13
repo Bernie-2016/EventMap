@@ -15,6 +15,14 @@ section#main-title-area h4 {
 section#map-section {
   position: relative;
   min-height: 300px; }
+  section#map-section div#ad-push-banner {
+    position: absolute;
+    bottom: -5px;
+    left: 5px;
+    z-index: 1000;
+    width: 35%; }
+    section#map-section div#ad-push-banner img {
+      width: 100%; }
   section#map-section div#map-event-list {
     position: absolute;
     top: 20px;
@@ -107,6 +115,9 @@ footer {
 
 /* For Phones! */
 @media only screen and (min-width: 320px) and (max-width: 950px) {
+  #ad-push-banner {
+    display: none; }
+
   section#map-section {
     min-height: 0;
     height: auto !important;

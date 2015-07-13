@@ -15,6 +15,7 @@
   </div></h4>
 </section>
 <section id='map-section' />
+  <div id='ad-push-banner'><a href='http://berniemoneybomb.com/' target='_blank'><img src='http://i.imgur.com/Tu5rU8e.png'></a></div>
   <div id='map'></div>
   <div id='map-event-list'>
       <form id='zip-and-distance' action="#">
@@ -60,7 +61,7 @@ $jq(window).on("resize", function() {
   var padding = 20;
 
   console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
-  $("#map-section, #map").height(wH - h);
+  $("#map-section, #map").height(wH - h - 20);
   $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240);
 
   console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));

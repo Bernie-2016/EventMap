@@ -22,6 +22,17 @@ section#map-section {
   position: relative;
   min-height: 300px;
 
+  div#ad-push-banner {
+    position: absolute;
+    bottom: -5px;;
+    left: 5px;
+    z-index: 1000;
+
+    width: 35%;
+    img {
+      width: 100%;
+    }
+  }
   div#map-event-list {
     position: absolute;
     top: 20px;
@@ -153,6 +164,7 @@ $phone-max-width: 950px;
   and (min-width: $phone-min-width)
   and (max-width: $phone-max-width) {
 
+  #ad-push-banner { display: none; }
   section#map-section {
     min-height: 0;
     height: auto !important;
