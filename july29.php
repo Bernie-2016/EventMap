@@ -79,7 +79,8 @@ var WIDTH = $jq(window).width();
 
 var bernMap = bernMap || {};
 bernMap.constants = {};
-bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=1000&country=*";
+bernMap.constants.spreadsheetUrl = "./d/july29.json";
+// bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=2000&country=*";
 
 
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
@@ -406,7 +407,9 @@ var qtree = null;
 var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
-d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl), function(data) {
+// d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
+  d3.json("./d/july29.json",
+  function(data) {
   console.log(data);
   bernMap.d.meetupData = data.results;
   bernMap.d.rawMeetupData = data.results;
