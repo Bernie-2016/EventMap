@@ -45,6 +45,7 @@ section#map-section {
     border-width: 15px 0 0;
     box-shadow: 0px 2px 1px rgba(0,0,0,0.3);
 
+
     form#zip-and-distance {
       text-align: center;
       position: relative;
@@ -103,12 +104,18 @@ section#map-section {
     h2#event-results-count {
         text-transform: uppercase;
         color: #ea504e;
-        text-shadow: 0 1px 1px rgba(0,0,0,0.3);
-        letter-spacing: 1px;
-        font-size: 1.4em;
+        // text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+        font-size: 1em;
         padding: 0 0 5px;
         margin: 20px 0 0;
+        font-weight: normal;
         box-shadow: 0 5px 1px rgba(0,0,0,0.03);
+
+        #event-city {
+          font-size: 1.4em;
+        }
+        // #event-counter, #event-distance { font-weight: bold; font-size:}
     }
     #event-list-area {
       max-height: 300px;

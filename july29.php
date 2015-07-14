@@ -41,7 +41,9 @@
 
         </div>
       </form>
-      <h2 id='event-results-count'><span id='event-counter'></span> within <span id='event-distance'></span></h2>
+      <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
+        <div id="event-city"></div>
+      </h2>
       <div id='event-list-area'>
         <ul id='event-list'>
         </ul>
@@ -321,11 +323,15 @@ bernMap.eventList = function(container) {
   this.filterEvents = function(zipcode, allowedDistance) {
     var that = this;
     var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
+
+    if (targetZipcode.length == 0 ) return ;
+    var target = targetZipcode[0];
+
     $("h2#event-results-count").show();
     $("#event-counter").text("0 events");
     $("#event-distance").text(allowedDistance + "mi");
-    if (targetZipcode.length == 0 ) return ;
-    var target = targetZipcode[0];
+    $("#event-city").text( target.primary_city + ", " + target.state);
+
     var targC = [parseFloat(target.lat), target.lon];
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
                             var compC = [parseFloat(d.properties.lat), parseFloat(d.properties.lon)];
@@ -460,9 +466,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
     // return d.Date <= weekEnd && d.Date >= weekStart;
   });
 
-  var d3format = d3.format("0,000");
-  $("#meetup-counter").text(bernMap.d.meetupData.length);
-  $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
+
 
   var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
@@ -485,7 +489,8 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
 
 function loadZipcodeData() {
-  d3.tsv('./d/zipcodes.tsv', function(data) {
+  // d3.tsv('./d/zipcodes.tsv', function(data) {
+  d3.csv('./d/zipcode-lookup.csv', function(data) {
     bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {
@@ -508,6 +513,10 @@ function loadZipcodeData() {
           properties: d
         });
       });
+
+      var d3format = d3.format("0,000");
+      $("#meetup-counter").text(bernMap.d.meetupData.length);
+      $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
 
       return data;
     }

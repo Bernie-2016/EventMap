@@ -35,7 +35,8 @@
 
         </div>
       </form>
-      <h2 id='event-results-count'><span id='event-counter'></span> within <span id='event-distance'></span></h2>
+      <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
+        <div id="event-city"></div></h2>
       <div id='event-list-area'>
         <ul id='event-list'>
         </ul>
@@ -60,11 +61,11 @@ $jq(window).on("resize", function() {
   var wH = $jq(window).height();
   var padding = 20;
 
-  console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
+  // console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
   $("#map-section, #map").height(wH - h - 20);
   $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240);
 
-  console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));
+  // console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));
 
 });
 $jq(window).trigger("resize");
@@ -105,6 +106,7 @@ bernMap.draw = function() {
   this.centerItem = null;
 
   this._projectPoint = function(x,y) {
+    // console.log(y,x);
     var point = bernMap.mapBox.latLngToLayerPoint(new L.LatLng(y, x));
     // console.log(x,y);
     // var point = bernMap.mapBox.latLngToContainerPoint(new L.LatLng(y,x));
@@ -120,6 +122,8 @@ bernMap.draw = function() {
   // FOCUS ZIPCODE
   // *********************
   this.focusZipcode = function(hash) {
+
+    // console.log("HASH", hash);
     var that = this;
     var params = that._deserialize(hash);
 
@@ -312,11 +316,16 @@ bernMap.eventList = function(container) {
   this.filterEvents = function(zipcode, allowedDistance) {
     var that = this;
     var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
+
+    if (targetZipcode.length == 0 ) return ;
+    var target = targetZipcode[0];
+
     $("h2#event-results-count").show();
     $("#event-counter").text("0 events");
     $("#event-distance").text(allowedDistance + "mi");
-    if (targetZipcode.length == 0 ) return ;
-    var target = targetZipcode[0];
+    $("#event-city").text( target.primary_city + ", " + target.state);
+
+
     var targC = [parseFloat(target.lat), target.lon];
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
                             var compC = [parseFloat(d.properties.lat), parseFloat(d.properties.lon)];
@@ -355,7 +364,7 @@ bernMap.eventList = function(container) {
     var liContent = ul.selectAll("li.event-list-item")
                 .data(finalCollatedList, function(d){ return d["ID#"] ;});
 
-    console.log(finalCollatedList);
+    // console.log(finalCollatedList);
     liContent.enter()
       .append("li")
         .attr("class", "event-list-item")
@@ -428,8 +437,6 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl
     // return d.Date <= weekEnd && d.Date >= weekStart;
   });
 
-  $("#meetup-counter").text(bernMap.d.meetupData.length);
-
   var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
       function(init, next) {
@@ -451,7 +458,8 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl
 
 
 function loadZipcodeData() {
-  d3.tsv('./d/zipcodes.tsv', function(data) {
+  // d3.tsv('./d/zipcodes.tsv', function(data) {
+  d3.csv('./d/zipcode-lookup.csv', function(data) {
     bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {
@@ -475,6 +483,7 @@ function loadZipcodeData() {
         });
       });
 
+      $("#meetup-counter").text(bernMap.d.meetupData.length);
       return data;
     }
 
@@ -530,7 +539,7 @@ $jq(window).on("hashchange", function(){
     var parameters = bernie._deserialize(hash.substr(1));
 
 
-console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
+// console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
     if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
       $jq("form input[name=distance]").removeAttr("checked");
       $jq("form input[name=distance][value=" + parameters.distance + "]").prop("checked", true);
