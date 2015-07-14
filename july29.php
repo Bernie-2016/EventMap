@@ -196,7 +196,7 @@ bernMap.draw = function() {
                                   ;
                               });
 
-    console.log(that.zipcodeElements);
+    // console.log(that.zipcodeElements);
     // that.zipcodeElements
           // .transition()
           // .duration(500)
@@ -370,7 +370,7 @@ bernMap.eventList = function(container) {
     var liContent = ul.selectAll("li.event-list-item")
                 .data(finalCollatedList, function(d){ return d["id"] ;});
 
-    console.log(finalCollatedList);
+    // console.log(finalCollatedList);
     liContent.enter()
       .append("li")
         .attr("class", "event-list-item")
@@ -422,7 +422,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 // d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
   d3.json("./d/july29.json",
   function(data) {
-  console.log(data);
+  // console.log(data);
   bernMap.d.meetupData = data.results;
   bernMap.d.rawMeetupData = data.results;
 
@@ -573,7 +573,7 @@ $jq(window).on("hashchange", function(){
     var parameters = bernie._deserialize(hash.substr(1));
 
 
-console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
+// console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
     if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
       $jq("form input[name=distance]").removeAttr("checked");
       $jq("form input[name=distance][value=" + parameters.distance + "]").prop("checked", true);

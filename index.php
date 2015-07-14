@@ -189,7 +189,7 @@ bernMap.draw = function() {
                                   ;
                               });
 
-    console.log(that.zipcodeElements);
+    // console.log(that.zipcodeElements);
     // that.zipcodeElements
           // .transition()
           // .duration(500)
