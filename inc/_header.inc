@@ -5,13 +5,13 @@
 <meta name='google-site-verification' content='-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI' />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.">
+<meta name="description" content="<?php echo isset($description) ? $description : "This Map shows all upcoming meetups and events around the United States. Discover all events near you and meet other people who want to make the country better. Discuss plans, organize events, and strategize locally and nationally on how to get Bernie Sanders to the White House." ?>">
 <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern">
-<meta property="og:image" content="http://www.bernie2016events.org/img/bernie-logo.png"/>
-<meta property="og:title" content="Bernie 2016 - Events Around the States"/>
-<meta property="og:description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results."/>
+<meta property="og:image" content="<?php echo isset($og_img) ? $og_img : "http://www.bernie2016events.org/img/bernie-logo.png"; ?>" />
+<meta property="og:title" content="<?php echo isset($title) ? $title : "Map of Grassroot Events for Bernie Sanders - Discover events and meetups near you | Bernie Sanders 2016 Events"; ?>"/>
+<meta property="og:description" content="<?php echo isset($description) ? $description : "This Map shows all upcoming meetups and events around the United States. Discover all events near you and meet other people who want to make the country better. Discuss plans, organize events, and strategize locally and nationally on how to get Bernie Sanders to the White House." ?>"/>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
-<title>#Bernie2016 Events Around the States - All events related to Bernie Sanders. Townhall meetings, meetups, etc. Click on state to filter results.</title>
+<title><?php echo isset($title) ? $title : "Map of Grassroot Events for Bernie Sanders - Discover events and meetups near you | Bernie Sanders 2016 Events"; ?></title>
 <link rel="shortcut icon" href="http://www.bernie2016events.org/favicon.ico">
 </head>
 <body>
