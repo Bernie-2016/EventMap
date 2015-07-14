@@ -39,7 +39,7 @@ foreach ( $events->results as $item ):
   // }
 
   echo @join("&lt;TAB&gt;", array(
-            $id,
+            $item->event_url,
             $name, $start_time->format('m/d/Y'),
             $start_time->format('h:i A'),
             $end_time ? $end_time->format('h:i A') : "",
