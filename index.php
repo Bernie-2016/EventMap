@@ -542,6 +542,10 @@ console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance")
 
     bernie.focusZipcode(hash.substr(1));
     bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
+  } else {
+    bernMap.mapBox.setView([37.8, -96.9], 4);
+    var offset = bernMap.mapBox.getSize().x * 0.15;
+    bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
   }
 
 });
