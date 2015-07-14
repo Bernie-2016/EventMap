@@ -82,7 +82,7 @@ $generator = $rss->addChild('generator','Bernie2016Events generator'); //add gen
       // print_r($csv);echo "\n";
 
       $title = htmlentities($csv[5]);
-      @$link = isset($csv[12]) ? explode(",", $csv[12], 2)[1] : "";
+      @$link = isset($csv[12]) ? htmlentities(explode(",", $csv[12], 2)[1]) : "";
       $date_rfc = isset($csv[1]) ? gmdate(DATE_RFC2822, strtotime($csv[1] . ' ' . $csv[2])) : "";
       $address = isset($csv[6]) ? htmlentities($csv[6]) : "";
       $state = isset($csv[4]) ? htmlentities($csv[4]) : "";
@@ -97,22 +97,22 @@ $generator = $rss->addChild('generator','Bernie2016Events generator'); //add gen
                         "state" => $state,
                         "zipcode" => $zipcode,
                         "source"=> $source,
-                        "local_time" => isset($csv[2]) ? $csv[2] : "",
-                        "local_date"=> isset($csv[1]) ? $csv[1] : "" )
+                        "local_time" => isset($csv[2]) ? htmlentities($csv[2]) : "",
+                        "local_date"=> isset($csv[1]) ? htmlentities($csv[1]) : "" )
                   );
 
       $item = $channel->addChild('item'); //add item node
       $xml_title = $item->addChild('title', htmlentities($title)); //add title node under item
       $xml_link = $item->addChild('link', $link); //add link node under item
       $xml_guid = $item->addChild('guid', $link ); //add guid node under item
-      $xml_loc = $item->addChild('description', (isset($csv[1]) ? $csv[1] : "") . " " . (isset($csv[2]) ? $csv[2] : "") . " - " . $address);
+      $xml_loc = $item->addChild('description', (isset($csv[1]) ? htmlentities($csv[1]) : "") . " " . (isset($csv[2]) ? htmlentities($csv[2]) : "") . " - " . htmlentities($address));
       $xml_loc = $item->addChild('location');
-        $xml_loc->addChild('address', $address);
+        $xml_loc->addChild('address', htmlentities($address));
         $xml_loc->addChild('state', $state);
         $xml_loc->addChild('zipcode', $zipcode);
       $xml_sched = $item->addChild('local_time');
-        $xml_sched->addChild('date', isset($csv[1]) ? $csv[1] : "");
-        $xml_sched->addChild('time', isset($csv[2]) ? $csv[2] : "");
+        $xml_sched->addChild('date', isset($csv[1]) ? htmlentities($csv[1]) : "");
+        $xml_sched->addChild('time', isset($csv[2]) ? htmlentities($csv[2]) : "");
       $xml_guid->addAttribute('isPermaLink', 'true'); //add guid node attribute
 
       // $xml_attr = $item->addChild("
