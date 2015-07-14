@@ -1,7 +1,7 @@
 <?php
   $title = "July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events";
   $description = "On July 29th, Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.";
-  $og_img = "http://www.bernie2016events.org/img/social-july29.png";
+  $og_img = "http://www.bernie2016events.org/img/social-july29.jpg";
 
 ?>
 <?php require_once('./inc/_header.inc'); ?>
