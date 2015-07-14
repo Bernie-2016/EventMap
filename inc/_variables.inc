@@ -1,3 +1,3 @@
 <?php
-  $APPVERSION = '1.6';
+  $APPVERSION = '1.7';
 ?>
