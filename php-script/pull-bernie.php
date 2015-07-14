@@ -1,7 +1,7 @@
 <pre>
 <?php
 DEFINE('MEETUP_KEY', "f135658543aa2b7f6195b2bab26");
-DEFINE('MEETUP_URL_SIGNATURE', 'https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=1000&country=*');
+DEFINE('MEETUP_URL_SIGNATURE', 'https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=2000&country=*');
 
 $contents = file_get_contents(MEETUP_URL_SIGNATURE);
 
@@ -15,7 +15,7 @@ foreach ( $events->results as $item ):
   $name = $item->name;
 
   $timezone = new DateTimeZone("UTC");
-  $start_time = new DateTime($item->start_dt, new DateTimeZone($item->timezone));
+  @$start_time = new DateTime($item->start_dt);
   // $start_time->setTimezone($timezone);
   // $start_time->setTimestamp(((double) $item->time/1000)+(double) $item->utc_offset/1000);
 
