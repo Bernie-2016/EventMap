@@ -1,21 +1,79 @@
-<?php require_once('./inc/_header.inc'); ?>
+<?php require_once('../inc/_variables.inc'); ?>
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<meta name='google-site-verification' content='-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI' />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.">
+<meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern">
+<meta property="og:image" content="http://www.bernie2016events.org/img/bernie-logo.png"/>
+<meta property="og:title" content="Bernie 2016 - Events Around the States"/>
+<meta property="og:description" content="All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results."/>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
+<title>#Bernie2016 Events Around the States - All events related to Bernie Sanders. Townhall meetings, meetups, etc. Click on state to filter results.</title>
+<link rel="shortcut icon" href="http://www.bernie2016events.org/favicon.ico">
+</head>
+<body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1465128650469416',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<link href='../css/custom.css?v=<?php echo $APPVERSION; ?>' rel="stylesheet" type="text/css" />
+<style>
+  footer, #header { display: none; }
+  div#ad-push-banner { width: 45% !important  ; }
+  section {
+    width: 760px !important;
+  }
+  section#map-section div#map-event-list form#zip-and-distance ul#distance-list li label {
+    font-size: 0.7em !important;
+  }
+  section#map-section div#map-event-list form#zip-and-distance ul#distance-list li input[type=radio]:checked + label {
+    font-size: 0.9em !important;
+  }
+  #map-event-list .event-item-date { font-size: 0.9em !important; }
+  #map-event-list li.event-nationwide-item h3, #map-event-list li.event-list-item h3 { font-size: 1em !important; }
+  #map-event-list h5.event-location { font-size: 0.7em !important; }
+  section#map-section div#map-event-list #event-list-area .event-list-item > p { font-size: 0.7em !important; }
+  section#map-section div#map-event-list h2#event-results-count { font-size: 1.1em !important;}
+  section#map-section div#map-event-list form#zip-and-distance ul#distance-list li label { padding: 0 1px !important; }
+
+  section#map-section div#map-event-list form#zip-and-distance input[name=zipcode] { font-size: 1.2em !important; }
+
+   section#map-section, div#map { height: 560px !important; }
+</style>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
-<link href='./css/map.css?version=<?php echo $APPVERSION ?>' rel='stylesheet' />
+<link href='../css/map.css?version=<?php echo $APPVERSION ?>' rel='stylesheet' />
 <!-- <section>
   <h2 class='page-title'><span id='page-title-event-count'></span> 07/29: Growing our political revolution</h2>
   <h4 class='page-subtitle'>34 meetings with 23,059 RSVPs. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4 style='font-size: 0.8em'><strong><span id="meetup-counter"><img src='./img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings on July 29</strong> <span>&bull;</span> <strong style='font-size: 1.2em; color: #ea504e;'><span id='rsvp-counter'><img src='./img/icon/ajax-loader-red.gif'></span> RSVPs</strong> <span>&bull;</span> <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/s/organizing-meetings' target='_blank'>Host a Meeting</a>&nbsp;&nbsp;
-    <!-- <div id='social' style="padding-top: 4px;"> -->
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
+  <h4><strong><span id="meetup-counter"><img src='../img/icon/ajax-loader.gif'> Loading</span> Bernie Sanders Events &amp; Meetups.</strong> <span>Discover upcoming events or</span> <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;your&nbsp;group&apos;s&nbsp;meetup</a> <div id="social">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="Discover meetups and events about @BernieSanders near you #Bernie2016 #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  <div class="fb-share-button" data-href="http://www.bernie2016events.org/july29" data-layout="button_count"></div>
-  <!-- </div> -->
-</h4>
+  <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
+
+  </div></h4>
 </section>
 <section id='map-section' />
+  <?php require_once('../inc/_ad_push.inc'); ?>
   <div id='map'></div>
   <div id='map-event-list'>
       <form id='zip-and-distance' action="#">
@@ -39,14 +97,14 @@
       <div id='event-list-area'>
         <ul id='event-list'>
         </ul>
-        <p style='text-align: center; margin-top: 20px;'><img src='./img/list-end.png' width='100px'/></p>
+        <p style='text-align: center; margin-top: 20px;'><img src='../img/list-end.png' width='100px'/></p>
       </div>
   </div>
 </section>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-<script src="js/jquery.js"></script>
-<script src='./js/mapbox.js'></script>
+<script src="../js/jquery.js"></script>
+<script src='../js/mapbox.js'></script>
 <script type='text/javascript'>
 
 var $jq = jQuery;
@@ -60,11 +118,8 @@ $jq(window).on("resize", function() {
   var wH = $jq(window).height();
   var padding = 20;
 
-  // console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
-  $("#map-section, #map").height(wH - h - 25);
-  $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240 - 25);
-
-  // console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));
+  $("#map-section, #map").height(wH - h - 20);
+  $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240);
 
 });
 $jq(window).trigger("resize");
@@ -79,16 +134,14 @@ var WIDTH = $jq(window).width();
 
 var bernMap = bernMap || {};
 bernMap.constants = {};
-bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=1000&country=*";
+bernMap.constants.spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv";
 
-
-bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
+bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 3, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
 bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
 bernMap.d = {};
-bernMap.d.rsvp=0;
 bernMap.d.zipcodes = null;
 bernMap.d.allZipcodes = null;
 bernMap.d.meetupData = null;
@@ -150,7 +203,7 @@ bernMap.draw = function() {
 
       //Focus on map
       that.replot();
-      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], 12, { animate: true });
+      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], 11, { animate: true });
       var offset = bernMap.mapBox.getSize().x * 0.15;
       bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
     }
@@ -178,8 +231,8 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("r", bernMap.mapBox.getZoom() * 2)
-                              .attr("opacity", 0.4)
+                              .attr("r", bernMap.mapBox.getZoom() * 3)
+                              .attr("opacity", 0.35)
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
                                   d3.select(this).attr("cx", coordinates[0])
@@ -187,7 +240,6 @@ bernMap.draw = function() {
                                   ;
                               });
 
-    console.log(that.zipcodeElements);
     // that.zipcodeElements
           // .transition()
           // .duration(500)
@@ -355,9 +407,8 @@ bernMap.eventList = function(container) {
 
     var dateFormat = d3.time.format("%B %d");
     var liContent = ul.selectAll("li.event-list-item")
-                .data(finalCollatedList, function(d){ return d["id"] ;});
+                .data(finalCollatedList, function(d){ return d["ID#"] ;});
 
-    console.log(finalCollatedList);
     liContent.enter()
       .append("li")
         .attr("class", "event-list-item")
@@ -406,34 +457,13 @@ var qtree = null;
 var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
-d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl), function(data) {
-  console.log(data);
-  bernMap.d.meetupData = data.results;
-  bernMap.d.rawMeetupData = data.results;
+d3.csv("../csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl), function(data) {
+  bernMap.d.meetupData = data;
+  bernMap.d.rawMeetupData = data;
 
-  var timeFormat = d3.time.format("%h:%M %p");
-  var rawDateFormat = d3.time.format("%Y-%m-%d");
-  var rawTime = d3.time.format("%X")
+  var rawDateFormat = d3.time.format("%m/%d/%Y");
   $(bernMap.d.meetupData).each(function(i, item) {
-    // console.log(item);
-    item.Date = rawDateFormat.parse(item.start_day);
-    // console.log(item.Date);
-
-    var tempTime = rawTime.parse(item.start_time);
-    item.TimeStart = timeFormat(tempTime);
-    item.TimeEnd = "";
-    item.Link1 = "RSVP at BernieSanders.com," + item.url;
-    item.OrganizerWebsite = "http://www.berniesanders.com";
-    item.Organizer = "Official Bernie Sanders Campaign";
-    item.Title = item.name;
-    item.zip = item.venue_zip;
-    item.Zipcode = item.venue_zip;
-    item.Location = item.venue_name + " " + item.venue_addr1 + " " + item.venue_city + " " + item.venue_state_cd + " " + item.venue_zip;
-
-    item.AttendeeCount = item.attendee_count;
-
-    bernMap.d.rsvp += item.attendee_count;
-
+    item.Date = rawDateFormat.parse(item.Date);
   });
 
   var weekStart = rawDateFormat.parse("7/05/2015");
@@ -451,9 +481,7 @@ d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUr
     // return d.Date <= weekEnd && d.Date >= weekStart;
   });
 
-  var d3format = d3.format("0,000");
   $("#meetup-counter").text(bernMap.d.meetupData.length);
-  $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
 
   var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
@@ -476,7 +504,7 @@ d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUr
 
 
 function loadZipcodeData() {
-  d3.tsv('./d/zipcodes.tsv', function(data) {
+  d3.tsv('../d/zipcodes.tsv', function(data) {
     bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {
@@ -555,7 +583,6 @@ $jq(window).on("hashchange", function(){
     var parameters = bernie._deserialize(hash.substr(1));
 
 
-console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
     if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
       $jq("form input[name=distance]").removeAttr("checked");
       $jq("form input[name=distance][value=" + parameters.distance + "]").prop("checked", true);
@@ -578,4 +605,4 @@ console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance")
 
 
 </script>
-<?php require_once('./inc/_footer.inc'); ?>
+<?php require_once('../inc/_footer.inc'); ?>

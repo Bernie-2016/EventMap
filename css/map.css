@@ -27,7 +27,7 @@ section#map-section {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 33%;
+    width: 33% !important;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: 4px;
@@ -114,7 +114,7 @@ footer {
   background-color: whitesmoke; }
 
 /* For Phones! */
-@media only screen and (min-width: 320px) and (max-width: 950px) {
+@media only screen and (min-width: 320px) and (max-width: 720px) {
   #ad-push-banner {
     display: none; }
 
@@ -125,6 +125,7 @@ footer {
     section#map-section div#map {
       display: none; }
     section#map-section div#map-event-list {
+      width: 100% !important;
       position: relative;
       border: none;
       min-height: 0;

@@ -37,7 +37,7 @@ section#map-section {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 33%;
+    width: 33% !important;
     background-color: rgba(255,255,255,0.95);
     padding: 20px;
     border-radius: 4px;
@@ -157,7 +157,7 @@ footer {
 
 
 $phone-min-width: 320px;
-$phone-max-width: 950px;
+$phone-max-width: 720px;
 
 /* For Phones! */
 @media only screen
@@ -171,6 +171,7 @@ $phone-max-width: 950px;
     box-shadow: none !important;
     div#map { display: none; }
     div#map-event-list {
+      width: 100% !important;
       position: relative;
       border: none;
       min-height: 0;
