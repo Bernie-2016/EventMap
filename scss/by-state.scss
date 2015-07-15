@@ -1,0 +1,49 @@
+$phone-min-width: 320px;
+$phone-max-width: 900px;
+
+/* For Phones! */
+@media only screen
+  and (min-width: 720px)
+  and (max-width: 900px) {
+    nav {
+      ul {
+        li {
+          padding: 0 10px !important;
+          font-size: 11px !important;
+          .contribute-big { padding: 3px 5px !important; }
+        }
+      }
+    }
+
+  #ad-push-banner { display: none; }
+   section {
+    .page-subtitle a {
+      display: block !important;
+    }
+    div#map-container { float: none; }
+
+    // #event-state-name h2 { margin-top: 0; }
+    // padding: 0;
+    // #map-container {
+    //   width: 100% !important;
+    //   // margin: 2%;
+    //   float: none !important;
+    //   display: block;
+    //   padding: 0 !important;
+    //   margin: 0;
+
+
+    // }
+
+    // .state-label { font-size: 10px !important; }
+
+    #map-event-list {
+      float: none;
+      display: block;
+      width: 96% !important;
+      margin: 2%;
+      margin-top: 0;
+      float: none !important;
+    }
+  }
+}
