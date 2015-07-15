@@ -89,6 +89,7 @@ var offset = bernMap.mapBox.getSize().x * 0.15;
 bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
 bernMap.d = {};
+bernMap.d.zipcodeFormat = d3.format("05");
 bernMap.d.zipcodes = null;
 bernMap.d.allZipcodes = null;
 bernMap.d.meetupData = null;
@@ -128,7 +129,7 @@ bernMap.draw = function() {
     var that = this;
     var params = that._deserialize(hash);
 
-    var target = bernMap.d.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
+    var target = bernMap.d.allZipcodes.filter(function(d) { return bernMap.d.zipcodeFormat(d.zip) == params.zipcode; });
     // console.log(target);
     if (target.length == 0) {
       bernieEvents.setError("Zipcode does not exist.");
@@ -439,12 +440,12 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl
       today.setSeconds(0);
 
   bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
-
+    d.Zipcode = bernMap.d.zipcodeFormat(d.Zipcode);
     return d.Date >= today && d.zipcode != "DUPLICATE" && d.zipcode != "";
     // return d.Date <= weekEnd && d.Date >= weekStart;
   });
 
-  var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
+  var map = bernMap.d.meetupData.map(function(d) { return [bernMap.d.zipcodeFormat(d.Zipcode), d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
       function(init, next) {
         // console.log("X", init);
@@ -469,6 +470,10 @@ function loadZipcodeData() {
 
     d3.csv('./d/zipcode-final.csv', function(data) {
       bernMap.d.allZipcodes = data;
+
+      bernMap.d.allZipcodes.forEach(function(d) {
+        d.zip = bernMap.d.zipcodeFormat(d.zip);
+      });
 
       data = data.filter(function(d) {
         return bernMap.d.aggregatedRSVP[d.zip];
