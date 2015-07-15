@@ -3,17 +3,19 @@
   $description = "On July 29th, Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.";
   $og_img = "http://www.bernie2016events.org/img/social-july29.jpg";
 
+  $zipcode = isset($_GET['zipcode']) ? $_GET['zipcode'] : "" ;
+  $distance = isset($_GET['distance']) ? $_GET['distance'] : 5 ;
 ?>
-<?php require_once('./inc/_header.inc'); ?>
+<?php require_once(__DIR__ . '/inc/_header.inc'); ?>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
-<link href='./css/map.css?version=<?php echo $APPVERSION ?>' rel='stylesheet' />
+<link href='/css/map.css?version=<?php echo $APPVERSION ?>' rel='stylesheet' />
 <!-- <section>
   <h2 class='page-title'><span id='page-title-event-count'></span> 07/29: Growing our political revolution</h2>
   <h4 class='page-subtitle'>34 meetings with 23,059 RSVPs. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4 style='font-size: 0.8em'><strong><span id="meetup-counter"><img src='./img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings on July 29</strong> <span>&bull;</span> <strong style='font-size: 1.2em; color: #ea504e;'><span id='rsvp-counter'><img src='./img/icon/ajax-loader-red.gif'></span> RSVPs</strong> <span>&bull;</span> <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/s/organizing-meetings' target='_blank'>Host a Meeting</a>&nbsp;&nbsp;
+  <h4 style='font-size: 0.8em'><strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings</strong> <span>&bull;</span> <strong style='font-size: 1.2em; color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span id="capacity-counter"></span> </strong> <span>&bull;</span> <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a>&nbsp;&nbsp;
     <!-- <div id='social' style="padding-top: 4px;"> -->
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -27,16 +29,17 @@
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
         <div>
-          <input type='text' name='zipcode' id='input-text-zipcode' placeholder='Enter zipcode' maxlength='5'/>
+          <input type='text' name='zipcode' id='input-text-zipcode' value='<?php echo $zipcode ?>' placeholder='Enter zipcode' maxlength='5'/>
         </div>
         <div>
           <ul id='distance-list'>
-            <li><input type='radio' id='mile-5' name='distance' value='5' checked='checked'/> <label for='mile-5'>5mi</label></li>
-            <li><input type='radio' id='mile-10' name='distance' value='10'/><label for='mile-10'>10mi</label></li>
-            <li><input type='radio' id='mile-20' name='distance' value='20'/><label for='mile-20'>20mi</label></li>
-            <li><input type='radio' id='mile-50' name='distance' value='50'/><label for='mile-50'>50mi</label></li>
-            <li><input type='radio' id='mile-100' name='distance' value='100'/> <label for='mile-100'>100mi</label></li>
-            <li><input type='radio' id='mile-250' name='distance' value='250'/><label for='mile-250'>250mi</label></li>
+              <?php
+               echo implode("", array_map(function($d) use ($distance) {
+                  return "<li>
+                        <input type='radio' id='mile-{$d}' name='distance' value='{$d}' " .
+                        ($d == $distance ? "checked='checked'" : "") . "/> <label for='mile-{$d}'>{$d}mi</label></li>";
+                }, array(5, 10, 20, 50, 100, 250)));
+              ?>
           </ul>
 
         </div>
@@ -47,14 +50,14 @@
       <div id='event-list-area'>
         <ul id='event-list'>
         </ul>
-        <p style='text-align: center; margin-top: 20px;'><img src='./img/list-end.png' width='100px'/></p>
+        <p style='text-align: center; margin-top: 20px;'><img src='/img/list-end.png' width='100px'/></p>
       </div>
   </div>
 </section>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-<script src="js/jquery.js"></script>
-<script src='./js/mapbox.js'></script>
+<script src="/js/jquery.js"></script>
+<script src='/js/mapbox.js'></script>
 <script type='text/javascript'>
 
 var $jq = jQuery;
@@ -87,7 +90,7 @@ var WIDTH = $jq(window).width();
 
 var bernMap = bernMap || {};
 bernMap.constants = {};
-bernMap.constants.spreadsheetUrl = "./d/july29.json";
+bernMap.constants.spreadsheetUrl = "/d/july29.json";
 // bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=2000&country=*";
 
 
@@ -98,6 +101,7 @@ bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
 bernMap.d = {};
 bernMap.d.rsvp=0;
+bernMap.d.capacity = 0;
 bernMap.d.zipcodes = null;
 bernMap.d.allZipcodes = null;
 bernMap.d.meetupData = null;
@@ -187,7 +191,7 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("r", bernMap.mapBox.getZoom() * 2)
+                              .attr("r", bernMap.mapBox.getZoom() * 1.5)
                               .attr("opacity", 0.4)
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
@@ -246,7 +250,7 @@ bernMap.draw = function() {
                                   // console.log(coordinates);
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
-                                      .attr("r", bernMap.mapBox.getZoom() * 3)
+                                      .attr("r", bernMap.mapBox.getZoom()  * 1.5)
                                       .attr("opacity", 0.6)
                                   ;
                               });
@@ -424,7 +428,7 @@ var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
 // d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
-  d3.json("./d/july29.json",
+  d3.json("/d/july29.json",
   function(data) {
   // console.log(data);
   bernMap.d.meetupData = data.results;
@@ -451,7 +455,8 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
     item.AttendeeCount = item.attendee_count;
 
-    bernMap.d.rsvp += item.attendee_count;
+    bernMap.d.rsvp += parseInt(item.attendee_count);
+    bernMap.d.capacity += parseInt(item.capacity);
 
   });
 
@@ -493,9 +498,9 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
 
 function loadZipcodeData() {
-  // d3.tsv('./d/zipcodes.tsv', function(data) {
+  // d3.tsv('/d/zipcodes.tsv', function(data) {
   // d3.csv('./d/zipcode-lookup.csv', function(data) {
-  d3.csv('./d/zipcode-final.csv', function(data) {
+  d3.csv('/d/zipcode-final.csv', function(data) {
     bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {
@@ -520,8 +525,11 @@ function loadZipcodeData() {
       });
 
       var d3format = d3.format("0,000");
+      var percFormat = d3.format("0.2%");
+      var percFull = parseFloat(parseFloat(bernMap.d.rsvp) / parseFloat(bernMap.d.capacity));
       $("#meetup-counter").text(bernMap.d.meetupData.length);
       $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
+      // $("#capacity-counter").text("(" + percFormat(percFull) + " Full)");
 
       return data;
     }
@@ -598,7 +606,9 @@ $jq(window).on("hashchange", function(){
 
 });
 
-
+if ($jq("form input[name=zipcode]").val().length != 0 ) {
+  $jq("form#zip-and-distance").trigger("submit");
+}
 
 </script>
-<?php require_once('./inc/_footer.inc'); ?>
+<?php require_once(__DIR__ . '/inc/_footer.inc'); ?>
