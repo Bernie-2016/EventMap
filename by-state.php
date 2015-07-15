@@ -335,6 +335,7 @@ var bernie = bernie || {};
 
           // console.log(count);
           if (!count || count == 0) { return "lightgray"; }
+          else if (count > 20) { return "white"; }
           else {
             return "#333333";
           }
@@ -345,6 +346,12 @@ var bernie = bernie || {};
           if (!count || count == 0) { return ""; }
           else {
             return count;
+          }
+        }).style("fill", function(d) {
+          var count = eventCounts[d.abbr];
+          if (count > 20) { return "white"; }
+          else {
+            return "#333333";
           }
         });
       };

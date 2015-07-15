@@ -324,13 +324,18 @@ bernMap.eventList = function(container) {
     var that = this;
     var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
 
+    $("ul#event-list").children("li").remove();
     if (targetZipcode.length == 0 ) return ;
     var target = targetZipcode[0];
 
     $("h2#event-results-count").show();
     $("#event-counter").text("0 events");
     $("#event-distance").text(allowedDistance + "mi");
-    $("#event-city").text( target.primary_city + ", " + target.state);
+    if (target.primary_city != "" && target.state != "") {
+      $("#event-city").text( target.primary_city + ", " + target.state);
+    } else {
+      $("#event-city").text(target.zip);
+    }
 
     var targC = [parseFloat(target.lat), target.lon];
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
@@ -362,7 +367,6 @@ bernMap.eventList = function(container) {
     $("#event-counter").text(finalCollatedList.length + " " + (finalCollatedList.length == 1 ? "event" : "events") );
 
     //Render list
-    $("ul#event-list").children("li").remove();
     var ul = d3.select(that.containerLabel).select("ul#event-list");
 
 
@@ -490,7 +494,8 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
 function loadZipcodeData() {
   // d3.tsv('./d/zipcodes.tsv', function(data) {
-  d3.csv('./d/zipcode-lookup.csv', function(data) {
+  // d3.csv('./d/zipcode-lookup.csv', function(data) {
+  d3.csv('./d/zipcode-final.csv', function(data) {
     bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {
