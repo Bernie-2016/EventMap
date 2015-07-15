@@ -7,7 +7,7 @@
   <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
   </div>
   <sub style='color: #999999; text-align: center;' >
-    &reg; <a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Reddit for Bernie 2016</a>. This site is not affiliated with the Official Bernie Sanders 2016 Campaign. <a target='_blank' href='rapi@bernie2016events.org' target="_blank">Contact us</a></sub>
+    &reg; <a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Reddit for Bernie 2016</a>. This site is not affiliated with the Official Bernie Sanders 2016 Campaign. <a target='_blank' href='mailto:rapi@bernie2016events.org' target="_blank">Contact us</a></sub>
 </footer>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
