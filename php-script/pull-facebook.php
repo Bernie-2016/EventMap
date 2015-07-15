@@ -13,7 +13,7 @@ use Facebook\FacebookSDKException;
 $accessToken = "CAAU0htjC8CgBAKBTtYQe4hhiAYdku4o5RyTUL33PNZCiuOj0SZAIas36Y2v5lTjK422AJZCdstZAxnXYTGXv7eAemPLzIvk6Vgtse1GiAd8CH4ZBUTxRnuwVVhb47BlzBJAwqFOxqlfmo3bZAlZBTrWGDodevuEuRm1vBmfXj5QoZAXbZAuT8IQaW";
 $appId = '1465128650469416';
 $appSecret = 'a2bd57b2e122f8b8d24392e3003c9aff';
-$callbackURL = "http://www.bernie2016events-local.org:8082/bernie-events/php-script/pull-facebook.php";
+$callbackURL = "http://www.bernie2016events-local.org:8082/php-script/pull-facebook.php";
 
 FacebookSession::setDefaultApplication($appId, $appSecret);
 
