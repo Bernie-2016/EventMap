@@ -19,7 +19,7 @@ git push origin master
 echo "--------------------------------------------"
 echo "$DATE | Bernie 2016 Events Data Scraped. Pushing to Server"
 echo "--------------------------------------------"
-
+sleep 10
 cd $HEROKU_GIT_FOLDER
 sudo git pull origin master
 
