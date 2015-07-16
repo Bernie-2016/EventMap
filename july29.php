@@ -158,9 +158,9 @@ bernMap.draw = function() {
 
       //Plot zipcode center
       $("circle#center-item").remove();
-      console.log("Center", t);
+      // console.log("Center", t);
       var centerCoords = that._projectPoint(t.lon, t.lat);
-      console.log("CenterCoords", centerCoords)
+      // console.log("CenterCoords", centerCoords)
 
       that.centerItem = that.activityLayer.append("circle")
             .datum(t)
@@ -202,7 +202,7 @@ bernMap.draw = function() {
                                       bernMap.mapBox.getZoom(),
 
                                       bernMap.mapBox.getZoom()
-                                      + (bernMap.mapBox.getZoom()  * 4)]);
+                                      + (bernMap.mapBox.getZoom()  * 3)]);
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
@@ -254,7 +254,7 @@ bernMap.draw = function() {
                                       bernMap.mapBox.getZoom(),
 
                                       bernMap.mapBox.getZoom()
-                                      + (bernMap.mapBox.getZoom()  * 4)]);
+                                      + (bernMap.mapBox.getZoom()  * 3)]);
 
     if (that.centerItem) {
       that.centerItem.each(function(d) {
@@ -650,7 +650,7 @@ $jq(window).on("hashchange", function(){
       $jq("form input[name=zipcode]").val(parameters.zipcode);
     }
 
-    console.log(hash.substr(1));
+    // console.log(hash.substr(1));
     bernie.focusZipcode(hash.substr(1));
     bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
   } else {
