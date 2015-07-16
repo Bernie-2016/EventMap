@@ -15,6 +15,13 @@ section#main-title-area h4 {
 section#map-section {
   position: relative;
   min-height: 300px; }
+  section#map-section div#map-legend {
+    position: absolute;
+    z-index: 10000;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px; }
   section#map-section div#ad-push-banner {
     position: absolute;
     bottom: -5px;
@@ -107,7 +114,8 @@ section#map-section {
     position: absolute; }
     .leaflet-overlay-pane svg circle {
       cursor: pointer;
-      fill: #ea504e; }
+      fill: #ea504e;
+      stroke: #983130; }
       .leaflet-overlay-pane svg circle#center-item {
         fill: #147FD7; }
 

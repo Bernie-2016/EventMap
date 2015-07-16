@@ -1,6 +1,7 @@
 $blue: #147FD7;
 $red: #ea504e;
 
+
 section#main-title-area {
   h4 {
     padding: 10px;
@@ -21,6 +22,16 @@ section#main-title-area {
 section#map-section {
   position: relative;
   min-height: 300px;
+
+  div#map-legend {
+    position: absolute;
+    z-index: 10000;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(255,255,255,0.5);
+    padding: 5px;
+  }
 
   div#ad-push-banner {
     position: absolute;
@@ -150,6 +161,8 @@ section#map-section {
     circle {
       cursor: pointer;
       fill: $red;
+      // stroke-width: 0px;
+      stroke: #983130;
       &#center-item {
         fill: $blue;
       }

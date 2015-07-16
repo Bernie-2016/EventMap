@@ -24,6 +24,12 @@
 </h4>
 </section>
 <section id='map-section' />
+ <!-- <div id='map-legend'>
+    <svg width="100" height="100">
+      <circle id="percent-100" fill="#ea504e" opacity="0.4" r="50" cx="50" cy="50"></circle>
+      <text x="" y="10" style=" font-size: 10px; text-transform: uppercase; " text-anchor="center" width="100">100% Capacity</text>
+    </svg>
+  </div> -->
   <div id='map'></div>
   <div id='map-event-list'>
       <form id='zip-and-distance' action="#">
@@ -71,11 +77,11 @@ $jq(window).on("resize", function() {
   var wH = $jq(window).height();
   var padding = 20;
 
-  // console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height());
+
   $("#map-section, #map").height(wH - h - 25);
   $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240 - 25);
 
-  // console.log($jq("#header").height(), $jq("#main-title-area").height(), $jq(window).height(), $("#event-list-area").css("maxHeight"));
+
 
 });
 $jq(window).trigger("resize");
@@ -100,6 +106,8 @@ var offset = bernMap.mapBox.getSize().x * 0.15;
 bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
 bernMap.d = {};
+bernMap.scale = {};
+bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 50]);
 bernMap.d.rsvp=0;
 bernMap.d.capacity = 0;
 bernMap.d.zipcodes = null;
@@ -121,7 +129,7 @@ bernMap.draw = function() {
 
   this._projectPoint = function(x,y) {
     var point = bernMap.mapBox.latLngToLayerPoint(new L.LatLng(y, x));
-    // console.log(x,y);
+
     // var point = bernMap.mapBox.latLngToContainerPoint(new L.LatLng(y,x));
     // this.stream.point(point.x, point.y);
     return [point.x, point.y];
@@ -139,14 +147,14 @@ bernMap.draw = function() {
     var params = that._deserialize(hash);
 
     var target = bernMap.d.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
-    // console.log(target);
+
     if (target.length == 0) {
       bernieEvents.setError("Zipcode does not exist.");
     }
     else {
       var t = target[0];
 
-      // console.log("XXX", t);
+
 
       //Plot zipcode center
       $("circle#center-item").remove();
@@ -157,7 +165,7 @@ bernMap.draw = function() {
             .attr("id", "center-item")
             .attr("cx", centerCoords[0])
             .attr("cy", centerCoords[1])
-            .attr("r", bernMap.mapBox.getZoom() * 1 )
+            .attr("r", bernMap.mapBox.getZoom() * 0.4 )
             .attr("fill", "#147FD7")
             .attr("opacity", 0.9);
 
@@ -181,18 +189,27 @@ bernMap.draw = function() {
   //       that.filteredZipcode = that.filteredZipcode.filter(function(d) { return d.zip.indexOf(str) >= 0; });
   //     }
   //   }
-  //   console.log( that.filteredZipcode );
+
   // };
 
   this.plot = function () {
     var that = this;
     if (!bernMap.d.zipcodes) return;
 
+    bernMap.scale.radScale.range([parseFloat(bernMap.mapBox.getZoom()) * 0.6,
+                                      bernMap.mapBox.getZoom(),
+
+                                      bernMap.mapBox.getZoom()
+                                      + (bernMap.mapBox.getZoom()  * 4)]);
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("r", bernMap.mapBox.getZoom() * 1.5)
-                              .attr("opacity", 0.4)
+                              .attr("data-zip", function(d) { return d.properties.zip; })
+                              .attr("r", function(d) {
+                                  return bernMap.scale.radScale(d.properties.zip_rsvp);
+                              })
+                              .attr("stroke-width", 0)
+                              .attr("opacity", 0.5)
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
                                   d3.select(this).attr("cx", coordinates[0])
@@ -200,7 +217,8 @@ bernMap.draw = function() {
                                   ;
                               });
 
-    // console.log(that.zipcodeElements);
+
+
     // that.zipcodeElements
           // .transition()
           // .duration(500)
@@ -209,14 +227,14 @@ bernMap.draw = function() {
 
     //initialize event for zipcode
     that.zipcodeElements.on("click", function(d) {
-      // console.log(d.properties.zip);
+
       $("input[name=zipcode]").val(d.properties.zip);
       $jq("form#zip-and-distance").submit();
     });
 
     // var bounds = that.activityLayer[0][0].getBoundingClientRect();
     var bounds = that.activityLayer[0][0].getBBox();
-    // console.log(bounds);
+
     that.svg.attr("width", (bounds.width + 20) + "px")
       .attr("height", (bounds.height + 20) + "px")
       // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
@@ -230,15 +248,19 @@ bernMap.draw = function() {
     var that = this;
     if (!bernMap.d.zipcodes) return;
 
+     bernMap.scale.radScale.range([parseFloat(bernMap.mapBox.getZoom()) * 0.6,
+                                      bernMap.mapBox.getZoom(),
 
-    // console.log(that.centerItem);
+                                      bernMap.mapBox.getZoom()
+                                      + (bernMap.mapBox.getZoom()  * 4)]);
+
     if (that.centerItem) {
       that.centerItem.each(function(d) {
                       var coordinates = that._projectPoint(d.lon, d.lat)
-                        // console.log(coordinates);
+
                         d3.select(this).attr("cx", coordinates[0])
                             .attr("cy", coordinates[1])
-                            .attr("r", bernMap.mapBox.getZoom())
+                            .attr("r", bernMap.mapBox.getZoom() * 0.4)
                             .attr("opacity", 0.9)
                         ;
                     });
@@ -247,16 +269,20 @@ bernMap.draw = function() {
     that.zipcodeElements.each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
 
-                                  // console.log(coordinates);
+
+
+
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
-                                      .attr("r", bernMap.mapBox.getZoom()  * 1.5)
+                                      .attr("r", function (d) {
+                                          return bernMap.scale.radScale(d.properties.zip_rsvp);
+                                        })
                                       .attr("opacity", 0.6)
                                   ;
                               });
 
     var bounds = that.activityLayer[0][0].getBBox();
-    // console.log(bounds);
+
     that.svg.attr("width", (bounds.width + 0) + "px")
       .attr("height", (bounds.height + 0) + "px")
       // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
@@ -270,7 +296,7 @@ bernMap.draw = function() {
   var _that = this;
   this.initialize = function() {
 
-    // console.log(_that);
+
     bernMap.mapBox.on('zoomstart', function() {
       _that.activityLayer.style("display","none");
       // in_need_layer.style("visibility", "hidden");
@@ -378,9 +404,10 @@ bernMap.eventList = function(container) {
     var liContent = ul.selectAll("li.event-list-item")
                 .data(finalCollatedList, function(d){ return d["id"] ;});
 
-    // console.log(finalCollatedList);
+
     liContent.enter()
       .append("li")
+        .attr("data-zip", function(d) { return d.zip; })
         .attr("class", "event-list-item")
         .html(function(d) {
           var links = [];
@@ -393,7 +420,8 @@ bernMap.eventList = function(container) {
             }
           }
 
-          var linkText = links.map(function(d) { return "<a target='" + (d.link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + d.link + "' class='" + d.name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.name + "</a>"; });
+
+          var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.AttendeeCount + " RSVPs </a>"];
 
           return "<h5><span class='event-item-date'>"
             + d3.round(d.distance,1) + "MI"
@@ -407,17 +435,32 @@ bernMap.eventList = function(container) {
             + "<h5 class='event-location'>" + d.Location + "</h5>"
             + "<p>" + linkText.join(" &bull; ")+ "</p>"
               ;
+        });
+
+
+        liContent.on("mouseover", function() {
+          var zip = $(this).attr("data-zip");
+
+          // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 5);
+          $("circle[data-zip=" + zip + "]").attr("stroke-width", 5).prependTo(".leaflet-zoom-hide");
+
+          //
+
+
+        })
+        .on("mouseout", function() {
+          var zip = $(this).attr("data-zip");
+          d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 0);
         })
         ;
-
 //<li class='event-list-item'>
           //   <h5 class='event-basics'><span class='distance'>12MI</span>&nbsp;&bull;&nbsp;<span class="event-item-date">7:00 PM</span></h5>
           //   <h3><a target="_blank" href="http://www.facebook.com/1470121326632561"><span class="event-item-name">March for Bernie Sanders!  Everson-Nooksack parade and Bellingham Pride!</span></a></h3><h5>Bellingham High School 2020 Cornwall Ave Bellingham WA</h5>
           // </li>
 
-    liContent.exit().remove();
+    // liContent.exit().remove();
 
-    // console.log("NEW LIST", li);
+
 
   };
 };
@@ -430,17 +473,17 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 // d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
   d3.json("/d/july29.json",
   function(data) {
-  // console.log(data);
+
   bernMap.d.meetupData = data.results;
   bernMap.d.rawMeetupData = data.results;
 
-  var timeFormat = d3.time.format("%h:%M %p");
+  var timeFormat = d3.time.format("%I:%M %p");
   var rawDateFormat = d3.time.format("%Y-%m-%d");
   var rawTime = d3.time.format("%X")
   $(bernMap.d.meetupData).each(function(i, item) {
-    // console.log(item);
+
     item.Date = rawDateFormat.parse(item.start_day);
-    // console.log(item.Date);
+
 
     var tempTime = rawTime.parse(item.start_time);
     item.TimeStart = timeFormat(tempTime);
@@ -480,7 +523,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
       function(init, next) {
-        // console.log("X", init);
+
         if (init[next[0]]) {
           init[next[0]].push(next[1]);
         } else {
@@ -506,13 +549,23 @@ function loadZipcodeData() {
     data = data.filter(function(d) {
       return bernMap.d.aggregatedRSVP[d.zip];
     });
-    // console.log(data);
+
 
     function reformat(array) {
       var data = [];
       array.map(function(d,i) {
         //add rsvps
         d["rsvp"] = bernMap.d.aggregatedRSVP[d.zip];
+
+        var totalRsvp = 0;
+        var totalCapacity = 0;
+        bernMap.d.aggregatedRSVP[d.zip].forEach(function(dI) {
+          totalRsvp += parseInt(dI.attendee_count);
+          totalCapacity += parseInt(dI.capacity);
+        });
+        d["zip_rsvp"] = totalRsvp;
+        d["zip_capacity"] = totalCapacity;
+
         data.push({
           id : i,
           type : "Feature",
@@ -534,7 +587,7 @@ function loadZipcodeData() {
       return data;
     }
 
-    // console.log(data);
+
     bernMap.d.zipcodes = {type: "FeatureCollection", features: reformat(data) };
     bernie.plot();
 
@@ -563,7 +616,7 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 $jq("form#zip-and-distance").on("submit", function() {
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-    // console.log(window.location.hash,$(this).closest("form").serialize());
+
 
     if( window.location.hash == "#" + $(this).closest("form").serialize()) {
       $jq(window).trigger("hashchange");
@@ -586,7 +639,7 @@ $jq(window).on("hashchange", function(){
     var parameters = bernie._deserialize(hash.substr(1));
 
 
-// console.log("name", $jq("input[name=distance]:checked", "form#zip-and-distance").val(), parameters.distance );
+
     if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
       $jq("form input[name=distance]").removeAttr("checked");
       $jq("form input[name=distance][value=" + parameters.distance + "]").prop("checked", true);
