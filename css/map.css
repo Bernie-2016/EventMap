@@ -20,7 +20,7 @@ section#map-section {
     z-index: 10000;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #F5F5F5;
     padding: 5px; }
   section#map-section div#ad-push-banner {
     position: absolute;

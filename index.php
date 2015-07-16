@@ -148,7 +148,7 @@ bernMap.draw = function() {
             .attr("id", "center-item")
             .attr("cx", centerCoords[0])
             .attr("cy", centerCoords[1])
-            .attr("r", bernMap.mapBox.getZoom() * 1 )
+            .attr("r", bernMap.mapBox.getZoom() * 0.6 )
             .attr("fill", "#147FD7")
             .attr("opacity", 0.9);
 
@@ -182,8 +182,9 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("r", bernMap.mapBox.getZoom() * 2)
-                              .attr("opacity", 0.4)
+                              .attr("r", bernMap.mapBox.getZoom() * 1.5)
+                              .attr("opacity", 0.5)
+                              .attr("stroke-width", 0)
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
                                   d3.select(this).attr("cx", coordinates[0])
@@ -229,7 +230,7 @@ bernMap.draw = function() {
                         // console.log(coordinates);
                         d3.select(this).attr("cx", coordinates[0])
                             .attr("cy", coordinates[1])
-                            .attr("r", bernMap.mapBox.getZoom())
+                            .attr("r", bernMap.mapBox.getZoom() * 0.6)
                             .attr("opacity", 0.9)
                         ;
                     });
@@ -241,7 +242,7 @@ bernMap.draw = function() {
                                   // console.log(coordinates);
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
-                                      .attr("r", bernMap.mapBox.getZoom() * 3)
+                                      .attr("r", bernMap.mapBox.getZoom() * 1.5)
                                       .attr("opacity", 0.6)
                                   ;
                               });
