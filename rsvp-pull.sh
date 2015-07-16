@@ -21,12 +21,22 @@ echo "$DATE | Bernie 2016 Events Data Scraped. Pushing to Server"
 echo "--------------------------------------------"
 
 cd $HEROKU_GIT_FOLDER
-git pull origin master
+sudo git pull origin master
+
+
+echo "--------------------------------------------"
+echo "$DATE | Pulled latest Deploying"
+echo "--------------------------------------------"
 
 cd $HEROKU_FOLDER
-git add web/d/july29.json
-git commit -m "Update july 29 data"
-git push heroku master
+sudo git add web/d/july29.json
+sudo git commit -m "Update july 29 data"
+
+echo "--------------------------------------------"
+echo "$DATE | Committed code "
+echo "--------------------------------------------"
+
+sudo git push heroku master
 
 echo "--------------------------------------------"
 echo "$DATE | Bernie 2016 Events Data Pull - END"

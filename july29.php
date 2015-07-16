@@ -158,7 +158,9 @@ bernMap.draw = function() {
 
       //Plot zipcode center
       $("circle#center-item").remove();
+      console.log("Center", t);
       var centerCoords = that._projectPoint(t.lon, t.lat);
+      console.log("CenterCoords", centerCoords)
 
       that.centerItem = that.activityLayer.append("circle")
             .datum(t)
@@ -519,7 +521,6 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   });
 
 
-
   var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
   bernMap.d.aggregatedRSVP = map.reduce(
       function(init, next) {
@@ -649,6 +650,7 @@ $jq(window).on("hashchange", function(){
       $jq("form input[name=zipcode]").val(parameters.zipcode);
     }
 
+    console.log(hash.substr(1));
     bernie.focusZipcode(hash.substr(1));
     bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
   } else {

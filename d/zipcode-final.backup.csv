@@ -66,7 +66,7 @@ zip,primary_city,state,lon,lat
 00723,Patillas,PR,-66.011,18.01
 00725,Caguas,PR,-66.058,18.213
 00726,Caguas,PR,-66.058,18.213
-00727,Caguas,PR,-66.03,18.23
+00727,Caguas,PR,18.23,-66.03
 00728,Ponce,PR,-66.607,18.002
 00729,Canovanas,PR,-65.884,18.333
 00730,Ponce,PR,-66.607,18.002
@@ -284,7 +284,7 @@ zip,primary_city,state,lon,lat
 01144,Springfield,MA,-72.592,42.102
 01151,Indian Orchard,MA,-72.513,42.151
 01152,Springfield,MA,-72.605,42.171
-01195,Springfield,MA,-72.58,42.1
+01195,Springfield,MA,42.1,-72.58
 01199,Springfield,MA,-72.605,42.12
 01201,Pittsfield,MA,-73.248,42.479
 01202,Pittsfield,MA,-73.228,42.393
@@ -358,7 +358,7 @@ zip,primary_city,state,lon,lat
 01430,Ashburnham,MA,-71.921,42.655
 01431,Ashby,MA,-71.459,42.446
 01432,Ayer,MA,-71.459,42.446
-01434,Devens,MA,-71.61,42.53
+01434,Devens,MA,42.53,-71.61
 01436,Baldwinville,MA,-72.084,42.601
 01438,East Templeton,MA,-72.029,42.552
 01440,Gardner,MA,-72.026,42.583
@@ -685,7 +685,7 @@ zip,primary_city,state,lon,lat
 02216,Boston,MA,-70.92,42.339
 02217,Boston,MA,-70.92,42.339
 02222,Boston,MA,-71.063,42.364
-02228,East Boston,MA,-71.06,42.35
+02228,East Boston,MA,42.35,-71.06
 02238,Cambridge,MA,-71.459,42.446
 02239,Cambridge,MA,-71.459,42.446
 02241,Boston,MA,-70.92,42.339
@@ -696,7 +696,7 @@ zip,primary_city,state,lon,lat
 02293,Boston,MA,-70.92,42.339
 02295,Boston,MA,-70.92,42.339
 02297,Boston,MA,-70.92,42.339
-02298,Boston,MA,-71.05,42.34
+02298,Boston,MA,42.34,-71.05
 02301,Brockton,MA,-71.04,42.079
 02302,Brockton,MA,-71,42.085
 02303,Brockton,MA,-70.701,41.97
@@ -714,7 +714,7 @@ zip,primary_city,state,lon,lat
 02337,Elmwood,MA,-70.932,42.022
 02338,Halifax,MA,-70.861,41.988
 02339,Hanover,MA,-70.851,42.124
-02340,Hanover,MA,-70.81,42.11
+02340,Hanover,MA,42.11,-70.81
 02341,Hanson,MA,-70.876,42.056
 02343,Holbrook,MA,-71.003,42.144
 02344,Middleboro,MA,-70.701,41.97
@@ -751,7 +751,7 @@ zip,primary_city,state,lon,lat
 02452,Waltham,MA,-71.218,42.394
 02453,Waltham,MA,-71.232,42.365
 02454,Waltham,MA,-71.25,42.357
-02455,North Waltham,MA,-71.22,42.39
+02455,North Waltham,MA,42.39,-71.22
 02456,New Town,MA,-71.459,42.446
 02457,Babson Park,MA,-71.089,42.18
 02458,Newton,MA,-71.208,42.385
@@ -997,7 +997,7 @@ zip,primary_city,state,lon,lat
 03043,Francestown,NH,-71.817,42.916
 03044,Fremont,NH,-71.127,42.992
 03045,Goffstown,NH,-71.688,42.947
-03046,Dunbarton,NH,-71.59,43.1
+03046,Dunbarton,NH,43.1,-71.59
 03047,Greenfield,NH,-71.859,42.929
 03048,Greenville,NH,-71.718,42.875
 03049,Hollis,NH,-71.581,42.86
@@ -1061,7 +1061,7 @@ zip,primary_city,state,lon,lat
 03245,Holderness,NH,-71.604,43.738
 03246,Laconia,NH,-71.427,43.535
 03247,Laconia,NH,-71.445,43.589
-03249,Gilford,NH,-71.38,43.53
+03249,Gilford,NH,43.53,-71.38
 03251,Lincoln,NH,-71.654,44.049
 03252,Lochmere,NH,-71.537,43.469
 03253,Meredith,NH,-71.517,43.592
@@ -1069,7 +1069,7 @@ zip,primary_city,state,lon,lat
 03255,Newbury,NH,-72.012,43.322
 03256,New Hampton,NH,-71.635,43.603
 03257,New London,NH,-71.734,43.302
-03258,Chichester,NH,-71.39,43.25
+03258,Chichester,NH,43.25,-71.39
 03259,North Sandwich,NH,-71.377,43.86
 03260,North Sutton,NH,-71.934,43.365
 03261,Northwood,NH,-71.203,43.209
@@ -1090,7 +1090,7 @@ zip,primary_city,state,lon,lat
 03281,Weare,NH,-71.763,43.084
 03282,Wentworth,NH,-71.841,43.968
 03284,Springfield,NH,-72.047,43.494
-03285,Thornton,NH,-71.62,43.93
+03285,Thornton,NH,43.93,-71.62
 03287,Wilmot,NH,-71.916,43.449
 03289,Winnisquam,NH,-71.52,43.496
 03290,Nottingham,NH,-71.126,43.125
@@ -1144,12 +1144,12 @@ zip,primary_city,state,lon,lat
 03583,Jefferson,NH,-71.387,44.696
 03584,Lancaster,NH,-71.561,44.477
 03585,Lisbon,NH,-71.889,44.245
-03586,Sugar Hill,NH,-71.78,44.23
+03586,Sugar Hill,NH,44.23,-71.78
 03588,Milan,NH,-71.219,44.565
 03589,Mount Washington,NH,-71.387,44.696
 03590,North Stratford,NH,-71.387,44.696
 03592,Pittsburg,NH,-71.387,44.696
-03593,Randolph,NH,-71.25,44.37
+03593,Randolph,NH,44.37,-71.25
 03595,Twin Mountain,NH,-71.547,44.269
 03597,West Stewartstown,NH,-71.387,44.696
 03598,Whitefield,NH,-71.61,44.364
@@ -1209,7 +1209,7 @@ zip,primary_city,state,lon,lat
 03820,Dover,NH,-70.992,43.297
 03821,Dover,NH,-71.028,43.327
 03822,Dover,NH,-71.028,43.327
-03823,Madbury,NH,-70.93,43.17
+03823,Madbury,NH,43.17,-70.93
 03824,Durham,NH,-70.963,43.166
 03825,Barrington,NH,-71.097,43.298
 03826,East Hampstead,NH,-71.143,42.894
@@ -1243,7 +1243,7 @@ zip,primary_city,state,lon,lat
 03858,Newton,NH,-71.007,42.937
 03859,Newton Junction,NH,-71.04,42.862
 03860,North Conway,NH,-71.103,43.785
-03861,Lee,NH,-71.01,43.1
+03861,Lee,NH,43.1,-71.01
 03862,North Hampton,NH,-70.914,43
 03864,Ossipee,NH,-71.153,43.667
 03865,Plaistow,NH,-70.926,42.938
@@ -1871,7 +1871,7 @@ zip,primary_city,state,lon,lat
 05405,Burlington,VT,-73.083,44.442
 05406,Burlington,VT,-73.083,44.442
 05407,South Burlington,VT,-73.083,44.442
-05408,Burlington,VT,-73.27,44.48
+05408,Burlington,VT,44.48,-73.27
 05439,Colchester,VT,-73.165,44.495
 05440,Alburgh,VT,-73.289,44.936
 05441,Bakersfield,VT,-72.922,44.837
@@ -2096,7 +2096,7 @@ zip,primary_city,state,lon,lat
 06039,Lakeville,CT,-73.381,41.952
 06040,Manchester,CT,-72.524,41.776
 06041,Manchester,CT,-72.565,41.795
-06042,Manchester,CT,-72.53,41.79
+06042,Manchester,CT,41.79,-72.53
 06043,Bolton,CT,-72.439,41.769
 06045,Manchester,CT,-72.719,41.792
 06050,New Britain,CT,-72.778,41.666
@@ -2243,7 +2243,7 @@ zip,primary_city,state,lon,lat
 06334,Bozrah,CT,-72.177,41.545
 06335,Gales Ferry,CT,-72.021,41.523
 06336,Gilman,CT,-72.196,41.58
-06338,Mashantucket,CT,-72.09,41.35
+06338,Mashantucket,CT,41.35,-72.09
 06339,Ledyard,CT,-71.966,41.493
 06340,Groton,CT,-72.038,41.355
 06349,Groton,CT,-72.09,41.4
@@ -2314,7 +2314,7 @@ zip,primary_city,state,lon,lat
 06457,Middletown,CT,-72.655,41.55
 06459,Middletown,CT,-72.658,41.556
 06460,Milford,CT,-72.951,41.344
-06461,Milford,CT,-73.08,41.23
+06461,Milford,CT,41.23,-73.08
 06467,Milldale,CT,-72.904,41.566
 06468,Monroe,CT,-73.237,41.342
 06469,Moodus,CT,-72.44,41.509
@@ -2339,7 +2339,7 @@ zip,primary_city,state,lon,lat
 06492,Wallingford,CT,-72.811,41.456
 06493,Wallingford,CT,-72.928,41.366
 06494,Wallingford,CT,-72.928,41.366
-06495,Wallingford,CT,-72.8,41.46
+06495,Wallingford,CT,41.46,-72.8
 06497,Stratford,CT,-73.131,41.207
 06498,Westbrook,CT,-72.463,41.308
 06501,New Haven,CT,-72.928,41.366
@@ -2434,7 +2434,7 @@ zip,primary_city,state,lon,lat
 06787,Thomaston,CT,-73.099,41.659
 06790,Torrington,CT,-73.127,41.875
 06791,Harwinton,CT,-73.176,41.65
-06792,Torrington,CT,-73.06,41.77
+06792,Torrington,CT,41.77,-73.06
 06793,Washington,CT,-73.294,41.718
 06794,Washington Depot,CT,-73.317,41.646
 06795,Watertown,CT,-73.162,41.759
@@ -2451,15 +2451,15 @@ zip,primary_city,state,lon,lat
 06816,Danbury,CT,-73.364,41.309
 06817,Danbury,CT,-73.364,41.309
 06820,Darien,CT,-73.481,41.076
-06824,Fairfield,CT,-73.28,41.13
-06825,Fairfield,CT,-73.28,41.13
-06828,Fairfield,CT,-73.28,41.13
+06824,Fairfield,CT,41.13,-73.28
+06825,Fairfield,CT,41.13,-73.28
+06828,Fairfield,CT,41.13,-73.28
 06829,Georgetown,CT,-73.428,41.256
 06830,Greenwich,CT,-73.626,41.043
 06831,Greenwich,CT,-73.654,41.08
 06832,Greenwich,CT,-73.364,41.309
 06836,Greenwich,CT,-73.364,41.309
-06838,Greens Farms,CT,-73.31,41.12
+06838,Greens Farms,CT,41.12,-73.31
 06840,New Canaan,CT,-73.501,41.162
 06842,New Canaan,CT,-73.495,41.147
 06850,Norwalk,CT,-73.442,41.126
@@ -2484,7 +2484,7 @@ zip,primary_city,state,lon,lat
 06883,Weston,CT,-73.376,41.223
 06888,Westport,CT,-73.364,41.309
 06889,Westport,CT,-73.347,41.141
-06890,Southport,CT,-73.28,41.14
+06890,Southport,CT,41.14,-73.28
 06896,Redding,CT,-73.386,41.271
 06897,Wilton,CT,-73.439,41.21
 06901,Stamford,CT,-73.536,41.054
@@ -2567,7 +2567,7 @@ zip,primary_city,state,lon,lat
 07066,Clark,NJ,-74.311,40.623
 07067,Colonia,NJ,-74.315,40.591
 07068,Roseland,NJ,-74.306,40.82
-07069,Watchung,NJ,-74.44,40.64
+07069,Watchung,NJ,40.64,-74.44
 07070,Rutherford,NJ,-74.11,40.827
 07071,Lyndhurst,NJ,-74.117,40.8
 07072,Carlstadt,NJ,-74.076,40.828
@@ -2582,7 +2582,7 @@ zip,primary_city,state,lon,lat
 07081,Springfield,NJ,-74.316,40.701
 07082,Towaco,NJ,-74.348,40.928
 07083,Union,NJ,-74.27,40.693
-07086,Weehawken,NJ,-74.01,40.76
+07086,Weehawken,NJ,40.76,-74.01
 07087,Union City,NJ,-74.056,40.759
 07088,Vauxhall,NJ,-74.284,40.718
 07090,Westfield,NJ,-74.347,40.653
@@ -2637,7 +2637,7 @@ zip,primary_city,state,lon,lat
 07309,Jersey City,NJ,-74.075,40.733
 07310,Jersey City,NJ,-74.037,40.733
 07311,Jersey City,NJ,-74.075,40.732
-07395,Jersey City,NJ,-74.08,40.72
+07395,Jersey City,NJ,40.72,-74.08
 07399,Jersey City,NJ,-74.075,40.732
 07401,Allendale,NJ,-74.063,41.017
 07403,Bloomingdale,NJ,-74.334,41.023
@@ -2740,9 +2740,9 @@ zip,primary_city,state,lon,lat
 07666,Teaneck,NJ,-73.986,40.915
 07670,Tenafly,NJ,-73.96,40.919
 07675,Westwood,NJ,-74.021,41.011
-07676,Township Of Washington,NJ,-74.06,40.98
-07677,Woodcliff Lake,NJ,-74.05,41.02
-07699,Teterboro,NJ,-74.06,40.85
+07676,Township Of Washington,NJ,40.98,-74.06
+07677,Woodcliff Lake,NJ,41.02,-74.05
+07699,Teterboro,NJ,40.85,-74.06
 07701,Red Bank,NJ,-74.068,40.358
 07702,Shrewsbury,NJ,-74.108,40.325
 07703,Fort Monmouth,NJ,-74.042,40.315
@@ -2989,7 +2989,7 @@ zip,primary_city,state,lon,lat
 08202,Avalon,NJ,-74.731,39.112
 08203,Brigantine,NJ,-74.494,39.37
 08204,Cape May,NJ,-74.768,39.11
-08205,Absecon,NJ,-74.47,39.48
+08205,Absecon,NJ,39.48,-74.47
 08210,Cape May Court House,NJ,-74.781,39.138
 08212,Cape May Point,NJ,-74.965,38.937
 08213,Cologne,NJ,-74.609,39.509
@@ -3192,7 +3192,7 @@ zip,primary_city,state,lon,lat
 08836,Martinsville,NJ,-74.554,40.604
 08837,Edison,NJ,-74.35,40.527
 08840,Metuchen,NJ,-74.452,40.472
-08844,Hillsborough,NJ,-74.62,40.47
+08844,Hillsborough,NJ,40.47,-74.62
 08846,Middlesex,NJ,-74.499,40.575
 08848,Milford,NJ,-74.971,40.665
 08850,Milltown,NJ,-74.444,40.448
@@ -3287,10 +3287,10 @@ zip,primary_city,state,lon,lat
 10048,New York,NY,-74.013,40.713
 10055,New York,NY,-73.977,40.781
 10060,New York,NY,-73.977,40.781
-10065,New York,NY,-73.96,40.76
+10065,New York,NY,40.76,-73.96
 10069,New York,NY,-73.988,40.778
 10072,New York,NY,-73.977,40.781
-10075,New York,NY,-73.95,40.77
+10075,New York,NY,40.77,-73.95
 10079,New York,NY,-73.977,40.781
 10080,New York,NY,-73.977,40.781
 10081,New York,NY,-73.977,40.781
@@ -3371,7 +3371,7 @@ zip,primary_city,state,lon,lat
 10196,New York,NY,-73.977,40.781
 10197,New York,NY,-73.977,40.781
 10199,New York,NY,-74.001,40.75
-10200,New York,NY,-73.95,40.77
+10200,New York,NY,40.77,-73.95
 10203,New York,NY,-73.977,40.781
 10211,New York,NY,-73.977,40.781
 10212,New York,NY,-73.977,40.781
@@ -3563,7 +3563,7 @@ zip,primary_city,state,lon,lat
 10940,Middletown,NY,-74.34,41.39
 10941,Middletown,NY,-74.354,41.371
 10943,Middletown,NY,-74.355,41.388
-10949,Monroe,NY,-74.19,41.33
+10949,Monroe,NY,41.33,-74.19
 10950,Monroe,NY,-74.317,41.343
 10952,Monsey,NY,-74.085,41.119
 10953,Mountainville,NY,-74.083,41.409
@@ -4650,7 +4650,7 @@ zip,primary_city,state,lon,lat
 13221,Syracuse,NY,-76.198,43.021
 13224,Syracuse,NY,-76.099,43.038
 13225,Syracuse,NY,-76.198,43.021
-13235,Syracuse,NY,-76.13,43.04
+13235,Syracuse,NY,43.04,-76.13
 13244,Syracuse,NY,-76.14,43.038
 13250,Syracuse,NY,-76.198,43.021
 13251,Syracuse,NY,-76.198,43.021
@@ -5613,7 +5613,7 @@ zip,primary_city,state,lon,lat
 15268,Pittsburgh,PA,-80.025,40.434
 15270,Pittsburgh,PA,-80.025,40.434
 15272,Pittsburgh,PA,-80.025,40.434
-15273,Pittsburgh,PA,-79.9,40.37
+15273,Pittsburgh,PA,40.37,-79.9
 15274,Pittsburgh,PA,-80.025,40.434
 15275,Pittsburgh,PA,-80.179,40.45
 15276,Pittsburgh,PA,-80.025,40.434
@@ -5625,10 +5625,10 @@ zip,primary_city,state,lon,lat
 15283,Pittsburgh,PA,-80.025,40.434
 15285,Pittsburgh,PA,-80.025,40.434
 15286,Pittsburgh,PA,-80.025,40.434
-15288,Pittsburgh,PA,-79.94,40.44
-15289,Pittsburgh,PA,-79.94,40.44
+15288,Pittsburgh,PA,40.44,-79.94
+15289,Pittsburgh,PA,40.44,-79.94
 15290,Pittsburgh,PA,-80.025,40.434
-15295,Pittsburgh,PA,-79.88,40.43
+15295,Pittsburgh,PA,40.43,-79.88
 15301,Washington,PA,-80.147,40.135
 15310,Aleppo,PA,-80.211,39.871
 15311,Amity,PA,-80.168,40.05
@@ -6467,7 +6467,7 @@ zip,primary_city,state,lon,lat
 17012,Camp Hill,PA,-77.243,40.137
 17013,Carlisle,PA,-77.229,40.168
 17014,Cocolamus,PA,-77.346,40.479
-17015,Carlisle,PA,-77.26,40.15
+17015,Carlisle,PA,40.15,-77.26
 17016,Cornwall,PA,-76.405,40.276
 17017,Dalmatia,PA,-76.596,40.894
 17018,Dauphin,PA,-76.896,40.362
@@ -6501,7 +6501,7 @@ zip,primary_city,state,lon,lat
 17047,Loysville,PA,-77.293,40.407
 17048,Lykens,PA,-76.79,40.559
 17049,Mc Alisterville,PA,-77.306,40.652
-17050,Mechanicsburg,PA,-77.02,40.24
+17050,Mechanicsburg,PA,40.24,-77.02
 17051,Mc Veytown,PA,-77.735,40.478
 17052,Mapleton Depot,PA,-77.967,40.403
 17053,Marysville,PA,-77.026,40.325
@@ -6574,7 +6574,7 @@ zip,primary_city,state,lon,lat
 17140,Harrisburg,PA,-76.846,40.309
 17177,Harrisburg,PA,-76.847,40.299
 17201,Chambersburg,PA,-77.666,39.908
-17202,Chambersburg,PA,-77.71,39.92
+17202,Chambersburg,PA,39.92,-77.71
 17210,Amberson,PA,-77.661,40.172
 17211,Artemas,PA,-78.406,39.755
 17212,Big Cove Tannery,PA,-78.122,39.944
@@ -6655,8 +6655,8 @@ zip,primary_city,state,lon,lat
 17331,Hanover,PA,-76.673,39.936
 17332,Hanover,PA,-76.735,39.775
 17333,Hanover,PA,-76.688,39.973
-17334,Hanover,PA,-76.98,39.8
-17335,Hanover,PA,-76.98,39.8
+17334,Hanover,PA,39.8,-76.98
+17335,Hanover,PA,39.8,-76.98
 17337,Idaville,PA,-77.2,40.016
 17339,Lewisberry,PA,-76.889,39.995
 17340,Littlestown,PA,-77.095,39.83
@@ -6692,7 +6692,7 @@ zip,primary_city,state,lon,lat
 17405,York,PA,-76.597,40.009
 17406,York,PA,-76.595,40.005
 17407,York,PA,-76.663,39.898
-17408,York,PA,-76.81,39.95
+17408,York,PA,39.95,-76.81
 17415,York,PA,-76.688,39.973
 17501,Akron,PA,-76.361,40.13
 17502,Bainbridge,PA,-76.462,40.088
@@ -6762,8 +6762,8 @@ zip,primary_city,state,lon,lat
 17606,Lancaster,PA,-76.305,40.11
 17607,Lancaster,PA,-76.298,40.019
 17608,Lancaster,PA,-76.298,40.019
-17611,Lancaster,PA,-76.37,40.01
-17622,Lancaster,PA,-76.31,40.04
+17611,Lancaster,PA,40.01,-76.37
+17622,Lancaster,PA,40.04,-76.31
 17699,Lancaster,PA,-76.298,40.019
 17701,Williamsport,PA,-76.958,41.267
 17702,Williamsport,PA,-77.055,41.194
@@ -7001,7 +7001,7 @@ zip,primary_city,state,lon,lat
 18175,Allentown,PA,-75.621,40.586
 18195,Allentown,PA,-75.58,40.58
 18201,Hazleton,PA,-76.008,40.965
-18202,Hazleton,PA,-76,40.96
+18202,Hazleton,PA,40.96,-76
 18210,Albrightsville,PA,-75.561,41.013
 18211,Andreas,PA,-75.832,40.745
 18212,Ashfield,PA,-75.708,40.784
@@ -7039,7 +7039,7 @@ zip,primary_city,state,lon,lat
 18255,Weatherly,PA,-75.779,40.911
 18256,Weston,PA,-76.145,40.945
 18301,East Stroudsburg,PA,-75.2,41.09
-18302,East Stroudsburg,PA,-75.18,41.02
+18302,East Stroudsburg,PA,41.02,-75.18
 18320,Analomink,PA,-75.236,41.071
 18321,Bartonsville,PA,-75.32,41.08
 18322,Brodheadsville,PA,-75.332,41.055
@@ -7251,7 +7251,7 @@ zip,primary_city,state,lon,lat
 18853,Wyalusing,PA,-76.265,41.669
 18854,Wysox,PA,-76.521,41.772
 18901,Doylestown,PA,-75.119,40.335
-18902,Doylestown,PA,-75.09,40.36
+18902,Doylestown,PA,40.36,-75.09
 18910,Bedminster,PA,-75.103,40.329
 18911,Blooming Glen,PA,-75.103,40.329
 18912,Buckingham,PA,-75.074,40.31
@@ -7363,7 +7363,7 @@ zip,primary_city,state,lon,lat
 19056,Levittown,PA,-74.88,40.148
 19057,Levittown,PA,-74.846,40.143
 19058,Levittown,PA,-75.103,40.329
-19060,Garnet Valley,PA,-75.49,39.84
+19060,Garnet Valley,PA,39.84,-75.49
 19061,Marcus Hook,PA,-75.418,39.851
 19063,Media,PA,-75.399,39.919
 19064,Springfield,PA,-75.342,39.932
@@ -7458,7 +7458,7 @@ zip,primary_city,state,lon,lat
 19172,Philadelphia,PA,-75.15,39.947
 19173,Philadelphia,PA,-75.118,40.002
 19175,Philadelphia,PA,-75.13,39.991
-19176,Philadelphia,PA,-75.23,39.9
+19176,Philadelphia,PA,39.9,-75.23
 19177,Philadelphia,PA,-75.118,40.002
 19178,Philadelphia,PA,-75.118,40.002
 19179,Philadelphia,PA,-75.118,40.002
@@ -7469,12 +7469,12 @@ zip,primary_city,state,lon,lat
 19185,Philadelphia,PA,-75.118,40.002
 19187,Philadelphia,PA,-75.118,40.002
 19188,Philadelphia,PA,-75.118,40.002
-19190,Philadelphia,PA,-75.16,39.95
+19190,Philadelphia,PA,39.95,-75.16
 19191,Philadelphia,PA,-75.118,40.002
 19192,Philadelphia,PA,-75.168,39.951
 19193,Philadelphia,PA,-75.118,40.002
 19194,Philadelphia,PA,-75.118,40.002
-19195,Philadelphia,PA,-75.16,39.95
+19195,Philadelphia,PA,39.95,-75.16
 19196,Philadelphia,PA,-75.118,40.002
 19197,Philadelphia,PA,-75.118,40.002
 19244,Philadelphia,PA,-75.118,40.002
@@ -7527,7 +7527,7 @@ zip,primary_city,state,lon,lat
 19381,West Chester,PA,-75.748,39.983
 19382,West Chester,PA,-75.63,39.912
 19383,West Chester,PA,-75.602,39.945
-19388,West Chester,PA,-75.61,39.96
+19388,West Chester,PA,39.96,-75.61
 19390,West Grove,PA,-75.848,39.841
 19395,Westtown,PA,-75.545,39.933
 19397,Southeastern,PA,-75.748,39.983
@@ -7541,7 +7541,7 @@ zip,primary_city,state,lon,lat
 19407,Audubon,PA,-75.356,40.212
 19408,Eagleville,PA,-75.413,40.157
 19409,Fairview Village,PA,-75.356,40.212
-19415,Eagleville,PA,-75.34,40.12
+19415,Eagleville,PA,40.12,-75.34
 19420,Arcola,PA,-75.457,40.153
 19421,Birchrunville,PA,-75.748,39.983
 19422,Blue Bell,PA,-75.28,40.158
@@ -7715,7 +7715,7 @@ zip,primary_city,state,lon,lat
 19903,Dover,DE,-75.448,39.109
 19904,Dover,DE,-75.597,39.161
 19905,Dover,DE,-75.448,39.109
-19906,Dover,DE,-75.54,39.15
+19906,Dover,DE,39.15,-75.54
 19930,Bethany Beach,DE,-75.187,38.556
 19931,Bethel,DE,-75.624,38.569
 19933,Bridgeville,DE,-75.33,38.66
@@ -7773,11 +7773,11 @@ zip,primary_city,state,lon,lat
 20018,Washington,DC,-76.978,38.931
 20019,Washington,DC,-76.939,38.892
 20020,Washington,DC,-76.972,38.858
-20022,Washington,DC,-76.96,38.91
-20023,Washington,DC,-77.01,38.9
+20022,Washington,DC,38.91,-76.96
+20023,Washington,DC,38.9,-77.01
 20024,Washington,DC,-77.023,38.876
 20026,Washington,DC,-77.015,38.893
-20027,Washington,DC,-76.98,38.9
+20027,Washington,DC,38.9,-76.98
 20029,Washington,DC,-77.015,38.893
 20030,Washington,DC,-77.015,38.893
 20032,Washington,DC,-76.998,38.837
@@ -7903,7 +7903,7 @@ zip,primary_city,state,lon,lat
 20186,Warrenton,VA,-77.836,38.69
 20187,Warrenton,VA,-77.742,38.715
 20188,Warrenton,VA,-77.82,38.766
-20189,Dulles,VA,-77.04,38.9
+20189,Dulles,VA,38.9,-77.04
 20190,Reston,VA,-77.342,38.961
 20191,Reston,VA,-77.353,38.932
 20192,Herndon,VA,-77.289,38.832
@@ -7944,7 +7944,7 @@ zip,primary_city,state,lon,lat
 20232,Washington,DC,-77.039,38.901
 20233,Washington,DC,-77.015,38.893
 20235,Washington,DC,-77.057,38.915
-20237,Washington,DC,-77.01,38.88
+20237,Washington,DC,38.88,-77.01
 20238,Washington,DC,-77.015,38.893
 20239,Washington,DC,-77.015,38.893
 20240,Washington,DC,-77.041,38.897
@@ -7977,13 +7977,13 @@ zip,primary_city,state,lon,lat
 20330,Washington,DC,-77.015,38.893
 20340,Washington,DC,-77.015,38.893
 20350,Washington,DC,-77.015,38.893
-20355,Washington,DC,-77.04,38.9
+20355,Washington,DC,38.9,-77.04
 20370,Washington,DC,-77.015,38.893
 20372,Washington,DC,-77.015,38.893
 20373,Naval Anacost Annex,DC,-77.015,38.893
 20374,Washington Navy Yard,DC,-77.002,38.856
 20375,Washington,DC,-77.017,38.826
-20376,Washington Navy Yard,DC,-76.99,38.87
+20376,Washington Navy Yard,DC,38.87,-76.99
 20380,Washington,DC,-77.015,38.893
 20388,Washington Navy Yard,DC,-76.997,38.873
 20389,Washington,DC,-77.015,38.893
@@ -8010,7 +8010,7 @@ zip,primary_city,state,lon,lat
 20414,Washington,DC,-77.022,38.884
 20415,Washington,DC,-77.015,38.893
 20416,Washington,DC,-77.015,38.893
-20417,Washington,DC,-77,38.9
+20417,Washington,DC,38.9,-77
 20418,Washington,DC,-77.057,38.904
 20419,Washington,DC,-77.015,38.893
 20420,Washington,DC,-77.028,38.903
@@ -8044,7 +8044,7 @@ zip,primary_city,state,lon,lat
 20469,Washington,DC,-77.015,38.893
 20470,Washington,DC,-77.015,38.893
 20472,Washington,DC,-77.015,38.893
-20500,Washington,DC,-77.03,38.89
+20500,Washington,DC,38.89,-77.03
 20501,Washington,DC,-77.036,38.899
 20502,Washington,DC,-77.036,38.899
 20503,Washington,DC,-77.043,38.901
@@ -8053,9 +8053,9 @@ zip,primary_city,state,lon,lat
 20506,Washington,DC,-77.038,38.899
 20507,Washington,DC,-77.015,38.893
 20508,Washington,DC,-77.015,38.893
-20509,Washington,DC,-77.04,38.9
+20509,Washington,DC,38.9,-77.04
 20510,Washington,DC,-77.015,38.893
-20511,Washington,DC,-77.05,38.97
+20511,Washington,DC,38.97,-77.05
 20515,Washington,DC,-77.015,38.893
 20520,Washington,DC,-77.049,38.893
 20521,Washington,DC,-77.015,38.893
@@ -8065,8 +8065,8 @@ zip,primary_city,state,lon,lat
 20525,Washington,DC,-77.015,38.893
 20526,Washington,DC,-77.044,38.902
 20527,Washington,DC,-77.036,38.903
-20528,Washington,DC,-77.02,38.89
-20529,Washington,DC,-77.01,38.89
+20528,Washington,DC,38.89,-77.02
+20529,Washington,DC,38.89,-77.01
 20530,Washington,DC,-77.027,38.898
 20531,Washington,DC,-77.022,38.894
 20532,Washington,DC,-77.017,38.904
@@ -8110,13 +8110,13 @@ zip,primary_city,state,lon,lat
 20581,Washington,DC,-77.015,38.893
 20585,Washington,DC,-77.015,38.893
 20586,Washington,DC,-77.047,38.902
-20588,Dhs,MD,-76.85,38.74
+20588,Dhs,MD,38.74,-76.85
 20590,Washington,DC,-77.022,38.884
 20591,Washington,DC,-77.015,38.893
 20593,Washington,DC,-77.015,38.893
 20594,Washington,DC,-77.018,38.885
 20597,Washington,DC,-77.015,38.893
-20598,Dhs,VA,-77.05,38.86
+20598,Dhs,VA,38.86,-77.05
 20599,Washington,DC,-77.015,38.893
 20601,Waldorf,MD,-76.868,38.604
 20602,Waldorf,MD,-76.912,38.519
@@ -8261,12 +8261,12 @@ zip,primary_city,state,lon,lat
 20788,Hyattsville,MD,-76.951,38.969
 20790,Capitol Heights,MD,-76.878,38.834
 20791,Capitol Heights,MD,-76.878,38.834
-20792,Upper Marlboro,MD,-76.75,38.82
+20792,Upper Marlboro,MD,38.82,-76.75
 20794,Jessup,MD,-76.813,39.155
 20797,Southern Md Facility,MD,-76.878,38.834
 20799,Capitol Heights,MD,-76.878,38.834
-20810,Bethesda,MD,-77.1,38.97
-20811,Bethesda,MD,-77.1,38.97
+20810,Bethesda,MD,38.97,-77.1
+20811,Bethesda,MD,38.97,-77.1
 20812,Glen Echo,MD,-77.141,38.969
 20813,Bethesda,MD,-77.208,39.144
 20814,Bethesda,MD,-77.105,39.005
@@ -8311,7 +8311,7 @@ zip,primary_city,state,lon,lat
 20879,Gaithersburg,MD,-77.186,39.173
 20880,Washington Grove,MD,-77.173,39.139
 20882,Gaithersburg,MD,-77.146,39.234
-20883,Gaithersburg,MD,-77.19,39.17
+20883,Gaithersburg,MD,39.17,-77.19
 20884,Gaithersburg,MD,-77.208,39.144
 20885,Gaithersburg,MD,-77.203,39.187
 20886,Montgomery Village,MD,-77.187,39.176
@@ -8340,7 +8340,7 @@ zip,primary_city,state,lon,lat
 20915,Silver Spring,MD,-77.208,39.144
 20916,Silver Spring,MD,-77.208,39.144
 20918,Silver Spring,MD,-77.208,39.144
-20993,Silver Spring,MD,-76.98,39.03
+20993,Silver Spring,MD,39.03,-76.98
 20997,Silver Spring,MD,-77.208,39.144
 21001,Aberdeen,MD,-76.231,39.5
 21005,Aberdeen Proving Ground,MD,-76.121,39.477
@@ -8384,7 +8384,7 @@ zip,primary_city,state,lon,lat
 21060,Glen Burnie,MD,-76.58,39.17
 21061,Glen Burnie,MD,-76.616,38.968
 21062,Glen Burnie,MD,-76.595,38.974
-21065,Hunt Valley,MD,-76.65,39.49
+21065,Hunt Valley,MD,39.49,-76.65
 21071,Glyndon,MD,-76.766,39.516
 21074,Hampstead,MD,-76.864,39.615
 21075,Elkridge,MD,-76.753,39.206
@@ -8479,7 +8479,7 @@ zip,primary_city,state,lon,lat
 21251,Baltimore,MD,-76.592,39.439
 21252,Towson,MD,-76.613,39.389
 21260,Baltimore,MD,-76.62,39.285
-21261,Baltimore,MD,-76.45,39.3
+21261,Baltimore,MD,39.3,-76.45
 21263,Baltimore,MD,-76.62,39.285
 21264,Baltimore,MD,-76.62,39.285
 21265,Baltimore,MD,-76.62,39.285
@@ -8508,7 +8508,7 @@ zip,primary_city,state,lon,lat
 21403,Annapolis,MD,-76.585,39.007
 21404,Annapolis,MD,-76.595,38.974
 21405,Annapolis,MD,-76.507,38.992
-21409,Annapolis,MD,-76.45,39.02
+21409,Annapolis,MD,39.02,-76.45
 21411,Annapolis,MD,-76.595,38.974
 21412,Annapolis,MD,-76.595,38.974
 21501,Cumberland,MD,-78.691,39.581
@@ -8742,7 +8742,7 @@ zip,primary_city,state,lon,lat
 22003,Annandale,VA,-77.213,38.836
 22009,Burke,VA,-77.289,38.832
 22015,Burke,VA,-77.286,38.786
-22025,Dumfries,VA,-77.34,38.6
+22025,Dumfries,VA,38.6,-77.34
 22026,Dumfries,VA,-77.35,38.585
 22027,Dunn Loring,VA,-77.221,38.895
 22030,Fairfax,VA,-77.305,38.853
@@ -8776,8 +8776,8 @@ zip,primary_city,state,lon,lat
 22102,Mc Lean,VA,-77.229,38.953
 22103,West Mclean,VA,-77.289,38.832
 22106,Mc Lean,VA,-77.289,38.832
-22107,Mc Lean,VA,-77.18,38.93
-22108,Mc Lean,VA,-77.18,38.93
+22107,Mc Lean,VA,38.93,-77.18
+22108,Mc Lean,VA,38.93,-77.18
 22109,Mc Lean,VA,-77.229,38.92
 22116,Merrifield,VA,-77.234,38.871
 22118,Merrifield,VA,-77.289,38.832
@@ -8866,7 +8866,7 @@ zip,primary_city,state,lon,lat
 22333,Alexandria,VA,-77.09,38.816
 22334,Alexandria,VA,-77.09,38.816
 22336,Alexandria,VA,-77.09,38.816
-22350,Alexandria,VA,-77.0509,-2.12
+22350,Alexandria,VA,48.31,-2.12
 22401,Fredericksburg,VA,-77.484,38.295
 22402,Fredericksburg,VA,-77.49,38.3
 22403,Fredericksburg,VA,-77.461,38.417
@@ -8931,12 +8931,12 @@ zip,primary_city,state,lon,lat
 22546,Ruther Glen,VA,-77.438,37.949
 22547,Sealston,VA,-77.173,38.271
 22548,Sharps,VA,-76.695,37.838
-22551,Spotsylvania,VA,-77.7,38.17
+22551,Spotsylvania,VA,38.17,-77.7
 22552,Sparta,VA,-77.225,38.009
 22553,Spotsylvania,VA,-77.699,38.183
 22554,Stafford,VA,-77.435,38.439
 22555,Stafford,VA,-77.461,38.417
-22556,Stafford,VA,-77.4,38.42
+22556,Stafford,VA,38.42,-77.4
 22558,Stratford,VA,-76.79,38.122
 22560,Tappahannock,VA,-76.948,37.917
 22565,Thornburg,VA,-77.519,38.137
@@ -9022,7 +9022,7 @@ zip,primary_city,state,lon,lat
 22749,Woodville,VA,-78.192,38.621
 22801,Harrisonburg,VA,-78.877,38.423
 22802,Harrisonburg,VA,-78.818,38.491
-22803,Harrisonburg,VA,-78.94,38.51
+22803,Harrisonburg,VA,38.51,-78.94
 22807,Harrisonburg,VA,-78.874,38.441
 22810,Basye,VA,-78.778,38.809
 22811,Bergton,VA,-78.949,38.782
@@ -9169,7 +9169,7 @@ zip,primary_city,state,lon,lat
 23111,Mechanicsville,VA,-77.282,37.628
 23112,Midlothian,VA,-77.663,37.454
 23113,Midlothian,VA,-77.663,37.495
-23114,Midlothian,VA,-77.65,37.48
+23114,Midlothian,VA,37.48,-77.65
 23115,Millers Tavern,VA,-76.914,37.836
 23116,Mechanicsville,VA,-77.329,37.669
 23117,Mineral,VA,-77.869,37.938
@@ -9265,7 +9265,7 @@ zip,primary_city,state,lon,lat
 23292,Richmond,VA,-77.493,37.524
 23293,Richmond,VA,-77.493,37.524
 23294,Henrico,VA,-77.543,37.629
-23295,Richmond,VA,-77.45,37.55
+23295,Richmond,VA,37.55,-77.45
 23297,Richmond,VA,-77.561,37.39
 23298,Richmond,VA,-77.432,37.541
 23301,Accomac,VA,-75.661,37.713
@@ -9346,7 +9346,7 @@ zip,primary_city,state,lon,lat
 23450,Virginia Beach,VA,-76.12,36.844
 23451,Virginia Beach,VA,-76.054,36.856
 23452,Virginia Beach,VA,-76.097,36.846
-23453,Virginia Beach,VA,-76.08,36.78
+23453,Virginia Beach,VA,36.78,-76.08
 23454,Virginia Beach,VA,-76.071,36.829
 23455,Virginia Beach,VA,-76.147,36.889
 23456,Virginia Beach,VA,-76.039,36.747
@@ -9439,7 +9439,7 @@ zip,primary_city,state,lon,lat
 23821,Alberta,VA,-77.895,36.858
 23822,Ammon,VA,-77.647,37.072
 23824,Blackstone,VA,-77.979,37.122
-23825,Blackstone,VA,-77.99,37.08
+23825,Blackstone,VA,37.08,-77.99
 23827,Boykins,VA,-77.207,36.612
 23828,Branchville,VA,-77.293,36.597
 23829,Capron,VA,-77.237,36.721
@@ -9663,7 +9663,7 @@ zip,primary_city,state,lon,lat
 24201,Bristol,VA,-82.176,36.614
 24202,Bristol,VA,-82.168,36.622
 24203,Bristol,VA,-81.969,36.762
-24205,Bristol,VA,-82.18,36.59
+24205,Bristol,VA,36.59,-82.18
 24209,Bristol,VA,-81.969,36.762
 24210,Abingdon,VA,-82.027,36.74
 24211,Abingdon,VA,-81.965,36.667
@@ -10203,9 +10203,9 @@ zip,primary_city,state,lon,lat
 25396,Charleston,WV,-81.555,38.297
 25401,Martinsburg,WV,-77.952,39.444
 25402,Martinsburg,WV,-78.011,39.462
-25403,Martinsburg,WV,-77.96,39.46
-25404,Martinsburg,WV,-77.96,39.46
-25405,Martinsburg,WV,-77.96,39.46
+25403,Martinsburg,WV,39.46,-77.96
+25404,Martinsburg,WV,39.46,-77.96
+25405,Martinsburg,WV,39.46,-77.96
 25410,Bakerton,WV,-77.877,39.316
 25411,Berkeley Springs,WV,-78.188,39.553
 25413,Bunker Hill,WV,-78.065,39.378
@@ -10823,7 +10823,7 @@ zip,primary_city,state,lon,lat
 27202,Altamahaw,NC,-79.505,36.186
 27203,Asheboro,NC,-79.852,35.708
 27204,Asheboro,NC,-79.721,35.788
-27205,Asheboro,NC,-79.84,35.65
+27205,Asheboro,NC,35.65,-79.84
 27207,Bear Creek,NC,-79.372,35.608
 27208,Bennett,NC,-79.523,35.573
 27209,Biscoe,NC,-79.944,35.366
@@ -10894,7 +10894,7 @@ zip,primary_city,state,lon,lat
 27326,Ruffin,NC,-79.597,36.461
 27330,Sanford,NC,-79.172,35.47
 27331,Sanford,NC,-79.277,35.373
-27332,Sanford,NC,-79.13,35.36
+27332,Sanford,NC,35.36,-79.13
 27340,Saxapahaw,NC,-79.33,35.949
 27341,Seagrove,NC,-79.699,35.563
 27342,Sedalia,NC,-79.621,36.076
@@ -10918,7 +10918,7 @@ zip,primary_city,state,lon,lat
 27376,West End,NC,-79.468,35.24
 27377,Whitsett,NC,-79.609,36.046
 27379,Yanceyville,NC,-79.367,36.379
-27395,Greensboro,NC,-79.79,36.07
+27395,Greensboro,NC,36.07,-79.79
 27401,Greensboro,NC,-79.832,36.055
 27402,Greensboro,NC,-79.792,36.107
 27403,Greensboro,NC,-79.823,36.089
@@ -10945,7 +10945,7 @@ zip,primary_city,state,lon,lat
 27455,Greensboro,NC,-79.806,36.182
 27480,Greensboro,NC,-80.024,36.081
 27495,Greensboro,NC,-80.024,36.081
-27497,Greensboro,NC,-79.95,36.07
+27497,Greensboro,NC,36.07,-79.95
 27498,Greensboro,NC,-80.024,36.081
 27499,Greensboro,NC,-80.024,36.081
 27501,Angier,NC,-78.729,35.478
@@ -10964,7 +10964,7 @@ zip,primary_city,state,lon,lat
 27514,Chapel Hill,NC,-79.054,36.005
 27515,Chapel Hill,NC,-79.108,36.053
 27516,Chapel Hill,NC,-79.137,35.946
-27517,Chapel Hill,NC,-79.03,35.84
+27517,Chapel Hill,NC,35.84,-79.03
 27518,Cary,NC,-78.625,35.798
 27519,Cary,NC,-78.83,35.768
 27520,Clayton,NC,-78.435,35.633
@@ -10974,8 +10974,8 @@ zip,primary_city,state,lon,lat
 27524,Four Oaks,NC,-78.34,35.428
 27525,Franklinton,NC,-78.4,36.068
 27526,Fuquay Varina,NC,-78.647,35.759
-27527,Clayton,NC,-78.36,35.63
-27528,Clayton,NC,-78.45,35.65
+27527,Clayton,NC,35.63,-78.36
+27528,Clayton,NC,35.65,-78.45
 27529,Garner,NC,-78.663,35.714
 27530,Goldsboro,NC,-78.093,35.368
 27531,Goldsboro,NC,-77.996,35.463
@@ -10983,8 +10983,8 @@ zip,primary_city,state,lon,lat
 27533,Goldsboro,NC,-78.052,35.372
 27534,Goldsboro,NC,-78.032,35.386
 27536,Henderson,NC,-78.396,36.387
-27537,Henderson,NC,-78.37,36.37
-27539,Apex,NC,-78.81,35.67
+27537,Henderson,NC,36.37,-78.37
+27539,Apex,NC,35.67,-78.81
 27540,Holly Springs,NC,-78.83,35.608
 27541,Hurdle Mills,NC,-79.064,36.315
 27542,Kenly,NC,-78.287,35.571
@@ -11011,7 +11011,7 @@ zip,primary_city,state,lon,lat
 27571,Rolesville,NC,-78.455,35.906
 27572,Rougemont,NC,-78.879,36.206
 27573,Roxboro,NC,-78.951,36.392
-27574,Roxboro,NC,-78.85,36.41
+27574,Roxboro,NC,36.41,-78.85
 27576,Selma,NC,-78.244,35.564
 27577,Smithfield,NC,-78.336,35.537
 27581,Stem,NC,-78.727,36.21
@@ -11045,7 +11045,7 @@ zip,primary_city,state,lon,lat
 27614,Raleigh,NC,-78.62,35.973
 27615,Raleigh,NC,-78.627,35.919
 27616,Raleigh,NC,-78.688,35.806
-27617,Raleigh,NC,-78.75,35.88
+27617,Raleigh,NC,35.88,-78.75
 27619,Raleigh,NC,-78.631,35.851
 27620,Raleigh,NC,-78.625,35.798
 27621,Raleigh,NC,-78.625,35.798
@@ -11103,7 +11103,7 @@ zip,primary_city,state,lon,lat
 27812,Bethel,NC,-77.394,35.758
 27813,Black Creek,NC,-77.935,35.616
 27814,Blounts Creek,NC,-76.978,35.501
-27815,Rocky Mount,NC,-77.67,35.92
+27815,Rocky Mount,NC,35.92,-77.67
 27816,Castalia,NC,-78.039,36.098
 27817,Chocowinity,NC,-77.063,35.46
 27818,Como,NC,-77.031,36.491
@@ -11266,7 +11266,7 @@ zip,primary_city,state,lon,lat
 28032,Cramerton,NC,-81.134,35.314
 28033,Crouse,NC,-81.338,35.436
 28034,Dallas,NC,-81.221,35.35
-28035,Davidson,NC,-80.83,35.5
+28035,Davidson,NC,35.5,-80.83
 28036,Davidson,NC,-80.845,35.283
 28037,Denver,NC,-81.055,35.486
 28038,Earl,NC,-81.539,35.197
@@ -11403,12 +11403,12 @@ zip,primary_city,state,lon,lat
 28258,Charlotte,NC,-80.804,35.26
 28260,Charlotte,NC,-80.804,35.26
 28262,Charlotte,NC,-80.748,35.318
-28263,Charlotte,NC,-80.69,35.21
+28263,Charlotte,NC,35.21,-80.69
 28265,Charlotte,NC,-80.804,35.26
 28266,Charlotte,NC,-80.858,35.284
 28269,Charlotte,NC,-80.799,35.332
 28270,Charlotte,NC,-80.763,35.113
-28271,Charlotte,NC,-80.84,35.22
+28271,Charlotte,NC,35.22,-80.84
 28272,Charlotte,NC,-80.804,35.26
 28273,Charlotte,NC,-80.934,35.129
 28274,Charlotte,NC,-80.832,35.188
@@ -11438,7 +11438,7 @@ zip,primary_city,state,lon,lat
 28309,Fayetteville,NC,-78.843,35.04
 28310,Fort Bragg,NC,-78.804,35.051
 28311,Fayetteville,NC,-78.912,35.156
-28312,Fayetteville,NC,-78.72,34.93
+28312,Fayetteville,NC,34.93,-78.72
 28314,Fayetteville,NC,-79.011,35.054
 28315,Aberdeen,NC,-79.518,35.204
 28318,Autryville,NC,-78.59,35.067
@@ -11793,7 +11793,7 @@ zip,primary_city,state,lon,lat
 28756,Mill Spring,NC,-82.159,35.336
 28757,Montreat,NC,-82.316,35.641
 28758,Mountain Home,NC,-82.494,35.371
-28759,Mills River,NC,-82.57,35.39
+28759,Mills River,NC,35.39,-82.57
 28760,Naples,NC,-82.481,35.382
 28761,Nebo,NC,-81.907,35.669
 28762,Old Fort,NC,-82.148,35.616
@@ -11815,7 +11815,7 @@ zip,primary_city,state,lon,lat
 28782,Tryon,NC,-82.18,35.279
 28783,Tuckasegee,NC,-83.044,35.247
 28784,Tuxedo,NC,-82.418,35.217
-28785,Waynesville,NC,-83.02,35.63
+28785,Waynesville,NC,35.63,-83.02
 28786,Waynesville,NC,-82.96,35.586
 28787,Weaverville,NC,-82.589,35.703
 28788,Webster,NC,-83.233,35.329
@@ -11853,7 +11853,7 @@ zip,primary_city,state,lon,lat
 29016,Blythewood,SC,-80.919,34.105
 29018,Bowman,SC,-80.565,33.342
 29020,Camden,SC,-80.612,34.313
-29021,Camden,SC,-80.58,34.56
+29021,Camden,SC,34.56,-80.58
 29030,Cameron,SC,-80.708,33.57
 29031,Carlisle,SC,-81.481,34.567
 29032,Cassatt,SC,-80.541,34.357
@@ -12037,7 +12037,7 @@ zip,primary_city,state,lon,lat
 29388,Woodruff,SC,-81.991,34.891
 29390,Duncan,SC,-81.969,34.888
 29391,Duncan,SC,-81.969,34.888
-29395,Jonesville,SC,-81.68,34.84
+29395,Jonesville,SC,34.84,-81.68
 29401,Charleston,SC,-79.941,32.78
 29402,Charleston,SC,-79.858,32.849
 29403,Charleston,SC,-79.965,32.822
@@ -12167,7 +12167,7 @@ zip,primary_city,state,lon,lat
 29584,Patrick,SC,-80.171,34.592
 29585,Pawleys Island,SC,-79.184,33.464
 29587,Myrtle Beach,SC,-78.963,33.621
-29588,Myrtle Beach,SC,-79.02,33.63
+29588,Myrtle Beach,SC,33.63,-79.02
 29589,Rains,SC,-79.322,34.105
 29590,Salters,SC,-79.709,33.598
 29591,Scranton,SC,-79.77,33.937
@@ -12270,7 +12270,7 @@ zip,primary_city,state,lon,lat
 29703,Bowling Green,SC,-81.179,34.993
 29704,Catawba,SC,-80.938,34.86
 29706,Chester,SC,-81.168,34.693
-29707,Fort Mill,SC,-80.86,34.99
+29707,Fort Mill,SC,34.99,-80.86
 29708,Fort Mill,SC,-80.991,35.05
 29709,Chesterfield,SC,-80.13,34.756
 29710,Clover,SC,-81.165,35.036
@@ -12348,8 +12348,8 @@ zip,primary_city,state,lon,lat
 29904,Beaufort,SC,-80.661,32.391
 29905,Beaufort,SC,-80.689,32.34
 29906,Beaufort,SC,-80.76,32.382
-29907,Ladys Island,SC,-80.64,32.43
-29909,Okatie,SC,-80.92,32.3
+29907,Ladys Island,SC,32.43,-80.64
+29909,Okatie,SC,32.3,-80.92
 29910,Bluffton,SC,-80.9,32.35
 29911,Brunson,SC,-81.206,32.886
 29912,Coosawhatchie,SC,-80.989,32.489
@@ -12426,7 +12426,7 @@ zip,primary_city,state,lon,lat
 30046,Lawrenceville,GA,-84.038,33.96
 30047,Lilburn,GA,-84.072,33.866
 30048,Lilburn,GA,-84.038,33.96
-30049,Lawrenceville,GA,-84.26,33.64
+30049,Lawrenceville,GA,33.64,-84.26
 30052,Loganville,GA,-83.897,33.877
 30054,Oxford,GA,-83.874,33.671
 30055,Mansfield,GA,-83.791,33.431
@@ -12445,7 +12445,7 @@ zip,primary_city,state,lon,lat
 30070,Porterdale,GA,-83.895,33.571
 30071,Norcross,GA,-84.211,33.944
 30072,Pine Lake,GA,-84.205,33.791
-30073,Decatur,GA,-84.25,33.7
+30073,Decatur,GA,33.7,-84.25
 30074,Redan,GA,-84.075,33.891
 30075,Roswell,GA,-84.37,34.055
 30076,Roswell,GA,-84.32,34.028
@@ -12482,7 +12482,7 @@ zip,primary_city,state,lon,lat
 30109,Bowdon Junction,GA,-85.136,33.653
 30110,Bremen,GA,-85.173,33.768
 30111,Clarkdale,GA,-84.557,33.912
-30112,Carrollton,GA,-85.08,33.58
+30112,Carrollton,GA,33.58,-85.08
 30113,Buchanan,GA,-85.21,33.837
 30114,Canton,GA,-84.491,34.251
 30115,Canton,GA,-84.42,34.199
@@ -12521,16 +12521,16 @@ zip,primary_city,state,lon,lat
 30152,Kennesaw,GA,-84.654,33.995
 30153,Rockmart,GA,-85.092,33.994
 30154,Douglasville,GA,-84.745,33.69
-30156,Kennesaw,GA,-84.65,33.99
+30156,Kennesaw,GA,33.99,-84.65
 30157,Dallas,GA,-84.862,33.904
-30160,Kennesaw,GA,-84.65,33.99
+30160,Kennesaw,GA,33.99,-84.65
 30161,Rome,GA,-85.221,34.262
 30162,Rome,GA,-85.214,34.291
 30163,Rome,GA,-85.234,34.333
 30164,Rome,GA,-85.234,34.333
 30165,Rome,GA,-85.273,34.316
 30168,Austell,GA,-84.595,33.784
-30169,Canton,GA,-84.3,34.14
+30169,Canton,GA,34.14,-84.3
 30170,Roopville,GA,-85.165,33.524
 30171,Rydal,GA,-84.738,34.338
 30172,Shannon,GA,-85.234,34.333
@@ -12590,7 +12590,7 @@ zip,primary_city,state,lon,lat
 30266,Orchard Hill,GA,-84.299,33.266
 30268,Palmetto,GA,-84.71,33.559
 30269,Peachtree City,GA,-84.568,33.396
-30270,Peachtree City,GA,-84.6,33.4
+30270,Peachtree City,GA,33.4,-84.6
 30271,Newnan,GA,-84.756,33.351
 30272,Red Oak,GA,-84.516,33.626
 30273,Rex,GA,-84.273,33.577
@@ -12776,7 +12776,7 @@ zip,primary_city,state,lon,lat
 30533,Dahlonega,GA,-84.024,34.541
 30534,Dawsonville,GA,-84.155,34.454
 30535,Demorest,GA,-83.57,34.632
-30536,Ellijay,GA,-84.33,34.66
+30536,Ellijay,GA,34.66,-84.33
 30537,Dillard,GA,-83.358,34.97
 30538,Eastanollee,GA,-83.259,34.535
 30539,East Ellijay,GA,-84.493,34.658
@@ -12971,7 +12971,7 @@ zip,primary_city,state,lon,lat
 31023,Eastman,GA,-83.194,32.144
 31024,Eatonton,GA,-83.356,33.321
 31025,Elko,GA,-83.749,32.36
-31026,Eatonton,GA,-83.39,33.33
+31026,Eatonton,GA,33.33,-83.39
 31027,East Dublin,GA,-82.782,32.552
 31028,Centerville,GA,-83.702,32.568
 31029,Forsyth,GA,-83.915,33.026
@@ -13000,7 +13000,7 @@ zip,primary_city,state,lon,lat
 31055,Mc Rae,GA,-82.911,32.048
 31057,Marshallville,GA,-83.905,32.438
 31058,Mauk,GA,-84.228,32.56
-31059,Milledgeville,GA,-83.3,33.08
+31059,Milledgeville,GA,33.08,-83.3
 31060,Milan,GA,-82.927,31.964
 31061,Milledgeville,GA,-83.239,33.072
 31062,Milledgeville,GA,-83.225,33.087
@@ -13041,18 +13041,18 @@ zip,primary_city,state,lon,lat
 31106,Atlanta,GA,-84.474,33.844
 31107,Atlanta,GA,-84.474,33.844
 31119,Atlanta,GA,-84.075,33.891
-31120,Atlanta,GA,-84.38,33.74
+31120,Atlanta,GA,33.74,-84.38
 31126,Atlanta,GA,-84.474,33.844
 31131,Atlanta,GA,-84.474,33.844
-31136,Atlanta,GA,-84.58,33.72
+31136,Atlanta,GA,33.72,-84.58
 31139,Atlanta,GA,-84.474,33.844
 31141,Atlanta,GA,-84.075,33.891
-31144,Kennesaw,GA,-84.61,34.02
+31144,Kennesaw,GA,34.02,-84.61
 31145,Atlanta,GA,-84.075,33.891
 31146,Atlanta,GA,-84.075,33.891
 31150,Atlanta,GA,-84.474,33.844
 31156,Atlanta,GA,-84.474,33.844
-31169,Peachtree City,GA,-84.79,33.38
+31169,Peachtree City,GA,33.38,-84.79
 31191,Atlanta,GA,-84.474,33.844
 31192,Atlanta,GA,-84.474,33.844
 31193,Atlanta,GA,-84.474,33.844
@@ -13170,7 +13170,7 @@ zip,primary_city,state,lon,lat
 31558,Saint Marys,GA,-81.631,30.844
 31560,Screven,GA,-82.01,31.513
 31561,Sea Island,GA,-81.332,31.199
-31562,Saint George,GA,-82.12,30.5
+31562,Saint George,GA,30.5,-82.12
 31563,Surrency,GA,-82.195,31.731
 31564,Waresboro,GA,-82.417,31.019
 31565,Waverly,GA,-81.634,31.069
@@ -13226,9 +13226,9 @@ zip,primary_city,state,lon,lat
 31712,Arabi,GA,-83.728,31.85
 31714,Ashburn,GA,-83.644,31.723
 31716,Baconton,GA,-84.1,31.359
-31719,Americus,GA,-84.26,32.06
+31719,Americus,GA,32.06,-84.26
 31720,Barwick,GA,-83.526,30.857
-31721,Albany,GA,-84.3,31.52
+31721,Albany,GA,31.52,-84.3
 31722,Berlin,GA,-83.649,31.081
 31727,Brookfield,GA,-83.504,31.442
 31730,Camilla,GA,-84.243,31.249
@@ -13265,7 +13265,7 @@ zip,primary_city,state,lon,lat
 31783,Rebecca,GA,-83.526,31.78
 31784,Sale City,GA,-84.048,31.274
 31787,Smithville,GA,-84.223,31.772
-31788,Moultrie,GA,-83.68,31.12
+31788,Moultrie,GA,31.12,-83.68
 31789,Sumner,GA,-83.727,31.482
 31790,Sycamore,GA,-83.578,31.653
 31791,Sylvester,GA,-83.85,31.603
@@ -13319,9 +13319,9 @@ zip,primary_city,state,lon,lat
 31997,Columbus,GA,-84.874,32.491
 31998,Columbus,GA,-84.874,32.491
 31999,Columbus,GA,-84.874,32.491
-32003,Fleming Island,FL,-81.7,30.16
+32003,Fleming Island,FL,30.16,-81.7
 32004,Ponte Vedra Beach,FL,-81.421,29.938
-32006,Fleming Island,FL,-81.72,30.11
+32006,Fleming Island,FL,30.11,-81.72
 32007,Bostwick,FL,-81.627,29.8
 32008,Branford,FL,-82.908,30.102
 32009,Bryceville,FL,-81.906,30.521
@@ -13329,7 +13329,7 @@ zip,primary_city,state,lon,lat
 32013,Day,FL,-83.123,30.041
 32024,Lake City,FL,-82.688,30.105
 32025,Lake City,FL,-82.64,30.16
-32026,Raiford,FL,-82.24,30.06
+32026,Raiford,FL,30.06,-82.24
 32030,Doctors Inlet,FL,-81.769,30.106
 32033,Elkton,FL,-81.469,29.813
 32034,Fernandina Beach,FL,-81.683,30.608
@@ -13362,8 +13362,8 @@ zip,primary_city,state,lon,lat
 32072,Olustee,FL,-82.254,30.36
 32073,Orange Park,FL,-81.792,30.12
 32079,Penney Farms,FL,-81.802,29.985
-32080,Saint Augustine,FL,-81.26,29.8
-32081,Ponte Vedra,FL,-81.4,30.08
+32080,Saint Augustine,FL,29.8,-81.26
+32081,Ponte Vedra,FL,30.08,-81.4
 32082,Ponte Vedra Beach,FL,-81.382,30.102
 32083,Raiford,FL,-82.213,30.055
 32084,Saint Augustine,FL,-81.333,29.85
@@ -13397,7 +13397,7 @@ zip,primary_city,state,lon,lat
 32125,Daytona Beach,FL,-81.172,29.023
 32126,Daytona Beach,FL,-81.172,29.023
 32127,Port Orange,FL,-80.976,29.114
-32128,Port Orange,FL,-81,29.1
+32128,Port Orange,FL,29.1,-81
 32129,Port Orange,FL,-81.172,29.023
 32130,De Leon Springs,FL,-81.329,29.184
 32131,East Palatka,FL,-81.7,29.612
@@ -13412,7 +13412,7 @@ zip,primary_city,state,lon,lat
 32140,Florahome,FL,-81.735,29.611
 32141,Edgewater,FL,-80.9,28.933
 32142,Palm Coast,FL,-81.283,29.466
-32143,Palm Coast,FL,-81.16,29.42
+32143,Palm Coast,FL,29.42,-81.16
 32145,Hastings,FL,-81.406,29.689
 32147,Hollister,FL,-81.78,29.658
 32148,Interlachen,FL,-81.762,29.599
@@ -13421,8 +13421,8 @@ zip,primary_city,state,lon,lat
 32158,Lady Lake,FL,-81.654,28.811
 32159,Lady Lake,FL,-81.894,28.923
 32160,Lake Geneva,FL,-81.991,29.768
-32162,The Villages,FL,-81.92,28.92
-32163,The Villages,FL,-81.95,28.93
+32162,The Villages,FL,28.92,-81.92
+32163,The Villages,FL,28.93,-81.95
 32164,Palm Coast,FL,-81.204,29.486
 32168,New Smyrna Beach,FL,-81.034,28.952
 32169,New Smyrna Beach,FL,-81.134,29.132
@@ -13501,7 +13501,7 @@ zip,primary_city,state,lon,lat
 32266,Neptune Beach,FL,-81.408,30.316
 32267,Jacksonville,FL,-81.683,30.345
 32277,Jacksonville,FL,-81.586,30.37
-32290,Jacksonville,FL,-81.65,30.33
+32290,Jacksonville,FL,30.33,-81.65
 32301,Tallahassee,FL,-84.203,30.419
 32302,Tallahassee,FL,-84.346,30.479
 32303,Tallahassee,FL,-84.248,30.536
@@ -13519,7 +13519,7 @@ zip,primary_city,state,lon,lat
 32315,Tallahassee,FL,-84.346,30.479
 32316,Tallahassee,FL,-84.346,30.479
 32317,Tallahassee,FL,-84.346,30.479
-32318,Tallahassee,FL,-84.18,30.56
+32318,Tallahassee,FL,30.56,-84.18
 32320,Apalachicola,FL,-84.853,29.819
 32321,Bristol,FL,-84.978,30.419
 32322,Carrabelle,FL,-84.736,29.854
@@ -13649,7 +13649,7 @@ zip,primary_city,state,lon,lat
 32547,Fort Walton Beach,FL,-86.625,30.449
 32548,Fort Walton Beach,FL,-86.629,30.421
 32549,Fort Walton Beach,FL,-86.594,30.661
-32550,Miramar Beach,FL,-86.31,30.39
+32550,Miramar Beach,FL,30.39,-86.31
 32559,Pensacola,FL,-87.277,30.356
 32560,Gonzalez,FL,-87.293,30.582
 32561,Gulf Breeze,FL,-87.061,30.669
@@ -13748,7 +13748,7 @@ zip,primary_city,state,lon,lat
 32720,Deland,FL,-81.403,29.072
 32721,Deland,FL,-81.3,28.997
 32722,Glenwood,FL,-81.172,29.023
-32723,Deland,FL,-81.3,29.03
+32723,Deland,FL,29.03,-81.3
 32724,Deland,FL,-81.096,29.056
 32725,Deltona,FL,-81.245,28.9
 32726,Eustis,FL,-81.684,28.71
@@ -13762,13 +13762,13 @@ zip,primary_city,state,lon,lat
 32738,Deltona,FL,-81.233,28.94
 32739,Deltona,FL,-81.172,29.023
 32744,Lake Helen,FL,-81.221,28.988
-32745,Mid Florida,FL,-81.67,28.75
+32745,Mid Florida,FL,28.75,-81.67
 32746,Lake Mary,FL,-81.351,28.758
 32747,Lake Monroe,FL,-81.333,28.827
 32750,Longwood,FL,-81.341,28.706
 32751,Maitland,FL,-81.365,28.625
 32752,Longwood,FL,-81.223,28.745
-32753,Debary,FL,-81.31,28.88
+32753,Debary,FL,28.88,-81.31
 32754,Mims,FL,-80.895,28.699
 32756,Mount Dora,FL,-81.654,28.811
 32757,Mount Dora,FL,-81.644,28.774
@@ -13856,13 +13856,13 @@ zip,primary_city,state,lon,lat
 32872,Orlando,FL,-81.261,28.566
 32877,Orlando,FL,-81.261,28.566
 32878,Orlando,FL,-81.261,28.566
-32885,Orlando,FL,-81.38,28.54
+32885,Orlando,FL,28.54,-81.38
 32886,Orlando,FL,-81.261,28.566
 32887,Orlando,FL,-81.261,28.566
 32890,Orlando,FL,-81.261,28.566
 32891,Orlando,FL,-81.261,28.566
 32893,Orlando,FL,-81.261,28.566
-32896,Orlando,FL,-81.23,28.32
+32896,Orlando,FL,28.32,-81.23
 32897,Orlando,FL,-81.261,28.566
 32898,Orlando,FL,-81.261,28.566
 32899,Orlando,FL,-80.686,28.307
@@ -13993,12 +13993,12 @@ zip,primary_city,state,lon,lat
 33097,Coconut Creek,FL,-80.448,26.146
 33101,Miami,FL,-80.198,25.779
 33102,Miami,FL,-80.458,25.558
-33106,Miami,FL,-80.22,25.84
+33106,Miami,FL,25.84,-80.22
 33107,Miami,FL,-80.458,25.558
 33109,Miami Beach,FL,-80.458,25.558
 33110,Miami,FL,-80.208,25.847
 33111,Miami,FL,-80.458,25.558
-33112,Miami,FL,-80.38,25.79
+33112,Miami,FL,25.79,-80.38
 33114,Coral Gables,FL,-80.458,25.558
 33116,Miami,FL,-80.458,25.558
 33119,Miami Beach,FL,-80.132,25.785
@@ -14076,8 +14076,8 @@ zip,primary_city,state,lon,lat
 33196,Miami,FL,-80.458,25.558
 33197,Miami,FL,-80.458,25.558
 33199,Miami,FL,-80.458,25.558
-33206,Miami,FL,-80.26,25.72
-33222,Miami,FL,-80.23,25.93
+33206,Miami,FL,25.72,-80.26
+33222,Miami,FL,25.93,-80.23
 33231,Miami,FL,-80.458,25.558
 33233,Miami,FL,-80.458,25.558
 33234,Miami,FL,-80.458,25.558
@@ -14132,7 +14132,7 @@ zip,primary_city,state,lon,lat
 33332,Fort Lauderdale,FL,-80.415,26.06
 33334,Fort Lauderdale,FL,-80.134,26.185
 33335,Fort Lauderdale,FL,-80.336,26.089
-33336,Fort Lauderdale,FL,-80.13,26.14
+33336,Fort Lauderdale,FL,26.14,-80.13
 33337,Fort Lauderdale,FL,-80.26,26.129
 33338,Fort Lauderdale,FL,-80.448,26.146
 33339,Fort Lauderdale,FL,-80.448,26.146
@@ -14193,7 +14193,7 @@ zip,primary_city,state,lon,lat
 33446,Delray Beach,FL,-80.182,26.454
 33447,Delray Beach,FL,-80.43,26.646
 33448,Delray Beach,FL,-80.43,26.646
-33449,Lake Worth,FL,-80.22,26.58
+33449,Lake Worth,FL,26.58,-80.22
 33454,Greenacres,FL,-80.43,26.646
 33455,Hobe Sound,FL,-80.159,27.051
 33458,Jupiter,FL,-80.43,26.646
@@ -14210,8 +14210,8 @@ zip,primary_city,state,lon,lat
 33469,Jupiter,FL,-80.43,26.646
 33470,Loxahatchee,FL,-80.295,26.65
 33471,Moore Haven,FL,-81.196,26.886
-33472,Boynton Beach,FL,-80.19,26.53
-33473,Boynton Beach,FL,-80.19,26.49
+33472,Boynton Beach,FL,26.53,-80.19
+33473,Boynton Beach,FL,26.49,-80.19
 33474,Boynton Beach,FL,-80.43,26.646
 33475,Hobe Sound,FL,-80.454,27.11
 33476,Pahokee,FL,-80.179,26.623
@@ -14231,7 +14231,7 @@ zip,primary_city,state,lon,lat
 33498,Boca Raton,FL,-80.223,26.393
 33499,Boca Raton,FL,-80.43,26.646
 33503,Balm,FL,-82.273,27.765
-33508,Brandon,FL,-82.29,27.94
+33508,Brandon,FL,27.94,-82.29
 33509,Brandon,FL,-82.452,28.12
 33510,Brandon,FL,-82.356,27.831
 33511,Brandon,FL,-82.294,27.904
@@ -14250,18 +14250,18 @@ zip,primary_city,state,lon,lat
 33539,Zephyrhills,FL,-82.166,28.213
 33540,Zephyrhills,FL,-82.156,28.241
 33541,Zephyrhills,FL,-82.446,28.241
-33542,Zephyrhills,FL,-82.17,28.23
+33542,Zephyrhills,FL,28.23,-82.17
 33543,Wesley Chapel,FL,-82.306,28.206
 33544,Wesley Chapel,FL,-82.285,28.272
-33545,Wesley Chapel,FL,-82.29,28.28
+33545,Wesley Chapel,FL,28.28,-82.29
 33547,Lithia,FL,-82.205,27.894
 33548,Lutz,FL,-82.439,27.872
 33549,Lutz,FL,-82.392,28.061
 33550,Mango,FL,-82.439,27.872
 33556,Odessa,FL,-82.584,28.129
-33558,Lutz,FL,-82.46,28.13
-33559,Lutz,FL,-82.46,28.13
-33563,Plant City,FL,-82.14,28.01
+33558,Lutz,FL,28.13,-82.46
+33559,Lutz,FL,28.13,-82.46
+33563,Plant City,FL,28.01,-82.14
 33564,Plant City,FL,-82.135,28.03
 33565,Plant City,FL,-82.157,28.083
 33566,Plant City,FL,-82.342,28.008
@@ -14273,10 +14273,10 @@ zip,primary_city,state,lon,lat
 33572,Apollo Beach,FL,-82.332,27.846
 33573,Sun City Center,FL,-82.357,27.704
 33574,Saint Leo,FL,-82.269,28.335
-33575,Ruskin,FL,-82.43,27.72
+33575,Ruskin,FL,27.72,-82.43
 33576,San Antonio,FL,-82.301,28.332
-33578,Riverview,FL,-82.33,27.88
-33579,Riverview,FL,-82.29,27.79
+33578,Riverview,FL,27.88,-82.33
+33579,Riverview,FL,27.79,-82.29
 33583,Seffner,FL,-82.439,27.872
 33584,Seffner,FL,-82.288,28
 33585,Sumterville,FL,-82.062,28.736
@@ -14286,7 +14286,7 @@ zip,primary_city,state,lon,lat
 33593,Trilby,FL,-82.482,28.325
 33594,Valrico,FL,-82.347,27.938
 33595,Valrico,FL,-82.439,27.872
-33596,Valrico,FL,-82.24,27.88
+33596,Valrico,FL,27.88,-82.24
 33597,Webster,FL,-82.108,28.647
 33598,Wimauma,FL,-82.297,27.734
 33601,Tampa,FL,-82.582,27.996
@@ -14322,7 +14322,7 @@ zip,primary_city,state,lon,lat
 33634,Tampa,FL,-82.545,28.003
 33635,Tampa,FL,-82.614,28.026
 33637,Tampa,FL,-82.363,28.047
-33646,Tampa,FL,-82.45,27.95
+33646,Tampa,FL,27.95,-82.45
 33647,Tampa,FL,-82.35,28.128
 33650,Tampa,FL,-82.439,27.872
 33651,Tampa,FL,-82.439,27.872
@@ -14420,7 +14420,7 @@ zip,primary_city,state,lon,lat
 33809,Lakeland,FL,-81.959,28.176
 33810,Lakeland,FL,-82.037,28.148
 33811,Lakeland,FL,-82.014,27.987
-33812,Lakeland,FL,-81.89,27.97
+33812,Lakeland,FL,27.97,-81.89
 33813,Lakeland,FL,-81.918,27.964
 33815,Lakeland,FL,-82.007,28.05
 33820,Alturas,FL,-81.619,28.003
@@ -14465,8 +14465,8 @@ zip,primary_city,state,lon,lat
 33871,Sebring,FL,-81.408,27.486
 33872,Sebring,FL,-81.287,27.394
 33873,Wauchula,FL,-81.784,27.519
-33875,Sebring,FL,-81.48,27.41
-33876,Sebring,FL,-81.34,27.42
+33875,Sebring,FL,27.41,-81.48
+33876,Sebring,FL,27.42,-81.34
 33877,Waverly,FL,-81.614,27.977
 33880,Winter Haven,FL,-81.762,27.987
 33881,Winter Haven,FL,-81.711,28.064
@@ -14476,10 +14476,10 @@ zip,primary_city,state,lon,lat
 33885,Winter Haven,FL,-81.619,28.003
 33888,Winter Haven,FL,-81.723,28.023
 33890,Zolfo Springs,FL,-81.722,27.458
-33896,Davenport,FL,-81.6,28.16
-33897,Davenport,FL,-81.6,28.16
-33898,Lake Wales,FL,-81.58,27.9
-33900,Fort Myers,FL,-81.84,26.62
+33896,Davenport,FL,28.16,-81.6
+33897,Davenport,FL,28.16,-81.6
+33898,Lake Wales,FL,27.9,-81.58
+33900,Fort Myers,FL,26.62,-81.84
 33901,Fort Myers,FL,-81.925,26.564
 33902,Fort Myers,FL,-81.884,26.624
 33903,North Fort Myers,FL,-81.912,26.693
@@ -14505,7 +14505,7 @@ zip,primary_city,state,lon,lat
 33924,Captiva,FL,-82.18,26.521
 33927,El Jobean,FL,-82,26.902
 33928,Estero,FL,-81.706,26.472
-33929,Estero,FL,-81.8,26.43
+33929,Estero,FL,26.43,-81.8
 33930,Felda,FL,-81.48,26.613
 33931,Fort Myers Beach,FL,-82.071,26.576
 33932,Fort Myers Beach,FL,-81.949,26.553
@@ -14528,15 +14528,15 @@ zip,primary_city,state,lon,lat
 33957,Sanibel,FL,-82.1,26.458
 33960,Venus,FL,-81.391,27.12
 33965,Fort Myers,FL,-81.949,26.553
-33966,Fort Myers,FL,-81.82,26.57
-33967,Fort Myers,FL,-81.8,26.47
+33966,Fort Myers,FL,26.57,-81.82
+33967,Fort Myers,FL,26.47,-81.8
 33970,Lehigh Acres,FL,-81.621,26.565
 33971,Lehigh Acres,FL,-81.671,26.589
 33972,Lehigh Acres,FL,-81.914,26.642
-33973,Lehigh Acres,FL,-81.72,26.59
-33974,Lehigh Acres,FL,-81.59,26.56
+33973,Lehigh Acres,FL,26.59,-81.72
+33974,Lehigh Acres,FL,26.56,-81.59
 33975,Labelle,FL,-81.439,26.763
-33976,Lehigh Acres,FL,-81.68,26.6
+33976,Lehigh Acres,FL,26.6,-81.68
 33980,Punta Gorda,FL,-82.056,26.986
 33981,Port Charlotte,FL,-82.232,26.935
 33982,Punta Gorda,FL,-81.819,26.96
@@ -14585,8 +14585,8 @@ zip,primary_city,state,lon,lat
 34208,Bradenton,FL,-82.512,27.468
 34209,Bradenton,FL,-82.617,27.476
 34210,Bradenton,FL,-82.661,27.474
-34211,Bradenton,FL,-82.57,27.48
-34212,Bradenton,FL,-82.57,27.48
+34211,Bradenton,FL,27.48,-82.57
+34212,Bradenton,FL,27.48,-82.57
 34215,Cortez,FL,-82.682,27.471
 34216,Anna Maria,FL,-82.732,27.529
 34217,Bradenton Beach,FL,-82.71,27.486
@@ -14621,7 +14621,7 @@ zip,primary_city,state,lon,lat
 34266,Arcadia,FL,-81.867,27.186
 34267,Fort Ogden,FL,-81.81,27.186
 34268,Nocatee,FL,-81.864,27.204
-34269,Arcadia,FL,-81.85,27.21
+34269,Arcadia,FL,27.21,-81.85
 34270,Tallevast,FL,-82.544,27.405
 34272,Laurel,FL,-82.426,27.147
 34274,Nokomis,FL,-82.464,27.144
@@ -14636,10 +14636,10 @@ zip,primary_city,state,lon,lat
 34285,Venice,FL,-82.434,27.096
 34286,North Port,FL,-82.176,27.075
 34287,North Port,FL,-82.335,27.189
-34288,North Port,FL,-82.19,27.04
-34289,North Port,FL,-82.19,27.04
-34290,North Port,FL,-82.24,27.04
-34291,North Port,FL,-82.28,27.17
+34288,North Port,FL,27.04,-82.19
+34289,North Port,FL,27.04,-82.19
+34290,North Port,FL,27.04,-82.24
+34291,North Port,FL,27.17,-82.28
 34292,Venice,FL,-82.37,27.09
 34293,Venice,FL,-82.352,27.061
 34295,Englewood,FL,-82.439,27.086
@@ -14692,7 +14692,7 @@ zip,primary_city,state,lon,lat
 34601,Brooksville,FL,-82.396,28.586
 34602,Brooksville,FL,-82.296,28.509
 34603,Brooksville,FL,-82.417,28.564
-34604,Brooksville,FL,-82.42,28.48
+34604,Brooksville,FL,28.48,-82.42
 34605,Brooksville,FL,-82.423,28.506
 34606,Spring Hill,FL,-82.401,28.496
 34607,Spring Hill,FL,-82.626,28.505
@@ -14703,8 +14703,8 @@ zip,primary_city,state,lon,lat
 34613,Brooksville,FL,-82.532,28.605
 34614,Brooksville,FL,-82.536,28.628
 34636,Istachatta,FL,-82.268,28.655
-34637,Land O Lakes,FL,-82.49,28.24
-34638,Land O Lakes,FL,-82.52,28.27
+34637,Land O Lakes,FL,28.24,-82.49
+34638,Land O Lakes,FL,28.27,-82.52
 34639,Land O Lakes,FL,-82.463,28.251
 34652,New Port Richey,FL,-82.737,28.239
 34653,New Port Richey,FL,-82.696,28.243
@@ -14730,7 +14730,7 @@ zip,primary_city,state,lon,lat
 34689,Tarpon Springs,FL,-82.732,28.092
 34690,Holiday,FL,-82.724,28.191
 34691,Holiday,FL,-82.762,28.196
-34692,Holiday,FL,-82.74,28.19
+34692,Holiday,FL,28.19,-82.74
 34695,Safety Harbor,FL,-82.748,28.018
 34697,Dunedin,FL,-82.725,27.892
 34698,Dunedin,FL,-82.774,28.011
@@ -14738,8 +14738,8 @@ zip,primary_city,state,lon,lat
 34711,Clermont,FL,-81.779,28.584
 34712,Clermont,FL,-81.654,28.811
 34713,Clermont,FL,-81.654,28.811
-34714,Clermont,FL,-81.76,28.53
-34715,Clermont,FL,-81.75,28.63
+34714,Clermont,FL,28.53,-81.76
+34715,Clermont,FL,28.63,-81.75
 34729,Ferndale,FL,-81.654,28.811
 34731,Fruitland Park,FL,-81.906,28.863
 34734,Gotha,FL,-81.521,28.538
@@ -15339,7 +15339,7 @@ zip,primary_city,state,lon,lat
 36205,Anniston,AL,-85.793,33.736
 36206,Anniston,AL,-85.76,33.807
 36207,Anniston,AL,-85.753,33.72
-36210,Anniston,AL,-85.77,33.65
+36210,Anniston,AL,33.65,-85.77
 36250,Alexandria,AL,-85.904,33.781
 36251,Ashland,AL,-85.847,33.235
 36253,Bynum,AL,-85.838,33.762
@@ -15409,7 +15409,7 @@ zip,primary_city,state,lon,lat
 36376,Webb,AL,-85.264,31.252
 36401,Evergreen,AL,-87.052,31.489
 36420,Andalusia,AL,-86.386,31.304
-36421,Andalusia,AL,-86.47,31.37
+36421,Andalusia,AL,31.37,-86.47
 36425,Beatrice,AL,-87.25,31.568
 36426,Brewton,AL,-87.096,31.129
 36427,Brewton,AL,-87.264,31.092
@@ -15933,7 +15933,7 @@ zip,primary_city,state,lon,lat
 37424,Chattanooga,TN,-85.209,35.221
 37450,Chattanooga,TN,-85.209,35.221
 37501,Memphis,TN,-89.99,35.169
-37544,Memphis,TN,-90.05,35.15
+37544,Memphis,TN,35.15,-90.05
 37601,Johnson City,TN,-82.388,36.342
 37602,Johnson City,TN,-82.501,36.272
 37604,Johnson City,TN,-82.387,36.308
@@ -16118,7 +16118,7 @@ zip,primary_city,state,lon,lat
 37931,Knoxville,TN,-84.126,35.976
 37932,Knoxville,TN,-84.148,35.933
 37933,Knoxville,TN,-83.962,35.99
-37934,Knoxville,TN,-84.17,35.87
+37934,Knoxville,TN,35.87,-84.17
 37938,Knoxville,TN,-83.935,36.117
 37939,Knoxville,TN,-83.962,35.99
 37940,Knoxville,TN,-83.962,35.99
@@ -16139,7 +16139,7 @@ zip,primary_city,state,lon,lat
 38012,Brownsville,TN,-89.276,35.633
 38014,Brunswick,TN,-89.972,35.202
 38015,Burlison,TN,-89.739,35.551
-38016,Cordova,TN,-89.75,35.15
+38016,Cordova,TN,35.15,-89.75
 38017,Collierville,TN,-89.699,35.081
 38018,Cordova,TN,-89.9,35.105
 38019,Covington,TN,-89.636,35.542
@@ -16262,7 +16262,7 @@ zip,primary_city,state,lon,lat
 38224,Cottage Grove,TN,-88.466,36.402
 38225,Dresden,TN,-88.742,36.314
 38226,Dukedom,TN,-88.678,36.347
-38227,Elbridge,TN,-89.32,36.26
+38227,Elbridge,TN,36.26,-89.32
 38229,Gleason,TN,-88.616,36.225
 38230,Greenfield,TN,-88.781,36.214
 38231,Henry,TN,-88.422,36.221
@@ -16427,8 +16427,8 @@ zip,primary_city,state,lon,lat
 38568,Hilham,TN,-85.446,36.423
 38569,Lancaster,TN,-85.859,36.124
 38570,Livingston,TN,-85.329,36.385
-38571,Crossville,TN,-85.03,35.95
-38572,Crossville,TN,-85.03,35.95
+38571,Crossville,TN,35.95,-85.03
+38572,Crossville,TN,35.95,-85.03
 38573,Monroe,TN,-85.229,36.452
 38574,Monterey,TN,-85.235,36.118
 38575,Moss,TN,-85.631,36.553
@@ -16887,7 +16887,7 @@ zip,primary_city,state,lon,lat
 39533,Biloxi,MS,-89.068,30.416
 39534,Biloxi,MS,-89.068,30.416
 39535,Biloxi,MS,-89.068,30.416
-39540,Diberville,MS,-88.9,30.44
+39540,Diberville,MS,30.44,-88.9
 39552,Escatawpa,MS,-88.634,30.441
 39553,Gautier,MS,-88.665,30.422
 39555,Hurley,MS,-88.52,30.713
@@ -16976,40 +16976,40 @@ zip,primary_city,state,lon,lat
 39772,Weir,MS,-89.271,33.321
 39773,West Point,MS,-88.609,33.621
 39776,Woodland,MS,-89.061,33.805
-39813,Arlington,GA,-84.69,31.41
-39815,Attapulgus,GA,-84.47,30.74
-39817,Bainbridge,GA,-84.57,30.9
-39818,Bainbridge,GA,-84.67,30.7
-39819,Bainbridge,GA,-84.5,30.8
-39823,Blakely,GA,-84.94,31.33
-39824,Bluffton,GA,-84.86,31.55
-39825,Brinson,GA,-84.71,30.94
-39826,Bronwood,GA,-84.32,31.82
-39827,Cairo,GA,-84.2,30.97
-39828,Cairo,GA,-84.2,30.87
-39829,Calvary,GA,-84.34,30.72
-39832,Cedar Springs,GA,-85.03,31.18
-39834,Climax,GA,-84.44,30.89
-39836,Coleman,GA,-84.87,31.66
-39837,Colquitt,GA,-84.67,31.15
-39840,Cuthbert,GA,-84.75,31.77
-39841,Damascus,GA,-84.67,31.28
-39842,Dawson,GA,-84.44,31.76
-39845,Donalsonville,GA,-84.87,31.04
-39846,Edison,GA,-84.73,31.56
-39851,Fort Gaines,GA,-84.99,31.61
-39852,Fowlstown,GA,-84.55,30.79
-39854,Georgetown,GA,-85.04,31.85
-39859,Iron City,GA,-84.8,30.97
-39861,Jakin,GA,-85,31.14
-39862,Leary,GA,-84.5,31.48
-39866,Morgan,GA,-84.62,31.55
-39867,Morris,GA,-84.94,31.82
-39870,Newton,GA,-84.37,31.3
-39877,Parrott,GA,-84.49,31.92
-39885,Sasser,GA,-84.34,31.71
-39886,Shellman,GA,-84.6,31.73
-39897,Whigham,GA,-84.32,30.9
+39813,Arlington,GA,31.41,-84.69
+39815,Attapulgus,GA,30.74,-84.47
+39817,Bainbridge,GA,30.9,-84.57
+39818,Bainbridge,GA,30.7,-84.67
+39819,Bainbridge,GA,30.8,-84.5
+39823,Blakely,GA,31.33,-84.94
+39824,Bluffton,GA,31.55,-84.86
+39825,Brinson,GA,30.94,-84.71
+39826,Bronwood,GA,31.82,-84.32
+39827,Cairo,GA,30.97,-84.2
+39828,Cairo,GA,30.87,-84.2
+39829,Calvary,GA,30.72,-84.34
+39832,Cedar Springs,GA,31.18,-85.03
+39834,Climax,GA,30.89,-84.44
+39836,Coleman,GA,31.66,-84.87
+39837,Colquitt,GA,31.15,-84.67
+39840,Cuthbert,GA,31.77,-84.75
+39841,Damascus,GA,31.28,-84.67
+39842,Dawson,GA,31.76,-84.44
+39845,Donalsonville,GA,31.04,-84.87
+39846,Edison,GA,31.56,-84.73
+39851,Fort Gaines,GA,31.61,-84.99
+39852,Fowlstown,GA,30.79,-84.55
+39854,Georgetown,GA,31.85,-85.04
+39859,Iron City,GA,30.97,-84.8
+39861,Jakin,GA,31.14,-85
+39862,Leary,GA,31.48,-84.5
+39866,Morgan,GA,31.55,-84.62
+39867,Morris,GA,31.82,-84.94
+39870,Newton,GA,31.3,-84.37
+39877,Parrott,GA,31.92,-84.49
+39885,Sasser,GA,31.71,-84.34
+39886,Shellman,GA,31.73,-84.6
+39897,Whigham,GA,30.9,-84.32
 39901,Atlanta,GA,-84.075,33.891
 40003,Bagdad,KY,-85.09,38.274
 40004,Bardstown,KY,-85.467,37.823
@@ -17076,8 +17076,8 @@ zip,primary_city,state,lon,lat
 40118,Fairdale,KY,-85.758,38.097
 40119,Falls Of Rough,KY,-86.484,37.552
 40121,Fort Knox,KY,-85.953,37.899
-40122,Fort Knox,KY,-85.96,37.89
-40129,Hillview,KY,-85.67,38.07
+40122,Fort Knox,KY,37.89,-85.96
+40129,Hillview,KY,38.07,-85.67
 40140,Garfield,KY,-86.415,37.802
 40142,Guston,KY,-86.2,37.89
 40143,Hardinsburg,KY,-86.454,37.751
@@ -17287,7 +17287,7 @@ zip,primary_city,state,lon,lat
 40583,Lexington,KY,-84.472,38.028
 40588,Lexington,KY,-84.472,38.028
 40591,Lexington,KY,-84.472,38.028
-40598,Lexington,KY,-84.5,38.05
+40598,Lexington,KY,38.05,-84.5
 40601,Frankfort,KY,-84.87,38.228
 40602,Frankfort,KY,-84.875,38.234
 40603,Frankfort,KY,-84.875,38.234
@@ -18026,7 +18026,7 @@ zip,primary_city,state,lon,lat
 43066,Radnor,OH,-83.173,40.381
 43067,Raymond,OH,-83.465,40.338
 43068,Reynoldsburg,OH,-82.803,39.952
-43069,Reynoldsburg,OH,-82.81,39.95
+43069,Reynoldsburg,OH,39.95,-82.81
 43070,Rosewood,OH,-83.962,40.172
 43071,Saint Louisville,OH,-82.353,40.189
 43072,Saint Paris,OH,-83.947,40.122
@@ -18091,10 +18091,10 @@ zip,primary_city,state,lon,lat
 43162,West Jefferson,OH,-83.31,39.949
 43163,West Rushville,OH,-82.447,39.763
 43164,Williamsport,OH,-83.127,39.604
-43194,Lockbourne,OH,-82.96,39.8
-43195,Groveport,OH,-82.89,39.86
-43196,Groveport,OH,-82.89,39.86
-43198,Groveport,OH,-82.89,39.86
+43194,Lockbourne,OH,39.8,-82.96
+43195,Groveport,OH,39.86,-82.89
+43196,Groveport,OH,39.86,-82.89
+43198,Groveport,OH,39.86,-82.89
 43199,Groveport,OH,-83.011,39.969
 43201,Columbus,OH,-83.011,39.969
 43202,Columbus,OH,-83.011,39.969
@@ -18572,7 +18572,7 @@ zip,primary_city,state,lon,lat
 44145,Westlake,OH,-81.922,41.445
 44146,Bedford,OH,-81.537,41.389
 44147,Broadview Heights,OH,-81.673,41.314
-44149,Strongsville,OH,-81.85,41.31
+44149,Strongsville,OH,41.31,-81.85
 44178,Cleveland,OH,-81.673,41.686
 44181,Cleveland,OH,-81.673,41.686
 44185,Cleveland,OH,-81.673,41.686
@@ -19074,7 +19074,7 @@ zip,primary_city,state,lon,lat
 45274,Cincinnati,OH,-84.538,39.167
 45275,Cincinnati,OH,-83.863,38.947
 45277,Cincinnati,OH,-84.538,39.167
-45280,Cincinnati,OH,-84.45,39.15
+45280,Cincinnati,OH,39.15,-84.45
 45296,Cincinnati,OH,-84.538,39.167
 45298,Cincinnati,OH,-84.538,39.167
 45299,Cincinnati,OH,-84.509,39.262
@@ -19158,7 +19158,7 @@ zip,primary_city,state,lon,lat
 45388,Yorkshire,OH,-84.484,40.322
 45389,Christiansburg,OH,-84.025,40.056
 45390,Union City,OH,-84.759,40.212
-45400,Dayton,OH,-84.19,39.76
+45400,Dayton,OH,39.76,-84.19
 45401,Dayton,OH,-84.269,39.75
 45402,Dayton,OH,-84.182,39.757
 45403,Dayton,OH,-84.151,39.765
@@ -19436,7 +19436,7 @@ zip,primary_city,state,lon,lat
 46034,Cicero,IN,-86.038,40.155
 46035,Colfax,IN,-86.648,40.211
 46036,Elwood,IN,-85.72,40.278
-46037,Fishers,IN,-85.94,39.96
+46037,Fishers,IN,39.96,-85.94
 46038,Fishers,IN,-85.965,39.967
 46039,Forest,IN,-86.309,40.374
 46040,Fortville,IN,-85.793,39.895
@@ -19455,7 +19455,7 @@ zip,primary_city,state,lon,lat
 46058,Mulberry,IN,-86.629,40.359
 46060,Noblesville,IN,-86,40.073
 46061,Noblesville,IN,-86.052,40.072
-46062,Noblesville,IN,-86.03,40.05
+46062,Noblesville,IN,40.05,-86.03
 46063,Orestes,IN,-85.728,40.272
 46064,Pendleton,IN,-85.758,40.107
 46065,Rossville,IN,-86.603,40.361
@@ -19470,7 +19470,7 @@ zip,primary_city,state,lon,lat
 46076,Windfall,IN,-85.938,40.349
 46077,Zionsville,IN,-86.298,39.997
 46082,Carmel,IN,-86.052,40.072
-46085,Fishers,IN,-86.01,39.96
+46085,Fishers,IN,39.96,-86.01
 46102,Advance,IN,-86.62,39.996
 46103,Amo,IN,-86.483,39.737
 46104,Arlington,IN,-85.591,39.663
@@ -19580,7 +19580,7 @@ zip,primary_city,state,lon,lat
 46256,Indianapolis,IN,-86.009,39.898
 46259,Indianapolis,IN,-85.998,39.667
 46260,Indianapolis,IN,-86.138,39.894
-46262,Indianapolis,IN,-86.15,39.76
+46262,Indianapolis,IN,39.76,-86.15
 46266,Indianapolis,IN,-86.133,39.779
 46268,Indianapolis,IN,-86.212,39.868
 46274,Indianapolis,IN,-86.133,39.779
@@ -19594,7 +19594,7 @@ zip,primary_city,state,lon,lat
 46290,Indianapolis,IN,-86.199,39.937
 46291,Indianapolis,IN,-86.133,39.779
 46295,Indianapolis,IN,-86.133,39.779
-46296,Indianapolis,IN,-86.16,39.77
+46296,Indianapolis,IN,39.77,-86.16
 46298,Indianapolis,IN,-86.133,39.779
 46301,Beverly Shores,IN,-86.975,41.684
 46302,Boone Grove,IN,-87.13,41.354
@@ -20428,7 +20428,7 @@ zip,primary_city,state,lon,lat
 48028,Harsens Island,MI,-82.597,42.597
 48030,Hazel Park,MI,-83.098,42.496
 48032,Jeddo,MI,-82.6,43.122
-48033,Southfield,MI,-83.28,42.46
+48033,Southfield,MI,42.46,-83.28
 48034,Southfield,MI,-83.279,42.478
 48035,Clinton Township,MI,-82.917,42.551
 48036,Clinton Township,MI,-82.913,42.594
@@ -20472,9 +20472,9 @@ zip,primary_city,state,lon,lat
 48082,Saint Clair Shores,MI,-82.884,42.527
 48083,Troy,MI,-83.119,42.556
 48084,Troy,MI,-83.177,42.555
-48085,Troy,MI,-83.14,42.58
+48085,Troy,MI,42.58,-83.14
 48086,Southfield,MI,-83.386,42.66
-48088,Warren,MI,-83.02,42.49
+48088,Warren,MI,42.49,-83.02
 48089,Warren,MI,-82.995,42.475
 48090,Warren,MI,-82.903,42.672
 48091,Warren,MI,-83.055,42.471
@@ -20542,7 +20542,7 @@ zip,primary_city,state,lon,lat
 48165,New Hudson,MI,-83.609,42.498
 48166,Newport,MI,-83.331,41.922
 48167,Northville,MI,-83.432,42.417
-48168,Northville,MI,-83.6,42.4
+48168,Northville,MI,42.4,-83.6
 48169,Pinckney,MI,-83.947,42.468
 48170,Plymouth,MI,-83.49,42.367
 48173,Rockwood,MI,-83.273,42.112
@@ -20564,7 +20564,7 @@ zip,primary_city,state,lon,lat
 48190,Whittaker,MI,-83.595,42.124
 48191,Willis,MI,-83.57,42.13
 48192,Wyandotte,MI,-83.207,42.195
-48193,Riverview,MI,-83.21,42.16
+48193,Riverview,MI,42.16,-83.21
 48195,Southgate,MI,-83.286,42.258
 48197,Ypsilanti,MI,-83.62,42.202
 48198,Ypsilanti,MI,-83.773,42.31
@@ -20752,7 +20752,7 @@ zip,primary_city,state,lon,lat
 48473,Swartz Creek,MI,-83.813,42.95
 48475,Ubly,MI,-83.024,43.808
 48476,Vernon,MI,-84.033,42.941
-48480,Grand Blanc,MI,-83.63,42.92
+48480,Grand Blanc,MI,42.92,-83.63
 48501,Flint,MI,-83.781,42.966
 48502,Flint,MI,-83.695,43.015
 48503,Flint,MI,-83.693,43.011
@@ -20811,7 +20811,7 @@ zip,primary_city,state,lon,lat
 48635,Lupton,MI,-84.073,44.378
 48636,Luzerne,MI,-84.148,44.623
 48637,Merrill,MI,-84.309,43.39
-48638,Saginaw,MI,-84.02,43.41
+48638,Saginaw,MI,43.41,-84.02
 48640,Midland,MI,-84.338,43.626
 48641,Midland,MI,-84.388,43.538
 48642,Midland,MI,-84.28,43.687
@@ -20939,7 +20939,7 @@ zip,primary_city,state,lon,lat
 48852,Mcbrides,MI,-85.052,43.35
 48853,Maple Rapids,MI,-84.69,43.099
 48854,Mason,MI,-84.46,42.574
-48855,Howell,MI,-83.88,42.69
+48855,Howell,MI,42.69,-83.88
 48856,Middleton,MI,-84.731,43.198
 48857,Morrice,MI,-84.136,42.844
 48858,Mount Pleasant,MI,-84.808,43.637
@@ -21001,7 +21001,7 @@ zip,primary_city,state,lon,lat
 48933,Lansing,MI,-84.554,42.731
 48937,Lansing,MI,-84.559,42.749
 48950,Lansing,MI,-84.372,42.599
-48951,Lansing,MI,-84.56,42.72
+48951,Lansing,MI,42.72,-84.56
 48956,Lansing,MI,-84.559,42.733
 48980,Lansing,MI,-84.372,42.599
 49001,Kalamazoo,MI,-85.51,42.262
@@ -21039,7 +21039,7 @@ zip,primary_city,state,lon,lat
 49034,Climax,MI,-85.363,42.226
 49035,Cloverdale,MI,-85.309,42.595
 49036,Coldwater,MI,-85.059,41.905
-49037,Battle Creek,MI,-85.26,42.32
+49037,Battle Creek,MI,42.32,-85.26
 49038,Coloma,MI,-86.366,42.148
 49039,Hagar Shores,MI,-86.372,42.225
 49040,Colon,MI,-85.351,41.978
@@ -21049,7 +21049,7 @@ zip,primary_city,state,lon,lat
 49045,Decatur,MI,-86.071,42.174
 49046,Delton,MI,-85.385,42.533
 49047,Dowagiac,MI,-86.019,41.962
-49048,Kalamazoo,MI,-85.48,42.24
+49048,Kalamazoo,MI,42.24,-85.48
 49050,Dowling,MI,-85.34,42.606
 49051,East Leroy,MI,-85.234,42.178
 49052,Fulton,MI,-85.342,42.133
@@ -21301,12 +21301,12 @@ zip,primary_city,state,lon,lat
 49515,Grand Rapids,MI,-85.55,43.031
 49516,Grand Rapids,MI,-85.55,43.031
 49518,Grand Rapids,MI,-85.55,43.031
-49519,Wyoming,MI,-85.72,42.89
+49519,Wyoming,MI,42.89,-85.72
 49523,Grand Rapids,MI,-85.55,43.031
 49525,Grand Rapids,MI,-85.603,43.014
-49528,Grand Rapids,MI,-85.67,42.9
+49528,Grand Rapids,MI,42.9,-85.67
 49530,Grand Rapids,MI,-85.55,43.031
-49534,Grand Rapids,MI,-85.77,42.97
+49534,Grand Rapids,MI,42.97,-85.77
 49544,Grand Rapids,MI,-85.726,43.007
 49546,Grand Rapids,MI,-85.539,42.93
 49548,Grand Rapids,MI,-85.615,42.865
@@ -21593,7 +21593,7 @@ zip,primary_city,state,lon,lat
 50020,Anita,IA,-94.814,41.391
 50021,Ankeny,IA,-93.601,41.756
 50022,Atlantic,IA,-94.961,41.382
-50023,Ankeny,IA,-93.62,41.71
+50023,Ankeny,IA,41.71,-93.62
 50025,Audubon,IA,-94.919,41.705
 50026,Bagley,IA,-94.45,41.827
 50027,Barnes City,IA,-92.487,41.47
@@ -21644,7 +21644,7 @@ zip,primary_city,state,lon,lat
 50075,Ellsworth,IA,-93.552,42.325
 50076,Exira,IA,-94.871,41.589
 50078,Ferguson,IA,-92.865,41.937
-50099,Boone,IA,-93.88,42.05
+50099,Boone,IA,42.05,-93.88
 50101,Galt,IA,-93.627,42.666
 50102,Garden City,IA,-93.373,42.235
 50103,Garden Grove,IA,-93.786,40.737
@@ -21802,9 +21802,9 @@ zip,primary_city,state,lon,lat
 50321,Des Moines,IA,-93.66,41.547
 50322,Urbandale,IA,-93.754,41.63
 50323,Urbandale,IA,-93.772,41.629
-50324,Windsor Heights,IA,-93.71,41.6
+50324,Windsor Heights,IA,41.6,-93.71
 50325,Clive,IA,-93.745,41.608
-50327,Pleasant Hill,IA,-93.49,41.58
+50327,Pleasant Hill,IA,41.58,-93.49
 50328,Des Moines,IA,-93.572,41.673
 50329,Des Moines,IA,-93.572,41.673
 50330,Des Moines,IA,-93.572,41.673
@@ -22078,8 +22078,8 @@ zip,primary_city,state,lon,lat
 50950,Des Moines,IA,-93.572,41.673
 50980,Des Moines,IA,-93.572,41.673
 50981,Des Moines,IA,-93.572,41.673
-50982,Des Moines,IA,-93.63,41.58
-50983,Des Moines,IA,-93.66,41.57
+50982,Des Moines,IA,41.58,-93.63
+50983,Des Moines,IA,41.57,-93.66
 51001,Akron,IA,-96.463,42.822
 51002,Alta,IA,-95.151,42.735
 51003,Alton,IA,-95.97,43.038
@@ -22596,7 +22596,7 @@ zip,primary_city,state,lon,lat
 52731,Charlotte,IA,-90.555,41.967
 52732,Clinton,IA,-90.302,41.899
 52733,Clinton,IA,-90.52,41.881
-52734,Clinton,IA,-90.18,41.84
+52734,Clinton,IA,41.84,-90.18
 52736,Clinton,IA,-90.52,41.881
 52737,Columbus City,IA,-91.375,41.259
 52738,Columbus Junction,IA,-91.301,41.293
@@ -22789,7 +22789,7 @@ zip,primary_city,state,lon,lat
 53192,Wilmot,WI,-88.191,42.507
 53194,Woodworth,WI,-87.663,42.581
 53195,Zenda,WI,-88.484,42.514
-53199,Silver Lake,WI,-88.17,42.55
+53199,Silver Lake,WI,42.55,-88.17
 53201,Milwaukee,WI,-87.958,43.011
 53202,Milwaukee,WI,-87.895,43.043
 53203,Milwaukee,WI,-87.917,43.038
@@ -22822,7 +22822,7 @@ zip,primary_city,state,lon,lat
 53234,Milwaukee,WI,-87.57,43.017
 53235,Saint Francis,WI,-87.874,42.97
 53237,Milwaukee,WI,-87.57,43.017
-53244,Milwaukee,WI,-87.91,42.94
+53244,Milwaukee,WI,42.94,-87.91
 53259,Milwaukee,WI,-87.914,43.039
 53263,Milwaukee,WI,-88.06,43.075
 53267,Milwaukee,WI,-87.91,43.044
@@ -22882,7 +22882,7 @@ zip,primary_city,state,lon,lat
 53545,Janesville,WI,-89.112,42.711
 53546,Janesville,WI,-88.948,42.664
 53547,Janesville,WI,-89.03,42.729
-53548,Janesville,WI,-89.07,42.68
+53548,Janesville,WI,42.68,-89.07
 53549,Jefferson,WI,-88.76,42.994
 53550,Juda,WI,-89.508,42.564
 53551,Lake Mills,WI,-88.913,43.081
@@ -22947,7 +22947,7 @@ zip,primary_city,state,lon,lat
 53725,Madison,WI,-89.424,43.07
 53726,Madison,WI,-89.424,43.07
 53744,Madison,WI,-89.424,43.07
-53774,Madison,WI,-89.4,43.07
+53774,Madison,WI,43.07,-89.4
 53777,Madison,WI,-89.424,43.07
 53778,Madison,WI,-89.424,43.07
 53779,Madison,WI,-89.324,43.098
@@ -23230,7 +23230,7 @@ zip,primary_city,state,lon,lat
 54479,Spencer,WI,-90.141,44.805
 54480,Stetsonville,WI,-90.303,45.194
 54481,Stevens Point,WI,-89.532,44.552
-54482,Stevens Point,WI,-89.54,44.57
+54482,Stevens Point,WI,44.57,-89.54
 54484,Stratford,WI,-90.031,44.809
 54485,Summit Lake,WI,-89.218,45.396
 54486,Tigerton,WI,-89.039,44.76
@@ -23641,7 +23641,7 @@ zip,primary_city,state,lon,lat
 55127,Saint Paul,MN,-93.088,45.08
 55128,Saint Paul,MN,-92.949,44.991
 55129,Saint Paul,MN,-92.923,44.899
-55130,Saint Paul,MN,-93.08,44.97
+55130,Saint Paul,MN,44.97,-93.08
 55133,Saint Paul,MN,-93.106,45.006
 55144,Saint Paul,MN,-93.106,45.006
 55145,Saint Paul,MN,-93.106,45.006
@@ -23814,7 +23814,7 @@ zip,primary_city,state,lon,lat
 55458,Minneapolis,MN,-93.472,45.016
 55459,Minneapolis,MN,-93.472,45.016
 55460,Minneapolis,MN,-93.472,45.016
-55467,Minneapolis,MN,-93.26,44.97
+55467,Minneapolis,MN,44.97,-93.26
 55468,Minneapolis,MN,-93.472,45.016
 55470,Minneapolis,MN,-93.472,45.016
 55472,Minneapolis,MN,-93.472,45.016
@@ -24346,7 +24346,7 @@ zip,primary_city,state,lon,lat
 56385,Villard,MN,-95.225,45.719
 56386,Wahkon,MN,-93.62,45.99
 56387,Waite Park,MN,-94.667,45.511
-56388,Waite Park,MN,-94.22,45.56
+56388,Waite Park,MN,45.56,-94.22
 56389,West Union,MN,-95.082,45.8
 56393,Saint Cloud,MN,-94.593,45.529
 56395,Saint Cloud,MN,-94.593,45.529
@@ -24569,17 +24569,17 @@ zip,primary_city,state,lon,lat
 56761,Wannaska,MN,-95.748,48.769
 56762,Warren,MN,-96.773,48.261
 56763,Warroad,MN,-95.25,48.901
-56901,Parcel Return Service,DC,-77.04,38.9
-56902,Parcel Return Service,DC,-77.03,38.89
-56904,Parcel Return Service,DC,-77.03,38.89
-56915,Parcel Return Service,DC,-76.99,38.92
-56920,Parcel Return Service,DC,-77.04,38.9
-56933,Parcel Return Service,DC,-76.99,38.86
-56944,Parcel Return Service,DC,-76.99,38.86
-56945,Parcel Return Service,DC,-77.03,38.89
-56950,Parcel Return Service,DC,-77.03,38.89
-56965,Parcel Return Service,DC,-77.03,38.89
-56972,Parcel Return Service,DC,-76.99,38.86
+56901,Parcel Return Service,DC,38.9,-77.04
+56902,Parcel Return Service,DC,38.89,-77.03
+56904,Parcel Return Service,DC,38.89,-77.03
+56915,Parcel Return Service,DC,38.92,-76.99
+56920,Parcel Return Service,DC,38.9,-77.04
+56933,Parcel Return Service,DC,38.86,-76.99
+56944,Parcel Return Service,DC,38.86,-76.99
+56945,Parcel Return Service,DC,38.89,-77.03
+56950,Parcel Return Service,DC,38.89,-77.03
+56965,Parcel Return Service,DC,38.89,-77.03
+56972,Parcel Return Service,DC,38.86,-76.99
 57001,Alcester,SD,-96.624,42.932
 57002,Aurora,SD,-96.668,44.304
 57003,Baltic,SD,-96.815,43.645
@@ -24662,7 +24662,7 @@ zip,primary_city,state,lon,lat
 57110,Sioux Falls,SD,-96.633,43.549
 57117,Sioux Falls,SD,-96.791,43.675
 57118,Sioux Falls,SD,-96.791,43.675
-57186,Sioux Falls,SD,-96.7,43.55
+57186,Sioux Falls,SD,43.55,-96.7
 57188,Sioux Falls,SD,-96.791,43.675
 57189,Sioux Falls,SD,-96.791,43.675
 57192,Sioux Falls,SD,-96.791,43.675
@@ -25223,7 +25223,7 @@ zip,primary_city,state,lon,lat
 58497,Ypsilanti,ND,-98.565,46.769
 58501,Bismarck,ND,-100.503,46.981
 58502,Bismarck,ND,-100.682,46.889
-58503,Bismarck,ND,-100.75,46.91
+58503,Bismarck,ND,46.91,-100.75
 58504,Bismarck,ND,-100.456,46.83
 58505,Bismarck,ND,-100.781,46.817
 58506,Bismarck,ND,-100.52,46.98
@@ -25892,7 +25892,7 @@ zip,primary_city,state,lon,lat
 60121,Elgin,IL,-88.313,42.041
 60122,Carol Stream,IL,-88.305,42.067
 60123,Elgin,IL,-88.371,42.036
-60124,Elgin,IL,-88.28,42.03
+60124,Elgin,IL,42.03,-88.28
 60125,Carol Stream,IL,-88.089,41.84
 60126,Elmhurst,IL,-87.946,41.884
 60128,Carol Stream,IL,-88.089,41.84
@@ -25900,7 +25900,7 @@ zip,primary_city,state,lon,lat
 60130,Forest Park,IL,-87.687,41.812
 60131,Franklin Park,IL,-87.885,41.936
 60132,Carol Stream,IL,-88.089,41.84
-60133,Hanover Park,IL,-88.14,41.97
+60133,Hanover Park,IL,41.97,-88.14
 60134,Geneva,IL,-88.406,41.98
 60135,Genoa,IL,-88.718,42.102
 60136,Gilberts,IL,-88.38,42.103
@@ -25922,7 +25922,7 @@ zip,primary_city,state,lon,lat
 60153,Maywood,IL,-87.687,41.812
 60154,Westchester,IL,-87.687,41.812
 60155,Broadview,IL,-87.687,41.812
-60156,Lake In The Hills,IL,-88.34,42.18
+60156,Lake In The Hills,IL,42.18,-88.34
 60157,Medinah,IL,-88.089,41.84
 60159,Schaumburg,IL,-87.687,41.812
 60160,Melrose Park,IL,-87.859,41.915
@@ -25932,7 +25932,7 @@ zip,primary_city,state,lon,lat
 60164,Melrose Park,IL,-87.892,41.921
 60165,Stone Park,IL,-87.878,41.907
 60168,Schaumburg,IL,-87.687,41.812
-60169,Hoffman Estates,IL,-88.12,42.04
+60169,Hoffman Estates,IL,42.04,-88.12
 60170,Plato Center,IL,-88.426,42.026
 60171,River Grove,IL,-87.839,41.923
 60172,Roselle,IL,-88.089,41.84
@@ -25967,17 +25967,17 @@ zip,primary_city,state,lon,lat
 60204,Evanston,IL,-87.687,41.812
 60208,Evanston,IL,-87.685,42.059
 60209,Evanston,IL,-87.679,42.05
-60290,Chicago,IL,-87.65,41.85
+60290,Chicago,IL,41.85,-87.65
 60301,Oak Park,IL,-87.687,41.812
 60302,Oak Park,IL,-87.687,41.812
 60303,Oak Park,IL,-87.687,41.812
 60304,Oak Park,IL,-87.687,41.812
 60305,River Forest,IL,-87.687,41.812
-60399,Wood Dale,IL,-87.94,41.96
+60399,Wood Dale,IL,41.96,-87.94
 60401,Beecher,IL,-87.627,41.357
 60402,Berwyn,IL,-87.687,41.812
-60403,Crest Hill,IL,-88.12,41.55
-60404,Shorewood,IL,-88.21,41.51
+60403,Crest Hill,IL,41.55,-88.12
+60404,Shorewood,IL,41.51,-88.21
 60406,Blue Island,IL,-87.687,41.812
 60407,Braceville,IL,-88.279,41.239
 60408,Braidwood,IL,-88.017,41.286
@@ -25996,7 +25996,7 @@ zip,primary_city,state,lon,lat
 60424,Gardner,IL,-88.338,41.178
 60425,Glenwood,IL,-87.687,41.812
 60426,Harvey,IL,-87.687,41.812
-60428,Markham,IL,-87.69,41.6
+60428,Markham,IL,41.6,-87.69
 60429,Hazel Crest,IL,-87.687,41.812
 60430,Homewood,IL,-87.687,41.812
 60431,Joliet,IL,-87.939,41.471
@@ -26051,14 +26051,14 @@ zip,primary_city,state,lon,lat
 60480,Willow Springs,IL,-87.687,41.812
 60481,Wilmington,IL,-88.085,41.359
 60482,Worth,IL,-87.687,41.812
-60484,University Park,IL,-87.68,41.44
-60487,Tinley Park,IL,-87.84,41.57
+60484,University Park,IL,41.44,-87.68
+60487,Tinley Park,IL,41.57,-87.84
 60490,Bolingbrook,IL,-88.14,41.679
-60491,Homer Glen,IL,-88.01,41.6
+60491,Homer Glen,IL,41.6,-88.01
 60499,Bedford Park,IL,-87.687,41.812
 60501,Summit Argo,IL,-87.687,41.812
-60502,Aurora,IL,-88.25,41.77
-60503,Aurora,IL,-88.26,41.71
+60502,Aurora,IL,41.77,-88.25
+60503,Aurora,IL,41.71,-88.26
 60504,Aurora,IL,-88.137,41.768
 60505,Aurora,IL,-88.405,41.765
 60506,Aurora,IL,-88.417,41.791
@@ -26117,8 +26117,8 @@ zip,primary_city,state,lon,lat
 60568,Aurora,IL,-88.432,41.936
 60570,Hinsdale,IL,-88.089,41.84
 60572,Aurora,IL,-88.089,41.84
-60585,Plainfield,IL,-88.21,41.66
-60586,Plainfield,IL,-88.2,41.61
+60585,Plainfield,IL,41.66,-88.21
+60586,Plainfield,IL,41.61,-88.2
 60597,Fox Valley,IL,-88.089,41.84
 60598,Aurora,IL,-88.089,41.84
 60599,Fox Valley,IL,-88.089,41.84
@@ -26161,7 +26161,7 @@ zip,primary_city,state,lon,lat
 60639,Chicago,IL,-87.687,41.812
 60640,Chicago,IL,-87.687,41.812
 60641,Chicago,IL,-87.687,41.812
-60642,Chicago,IL,-87.65,41.9
+60642,Chicago,IL,41.9,-87.65
 60643,Chicago,IL,-87.687,41.812
 60644,Chicago,IL,-87.687,41.812
 60645,Chicago,IL,-87.721,42.008
@@ -26192,19 +26192,19 @@ zip,primary_city,state,lon,lat
 60679,Chicago,IL,-87.687,41.812
 60680,Chicago,IL,-87.687,41.812
 60681,Chicago,IL,-87.687,41.812
-60682,Chicago,IL,-87.81,41.86
+60682,Chicago,IL,41.86,-87.81
 60684,Chicago,IL,-87.687,41.812
 60685,Chicago,IL,-87.687,41.812
-60686,Chicago,IL,-87.65,41.85
+60686,Chicago,IL,41.85,-87.65
 60687,Chicago,IL,-87.687,41.812
-60688,Chicago,IL,-87.65,41.85
-60689,Chicago,IL,-87.63,41.87
+60688,Chicago,IL,41.85,-87.65
+60689,Chicago,IL,41.87,-87.63
 60690,Chicago,IL,-87.687,41.812
 60691,Chicago,IL,-87.687,41.812
 60693,Chicago,IL,-87.718,42.096
 60694,Chicago,IL,-87.687,41.812
-60695,Chicago,IL,-87.65,41.85
-60696,Chicago,IL,-87.65,41.85
+60695,Chicago,IL,41.85,-87.65
+60696,Chicago,IL,41.85,-87.65
 60697,Chicago,IL,-87.687,41.812
 60699,Chicago,IL,-87.687,41.812
 60701,Chicago,IL,-87.687,41.812
@@ -26259,7 +26259,7 @@ zip,primary_city,state,lon,lat
 60955,Onarga,IL,-87.852,40.758
 60956,Papineau,IL,-87.716,40.967
 60957,Paxton,IL,-88.198,40.661
-60958,Pembroke Township,IL,-87.56,41.11
+60958,Pembroke Township,IL,41.11,-87.56
 60959,Piper City,IL,-88.187,40.721
 60960,Rankin,IL,-87.858,40.422
 60961,Reddick,IL,-88.198,41.099
@@ -26601,7 +26601,7 @@ zip,primary_city,state,lon,lat
 61613,Peoria,IL,-89.628,40.743
 61614,Peoria,IL,-89.603,40.768
 61615,Peoria,IL,-89.645,40.766
-61616,Peoria Heights,IL,-89.57,40.74
+61616,Peoria Heights,IL,40.74,-89.57
 61625,Peoria,IL,-89.617,40.696
 61629,Peoria,IL,-89.589,40.692
 61630,Peoria,IL,-89.718,40.744
@@ -26624,7 +26624,7 @@ zip,primary_city,state,lon,lat
 61701,Bloomington,IL,-88.85,40.462
 61702,Bloomington,IL,-88.864,40.519
 61704,Bloomington,IL,-88.982,40.492
-61705,Bloomington,IL,-88.95,40.47
+61705,Bloomington,IL,40.47,-88.95
 61709,Bloomington,IL,-88.953,40.461
 61710,Bloomington,IL,-88.954,40.478
 61720,Anchor,IL,-88.722,40.569
@@ -27169,8 +27169,8 @@ zip,primary_city,state,lon,lat
 62706,Springfield,IL,-89.653,39.799
 62707,Springfield,IL,-89.632,39.785
 62708,Springfield,IL,-89.586,39.806
-62711,Springfield,IL,-89.72,39.76
-62712,Springfield,IL,-89.57,39.76
+62711,Springfield,IL,39.76,-89.72
+62712,Springfield,IL,39.76,-89.57
 62713,Springfield,IL,-89.606,39.749
 62715,Springfield,IL,-89.606,39.749
 62716,Springfield,IL,-89.536,39.848
@@ -27505,7 +27505,7 @@ zip,primary_city,state,lon,lat
 63180,Saint Louis,MO,-90.243,38.653
 63182,Saint Louis,MO,-90.243,38.653
 63188,Saint Louis,MO,-90.243,38.653
-63190,Saint Louis,MO,-90.19,38.62
+63190,Saint Louis,MO,38.62,-90.19
 63195,Saint Louis,MO,-90.243,38.653
 63196,Saint Louis,MO,-90.243,38.653
 63197,Saint Louis,MO,-90.243,38.653
@@ -27543,7 +27543,7 @@ zip,primary_city,state,lon,lat
 63365,New Melle,MO,-90.875,38.716
 63366,O Fallon,MO,-90.743,38.824
 63367,Lake Saint Louis,MO,-90.743,38.791
-63368,O Fallon,MO,-90.7,38.78
+63368,O Fallon,MO,38.78,-90.7
 63369,Old Monroe,MO,-90.811,38.948
 63370,Olney,MO,-91.232,39.078
 63373,Portage Des Sioux,MO,-90.386,38.926
@@ -27796,7 +27796,7 @@ zip,primary_city,state,lon,lat
 63966,Wappapello,MO,-90.278,36.974
 63967,Williamsville,MO,-90.445,37.12
 64001,Alma,MO,-93.591,39.106
-64002,Lees Summit,MO,-94.38,38.91
+64002,Lees Summit,MO,38.91,-94.38
 64011,Bates City,MO,-94.064,38.975
 64012,Belton,MO,-94.532,38.784
 64013,Blue Springs,MO,-94.37,38.965
@@ -28371,7 +28371,7 @@ zip,primary_city,state,lon,lat
 65580,Vichy,MO,-91.795,38.131
 65582,Vienna,MO,-91.968,38.17
 65583,Waynesville,MO,-92.21,37.768
-65584,Saint Robert,MO,-92.12,37.83
+65584,Saint Robert,MO,37.83,-92.12
 65586,Wesco,MO,-91.427,37.858
 65588,Winona,MO,-91.332,36.998
 65589,Yukon,MO,-91.82,37.238
@@ -28542,7 +28542,7 @@ zip,primary_city,state,lon,lat
 65814,Springfield,MO,-93.344,37.258
 65817,Springfield,MO,-93.344,37.258
 65890,Springfield,MO,-93.344,37.258
-65897,Springfield,MO,-93.27,37.19
+65897,Springfield,MO,37.19,-93.27
 65898,Springfield,MO,-93.295,37.18
 65899,Springfield,MO,-93.26,37.181
 66002,Atchison,KS,-95.225,39.536
@@ -29266,7 +29266,7 @@ zip,primary_city,state,lon,lat
 67840,Englewood,KS,-99.824,37.237
 67841,Ensign,KS,-100.275,37.625
 67842,Ford,KS,-99.799,37.588
-67843,Fort Dodge,KS,-99.93,37.73
+67843,Fort Dodge,KS,37.73,-99.93
 67844,Fowler,KS,-100.211,37.28
 67846,Garden City,KS,-100.664,38.001
 67849,Hanston,KS,-99.71,38.121
@@ -29410,7 +29410,7 @@ zip,primary_city,state,lon,lat
 68181,Omaha,NE,-96.171,41.292
 68182,Omaha,NE,-96.171,41.292
 68183,Omaha,NE,-96.171,41.292
-68197,Omaha,NE,-95.93,41.26
+68197,Omaha,NE,41.26,-95.93
 68198,Omaha,NE,-96.171,41.292
 68301,Adams,NE,-96.514,40.456
 68303,Alexandria,NE,-97.387,40.244
@@ -29478,7 +29478,7 @@ zip,primary_city,state,lon,lat
 68376,Humboldt,NE,-95.946,40.167
 68377,Jansen,NE,-97.029,40.232
 68378,Johnson,NE,-96,40.345
-68379,Julian,NE,-95.99,40.41
+68379,Julian,NE,40.41,-95.99
 68380,Lewiston,NE,-96.379,40.196
 68381,Liberty,NE,-96.69,40.262
 68382,Lorton,NE,-96.087,40.654
@@ -29981,10 +29981,10 @@ zip,primary_city,state,lon,lat
 70090,Vacherie,LA,-90.762,29.99
 70091,Venice,LA,-89.374,29.28
 70092,Violet,LA,-89.895,29.9
-70093,Belle Chasse,LA,-89.99,29.85
+70093,Belle Chasse,LA,29.85,-89.99
 70094,Westwego,LA,-90.204,29.921
 70096,Westwego,LA,-90.09,29.678
-70097,Kenner,LA,-90.24,30.03
+70097,Kenner,LA,30.03,-90.24
 70112,New Orleans,LA,-90.077,29.958
 70113,New Orleans,LA,-90.083,29.944
 70114,New Orleans,LA,-90.013,29.93
@@ -30133,7 +30133,7 @@ zip,primary_city,state,lon,lat
 70469,Slidell,LA,-89.881,30.426
 70470,Mandeville,LA,-89.881,30.426
 70471,Mandeville,LA,-89.976,30.343
-70500,Lafayette,LA,-92.01,30.22
+70500,Lafayette,LA,30.22,-92.01
 70501,Lafayette,LA,-92.067,30.233
 70502,Lafayette,LA,-92.027,30.32
 70503,Lafayette,LA,-92.06,30.203
@@ -30207,7 +30207,7 @@ zip,primary_city,state,lon,lat
 70591,Welsh,LA,-92.834,30.294
 70592,Youngsville,LA,-92.023,30.14
 70593,Lafayette,LA,-92.095,30.208
-70595,Lafayette,LA,-92.02,30.22
+70595,Lafayette,LA,30.22,-92.02
 70596,Lafayette,LA,-92.095,30.208
 70598,Lafayette,LA,-92.095,30.208
 70601,Lake Charles,LA,-93.215,30.233
@@ -30352,12 +30352,12 @@ zip,primary_city,state,lon,lat
 70835,Baton Rouge,LA,-91.08,30.516
 70836,Baton Rouge,LA,-91.089,30.392
 70837,Baton Rouge,LA,-91.08,30.516
-70873,Baton Rouge,LA,-91.18,30.45
+70873,Baton Rouge,LA,30.45,-91.18
 70874,Baton Rouge,LA,-91.205,30.59
 70879,Baton Rouge,LA,-91.08,30.516
 70883,Baton Rouge,LA,-91.08,30.516
 70884,Baton Rouge,LA,-91.08,30.516
-70891,Baton Rouge,LA,-91.18,30.45
+70891,Baton Rouge,LA,30.45,-91.18
 70892,Baton Rouge,LA,-91.08,30.516
 70893,Baton Rouge,LA,-91.171,30.413
 70894,Baton Rouge,LA,-91.08,30.516
@@ -30447,7 +30447,7 @@ zip,primary_city,state,lon,lat
 71138,Shreveport,LA,-93.753,32.608
 71148,Shreveport,LA,-93.753,32.608
 71149,Shreveport,LA,-93.753,32.608
-71150,Shreveport,LA,-93.75,32.52
+71150,Shreveport,LA,32.52,-93.75
 71151,Shreveport,LA,-93.753,32.608
 71152,Shreveport,LA,-93.753,32.608
 71153,Shreveport,LA,-93.753,32.608
@@ -30471,7 +30471,7 @@ zip,primary_city,state,lon,lat
 71211,Monroe,LA,-92.159,32.491
 71212,Monroe,LA,-92.073,32.529
 71213,Monroe,LA,-92.159,32.491
-71217,Monroe,LA,-92.1,32.49
+71217,Monroe,LA,32.49,-92.1
 71218,Archibald,LA,-91.733,32.409
 71219,Baskin,LA,-91.685,32.311
 71220,Bastrop,LA,-91.874,32.795
@@ -30820,7 +30820,7 @@ zip,primary_city,state,lon,lat
 72016,Bigelow,AR,-92.627,34.969
 72017,Biscoe,AR,-91.574,34.786
 72018,Benton,AR,-92.623,34.597
-72019,Benton,AR,-92.65,34.61
+72019,Benton,AR,34.61,-92.65
 72020,Bradford,AR,-91.525,35.38
 72021,Brinkley,AR,-91.195,34.883
 72022,Bryant,AR,-92.494,34.612
@@ -30835,7 +30835,7 @@ zip,primary_city,state,lon,lat
 72031,Clinton,AR,-92.419,35.569
 72032,Conway,AR,-92.376,35.146
 72033,Conway,AR,-92.355,35.105
-72034,Conway,AR,-92.5,35.05
+72034,Conway,AR,35.05,-92.5
 72035,Conway,AR,-92.355,35.105
 72036,Cotton Plant,AR,-91.252,35.004
 72037,Coy,AR,-91.876,34.541
@@ -30953,7 +30953,7 @@ zip,primary_city,state,lon,lat
 72183,Wrightsville,AR,-92.392,34.752
 72189,Mc Crory,AR,-91.259,35.179
 72190,North Little Rock,AR,-92.392,34.752
-72198,North Little Rock,AR,-92.27,34.77
+72198,North Little Rock,AR,34.77,-92.27
 72199,North Little Rock,AR,-92.285,34.827
 72201,Little Rock,AR,-92.285,34.756
 72202,Little Rock,AR,-92.29,34.752
@@ -30977,7 +30977,7 @@ zip,primary_city,state,lon,lat
 72225,Little Rock,AR,-92.392,34.752
 72227,Little Rock,AR,-92.372,34.776
 72231,Little Rock,AR,-92.189,34.802
-72260,Little Rock,AR,-92.28,34.75
+72260,Little Rock,AR,34.75,-92.28
 72295,Little Rock,AR,-92.392,34.752
 72301,West Memphis,AR,-90.204,35.211
 72303,West Memphis,AR,-90.286,35.137
@@ -31379,7 +31379,7 @@ zip,primary_city,state,lon,lat
 73022,Concho,OK,-97.992,35.525
 73023,Chickasha,OK,-97.882,35.031
 73024,Corn,OK,-98.782,35.378
-73025,Edmond,OK,-97.47,35.65
+73025,Edmond,OK,35.65,-97.47
 73026,Norman,OK,-97.291,35.234
 73027,Coyle,OK,-97.292,35.95
 73028,Crescent,OK,-97.628,35.977
@@ -31391,7 +31391,7 @@ zip,primary_city,state,lon,lat
 73034,Edmond,OK,-97.463,35.631
 73036,El Reno,OK,-98.027,35.508
 73038,Fort Cobb,OK,-98.442,35.101
-73039,Davis,OK,-97.48,34.62
+73039,Davis,OK,34.62,-97.48
 73040,Geary,OK,-98.321,35.63
 73041,Gotebo,OK,-98.876,35.07
 73042,Gracemont,OK,-98.233,35.042
@@ -31519,7 +31519,7 @@ zip,primary_city,state,lon,lat
 73190,Oklahoma City,OK,-97.408,35.551
 73193,Oklahoma City,OK,-97.408,35.551
 73194,Oklahoma City,OK,-97.408,35.551
-73195,Oklahoma City,OK,-97.59,35.4
+73195,Oklahoma City,OK,35.4,-97.59
 73196,Oklahoma City,OK,-97.408,35.551
 73197,Oklahoma City,OK,-97.408,35.551
 73198,Oklahoma City,OK,-97.408,35.551
@@ -31549,9 +31549,9 @@ zip,primary_city,state,lon,lat
 73448,Marietta,OK,-97.112,33.935
 73449,Mead,OK,-96.457,33.972
 73450,Milburn,OK,-96.67,34.31
-73451,Ardmore,OK,-97.14,34.17
+73451,Ardmore,OK,34.17,-97.14
 73453,Overbrook,OK,-97.248,33.894
-73454,Ardmore,OK,-97.14,34.17
+73454,Ardmore,OK,34.17,-97.14
 73455,Ravia,OK,-96.753,34.244
 73456,Ringling,OK,-97.81,34.2
 73458,Springer,OK,-97.134,34.305
@@ -31754,7 +31754,7 @@ zip,primary_city,state,lon,lat
 74016,Chelsea,OK,-95.436,36.496
 74017,Claremore,OK,-95.604,36.349
 74018,Claremore,OK,-95.606,36.344
-74019,Claremore,OK,-95.49,36.28
+74019,Claremore,OK,36.28,-95.49
 74020,Cleveland,OK,-96.443,36.264
 74021,Collinsville,OK,-95.857,36.37
 74022,Copan,OK,-95.923,36.801
@@ -31922,7 +31922,7 @@ zip,primary_city,state,lon,lat
 74436,Haskell,OK,-95.682,35.814
 74437,Henryetta,OK,-96.012,35.462
 74438,Hitchita,OK,-95.664,35.347
-74439,Braggs,OK,-95.23,35.88
+74439,Braggs,OK,35.88,-95.23
 74440,Hoyt,OK,-95.134,35.258
 74441,Hulbert,OK,-95.198,35.942
 74442,Indianola,OK,-95.721,34.947
@@ -32158,7 +32158,7 @@ zip,primary_city,state,lon,lat
 75029,Lewisville,TX,-97.116,33.207
 75030,Rowlett,TX,-96.535,32.917
 75032,Rockwall,TX,-96.41,32.886
-75033,Frisco,TX,-96.81,33.14
+75033,Frisco,TX,33.14,-96.81
 75034,Frisco,TX,-96.796,33.152
 75035,Frisco,TX,-96.773,33.157
 75037,Irving,TX,-96.778,32.767
@@ -32191,7 +32191,7 @@ zip,primary_city,state,lon,lat
 75068,Little Elm,TX,-96.958,33.177
 75069,Mckinney,TX,-96.588,33.141
 75070,Mckinney,TX,-96.627,33.23
-75071,Mckinney,TX,-96.65,33.2
+75071,Mckinney,TX,33.2,-96.65
 75074,Plano,TX,-96.579,33.109
 75075,Plano,TX,-96.715,33.162
 75076,Pottsboro,TX,-96.676,33.818
@@ -32220,7 +32220,7 @@ zip,primary_city,state,lon,lat
 75104,Cedar Hill,TX,-96.778,32.767
 75105,Chatfield,TX,-96.414,32.244
 75106,Cedar Hill,TX,-96.778,32.767
-75109,Corsicana,TX,-96.39,32.08
+75109,Corsicana,TX,32.08,-96.39
 75110,Corsicana,TX,-96.37,32.06
 75114,Crandall,TX,-96.444,32.661
 75115,Desoto,TX,-96.823,32.621
@@ -32255,7 +32255,7 @@ zip,primary_city,state,lon,lat
 75153,Powell,TX,-96.339,32.165
 75154,Red Oak,TX,-96.795,32.484
 75155,Rice,TX,-96.735,32.301
-75156,Mabank,TX,-96.08,32.25
+75156,Mabank,TX,32.25,-96.08
 75157,Rosser,TX,-96.439,32.455
 75158,Scurry,TX,-96.384,32.464
 75159,Seagoville,TX,-96.574,32.621
@@ -32327,7 +32327,7 @@ zip,primary_city,state,lon,lat
 75251,Dallas,TX,-96.734,32.895
 75252,Dallas,TX,-96.768,32.986
 75253,Dallas,TX,-96.608,32.672
-75254,Dallas,TX,-96.76,32.79
+75254,Dallas,TX,32.79,-96.76
 75258,Dallas,TX,-96.778,32.767
 75260,Dallas,TX,-96.778,32.767
 75261,Dallas,TX,-96.778,32.767
@@ -32354,19 +32354,19 @@ zip,primary_city,state,lon,lat
 75320,Dallas,TX,-96.778,32.767
 75323,Dallas,TX,-96.778,32.767
 75326,Dallas,TX,-96.778,32.767
-75334,Dallas,TX,-96.61,32.67
+75334,Dallas,TX,32.67,-96.61
 75336,Dallas,TX,-96.778,32.767
 75339,Dallas,TX,-96.778,32.767
-75340,Dallas,TX,-96.86,32.76
+75340,Dallas,TX,32.76,-96.86
 75342,Dallas,TX,-96.778,32.767
-75343,Dallas,TX,-96.86,32.76
-75344,Dallas,TX,-96.79,32.78
+75343,Dallas,TX,32.76,-96.86
+75344,Dallas,TX,32.78,-96.79
 75353,Dallas,TX,-96.778,32.767
 75354,Dallas,TX,-96.778,32.767
 75355,Dallas,TX,-96.778,32.767
 75356,Dallas,TX,-96.778,32.767
 75357,Dallas,TX,-96.778,32.767
-75358,Dallas,TX,-96.87,32.94
+75358,Dallas,TX,32.94,-96.87
 75359,Dallas,TX,-96.778,32.767
 75360,Dallas,TX,-96.778,32.767
 75363,Dallas,TX,-96.778,32.767
@@ -32530,7 +32530,7 @@ zip,primary_city,state,lon,lat
 75642,Elysian Fields,TX,-94.211,32.386
 75643,Gary,TX,-94.38,32.033
 75644,Gilmer,TX,-94.909,32.713
-75645,Gilmer,TX,-94.94,32.73
+75645,Gilmer,TX,32.73,-94.94
 75647,Gladewater,TX,-94.933,32.477
 75650,Hallsville,TX,-94.573,32.527
 75651,Harleton,TX,-94.532,32.677
@@ -32581,7 +32581,7 @@ zip,primary_city,state,lon,lat
 75713,Tyler,TX,-95.29,32.411
 75750,Arp,TX,-95.067,32.278
 75751,Athens,TX,-95.882,32.188
-75752,Athens,TX,-95.85,32.2
+75752,Athens,TX,32.2,-95.85
 75754,Ben Wheeler,TX,-95.713,32.423
 75755,Big Sandy,TX,-95.058,32.572
 75756,Brownsboro,TX,-95.576,32.233
@@ -32610,12 +32610,12 @@ zip,primary_city,state,lon,lat
 75790,Van,TX,-95.679,32.544
 75791,Whitehouse,TX,-95.218,32.22
 75792,Winona,TX,-95.284,32.519
-75797,Big Sandy,TX,-95.11,32.58
+75797,Big Sandy,TX,32.58,-95.11
 75798,Tyler,TX,-95.29,32.411
 75799,Tyler,TX,-95.29,32.411
 75801,Palestine,TX,-95.685,31.849
 75802,Palestine,TX,-95.58,31.927
-75803,Palestine,TX,-95.64,31.75
+75803,Palestine,TX,31.75,-95.64
 75831,Buffalo,TX,-95.99,31.412
 75832,Cayuga,TX,-95.662,31.794
 75833,Centerville,TX,-95.9,31.363
@@ -32682,7 +32682,7 @@ zip,primary_city,state,lon,lat
 75962,Nacogdoches,TX,-94.607,31.699
 75963,Nacogdoches,TX,-94.664,31.605
 75964,Nacogdoches,TX,-94.693,31.674
-75965,Nacogdoches,TX,-94.65,31.61
+75965,Nacogdoches,TX,31.61,-94.65
 75966,Newton,TX,-93.768,30.839
 75968,Pineland,TX,-93.973,31.248
 75969,Pollok,TX,-94.87,31.44
@@ -32755,7 +32755,7 @@ zip,primary_city,state,lon,lat
 76078,Rhome,TX,-97.48,33.092
 76082,Springtown,TX,-97.693,32.809
 76084,Venus,TX,-97.141,32.455
-76085,Weatherford,TX,-97.7,32.83
+76085,Weatherford,TX,32.83,-97.7
 76086,Weatherford,TX,-97.807,32.781
 76087,Weatherford,TX,-97.786,32.754
 76088,Weatherford,TX,-97.861,32.848
@@ -32811,7 +32811,7 @@ zip,primary_city,state,lon,lat
 76162,Fort Worth,TX,-97.291,32.771
 76163,Fort Worth,TX,-97.291,32.771
 76164,Fort Worth,TX,-97.291,32.771
-76166,Fort Worth,TX,-97.31,32.72
+76166,Fort Worth,TX,32.72,-97.31
 76177,Fort Worth,TX,-97.324,32.935
 76179,Fort Worth,TX,-97.426,32.907
 76180,North Richland Hills,TX,-97.217,32.868
@@ -32834,8 +32834,8 @@ zip,primary_city,state,lon,lat
 76206,Denton,TX,-97.151,33.169
 76207,Denton,TX,-97.204,33.238
 76208,Denton,TX,-97.095,33.16
-76209,Denton,TX,-97.11,33.23
-76210,Denton,TX,-97.06,33.14
+76209,Denton,TX,33.23,-97.11
+76210,Denton,TX,33.14,-97.06
 76225,Alvord,TX,-97.708,33.356
 76226,Argyle,TX,-97.165,33.215
 76227,Aubrey,TX,-97.017,33.278
@@ -33312,11 +33312,11 @@ zip,primary_city,state,lon,lat
 77243,Houston,TX,-95.434,29.834
 77244,Houston,TX,-95.434,29.834
 77245,Houston,TX,-95.434,29.834
-77246,Houston,TX,-95.43,29.64
-77247,Houston,TX,-95.43,29.64
+77246,Houston,TX,29.64,-95.43
+77247,Houston,TX,29.64,-95.43
 77248,Houston,TX,-95.434,29.834
 77249,Houston,TX,-95.434,29.834
-77250,Houston,TX,-95.53,29.7
+77250,Houston,TX,29.7,-95.53
 77251,Houston,TX,-95.434,29.834
 77252,Houston,TX,-95.434,29.834
 77253,Houston,TX,-95.434,29.834
@@ -33326,7 +33326,7 @@ zip,primary_city,state,lon,lat
 77257,Houston,TX,-95.434,29.834
 77258,Houston,TX,-95.434,29.834
 77259,Houston,TX,-95.434,29.834
-77260,Houston,TX,-95.24,29.67
+77260,Houston,TX,29.67,-95.24
 77261,Houston,TX,-95.434,29.834
 77262,Houston,TX,-95.434,29.834
 77263,Houston,TX,-95.434,29.834
@@ -33341,15 +33341,15 @@ zip,primary_city,state,lon,lat
 77273,Houston,TX,-95.434,29.834
 77274,Houston,TX,-95.434,29.834
 77275,Houston,TX,-95.434,29.834
-77276,Houston,TX,-95.36,29.75
+77276,Houston,TX,29.75,-95.36
 77277,Houston,TX,-95.434,29.834
-77278,Houston,TX,-95.51,29.76
+77278,Houston,TX,29.76,-95.51
 77279,Houston,TX,-95.434,29.834
 77280,Houston,TX,-95.434,29.834
 77282,Houston,TX,-95.434,29.834
 77284,Houston,TX,-95.434,29.834
-77285,Houston,TX,-95.36,29.75
-77286,Houston,TX,-95.36,29.67
+77285,Houston,TX,29.75,-95.36
+77286,Houston,TX,29.67,-95.36
 77287,Houston,TX,-95.434,29.834
 77288,Houston,TX,-95.434,29.834
 77289,Houston,TX,-95.434,29.834
@@ -33357,8 +33357,8 @@ zip,primary_city,state,lon,lat
 77291,Houston,TX,-95.434,29.834
 77292,Houston,TX,-95.333,29.744
 77293,Houston,TX,-95.434,29.834
-77294,Houston,TX,-95.24,29.86
-77296,Houston,TX,-95.36,29.76
+77294,Houston,TX,29.86,-95.24
+77296,Houston,TX,29.76,-95.36
 77297,Houston,TX,-95.434,29.834
 77298,Houston,TX,-95.434,29.834
 77299,Houston,TX,-95.434,29.834
@@ -33439,7 +33439,7 @@ zip,primary_city,state,lon,lat
 77402,Bellaire,TX,-95.434,29.834
 77404,Bay City,TX,-95.651,28.798
 77406,Richmond,TX,-95.919,29.504
-77407,Richmond,TX,-95.7,29.68
+77407,Richmond,TX,29.68,-95.7
 77410,Cypress,TX,-95.434,29.834
 77411,Alief,TX,-95.434,29.834
 77412,Altair,TX,-96.525,29.605
@@ -33517,7 +33517,7 @@ zip,primary_city,state,lon,lat
 77494,Katy,TX,-95.434,29.834
 77496,Sugar Land,TX,-95.756,29.525
 77497,Stafford,TX,-95.756,29.525
-77498,Sugar Land,TX,-95.65,29.63
+77498,Sugar Land,TX,29.63,-95.65
 77501,Pasadena,TX,-95.434,29.834
 77502,Pasadena,TX,-95.203,29.678
 77503,Pasadena,TX,-95.169,29.66
@@ -33538,7 +33538,7 @@ zip,primary_city,state,lon,lat
 77520,Baytown,TX,-95.434,29.834
 77521,Baytown,TX,-95.434,29.834
 77522,Baytown,TX,-95.434,29.834
-77523,Baytown,TX,-94.87,29.76
+77523,Baytown,TX,29.76,-94.87
 77530,Channelview,TX,-95.434,29.834
 77531,Clute,TX,-95.391,29.031
 77532,Crosby,TX,-95.434,29.834
@@ -34025,8 +34025,8 @@ zip,primary_city,state,lon,lat
 78538,Edcouch,TX,-97.962,26.333
 78539,Edinburg,TX,-98.14,26.329
 78540,Edinburg,TX,-98.191,26.319
-78541,Edinburg,TX,-98.25,26.46
-78542,Edinburg,TX,-98.11,26.35
+78541,Edinburg,TX,26.46,-98.25
+78542,Edinburg,TX,26.35,-98.11
 78543,Elsa,TX,-97.988,26.297
 78545,Falcon Heights,TX,-99.134,26.562
 78547,Garciasville,TX,-98.737,26.339
@@ -34052,7 +34052,7 @@ zip,primary_city,state,lon,lat
 78570,Mercedes,TX,-98.076,26.209
 78572,Mission,TX,-98.193,26.23
 78573,Mission,TX,-98.224,26.41
-78574,Mission,TX,-98.35,26.31
+78574,Mission,TX,26.31,-98.35
 78575,Olmito,TX,-97.547,26.007
 78576,Penitas,TX,-98.102,26.194
 78577,Pharr,TX,-98.128,26.187
@@ -34105,7 +34105,7 @@ zip,primary_city,state,lon,lat
 78630,Cedar Park,TX,-97.603,30.657
 78631,Harper,TX,-99.268,30.248
 78632,Harwood,TX,-97.495,29.447
-78633,Georgetown,TX,-97.73,30.7
+78633,Georgetown,TX,30.7,-97.73
 78634,Hutto,TX,-97.554,30.552
 78635,Hye,TX,-98.542,30.225
 78636,Johnson City,TX,-98.406,30.216
@@ -34228,8 +34228,8 @@ zip,primary_city,state,lon,lat
 78786,Austin,TX,-97.771,30.326
 78788,Austin,TX,-97.771,30.326
 78789,Austin,TX,-97.771,30.326
-78798,Austin,TX,-97.68,30.37
-78799,Austin,TX,-97.74,30.27
+78798,Austin,TX,30.37,-97.68
+78799,Austin,TX,30.27,-97.74
 78801,Uvalde,TX,-99.727,29.24
 78802,Uvalde,TX,-99.779,29.224
 78827,Asherton,TX,-99.759,28.449
@@ -34670,7 +34670,7 @@ zip,primary_city,state,lon,lat
 79925,El Paso,TX,-106.377,31.773
 79926,El Paso,TX,-106.3,31.695
 79927,El Paso,TX,-106.176,31.661
-79928,El Paso,TX,-106.15,31.65
+79928,El Paso,TX,31.65,-106.15
 79929,El Paso,TX,-106.3,31.695
 79930,El Paso,TX,-106.464,31.809
 79931,El Paso,TX,-106.3,31.695
@@ -34729,7 +34729,7 @@ zip,primary_city,state,lon,lat
 80020,Broomfield,CO,-105.097,40.046
 80021,Broomfield,CO,-105.114,39.885
 80022,Commerce City,CO,-104.772,39.87
-80023,Broomfield,CO,-105.02,39.96
+80023,Broomfield,CO,39.96,-105.02
 80024,Dupont,CO,-104.919,39.845
 80025,Eldorado Springs,CO,-105.288,39.932
 80026,Lafayette,CO,-105.105,40.026
@@ -34757,12 +34757,12 @@ zip,primary_city,state,lon,lat
 80105,Deer Trail,CO,-103.949,39.659
 80106,Elbert,CO,-104.505,39.209
 80107,Elizabeth,CO,-104.496,39.383
-80108,Castle Rock,CO,-104.85,39.37
-80109,Castle Rock,CO,-104.9,39.36
+80108,Castle Rock,CO,39.37,-104.85
+80109,Castle Rock,CO,39.36,-104.9
 80110,Englewood,CO,-104.974,39.649
 80111,Englewood,CO,-104.865,39.667
 80112,Englewood,CO,-104.862,39.581
-80113,Englewood,CO,-104.96,39.64
+80113,Englewood,CO,39.64,-104.96
 80116,Franktown,CO,-104.757,39.304
 80117,Kiowa,CO,-104.421,39.37
 80118,Larkspur,CO,-104.95,39.213
@@ -34775,8 +34775,8 @@ zip,primary_city,state,lon,lat
 80126,Littleton,CO,-104.969,39.544
 80127,Littleton,CO,-105.153,39.544
 80128,Littleton,CO,-105.083,39.592
-80129,Littleton,CO,-105,39.54
-80130,Littleton,CO,-104.93,39.54
+80129,Littleton,CO,39.54,-105
+80130,Littleton,CO,39.54,-104.93
 80131,Louviers,CO,-104.995,39.348
 80132,Monument,CO,-104.808,39.086
 80133,Palmer Lake,CO,-104.9,39.112
@@ -34836,7 +34836,7 @@ zip,primary_city,state,lon,lat
 80243,Denver,CO,-104.408,39.739
 80244,Denver,CO,-104.408,39.739
 80246,Denver,CO,-104.931,39.709
-80247,Denver,CO,-104.88,39.69
+80247,Denver,CO,39.69,-104.88
 80248,Denver,CO,-104.408,39.739
 80249,Denver,CO,-104.698,39.838
 80250,Denver,CO,-104.408,39.739
@@ -34868,7 +34868,7 @@ zip,primary_city,state,lon,lat
 80302,Boulder,CO,-105.39,40.064
 80303,Boulder,CO,-105.275,40.068
 80304,Boulder,CO,-105.37,40.114
-80305,Boulder,CO,-105.25,40.02
+80305,Boulder,CO,40.02,-105.25
 80306,Boulder,CO,-105.385,40.102
 80307,Boulder,CO,-105.374,40.088
 80308,Boulder,CO,-105.387,40.028
@@ -34986,8 +34986,8 @@ zip,primary_city,state,lon,lat
 80551,Windsor,CO,-104.885,40.464
 80553,Fort Collins,CO,-105.569,40.628
 80601,Brighton,CO,-104.787,39.943
-80602,Brighton,CO,-104.9,39.95
-80603,Brighton,CO,-104.74,39.97
+80602,Brighton,CO,39.95,-104.9
+80603,Brighton,CO,39.97,-104.74
 80610,Ault,CO,-104.607,40.676
 80611,Briggsdale,CO,-104.241,40.444
 80612,Carr,CO,-104.87,40.597
@@ -35092,7 +35092,7 @@ zip,primary_city,state,lon,lat
 80864,Yoder,CO,-104.193,38.739
 80866,Woodland Park,CO,-105.156,39.036
 80901,Colorado Springs,CO,-104.858,38.861
-80902,Colorado Springs,CO,-104.8,38.72
+80902,Colorado Springs,CO,38.72,-104.8
 80903,Colorado Springs,CO,-104.81,38.829
 80904,Colorado Springs,CO,-104.875,38.862
 80905,Colorado Springs,CO,-104.801,38.844
@@ -35113,11 +35113,11 @@ zip,primary_city,state,lon,lat
 80920,Colorado Springs,CO,-104.756,38.965
 80921,Colorado Springs,CO,-104.891,39.055
 80922,Colorado Springs,CO,-104.701,38.905
-80923,Colorado Springs,CO,-104.76,38.86
-80924,Colorado Springs,CO,-104.7,38.94
+80923,Colorado Springs,CO,38.86,-104.76
+80924,Colorado Springs,CO,38.94,-104.7
 80925,Colorado Springs,CO,-104.646,38.738
 80926,Colorado Springs,CO,-104.881,38.644
-80927,Colorado Springs,CO,-104.67,38.92
+80927,Colorado Springs,CO,38.92,-104.67
 80928,Colorado Springs,CO,-104.396,38.645
 80929,Colorado Springs,CO,-104.625,38.846
 80930,Colorado Springs,CO,-104.493,38.824
@@ -35128,8 +35128,8 @@ zip,primary_city,state,lon,lat
 80935,Colorado Springs,CO,-104.562,38.825
 80936,Colorado Springs,CO,-104.562,38.825
 80937,Colorado Springs,CO,-104.562,38.825
-80938,Colorado Springs,CO,-104.66,38.9
-80939,Colorado Springs,CO,-104.67,38.88
+80938,Colorado Springs,CO,38.9,-104.66
+80939,Colorado Springs,CO,38.88,-104.67
 80940,Colorado Springs,CO,-104.562,38.825
 80941,Colorado Springs,CO,-104.562,38.825
 80942,Colorado Springs,CO,-104.562,38.825
@@ -35140,7 +35140,7 @@ zip,primary_city,state,lon,lat
 80947,Colorado Springs,CO,-104.562,38.825
 80949,Colorado Springs,CO,-104.562,38.825
 80950,Colorado Springs,CO,-104.562,38.825
-80951,Colorado Springs,CO,-104.76,38.86
+80951,Colorado Springs,CO,38.86,-104.76
 80960,Colorado Springs,CO,-104.562,38.825
 80962,Colorado Springs,CO,-104.562,38.825
 80970,Colorado Springs,CO,-104.562,38.825
@@ -35196,7 +35196,7 @@ zip,primary_city,state,lon,lat
 81069,Rye,CO,-104.875,37.936
 81071,Sheridan Lake,CO,-102.605,38.441
 81073,Springfield,CO,-102.677,37.372
-81075,Stonington,CO,-102.18,37.29
+81075,Stonington,CO,37.29,-102.18
 81076,Sugar City,CO,-103.6,38.315
 81077,Swink,CO,-103.619,38.055
 81081,Trinchera,CO,-104.133,37.1
@@ -35277,7 +35277,7 @@ zip,primary_city,state,lon,lat
 81290,Florence,CO,-105.107,38.358
 81301,Durango,CO,-107.88,37.318
 81302,Durango,CO,-107.936,37.357
-81303,Durango,CO,-107.88,37.14
+81303,Durango,CO,37.14,-107.88
 81320,Cahone,CO,-108.792,37.718
 81321,Cortez,CO,-108.663,37.374
 81323,Dolores,CO,-108.352,37.469
@@ -35294,7 +35294,7 @@ zip,primary_city,state,lon,lat
 81335,Yellow Jacket,CO,-108.744,37.508
 81401,Montrose,CO,-108.051,38.443
 81402,Montrose,CO,-107.886,38.485
-81403,Montrose,CO,-107.9,38.3
+81403,Montrose,CO,38.3,-107.9
 81410,Austin,CO,-107.983,38.805
 81411,Bedrock,CO,-108.937,38.349
 81413,Cedaredge,CO,-107.796,38.882
@@ -35324,7 +35324,7 @@ zip,primary_city,state,lon,lat
 81504,Grand Junction,CO,-108.589,39.124
 81505,Grand Junction,CO,-108.626,39.147
 81506,Grand Junction,CO,-108.567,39.089
-81507,Grand Junction,CO,-108.66,38.99
+81507,Grand Junction,CO,38.99,-108.66
 81520,Clifton,CO,-108.404,39.082
 81521,Fruita,CO,-108.685,39.15
 81522,Gateway,CO,-108.972,38.678
@@ -35667,7 +35667,7 @@ zip,primary_city,state,lon,lat
 83404,Idaho Falls,ID,-111.66,43.433
 83405,Idaho Falls,ID,-111.782,43.323
 83406,Idaho Falls,ID,-111.963,43.445
-83414,Alta,WY,-111.04,43.75
+83414,Alta,WY,43.75,-111.04
 83415,Idaho Falls,ID,-111.782,43.323
 83420,Ashton,ID,-111.425,44.015
 83421,Chester,ID,-111.535,44.001
@@ -35770,7 +35770,7 @@ zip,primary_city,state,lon,lat
 83643,Mesa,ID,-116.449,44.625
 83644,Middleton,ID,-116.59,43.577
 83645,Midvale,ID,-116.652,44.383
-83646,Meridian,ID,-116.43,43.65
+83646,Meridian,ID,43.65,-116.43
 83647,Mountain Home,ID,-115.72,43.156
 83648,Mountain Home A F B,ID,-115.588,43.009
 83650,Murphy,ID,-116.032,42.838
@@ -35895,7 +35895,7 @@ zip,primary_city,state,lon,lat
 84002,Altonah,UT,-110.436,40.321
 84003,American Fork,UT,-111.803,40.396
 84004,Alpine,UT,-111.773,40.459
-84005,Eagle Mountain,UT,-112.02,40.37
+84005,Eagle Mountain,UT,40.37,-112.02
 84006,Bingham Canyon,UT,-112.079,40.592
 84007,Bluebell,UT,-110.23,40.313
 84008,Bonanza,UT,-109.506,40.443
@@ -35931,7 +35931,7 @@ zip,primary_city,state,lon,lat
 84042,Lindon,UT,-111.72,40.34
 84043,Lehi,UT,-111.921,40.318
 84044,Magna,UT,-112.089,40.699
-84045,Saratoga Springs,UT,-111.88,40.28
+84045,Saratoga Springs,UT,40.28,-111.88
 84046,Manila,UT,-109.705,40.99
 84047,Midvale,UT,-111.886,40.609
 84049,Midway,UT,-111.485,40.489
@@ -35965,7 +35965,7 @@ zip,primary_city,state,lon,lat
 84078,Vernal,UT,-109.556,40.368
 84079,Vernal,UT,-109.548,40.16
 84080,Vernon,UT,-112.455,40.087
-84081,West Jordan,UT,-112.03,40.59
+84081,West Jordan,UT,40.59,-112.03
 84082,Wallsburg,UT,-111.394,40.411
 84083,Wendover,UT,-113.992,40.733
 84084,West Jordan,UT,-111.979,40.606
@@ -35980,7 +35980,7 @@ zip,primary_city,state,lon,lat
 84093,Sandy,UT,-111.825,40.595
 84094,Sandy,UT,-111.859,40.57
 84095,South Jordan,UT,-111.954,40.554
-84096,Herriman,UT,-112.07,40.48
+84096,Herriman,UT,40.48,-112.07
 84097,Orem,UT,-111.671,40.297
 84098,Park City,UT,-111.548,40.703
 84101,Salt Lake City,UT,-111.901,40.756
@@ -36011,7 +36011,7 @@ zip,primary_city,state,lon,lat
 84126,Salt Lake City,UT,-111.908,40.668
 84127,Salt Lake City,UT,-111.908,40.668
 84128,Salt Lake City,UT,-112.038,40.698
-84129,Salt Lake City,UT,-111.93,40.66
+84129,Salt Lake City,UT,40.66,-111.93
 84130,Salt Lake City,UT,-111.908,40.668
 84131,Salt Lake City,UT,-111.908,40.668
 84132,Salt Lake City,UT,-111.839,40.773
@@ -36279,7 +36279,7 @@ zip,primary_city,state,lon,lat
 85039,Phoenix,AZ,-112.187,33.277
 85040,Phoenix,AZ,-112.067,33.367
 85041,Phoenix,AZ,-112.112,33.38
-85042,Phoenix,AZ,-112.03,33.37
+85042,Phoenix,AZ,33.37,-112.03
 85043,Phoenix,AZ,-112.187,33.277
 85044,Phoenix,AZ,-111.973,33.339
 85045,Phoenix,AZ,-112.123,33.302
@@ -36312,44 +36312,44 @@ zip,primary_city,state,lon,lat
 85079,Phoenix,AZ,-112.187,33.277
 85080,Phoenix,AZ,-112.187,33.277
 85082,Phoenix,AZ,-112.187,33.277
-85083,Phoenix,AZ,-112.14,33.73
+85083,Phoenix,AZ,33.73,-112.14
 85085,Phoenix,AZ,-112.187,33.277
 85086,Phoenix,AZ,-112.187,33.277
 85087,New River,AZ,-112.187,33.277
-85096,Phoenix,AZ,-112.09,33.44
+85096,Phoenix,AZ,33.44,-112.09
 85097,Phoenix,AZ,-112.187,33.277
 85098,Phoenix,AZ,-112.187,33.277
 85099,Phoenix,AZ,-112.187,33.277
-85117,Apache Junction,AZ,-111.54,33.42
-85118,Gold Canyon,AZ,-111.42,33.34
-85119,Apache Junction,AZ,-111.51,33.38
-85120,Apache Junction,AZ,-111.56,33.4
-85121,Bapchule,AZ,-111.75,32.98
-85122,Casa Grande,AZ,-111.74,32.91
-85123,Arizona City,AZ,-111.67,32.73
-85127,Chandler Heights,AZ,-111.69,33.21
-85128,Coolidge,AZ,-111.49,32.97
-85130,Casa Grande,AZ,-111.75,32.89
-85131,Eloy,AZ,-111.59,32.65
-85132,Florence,AZ,-111.23,32.95
-85135,Hayden,AZ,-110.78,33
-85137,Kearny,AZ,-110.97,33.1
-85138,Maricopa,AZ,-111.97,33.01
-85139,Maricopa,AZ,-112.11,32.98
-85140,San Tan Valley,AZ,-111.57,33.17
-85141,Picacho,AZ,-111.49,32.71
-85142,Queen Creek,AZ,-111.59,33.16
-85143,San Tan Valley,AZ,-111.56,33.16
-85145,Red Rock,AZ,-111.36,32.57
-85147,Sacaton,AZ,-111.74,33.08
-85172,Stanfield,AZ,-111.92,32.93
-85173,Superior,AZ,-111.1,33.28
-85178,Apache Junction,AZ,-111.54,33.42
-85190,Tortilla Flat,AZ,-111.38,33.52
-85191,Valley Farms,AZ,-111.44,32.98
-85192,Winkelman,AZ,-110.66,32.88
-85193,Casa Grande,AZ,-111.83,32.86
-85194,Casa Grande,AZ,-111.65,32.91
+85117,Apache Junction,AZ,33.42,-111.54
+85118,Gold Canyon,AZ,33.34,-111.42
+85119,Apache Junction,AZ,33.38,-111.51
+85120,Apache Junction,AZ,33.4,-111.56
+85121,Bapchule,AZ,32.98,-111.75
+85122,Casa Grande,AZ,32.91,-111.74
+85123,Arizona City,AZ,32.73,-111.67
+85127,Chandler Heights,AZ,33.21,-111.69
+85128,Coolidge,AZ,32.97,-111.49
+85130,Casa Grande,AZ,32.89,-111.75
+85131,Eloy,AZ,32.65,-111.59
+85132,Florence,AZ,32.95,-111.23
+85135,Hayden,AZ,33,-110.78
+85137,Kearny,AZ,33.1,-110.97
+85138,Maricopa,AZ,33.01,-111.97
+85139,Maricopa,AZ,32.98,-112.11
+85140,San Tan Valley,AZ,33.17,-111.57
+85141,Picacho,AZ,32.71,-111.49
+85142,Queen Creek,AZ,33.16,-111.59
+85143,San Tan Valley,AZ,33.16,-111.56
+85145,Red Rock,AZ,32.57,-111.36
+85147,Sacaton,AZ,33.08,-111.74
+85172,Stanfield,AZ,32.93,-111.92
+85173,Superior,AZ,33.28,-111.1
+85178,Apache Junction,AZ,33.42,-111.54
+85190,Tortilla Flat,AZ,33.52,-111.38
+85191,Valley Farms,AZ,32.98,-111.44
+85192,Winkelman,AZ,32.88,-110.66
+85193,Casa Grande,AZ,32.86,-111.83
+85194,Casa Grande,AZ,32.91,-111.65
 85201,Mesa,AZ,-111.857,33.441
 85202,Mesa,AZ,-111.805,33.393
 85203,Mesa,AZ,-111.824,33.449
@@ -36358,7 +36358,7 @@ zip,primary_city,state,lon,lat
 85206,Mesa,AZ,-111.718,33.39
 85207,Mesa,AZ,-111.743,33.443
 85208,Mesa,AZ,-111.664,33.396
-85209,Mesa,AZ,-111.64,33.37
+85209,Mesa,AZ,33.37,-111.64
 85210,Mesa,AZ,-111.84,33.387
 85211,Mesa,AZ,-111.837,33.466
 85212,Mesa,AZ,-111.635,33.342
@@ -36367,7 +36367,7 @@ zip,primary_city,state,lon,lat
 85215,Mesa,AZ,-111.719,33.471
 85216,Mesa,AZ,-112.187,33.277
 85217,Apache Junction,AZ,-111.479,33.393
-85218,Apache Junction,AZ,-111.41,33.35
+85218,Apache Junction,AZ,33.35,-111.41
 85219,Apache Junction,AZ,-111.28,33.362
 85220,Apache Junction,AZ,-111.535,33.408
 85221,Bapchule,AZ,-111.476,33.226
@@ -36386,12 +36386,12 @@ zip,primary_city,state,lon,lat
 85235,Hayden,AZ,-110.856,33.576
 85236,Higley,AZ,-111.695,33.299
 85237,Kearny,AZ,-111.064,33.146
-85238,Maricopa,AZ,-111.93,33
+85238,Maricopa,AZ,33,-111.93
 85239,Maricopa,AZ,-112.053,32.958
-85240,Queen Creek,AZ,-111.53,33.22
+85240,Queen Creek,AZ,33.22,-111.53
 85241,Picacho,AZ,-111.531,32.69
 85242,Queen Creek,AZ,-111.656,33.285
-85243,Queen Creek,AZ,-111.54,33.15
+85243,Queen Creek,AZ,33.15,-111.54
 85244,Chandler,AZ,-111.889,33.321
 85245,Red Rock,AZ,-111.341,32.58
 85246,Chandler,AZ,-112.187,33.277
@@ -36431,18 +36431,18 @@ zip,primary_city,state,lon,lat
 85283,Tempe,AZ,-111.877,33.374
 85284,Tempe,AZ,-111.914,33.344
 85285,Tempe,AZ,-112.187,33.277
-85286,Chandler,AZ,-111.82,33.27
+85286,Chandler,AZ,33.27,-111.82
 85287,Tempe,AZ,-111.935,33.429
 85289,Tempe,AZ,-112.187,33.277
 85290,Apache Junction,AZ,-112.187,33.277
 85291,Valley Farms,AZ,-111.43,33.014
 85292,Winkelman,AZ,-110.789,33.07
-85293,Casa Grande,AZ,-111.79,32.85
-85294,Casa Grande,AZ,-111.61,32.92
-85295,Gilbert,AZ,-111.74,33.3
+85293,Casa Grande,AZ,32.85,-111.79
+85294,Casa Grande,AZ,32.92,-111.61
+85295,Gilbert,AZ,33.3,-111.74
 85296,Gilbert,AZ,-111.749,33.315
-85297,Gilbert,AZ,-111.71,33.26
-85298,Gilbert,AZ,-111.7,33.24
+85297,Gilbert,AZ,33.26,-111.71
+85298,Gilbert,AZ,33.24,-111.7
 85299,Gilbert,AZ,-112.187,33.277
 85301,Glendale,AZ,-112.187,33.277
 85302,Glendale,AZ,-112.187,33.277
@@ -36518,14 +36518,14 @@ zip,primary_city,state,lon,lat
 85380,Peoria,AZ,-112.187,33.277
 85381,Peoria,AZ,-112.187,33.277
 85382,Peoria,AZ,-112.187,33.277
-85383,Peoria,AZ,-112.24,33.76
+85383,Peoria,AZ,33.76,-112.24
 85385,Peoria,AZ,-112.187,33.277
 85387,Surprise,AZ,-112.187,33.277
-85388,Surprise,AZ,-112.46,33.61
+85388,Surprise,AZ,33.61,-112.46
 85390,Wickenburg,AZ,-112.187,33.277
-85392,Avondale,AZ,-112.29,33.47
-85395,Goodyear,AZ,-112.39,33.47
-85396,Buckeye,AZ,-112.57,33.56
+85392,Avondale,AZ,33.47,-112.29
+85395,Goodyear,AZ,33.47,-112.39
+85396,Buckeye,AZ,33.56,-112.57
 85501,Globe,AZ,-110.868,33.477
 85502,Globe,AZ,-110.813,33.422
 85530,Bylas,AZ,-109.786,33.039
@@ -36599,7 +36599,7 @@ zip,primary_city,state,lon,lat
 85653,Marana,AZ,-111.159,32.443
 85654,Rillito,AZ,-111.891,31.97
 85655,Douglas,AZ,-109.754,31.88
-85658,Marana,AZ,-111.16,32.51
+85658,Marana,AZ,32.51,-111.16
 85662,Nogales,AZ,-110.909,31.532
 85670,Fort Huachuca,AZ,-109.754,31.88
 85671,Sierra Vista,AZ,-109.754,31.88
@@ -36654,9 +36654,9 @@ zip,primary_city,state,lon,lat
 85751,Tucson,AZ,-110.715,32.162
 85752,Tucson,AZ,-111.891,31.97
 85754,Tucson,AZ,-111.891,31.97
-85755,Tucson,AZ,-110.97,32.46
-85756,Tucson,AZ,-110.92,32.07
-85757,Tucson,AZ,-111.11,32.08
+85755,Tucson,AZ,32.46,-110.97
+85756,Tucson,AZ,32.07,-110.92
+85757,Tucson,AZ,32.08,-111.11
 85775,Tucson,AZ,-111.891,31.97
 85777,Tucson,AZ,-110.859,32.072
 85901,Show Low,AZ,-110.032,34.571
@@ -36729,7 +36729,7 @@ zip,primary_city,state,lon,lat
 86312,Prescott Valley,AZ,-112.308,34.668
 86313,Prescott,AZ,-112.398,34.707
 86314,Prescott Valley,AZ,-112.263,34.628
-86315,Prescott Valley,AZ,-112.3,34.69
+86315,Prescott Valley,AZ,34.69,-112.3
 86320,Ash Fork,AZ,-112.264,34.97
 86321,Bagdad,AZ,-113.165,34.584
 86322,Camp Verde,AZ,-111.81,34.57
@@ -36760,7 +36760,7 @@ zip,primary_city,state,lon,lat
 86404,Lake Havasu City,AZ,-114.331,34.558
 86405,Lake Havasu City,AZ,-113.643,35.605
 86406,Lake Havasu City,AZ,-114.119,34.757
-86409,Kingman,AZ,-114.01,35.24
+86409,Kingman,AZ,35.24,-114.01
 86411,Hackberry,AZ,-113.643,35.605
 86412,Hualapai,AZ,-113.843,35.397
 86413,Golden Valley,AZ,-114.222,35.3
@@ -36803,7 +36803,7 @@ zip,primary_city,state,lon,lat
 86544,Red Valley,AZ,-109.523,35.237
 86545,Rock Point,AZ,-109.523,35.237
 86547,Round Rock,AZ,-109.523,35.237
-86555,Douglas,AZ,-109.55,31.38
+86555,Douglas,AZ,31.38,-109.55
 86556,Tsaile,AZ,-109.523,35.237
 87001,Algodones,NM,-106.393,35.338
 87002,Belen,NM,-106.695,34.651
@@ -36888,12 +36888,12 @@ zip,primary_city,state,lon,lat
 87124,Rio Rancho,NM,-106.712,35.283
 87125,Albuquerque,NM,-106.673,35.044
 87131,Albuquerque,NM,-106.673,35.044
-87144,Rio Rancho,NM,-106.71,35.32
-87151,Albuquerque,NM,-106.65,35.08
+87144,Rio Rancho,NM,35.32,-106.71
+87151,Albuquerque,NM,35.08,-106.65
 87153,Albuquerque,NM,-106.673,35.044
 87154,Albuquerque,NM,-106.673,35.044
 87158,Albuquerque,NM,-106.673,35.044
-87165,Albuquerque,NM,-106.64,35.08
+87165,Albuquerque,NM,35.08,-106.64
 87174,Rio Rancho,NM,-106.673,35.044
 87176,Albuquerque,NM,-106.673,35.044
 87181,Albuquerque,NM,-106.673,35.044
@@ -36955,8 +36955,8 @@ zip,primary_city,state,lon,lat
 87504,Santa Fe,NM,-106.007,35.894
 87505,Santa Fe,NM,-105.946,35.657
 87506,Santa Fe,NM,-106.076,35.606
-87507,Santa Fe,NM,-105.95,35.67
-87508,Santa Fe,NM,-106.11,35.57
+87507,Santa Fe,NM,35.67,-105.95
+87508,Santa Fe,NM,35.57,-106.11
 87509,Santa Fe,NM,-105.982,35.521
 87510,Abiquiu,NM,-106.263,36.22
 87511,Alcalde,NM,-106.078,36.065
@@ -37079,12 +37079,12 @@ zip,primary_city,state,lon,lat
 88004,Las Cruces,NM,-106.82,32.418
 88005,Las Cruces,NM,-106.897,32.167
 88006,Las Cruces,NM,-106.786,32.305
-88007,Las Cruces,NM,-106.75,32.33
+88007,Las Cruces,NM,32.33,-106.75
 88008,Santa Teresa,NM,-106.627,31.871
 88009,Playas,NM,-108.629,32.055
 88011,Las Cruces,NM,-106.668,32.324
 88012,Las Cruces,NM,-106.605,32.33
-88013,Las Cruces,NM,-106.79,32.31
+88013,Las Cruces,NM,32.31,-106.79
 88020,Animas,NM,-108.907,32.053
 88021,Anthony,NM,-106.57,32.068
 88022,Arenas Valley,NM,-108.185,32.784
@@ -37125,7 +37125,7 @@ zip,primary_city,state,lon,lat
 88063,Sunland Park,NM,-106.6,31.88
 88065,Tyrone,NM,-108.37,32.619
 88072,Vado,NM,-106.649,32.119
-88081,Chaparral,NM,-106.44,32.04
+88081,Chaparral,NM,32.04,-106.44
 88101,Clovis,NM,-103.295,34.497
 88102,Clovis,NM,-103.391,34.628
 88103,Cannon Afb,NM,-103.326,34.401
@@ -37151,7 +37151,7 @@ zip,primary_city,state,lon,lat
 88136,Yeso,NM,-104.419,34.387
 88201,Roswell,NM,-104.594,33.347
 88202,Roswell,NM,-104.432,33.304
-88203,Roswell,NM,-104.52,33.33
+88203,Roswell,NM,33.33,-104.52
 88210,Artesia,NM,-104.433,32.622
 88211,Artesia,NM,-104.328,32.754
 88213,Caprock,NM,-103.434,32.785
@@ -37311,7 +37311,7 @@ zip,primary_city,state,lon,lat
 88901,The Lakes,NV,-114.82,36.322
 88905,The Lakes,NV,-114.972,35.928
 89001,Alamo,NV,-115.144,37.472
-89002,Henderson,NV,-114.96,36
+89002,Henderson,NV,36,-114.96
 89003,Beatty,NV,-116.609,36.82
 89004,Blue Diamond,NV,-115.609,36.088
 89005,Boulder City,NV,-114.83,36.021
@@ -37343,15 +37343,15 @@ zip,primary_city,state,lon,lat
 89031,North Las Vegas,NV,-115.144,36.278
 89032,North Las Vegas,NV,-115.171,36.218
 89033,North Las Vegas,NV,-115.134,36.285
-89034,Mesquite,NV,-114.07,36.81
+89034,Mesquite,NV,36.81,-114.07
 89036,North Las Vegas,NV,-114.972,35.928
-89037,Coyote Springs,NV,-114.44,36.54
+89037,Coyote Springs,NV,36.54,-114.44
 89039,Cal Nev Ari,NV,-114.871,35.252
 89040,Overton,NV,-114.473,36.57
 89041,Pahrump,NV,-116.005,36.656
 89042,Panaca,NV,-114.972,37.76
 89043,Pioche,NV,-114.972,37.76
-89044,Henderson,NV,-115.04,35.88
+89044,Henderson,NV,35.88,-115.04
 89045,Round Mountain,NV,-116.599,37.584
 89046,Searchlight,NV,-114.893,35.333
 89047,Silverpeak,NV,-117.796,37.722
@@ -37359,23 +37359,23 @@ zip,primary_city,state,lon,lat
 89049,Tonopah,NV,-116.625,38.263
 89052,Henderson,NV,-115.117,35.988
 89053,Henderson,NV,-114.972,35.928
-89054,Sloan,NV,-115.22,35.93
-89060,Pahrump,NV,-116.09,36.29
-89061,Pahrump,NV,-115.92,36.08
-89067,Coyote Springs,NV,-114.44,36.54
+89054,Sloan,NV,35.93,-115.22
+89060,Pahrump,NV,36.29,-116.09
+89061,Pahrump,NV,36.08,-115.92
+89067,Coyote Springs,NV,36.54,-114.44
 89070,Indian Springs,NV,-114.972,35.928
-89074,Henderson,NV,-115.07,36.03
-89077,Henderson,NV,-115.11,36
-89081,North Las Vegas,NV,-115.08,36.25
-89084,North Las Vegas,NV,-115.15,36.3
-89085,North Las Vegas,NV,-115.2,36.31
-89086,North Las Vegas,NV,-115.13,36.28
-89087,North Las Vegas,NV,-115.12,36.2
+89074,Henderson,NV,36.03,-115.07
+89077,Henderson,NV,36,-115.11
+89081,North Las Vegas,NV,36.25,-115.08
+89084,North Las Vegas,NV,36.3,-115.15
+89085,North Las Vegas,NV,36.31,-115.2
+89086,North Las Vegas,NV,36.28,-115.13
+89087,North Las Vegas,NV,36.2,-115.12
 89101,Las Vegas,NV,-115.106,36.174
 89102,Las Vegas,NV,-115.391,36.281
 89103,Las Vegas,NV,-114.892,36.337
 89104,Las Vegas,NV,-115.106,36.113
-89105,Las Vegas,NV,-115.09,35.99
+89105,Las Vegas,NV,35.99,-115.09
 89106,Las Vegas,NV,-115.168,36.181
 89107,Las Vegas,NV,-115.209,36.169
 89108,Las Vegas,NV,-115.214,36.219
@@ -37406,11 +37406,11 @@ zip,primary_city,state,lon,lat
 89133,Las Vegas,NV,-114.972,35.928
 89134,Las Vegas,NV,-115.342,36.127
 89135,Las Vegas,NV,-115.326,36.138
-89136,Las Vegas,NV,-115.22,36.27
+89136,Las Vegas,NV,36.27,-115.22
 89137,Las Vegas,NV,-114.972,35.928
 89138,Las Vegas,NV,-114.972,35.928
 89139,Las Vegas,NV,-115.212,36.013
-89140,Las Vegas,NV,-115.09,35.99
+89140,Las Vegas,NV,35.99,-115.09
 89141,Las Vegas,NV,-115.207,36.01
 89142,Las Vegas,NV,-115.04,36.148
 89143,Las Vegas,NV,-115.262,36.318
@@ -37427,24 +37427,24 @@ zip,primary_city,state,lon,lat
 89154,Las Vegas,NV,-114.972,35.928
 89155,Las Vegas,NV,-114.972,35.928
 89156,Las Vegas,NV,-115.036,36.203
-89157,Las Vegas,NV,-115.14,36.18
+89157,Las Vegas,NV,36.18,-115.14
 89158,Las Vegas,NV,-114.972,35.928
 89159,Las Vegas,NV,-114.972,35.928
 89160,Las Vegas,NV,-114.972,35.928
-89161,Las Vegas,NV,-115.4,35.99
-89162,Las Vegas,NV,-115.14,36.18
+89161,Las Vegas,NV,35.99,-115.4
+89162,Las Vegas,NV,36.18,-115.14
 89163,The Lakes,NV,-114.972,35.928
 89164,Las Vegas,NV,-114.972,35.928
-89165,Las Vegas,NV,-115.09,35.99
-89166,Las Vegas,NV,-115.35,36.32
-89169,Las Vegas,NV,-115.13,36.12
+89165,Las Vegas,NV,35.99,-115.09
+89166,Las Vegas,NV,36.32,-115.35
+89169,Las Vegas,NV,36.12,-115.13
 89170,Las Vegas,NV,-114.972,35.928
 89173,Las Vegas,NV,-114.972,35.928
 89177,Las Vegas,NV,-114.972,35.928
-89178,Las Vegas,NV,-115.33,35.9
-89179,Las Vegas,NV,-115.25,35.99
+89178,Las Vegas,NV,35.9,-115.33
+89179,Las Vegas,NV,35.99,-115.25
 89180,Las Vegas,NV,-114.972,35.928
-89183,Las Vegas,NV,-115.15,35.99
+89183,Las Vegas,NV,35.99,-115.15
 89185,Las Vegas,NV,-114.972,35.928
 89191,Nellis Afb,NV,-114.972,35.928
 89193,Las Vegas,NV,-114.972,35.928
@@ -37495,7 +37495,7 @@ zip,primary_city,state,lon,lat
 89438,Valmy,NV,-118.175,41.263
 89439,Verdi,NV,-119.983,39.516
 89440,Virginia City,NV,-119.614,39.332
-89441,Sparks,NV,-119.68,39.68
+89441,Sparks,NV,39.68,-119.68
 89442,Wadsworth,NV,-119.303,39.64
 89444,Wellington,NV,-119.352,38.845
 89445,Winnemucca,NV,-117.707,41.213
@@ -37506,7 +37506,7 @@ zip,primary_city,state,lon,lat
 89450,Incline Village,NV,-119.946,39.256
 89451,Incline Village,NV,-119.936,39.254
 89452,Incline Village,NV,-119.957,39.259
-89460,Gardnerville,NV,-119.79,38.91
+89460,Gardnerville,NV,38.91,-119.79
 89496,Fallon,NV,-118.344,39.538
 89501,Reno,NV,-119.705,39.656
 89502,Reno,NV,-119.754,39.58
@@ -37515,19 +37515,19 @@ zip,primary_city,state,lon,lat
 89505,Reno,NV,-119.835,39.522
 89506,Reno,NV,-119.811,39.695
 89507,Reno,NV,-119.816,39.542
-89508,Reno,NV,-119.81,39.52
+89508,Reno,NV,39.52,-119.81
 89509,Reno,NV,-119.857,39.413
 89510,Reno,NV,-119.604,39.906
 89511,Reno,NV,-119.806,39.36
 89512,Reno,NV,-119.879,39.545
 89513,Reno,NV,-119.294,39.632
 89515,Reno,NV,-119.587,40.541
-89519,Reno,NV,-119.81,39.52
+89519,Reno,NV,39.52,-119.81
 89520,Reno,NV,-119.587,40.541
-89521,Reno,NV,-119.67,39.38
+89521,Reno,NV,39.38,-119.67
 89523,Reno,NV,-119.639,39.549
 89533,Reno,NV,-119.906,39.544
-89555,Reno,NV,-119.81,39.52
+89555,Reno,NV,39.52,-119.81
 89557,Reno,NV,-119.587,40.541
 89570,Reno,NV,-119.587,40.541
 89595,Reno,NV,-119.587,40.541
@@ -37650,7 +37650,7 @@ zip,primary_city,state,lon,lat
 90087,Los Angeles,CA,-118.299,33.787
 90088,Los Angeles,CA,-118.299,33.787
 90089,Los Angeles,CA,-118.299,33.787
-90090,Dodgertown,CA,-118.24,34.07
+90090,Dodgertown,CA,34.07,-118.24
 90091,Los Angeles,CA,-118.299,33.787
 90093,Los Angeles,CA,-118.299,33.787
 90094,Playa Vista,CA,-118.299,33.787
@@ -37660,7 +37660,7 @@ zip,primary_city,state,lon,lat
 90101,Los Angeles,CA,-118.299,33.787
 90102,Los Angeles,CA,-118.299,33.787
 90103,Los Angeles,CA,-118.299,33.787
-90189,Los Angeles,CA,-118.25,34.06
+90189,Los Angeles,CA,34.06,-118.25
 90201,Bell Gardens,CA,-118.169,33.977
 90202,Bell,CA,-118.299,33.787
 90209,Beverly Hills,CA,-118.299,33.787
@@ -37811,7 +37811,7 @@ zip,primary_city,state,lon,lat
 90747,Carson,CA,-118.254,33.867
 90748,Wilmington,CA,-118.299,33.787
 90749,Carson,CA,-118.299,33.787
-90755,Signal Hill,CA,-118.16,33.8
+90755,Signal Hill,CA,33.8,-118.16
 90801,Long Beach,CA,-118.201,33.804
 90802,Long Beach,CA,-118.201,33.756
 90803,Long Beach,CA,-118.13,33.76
@@ -37840,13 +37840,13 @@ zip,primary_city,state,lon,lat
 90848,Long Beach,CA,-118.299,33.787
 90853,Long Beach,CA,-118.299,33.787
 90888,Long Beach,CA,-118.299,33.787
-90895,Carson,CA,-118.21,33.83
-90899,Long Beach,CA,-118.19,33.77
+90895,Carson,CA,33.83,-118.21
+90899,Long Beach,CA,33.77,-118.19
 91001,Altadena,CA,-118.299,33.787
 91003,Altadena,CA,-118.299,33.787
 91006,Arcadia,CA,-118.299,33.787
 91007,Arcadia,CA,-118.299,33.787
-91008,Duarte,CA,-117.96,34.14
+91008,Duarte,CA,34.14,-117.96
 91009,Duarte,CA,-118.299,33.787
 91010,Duarte,CA,-118.299,33.787
 91011,La Canada Flintridge,CA,-118.299,33.787
@@ -37895,7 +37895,7 @@ zip,primary_city,state,lon,lat
 91188,Pasadena,CA,-118.299,33.787
 91189,Pasadena,CA,-118.299,33.787
 91191,Pasadena,CA,-118.299,33.787
-91199,Pasadena,CA,-118.12,34.17
+91199,Pasadena,CA,34.17,-118.12
 91201,Glendale,CA,-118.299,33.787
 91202,Glendale,CA,-118.299,33.787
 91203,Glendale,CA,-118.299,33.787
@@ -37976,9 +37976,9 @@ zip,primary_city,state,lon,lat
 91384,Castaic,CA,-118.299,33.787
 91385,Valencia,CA,-118.299,33.787
 91386,Canyon Country,CA,-118.299,33.787
-91387,Canyon Country,CA,-118.4,34.4
+91387,Canyon Country,CA,34.4,-118.4
 91388,Van Nuys,CA,-118.299,33.787
-91390,Santa Clarita,CA,-118.4,34.53
+91390,Santa Clarita,CA,34.53,-118.4
 91392,Sylmar,CA,-118.299,33.787
 91393,North Hills,CA,-118.299,33.787
 91394,Granada Hills,CA,-118.299,33.787
@@ -38158,8 +38158,8 @@ zip,primary_city,state,lon,lat
 92007,Cardiff By The Sea,CA,-117.274,33.023
 92008,Carlsbad,CA,-116.846,33.017
 92009,Carlsbad,CA,-117.267,33.082
-92010,Carlsbad,CA,-117.28,33.15
-92011,Carlsbad,CA,-117.29,33.1
+92010,Carlsbad,CA,33.15,-117.28
+92011,Carlsbad,CA,33.1,-117.29
 92013,Carlsbad,CA,-116.846,33.017
 92014,Del Mar,CA,-117.224,32.974
 92018,Carlsbad,CA,-116.846,33.017
@@ -38206,7 +38206,7 @@ zip,primary_city,state,lon,lat
 92075,Solana Beach,CA,-117.257,33.007
 92078,San Marcos,CA,-116.846,33.017
 92079,San Marcos,CA,-116.846,33.017
-92081,Vista,CA,-117.24,33.18
+92081,Vista,CA,33.18,-117.24
 92082,Valley Center,CA,-116.846,33.017
 92083,Vista,CA,-116.846,33.017
 92084,Vista,CA,-116.846,33.017
@@ -38327,8 +38327,8 @@ zip,primary_city,state,lon,lat
 92242,Earp,CA,-115.648,34.202
 92243,El Centro,CA,-115.504,32.901
 92244,El Centro,CA,-115.693,32.795
-92247,La Quinta,CA,-116.31,33.66
-92248,La Quinta,CA,-116.31,33.66
+92247,La Quinta,CA,33.66,-116.31
+92248,La Quinta,CA,33.66,-116.31
 92249,Heber,CA,-115.438,32.722
 92250,Holtville,CA,-115.375,32.867
 92251,Imperial,CA,-115.641,33.009
@@ -38388,7 +38388,7 @@ zip,primary_city,state,lon,lat
 92327,Daggett,CA,-116.77,34.9
 92328,Death Valley,CA,-117.145,36.236
 92329,Phelan,CA,-115.967,34.84
-92331,Fontana,CA,-117.44,34.06
+92331,Fontana,CA,34.06,-117.44
 92332,Essex,CA,-115.577,34.588
 92333,Fawnskin,CA,-116.952,34.258
 92334,Fontana,CA,-115.967,34.84
@@ -38400,7 +38400,7 @@ zip,primary_city,state,lon,lat
 92340,Hesperia,CA,-115.967,34.84
 92341,Green Valley Lake,CA,-116.939,34.241
 92342,Helendale,CA,-116.378,34.497
-92344,Hesperia,CA,-117.39,34.39
+92344,Hesperia,CA,34.39,-117.39
 92345,Hesperia,CA,-115.967,34.84
 92346,Highland,CA,-117.14,34.157
 92347,Hinkley,CA,-116.192,35.013
@@ -38434,7 +38434,7 @@ zip,primary_city,state,lon,lat
 92392,Victorville,CA,-114.755,34.492
 92393,Victorville,CA,-115.967,34.84
 92394,Victorville,CA,-115.172,34.527
-92395,Victorville,CA,-117.36,34.48
+92395,Victorville,CA,34.48,-117.36
 92397,Wrightwood,CA,-115.967,34.84
 92398,Yermo,CA,-116.709,34.927
 92399,Yucaipa,CA,-116.971,34.062
@@ -38521,13 +38521,13 @@ zip,primary_city,state,lon,lat
 92605,Huntington Beach,CA,-117.769,33.64
 92606,Irvine,CA,-117.817,33.701
 92607,Laguna Niguel,CA,-117.769,33.64
-92609,El Toro,CA,-117.7,33.59
+92609,El Toro,CA,33.59,-117.7
 92610,Foothill Ranch,CA,-117.731,33.663
 92612,Irvine,CA,-117.783,33.616
 92614,Irvine,CA,-117.828,33.685
 92615,Huntington Beach,CA,-117.769,33.64
 92616,Irvine,CA,-117.769,33.64
-92617,Irvine,CA,-117.83,33.63
+92617,Irvine,CA,33.63,-117.83
 92618,Irvine,CA,-117.733,33.642
 92619,Irvine,CA,-117.766,33.67
 92620,Irvine,CA,-117.765,33.692
@@ -38539,7 +38539,7 @@ zip,primary_city,state,lon,lat
 92628,Costa Mesa,CA,-117.769,33.64
 92629,Dana Point,CA,-117.696,33.486
 92630,Lake Forest,CA,-117.693,33.641
-92637,Laguna Woods,CA,-117.72,33.61
+92637,Laguna Woods,CA,33.61,-117.72
 92646,Huntington Beach,CA,-117.769,33.64
 92647,Huntington Beach,CA,-117.769,33.64
 92648,Huntington Beach,CA,-117.769,33.64
@@ -38589,7 +38589,7 @@ zip,primary_city,state,lon,lat
 92710,Irvine,CA,-117.81,33.712
 92711,Santa Ana,CA,-117.769,33.64
 92712,Santa Ana,CA,-117.769,33.64
-92725,Santa Ana,CA,-117.86,33.75
+92725,Santa Ana,CA,33.75,-117.86
 92728,Fountain Valley,CA,-117.769,33.64
 92735,Santa Ana,CA,-117.769,33.64
 92780,Tustin,CA,-117.732,33.579
@@ -38604,7 +38604,7 @@ zip,primary_city,state,lon,lat
 92806,Anaheim,CA,-117.769,33.64
 92807,Anaheim,CA,-117.769,33.64
 92808,Anaheim,CA,-117.769,33.64
-92809,Anaheim,CA,-117.74,33.86
+92809,Anaheim,CA,33.86,-117.74
 92811,Atwood,CA,-117.769,33.64
 92812,Anaheim,CA,-117.769,33.64
 92814,Anaheim,CA,-117.769,33.64
@@ -38683,7 +38683,7 @@ zip,primary_city,state,lon,lat
 93033,Oxnard,CA,-119.131,34.154
 93034,Oxnard,CA,-119.134,34.032
 93035,Oxnard,CA,-119.202,34.221
-93036,Oxnard,CA,-119.16,34.25
+93036,Oxnard,CA,34.25,-119.16
 93040,Piru,CA,-118.786,34.435
 93041,Port Hueneme,CA,-119.155,34.149
 93042,Point Mugu Nawc,CA,-119.112,34.113
@@ -38790,7 +38790,7 @@ zip,primary_city,state,lon,lat
 93285,Wofford Heights,CA,-118.553,35.472
 93286,Woodlake,CA,-119.122,36.466
 93287,Woody,CA,-118.796,35.608
-93290,Visalia,CA,-119.29,36.33
+93290,Visalia,CA,36.33,-119.29
 93291,Visalia,CA,-119.363,36.184
 93292,Visalia,CA,-119.228,36.195
 93301,Bakersfield,CA,-119.008,35.484
@@ -38805,7 +38805,7 @@ zip,primary_city,state,lon,lat
 93311,Bakersfield,CA,-118.905,35.294
 93312,Bakersfield,CA,-118.917,35.241
 93313,Bakersfield,CA,-119.014,35.276
-93314,Bakersfield,CA,-119.2,35.38
+93314,Bakersfield,CA,35.38,-119.2
 93380,Bakersfield,CA,-118.905,35.294
 93381,Bakersfield,CA,-118.905,35.294
 93382,Bakersfield,CA,-118.905,35.294
@@ -38868,7 +38868,7 @@ zip,primary_city,state,lon,lat
 93463,Solvang,CA,-120.17,34.649
 93464,Solvang,CA,-120.111,34.674
 93465,Templeton,CA,-120.654,35.518
-93475,Oceano,CA,-120.61,35.1
+93475,Oceano,CA,35.1,-120.61
 93483,Grover Beach,CA,-120.455,35.347
 93501,Mojave,CA,-118.316,35.038
 93502,Mojave,CA,-118.225,35.068
@@ -38941,7 +38941,7 @@ zip,primary_city,state,lon,lat
 93615,Cutler,CA,-119.237,36.516
 93616,Del Rey,CA,-119.592,36.652
 93618,Dinuba,CA,-119.395,36.51
-93619,Clovis,CA,-119.58,36.91
+93619,Clovis,CA,36.91,-119.58
 93620,Dos Palos,CA,-120.623,37.073
 93621,Dunlap,CA,-119.052,36.724
 93622,Firebaugh,CA,-120.213,36.773
@@ -38956,7 +38956,7 @@ zip,primary_city,state,lon,lat
 93633,Kings Canyon National Pk,CA,-118.959,36.734
 93634,Lakeshore,CA,-119.244,37.167
 93635,Los Banos,CA,-120.847,37.104
-93636,Madera,CA,-119.83,36.93
+93636,Madera,CA,36.93,-119.83
 93637,Madera,CA,-120.182,36.928
 93638,Madera,CA,-119.977,37.023
 93639,Madera,CA,-119.945,37.161
@@ -39009,15 +39009,15 @@ zip,primary_city,state,lon,lat
 93720,Fresno,CA,-119.802,36.851
 93721,Fresno,CA,-119.772,36.729
 93722,Fresno,CA,-119.931,36.793
-93723,Fresno,CA,-119.95,36.77
+93723,Fresno,CA,36.77,-119.95
 93724,Fresno,CA,-119.64,36.746
 93725,Fresno,CA,-119.731,36.621
 93726,Fresno,CA,-119.76,36.726
 93727,Fresno,CA,-119.673,36.763
 93728,Fresno,CA,-119.817,36.756
 93729,Fresno,CA,-119.64,36.746
-93730,Fresno,CA,-119.75,36.9
-93737,Fresno,CA,-119.65,36.74
+93730,Fresno,CA,36.9,-119.75
+93737,Fresno,CA,36.74,-119.65
 93740,Fresno,CA,-119.64,36.746
 93741,Fresno,CA,-119.64,36.746
 93744,Fresno,CA,-119.64,36.746
@@ -39082,7 +39082,7 @@ zip,primary_city,state,lon,lat
 94005,Brisbane,CA,-122.404,37.689
 94010,Burlingame,CA,-122.368,37.567
 94011,Burlingame,CA,-122.335,37.381
-94013,Daly City,CA,-122.45,37.7
+94013,Daly City,CA,37.7,-122.45
 94014,Daly City,CA,-122.439,37.688
 94015,Daly City,CA,-122.475,37.677
 94016,Daly City,CA,-122.335,37.381
@@ -39119,7 +39119,7 @@ zip,primary_city,state,lon,lat
 94074,San Gregorio,CA,-122.36,37.328
 94080,South San Francisco,CA,-122.423,37.657
 94083,South San Francisco,CA,-122.335,37.381
-94085,Sunnyvale,CA,-122.01,37.38
+94085,Sunnyvale,CA,37.38,-122.01
 94086,Sunnyvale,CA,-121.705,37.189
 94087,Sunnyvale,CA,-121.705,37.189
 94088,Sunnyvale,CA,-121.705,37.189
@@ -39177,7 +39177,7 @@ zip,primary_city,state,lon,lat
 94154,San Francisco,CA,-122.728,37.785
 94155,San Francisco,CA,-122.728,37.785
 94156,San Francisco,CA,-122.728,37.785
-94158,San Francisco,CA,-122.39,37.76
+94158,San Francisco,CA,37.76,-122.39
 94159,San Francisco,CA,-122.728,37.785
 94160,San Francisco,CA,-122.728,37.785
 94161,San Francisco,CA,-122.728,37.785
@@ -39189,7 +39189,7 @@ zip,primary_city,state,lon,lat
 94175,San Francisco,CA,-122.728,37.785
 94177,San Francisco,CA,-122.728,37.785
 94188,San Francisco,CA,-122.728,37.785
-94199,San Francisco,CA,-122.41,37.77
+94199,San Francisco,CA,37.77,-122.41
 94203,Sacramento,CA,-121.555,38.38
 94204,Sacramento,CA,-121.444,38.377
 94205,Sacramento,CA,-121.444,38.377
@@ -39264,8 +39264,8 @@ zip,primary_city,state,lon,lat
 94497,San Mateo,CA,-122.326,37.535
 94501,Alameda,CA,-122.265,37.771
 94502,Alameda,CA,-122.243,37.735
-94503,American Canyon,CA,-122.25,38.18
-94505,Discovery Bay,CA,-121.64,37.86
+94503,American Canyon,CA,38.18,-122.25
+94505,Discovery Bay,CA,37.86,-121.64
 94506,Danville,CA,-121.917,37.832
 94507,Alamo,CA,-122.067,37.937
 94508,Angwin,CA,-122.45,38.571
@@ -39293,7 +39293,7 @@ zip,primary_city,state,lon,lat
 94530,El Cerrito,CA,-122.302,37.918
 94531,Antioch,CA,-121.724,37.921
 94533,Fairfield,CA,-122.02,38.278
-94534,Fairfield,CA,-122.12,38.23
+94534,Fairfield,CA,38.23,-122.12
 94535,Travis Afb,CA,-121.941,38.271
 94536,Fremont,CA,-121.983,37.565
 94537,Fremont,CA,-121.921,37.68
@@ -39340,7 +39340,7 @@ zip,primary_city,state,lon,lat
 94579,San Leandro,CA,-122.147,37.689
 94580,San Lorenzo,CA,-122.134,37.681
 94581,Napa,CA,-122.354,38.51
-94582,San Ramon,CA,-121.93,37.76
+94582,San Ramon,CA,37.76,-121.93
 94583,San Ramon,CA,-121.976,37.769
 94585,Suisun City,CA,-121.995,38.195
 94586,Sunol,CA,-121.883,37.586
@@ -39375,7 +39375,7 @@ zip,primary_city,state,lon,lat
 94619,Oakland,CA,-122.167,37.784
 94620,Piedmont,CA,-121.921,37.68
 94621,Oakland,CA,-122.197,37.743
-94622,Oakland,CA,-122.19,37.74
+94622,Oakland,CA,37.74,-122.19
 94623,Oakland,CA,-121.921,37.68
 94624,Oakland,CA,-121.921,37.68
 94625,Oakland,CA,-122.32,37.804
@@ -39697,7 +39697,7 @@ zip,primary_city,state,lon,lat
 95374,Stevinson,CA,-120.865,37.325
 95375,Strawberry,CA,-120.021,38.184
 95376,Tracy,CA,-121.408,37.689
-95377,Tracy,CA,-121.45,37.62
+95377,Tracy,CA,37.62,-121.45
 95378,Tracy,CA,-121.254,37.89
 95379,Tuolumne,CA,-120.268,37.922
 95380,Turlock,CA,-120.844,37.54
@@ -39709,7 +39709,7 @@ zip,primary_city,state,lon,lat
 95387,Westley,CA,-121.249,37.562
 95388,Winton,CA,-120.553,37.411
 95389,Yosemite National Park,CA,-119.695,37.638
-95391,Tracy,CA,-121.63,37.76
+95391,Tracy,CA,37.76,-121.63
 95397,Modesto,CA,-120.937,37.604
 95401,Santa Rosa,CA,-122.783,38.45
 95402,Santa Rosa,CA,-122.711,38.44
@@ -39768,7 +39768,7 @@ zip,primary_city,state,lon,lat
 95464,Nice,CA,-122.868,39.277
 95465,Occidental,CA,-123.02,38.407
 95466,Philo,CA,-123.525,39.057
-95467,Hidden Valley Lake,CA,-122.55,38.8
+95467,Hidden Valley Lake,CA,38.8,-122.55
 95468,Point Arena,CA,-123.541,38.919
 95469,Potter Valley,CA,-123.107,39.361
 95470,Redwood Valley,CA,-123.463,39.302
@@ -39953,7 +39953,7 @@ zip,primary_city,state,lon,lat
 95742,Rancho Cordova,CA,-121.203,38.58
 95746,Granite Bay,CA,-121.183,38.757
 95747,Roseville,CA,-121.336,38.78
-95757,Elk Grove,CA,-121.42,38.35
+95757,Elk Grove,CA,38.35,-121.42
 95758,Elk Grove,CA,-121.429,38.347
 95759,Elk Grove,CA,-121.444,38.377
 95762,El Dorado Hills,CA,-121.045,38.687
@@ -39962,7 +39962,7 @@ zip,primary_city,state,lon,lat
 95776,Woodland,CA,-121.71,38.696
 95798,West Sacramento,CA,-121.962,38.62
 95799,West Sacramento,CA,-121.962,38.62
-95811,Sacramento,CA,-121.49,38.59
+95811,Sacramento,CA,38.59,-121.49
 95812,Sacramento,CA,-121.444,38.377
 95813,Sacramento,CA,-121.444,38.377
 95814,Sacramento,CA,-121.481,38.579
@@ -40444,8 +40444,8 @@ zip,primary_city,state,lon,lat
 97077,Beaverton,OR,-123.115,45.549
 97078,Beaverton,OR,-122.789,45.452
 97080,Gresham,OR,-122.387,45.481
-97086,Happy Valley,OR,-122.52,45.44
-97089,Damascus,OR,-122.45,45.42
+97086,Happy Valley,OR,45.44,-122.52
+97089,Damascus,OR,45.42,-122.45
 97101,Amity,OR,-123.191,45.121
 97102,Arch Cape,OR,-123.963,45.811
 97103,Astoria,OR,-123.796,46.142
@@ -40522,7 +40522,7 @@ zip,primary_city,state,lon,lat
 97233,Portland,OR,-122.496,45.515
 97236,Portland,OR,-122.504,45.485
 97238,Portland,OR,-122.375,45.581
-97239,Portland,OR,-122.69,45.48
+97239,Portland,OR,45.48,-122.69
 97240,Portland,OR,-122.375,45.581
 97242,Portland,OR,-122.375,45.581
 97251,Portland,OR,-122.375,45.581
@@ -40565,9 +40565,9 @@ zip,primary_city,state,lon,lat
 97312,Salem,OR,-123.038,44.936
 97313,Salem,OR,-122.999,44.985
 97314,Salem,OR,-123.007,44.966
-97317,Salem,OR,-122.89,44.9
+97317,Salem,OR,44.9,-122.89
 97321,Albany,OR,-122.582,44.594
-97322,Albany,OR,-123,44.63
+97322,Albany,OR,44.63,-123
 97324,Alsea,OR,-123.588,44.377
 97325,Aumsville,OR,-122.901,44.8
 97326,Blodgett,OR,-123.538,44.638
@@ -40688,10 +40688,10 @@ zip,primary_city,state,lon,lat
 97467,Reedsport,OR,-123.746,43.45
 97469,Riddle,OR,-123.425,43.268
 97470,Roseburg,OR,-123.361,43.054
-97471,Roseburg,OR,-123.48,43.24
+97471,Roseburg,OR,43.24,-123.48
 97472,Cottage Grove,OR,-122.999,43.864
 97473,Scottsburg,OR,-123.826,43.672
-97475,Springfield,OR,-123.02,44.05
+97475,Springfield,OR,44.05,-123.02
 97476,Sixes,OR,-124.433,42.8
 97477,Springfield,OR,-123.444,43.937
 97478,Springfield,OR,-122.873,44.096
@@ -40891,7 +40891,7 @@ zip,primary_city,state,lon,lat
 98027,Issaquah,WA,-122.011,47.497
 98028,Kenmore,WA,-122.125,47.754
 98029,Issaquah,WA,-122.026,47.566
-98030,Kent,WA,-122.19,47.36
+98030,Kent,WA,47.36,-122.19
 98031,Kent,WA,-122.165,47.38
 98032,Kent,WA,-121.803,47.432
 98033,Kirkland,WA,-122.187,47.673
@@ -40928,13 +40928,13 @@ zip,primary_city,state,lon,lat
 98071,Auburn,WA,-121.803,47.432
 98072,Woodinville,WA,-122.091,47.741
 98073,Redmond,WA,-121.803,47.432
-98074,Sammamish,WA,-122.02,47.62
-98075,Sammamish,WA,-122.03,47.58
-98077,Woodinville,WA,-122.04,47.75
+98074,Sammamish,WA,47.62,-122.02
+98075,Sammamish,WA,47.58,-122.03
+98077,Woodinville,WA,47.75,-122.04
 98082,Mill Creek,WA,-121.803,47.432
 98083,Kirkland,WA,-121.803,47.432
-98087,Lynnwood,WA,-122.28,47.85
-98089,Kent,WA,-122.23,47.38
+98087,Lynnwood,WA,47.85,-122.28
+98089,Kent,WA,47.38,-122.23
 98092,Auburn,WA,-122.098,47.288
 98093,Federal Way,WA,-122.114,47.311
 98101,Seattle,WA,-121.803,47.432
@@ -40949,7 +40949,7 @@ zip,primary_city,state,lon,lat
 98110,Bainbridge Island,WA,-122.538,47.648
 98111,Seattle,WA,-121.803,47.432
 98112,Seattle,WA,-121.803,47.432
-98113,Seattle,WA,-122.33,47.61
+98113,Seattle,WA,47.61,-122.33
 98114,Seattle,WA,-121.803,47.432
 98115,Seattle,WA,-121.803,47.432
 98116,Seattle,WA,-121.803,47.432
@@ -40961,7 +40961,7 @@ zip,primary_city,state,lon,lat
 98124,Seattle,WA,-121.803,47.432
 98125,Seattle,WA,-121.803,47.432
 98126,Seattle,WA,-121.803,47.432
-98127,Seattle,WA,-122.33,47.61
+98127,Seattle,WA,47.61,-122.33
 98129,Seattle,WA,-121.803,47.432
 98131,Seattle,WA,-121.803,47.432
 98132,Seattle,WA,-121.803,47.432
@@ -40969,8 +40969,8 @@ zip,primary_city,state,lon,lat
 98134,Seattle,WA,-121.803,47.432
 98136,Seattle,WA,-121.803,47.432
 98138,Seattle,WA,-121.803,47.432
-98139,Seattle,WA,-122.33,47.61
-98141,Seattle,WA,-122.33,47.61
+98139,Seattle,WA,47.61,-122.33
+98141,Seattle,WA,47.61,-122.33
 98144,Seattle,WA,-121.803,47.432
 98145,Seattle,WA,-121.803,47.432
 98146,Seattle,WA,-121.803,47.432
@@ -40982,23 +40982,23 @@ zip,primary_city,state,lon,lat
 98160,Seattle,WA,-121.803,47.432
 98161,Seattle,WA,-121.803,47.432
 98164,Seattle,WA,-121.803,47.432
-98165,Seattle,WA,-122.33,47.61
+98165,Seattle,WA,47.61,-122.33
 98166,Seattle,WA,-121.803,47.432
 98168,Seattle,WA,-121.803,47.432
-98170,Seattle,WA,-122.33,47.61
+98170,Seattle,WA,47.61,-122.33
 98171,Seattle,WA,-121.803,47.432
 98174,Seattle,WA,-121.803,47.432
-98175,Seattle,WA,-122.33,47.61
+98175,Seattle,WA,47.61,-122.33
 98177,Seattle,WA,-121.803,47.432
 98178,Seattle,WA,-122.236,47.492
 98181,Seattle,WA,-121.803,47.432
 98184,Seattle,WA,-121.803,47.432
 98185,Seattle,WA,-121.803,47.432
 98188,Seattle,WA,-121.803,47.432
-98189,Seattle,WA,-122.25,47.42
+98189,Seattle,WA,47.42,-122.25
 98190,Seattle,WA,-121.803,47.432
 98191,Seattle,WA,-121.803,47.432
-98194,Seattle,WA,-122.33,47.61
+98194,Seattle,WA,47.61,-122.33
 98195,Seattle,WA,-121.803,47.432
 98198,Seattle,WA,-121.803,47.432
 98199,Seattle,WA,-122.264,47.777
@@ -41009,7 +41009,7 @@ zip,primary_city,state,lon,lat
 98206,Everett,WA,-122.285,47.86
 98207,Everett,WA,-121.682,48.037
 98208,Everett,WA,-122.19,47.897
-98213,Everett,WA,-122.2,47.97
+98213,Everett,WA,47.97,-122.2
 98220,Acme,WA,-122.187,48.689
 98221,Anacortes,WA,-122.607,48.499
 98222,Blakely Island,WA,-122.922,48.611
@@ -41019,7 +41019,7 @@ zip,primary_city,state,lon,lat
 98226,Bellingham,WA,-122.486,48.768
 98227,Bellingham,WA,-121.989,48.815
 98228,Bellingham,WA,-121.989,48.815
-98229,Bellingham,WA,-122.41,48.68
+98229,Bellingham,WA,48.68,-122.41
 98230,Blaine,WA,-122.366,48.936
 98231,Blaine,WA,-121.989,48.815
 98232,Bow,WA,-122.448,48.566
@@ -41065,7 +41065,7 @@ zip,primary_city,state,lon,lat
 98279,Olga,WA,-122.984,48.558
 98280,Orcas,WA,-122.941,48.59
 98281,Point Roberts,WA,-123.058,48.987
-98282,Camano Island,WA,-122.49,48.16
+98282,Camano Island,WA,48.16,-122.49
 98283,Rockport,WA,-121.61,48.428
 98284,Sedro Woolley,WA,-122.137,48.486
 98286,Shaw Island,WA,-122.984,48.558
@@ -41152,7 +41152,7 @@ zip,primary_city,state,lon,lat
 98387,Spanaway,WA,-122.416,47.058
 98388,Steilacoom,WA,-122.332,47.133
 98390,Sumner,WA,-122.16,47.177
-98391,Bonney Lake,WA,-122.16,47.18
+98391,Bonney Lake,WA,47.18,-122.16
 98392,Suquamish,WA,-122.565,47.733
 98393,Tracyton,WA,-122.65,47.627
 98394,Vaughn,WA,-122.773,47.311
@@ -41174,9 +41174,9 @@ zip,primary_city,state,lon,lat
 98413,Tacoma,WA,-122.113,47.066
 98415,Tacoma,WA,-122.113,47.066
 98416,Tacoma,WA,-122.482,47.265
-98417,Tacoma,WA,-122.43,47.24
+98417,Tacoma,WA,47.24,-122.43
 98418,Tacoma,WA,-122.113,47.066
-98419,Tacoma,WA,-122.43,47.19
+98419,Tacoma,WA,47.19,-122.43
 98421,Tacoma,WA,-122.4,47.254
 98422,Tacoma,WA,-122.389,47.283
 98424,Tacoma,WA,-122.359,47.233
@@ -41191,7 +41191,7 @@ zip,primary_city,state,lon,lat
 98445,Tacoma,WA,-122.409,47.129
 98446,Tacoma,WA,-122.374,47.128
 98447,Tacoma,WA,-122.113,47.066
-98448,Tacoma,WA,-122.44,47.25
+98448,Tacoma,WA,47.25,-122.44
 98450,Tacoma,WA,-122.113,47.066
 98455,Tacoma,WA,-122.113,47.066
 98460,Tacoma,WA,-122.113,47.066
@@ -41202,10 +41202,10 @@ zip,primary_city,state,lon,lat
 98471,Tacoma,WA,-122.113,47.066
 98477,Tacoma,WA,-122.113,47.066
 98481,Tacoma,WA,-122.113,47.066
-98490,Tacoma,WA,-122.48,47.2
+98490,Tacoma,WA,47.2,-122.48
 98492,Tacoma,WA,-122.113,47.066
 98493,Tacoma,WA,-122.113,47.066
-98496,Lakewood,WA,-122.51,47.17
+98496,Lakewood,WA,47.17,-122.51
 98497,Lakewood,WA,-122.113,47.066
 98498,Lakewood,WA,-122.548,47.159
 98499,Lakewood,WA,-122.502,47.168
@@ -41218,7 +41218,7 @@ zip,primary_city,state,lon,lat
 98507,Olympia,WA,-122.702,46.978
 98508,Olympia,WA,-122.702,46.978
 98509,Lacey,WA,-122.702,46.978
-98511,Tumwater,WA,-123.03,46.95
+98511,Tumwater,WA,46.95,-123.03
 98512,Olympia,WA,-123.021,46.95
 98513,Olympia,WA,-122.743,46.994
 98516,Olympia,WA,-122.779,47.113
@@ -41586,7 +41586,7 @@ zip,primary_city,state,lon,lat
 99350,Prosser,WA,-119.56,46.148
 99352,Richland,WA,-119.492,46.282
 99353,West Richland,WA,-119.371,46.315
-99354,Richland,WA,-119.32,46.35
+99354,Richland,WA,46.35,-119.32
 99356,Roosevelt,WA,-120.354,45.851
 99357,Royal City,WA,-119.686,46.898
 99359,Starbuck,WA,-118.102,46.513
@@ -41621,10 +41621,10 @@ zip,primary_city,state,lon,lat
 99522,Anchorage,AK,-149.44,61.109
 99523,Anchorage,AK,-149.44,61.109
 99524,Anchorage,AK,-149.44,61.109
-99529,Anchorage,AK,-149.98,61.18
-99530,Anchorage,AK,-149.97,61.26
+99529,Anchorage,AK,61.18,-149.98
+99530,Anchorage,AK,61.26,-149.97
 99540,Indian,AK,-149.44,61.109
-99545,Kongiganak,AK,-161.79,60.78
+99545,Kongiganak,AK,60.78,-161.79
 99546,Adak,AK,-176.787,54.24
 99547,Atka,AK,-176.787,54.24
 99548,Chignik Lake,AK,-156.648,58.269
@@ -41685,13 +41685,13 @@ zip,primary_city,state,lon,lat
 99620,Kotlik,AK,-163.238,62.117
 99621,Kwethluk,AK,-163.119,60.315
 99622,Kwigillingok,AK,-163.119,60.315
-99623,Wasilla,AK,-149.58,61.61
+99623,Wasilla,AK,61.61,-149.58
 99624,Larsen Bay,AK,-155.797,58.269
 99625,Levelock,AK,-156.648,58.269
 99626,Lower Kalskag,AK,-163.119,60.315
 99627,Mc Grath,AK,-155.571,62.946
 99628,Manokotak,AK,-163.119,58.962
-99629,Wasilla,AK,-149.44,61.58
+99629,Wasilla,AK,61.58,-149.44
 99630,Mekoryuk,AK,-163.119,60.315
 99631,Moose Pass,AK,-151.656,60.037
 99632,Mountain Village,AK,-164.287,62.332
@@ -41780,7 +41780,7 @@ zip,primary_city,state,lon,lat
 99727,Buckland,AK,-159.844,66.868
 99729,Cantwell,AK,-149.987,63.544
 99730,Central,AK,-151.025,65.226
-99731,Fort Greely,AK,-145.73,64.04
+99731,Fort Greely,AK,64.04,-145.73
 99732,Chicken,AK,-144.003,63.871
 99733,Circle,AK,-151.025,65.226
 99734,Prudhoe Bay,AK,-153.994,66.693
@@ -41843,7 +41843,7 @@ zip,primary_city,state,lon,lat
 99802,Juneau,AK,-134.59,58.406
 99803,Juneau,AK,-134.617,58.377
 99811,Juneau,AK,-134.198,58.383
-99812,Juneau,AK,-134.4,58.28
+99812,Juneau,AK,58.28,-134.4
 99820,Angoon,AK,-134.586,57.501
 99821,Auke Bay,AK,-134.7,58.449
 99824,Douglas,AK,-134.398,58.276
