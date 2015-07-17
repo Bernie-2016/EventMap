@@ -444,7 +444,7 @@ bernMap.eventList = function(container) {
           var zip = $(this).attr("data-zip");
 
           // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 5);
-          $("circle[data-zip=" + zip + "]").attr("stroke-width", 5).prependTo(".leaflet-zoom-hide");
+          $("circle[data-zip=" + zip + "]").attr("stroke-width", 5);
 
           //
 
@@ -588,8 +588,12 @@ function loadZipcodeData() {
       return data;
     }
 
+    var _features = reformat(data);
+    _features.sort(function(a, b) { return b.properties.zip_rsvp - a.properties.zip_rsvp; });
 
-    bernMap.d.zipcodes = {type: "FeatureCollection", features: reformat(data) };
+    console.log(_features);
+
+    bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.plot();
 
     $jq(window).trigger("hashchange");
