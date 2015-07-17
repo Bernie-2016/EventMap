@@ -13,16 +13,17 @@ git pull origin master
 echo "--------------------------------------------"
 echo "$DATE | Pulled latest Deploying"
 echo "--------------------------------------------"
-
+sleep 2
 cd $HEROKU_FOLDER
 pwd
 git add "web/d/july29.json"
+sleep 2
 git commit -m "Update july 29 data"
 
 echo "--------------------------------------------"
 echo "$DATE | Committed code "
 echo "--------------------------------------------"
-
+sleep 2
 git push heroku master
 
 echo "--------------------------------------------"
