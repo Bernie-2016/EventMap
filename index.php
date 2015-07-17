@@ -469,7 +469,7 @@ d3.csv("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl
 function loadZipcodeData() {
   // d3.tsv('./d/zipcodes.tsv', function(zipcodesRaw) {
 
-    d3.csv('./d/zipcode-final.csv', function(data) {
+    d3.csv('./d/us_postal_codes.csv', function(data) {
       bernMap.d.allZipcodes = data;
 
       bernMap.d.allZipcodes.forEach(function(d) {
