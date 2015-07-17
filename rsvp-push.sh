@@ -16,7 +16,7 @@ echo "--------------------------------------------"
 
 cd $HEROKU_FOLDER
 pwd
-git add web/d/july29.json
+git add "web/d/july29.json"
 git commit -m "Update july 29 data"
 
 echo "--------------------------------------------"
@@ -26,5 +26,5 @@ echo "--------------------------------------------"
 git push heroku master
 
 echo "--------------------------------------------"
-echo "$DATE | Bernie 2016 Events Data Pull - END"
+echo "$DATE | Bernie 2016 Events Data Push - END"
 echo "--------------------------------------------"
