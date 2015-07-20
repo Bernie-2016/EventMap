@@ -116,6 +116,17 @@ bernMap.draw = function() {
     return [point.x, point.y];
   };
 
+  this._getZoomValue = function(distance) {
+    switch (distance) {
+      case 5 : return 12;
+      case 10: return 11;
+      case 20: return 10;
+      case 50: return 9;
+      case 100: return 8;
+      case 250: return 7;
+    }
+  };
+
   this._deserialize = function(query) {
     return query.split("&").map(function(d) { var q = d.split("="); return [q[0], q[1]]; }).reduce(function(init, next) { init[next[0]] = next[1]; return init;}, {});
   };
@@ -153,10 +164,12 @@ bernMap.draw = function() {
             .attr("opacity", 0.9);
 
       //Focus on map
-      that.replot();
-      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], 12, { animate: true });
+      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], that._getZoomValue(parseInt(params.distance)), { animate: false });
       var offset = bernMap.mapBox.getSize().x * 0.15;
+
+
       bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+      that.replot();
     }
 
 
@@ -320,6 +333,7 @@ bernMap.eventList = function(container) {
     var that = this;
     var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
 
+    $("#event-results-count").hide();
     $("ul#event-list").children("li").remove();
     if (targetZipcode.length == 0 ) {
       return ;

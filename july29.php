@@ -107,7 +107,7 @@ bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
 bernMap.d = {};
 bernMap.scale = {};
-bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 50]);
+bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 80]);
 bernMap.d.rsvp=0;
 bernMap.d.capacity = 0;
 bernMap.d.zipcodes = null;
@@ -133,6 +133,17 @@ bernMap.draw = function() {
     // var point = bernMap.mapBox.latLngToContainerPoint(new L.LatLng(y,x));
     // this.stream.point(point.x, point.y);
     return [point.x, point.y];
+  };
+
+  this._getZoomValue = function(distance) {
+    switch (distance) {
+      case 5 : return 12;
+      case 10: return 11;
+      case 20: return 10;
+      case 50: return 9;
+      case 100: return 8;
+      case 250: return 7;
+    }
   };
 
   this._deserialize = function(query) {
@@ -172,10 +183,13 @@ bernMap.draw = function() {
             .attr("opacity", 0.9);
 
       //Focus on map
-      that.replot();
-      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], 12, { animate: true });
+
+      bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], that._getZoomValue(parseInt(params.distance)), { animate: false });
       var offset = bernMap.mapBox.getSize().x * 0.15;
+
+
       bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+      that.replot();
     }
 
 
@@ -356,6 +370,7 @@ bernMap.eventList = function(container) {
     var that = this;
     var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
 
+    $("#event-results-count").hide();
     $("ul#event-list").children("li").remove();
     if (targetZipcode.length == 0 ) return ;
     var target = targetZipcode[0];
@@ -591,7 +606,7 @@ function loadZipcodeData() {
     var _features = reformat(data);
     _features.sort(function(a, b) { return b.properties.zip_rsvp - a.properties.zip_rsvp; });
 
-    console.log(_features);
+    // console.log(_features);
 
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.plot();
