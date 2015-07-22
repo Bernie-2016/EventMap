@@ -11,6 +11,7 @@ $events = json_decode($contents);
 
 // print_r($events);
 foreach ( $events->results as $item ):
+  $id_obfuscated = $item->id_obfuscated;
   $id = $item->url;
   $name = $item->name;
 
@@ -39,7 +40,7 @@ foreach ( $events->results as $item ):
   // }
 
   echo @join("&lt;TAB&gt;", array(
-            $id,
+            "/".$id_obfuscated,
             $name, $start_time->format('m/d/Y'),
             $start_time->format('h:i A'),
             $end_time ? $end_time->format('h:i A') : "",
@@ -51,7 +52,7 @@ foreach ( $events->results as $item ):
                 isset($item->venue_zip) ? ($item->venue_zip . " ") : "", )),
             isset($item->venue_state_cd) ? $item->venue_state_cd : "NONE",
             isset($item->venue_zip) && isset($item->venue_zip) ? $item->venue_zip : "NONE",
-            "Official Bernie Sanders Campaign",
+            "Bernie Sanders Campaign Volunteers",
             "http://www.berniesanders.com",
             $item->url)) . "\n";
 endforeach;
