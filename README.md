@@ -2,6 +2,9 @@
 Events for Bernie
 All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.
 
+## When using:
+- change `d/july29.sample-data.json` to `d/july29.json`
+
 ## Datasource
 
 Makes use of Google Spreadsheets for easy collaboration: https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/edit?usp=sharing
