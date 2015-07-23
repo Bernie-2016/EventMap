@@ -69,13 +69,13 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
 <script id='zipcodes-datadump' type='text/plain'>
 <?php
-    if ($mc->get(ZIPCODES_URL)) {
-      $zip_content = $mc->get(ZIPCODES_URL);
-    } else {
-      $zip_content = file_get_contents(ZIPCODES_URL);
-      $mc->set(ZIPCODES_URL, $zip_content);
-    }
-    echo $zip_content;
+    // if ($mc->get(ZIPCODES_URL)) {
+    //   $zip_content = $mc->get(ZIPCODES_URL);
+    // } else {
+    //   $zip_content = file_get_contents(ZIPCODES_URL);
+    //   $mc->set(ZIPCODES_URL, $zip_content);
+    // }
+    // echo $zip_content;
 ?>
 </script>
 <script src="/js/jquery.js"></script>
@@ -590,10 +590,11 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 function loadZipcodeData() {
   // d3.tsv('/d/zipcodes.tsv', function(data) {
   // d3.csv('./d/zipcode-lookup.csv', function(data) {
-  // d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
-    bernMap.d.allZipcodes = d3.csv.parse(bernMap.raw.zipcode);
-    var data = bernMap.d.allZipcodes;
+  d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
+    // bernMap.d.allZipcodes = d3.csv.parse(bernMap.raw.zipcode);
+    // var data = bernMap.d.allZipcodes;
 
+    bernMap.d.allZipcodes = data;
     data = data.filter(function(d) {
       return bernMap.d.aggregatedRSVP[d.zip];
     });
@@ -644,7 +645,7 @@ function loadZipcodeData() {
     bernie.plot();
 
     $jq(window).trigger("hashchange");
-  // });
+  });
 }
 
 $jq("form input[type=radio]").on("click", function(d) {
