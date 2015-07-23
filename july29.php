@@ -20,7 +20,7 @@
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
 <section id='main-title-area'>
-  <h4 style='font-size: 0.8em'><strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings</strong> <span>&bull;</span> <!-- <strong style='font-size: 1.2em; color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'>as of July 17</span><span id="capacity-counter"></span> </strong> <span>&bull;</span> --> <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a>&nbsp;&nbsp;
+  <h4 style='font-size: 0.8em'><strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings</strong> <span>&bull;</span> <strong style='font-size: 1.2em; color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong> <span>&bull;</span><span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a>&nbsp;&nbsp;
     <!-- <div id='social' style="padding-top: 4px;"> -->
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -136,7 +136,7 @@ bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 
 bernMap.d = {};
 bernMap.scale = {};
-bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 80]);
+bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 150]);
 bernMap.d.rsvp=0;
 bernMap.d.capacity = 0;
 bernMap.d.zipcodes = null;
@@ -467,9 +467,9 @@ bernMap.eventList = function(container) {
           }
 
 
-          // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.AttendeeCount + " RSVPs </a>"];
+          var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.AttendeeCount + " RSVPs </a>"];
 
-          var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>RSVP @ BernieSanders.com </a>"];
+          // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>RSVP @ BernieSanders.com </a>"];
 
           return "<h5><span class='event-item-date'>"
             + d3.round(d.distance,1) + "MI"
@@ -544,9 +544,9 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
     item.Zipcode = item.venue_zip;
     item.Location = item.venue_name + " " + item.venue_addr1 + " " + item.venue_city + " " + item.venue_state_cd + " " + item.venue_zip;
 
-    item.AttendeeCount = 5; //item.attendee_count;
+    item.AttendeeCount = item.attendee_count;
 
-    bernMap.d.rsvp += 0; //parseInt(item.attendee_count);
+    bernMap.d.rsvp += parseInt(item.attendee_count);
     bernMap.d.capacity += parseInt(item.capacity);
 
   });
@@ -609,7 +609,7 @@ function loadZipcodeData() {
         var totalRsvp = 0;
         var totalCapacity = 0;
         bernMap.d.aggregatedRSVP[d.zip].forEach(function(dI) {
-          totalRsvp += 5; //parseInt(dI.attendee_count);
+          totalRsvp += parseInt(dI.attendee_count);
           totalCapacity += parseInt(dI.capacity);
         });
         d["zip_rsvp"] = totalRsvp;

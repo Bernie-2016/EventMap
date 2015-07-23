@@ -4,7 +4,7 @@
 
   $mc = new Memcached();
   $url = $_GET['u'];
-  $refresh = (int) $_GET['refresh'];
+  $refresh = isset($_GET['refresh']) ? (int) $_GET['refresh'] : 0 ;
 
   if ($mc) {
 
