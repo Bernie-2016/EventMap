@@ -96,8 +96,8 @@ var WIDTH = $jq(window).width();
 
 var bernMap = bernMap || {};
 bernMap.constants = {};
-bernMap.constants.spreadsheetUrl = "/d/july29.json";
-// bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=2000&country=*";
+// bernMap.constants.spreadsheetUrl = "/d/july29.json";
+bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*";
 
 
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles)
@@ -489,8 +489,8 @@ var qtree = null;
 var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
-// d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
-  d3.json("/d/july29.json",
+d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
+  // d3.json("/d/july29.json",
   function(data) {
 
   bernMap.d.meetupData = data.results;
@@ -561,7 +561,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 function loadZipcodeData() {
   // d3.tsv('/d/zipcodes.tsv', function(data) {
   // d3.csv('./d/zipcode-lookup.csv', function(data) {
-  d3.csv('/d/us_postal_codes.csv', function(data) {
+  d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
     bernMap.d.allZipcodes = data;
 
     data = data.filter(function(d) {

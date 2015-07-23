@@ -11,5 +11,7 @@
     $mc->set('foo', 'bar');
     echo $mc->get('foo');
 
+  } else {
+    echo "X";
   }
 ?>
