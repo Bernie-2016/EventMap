@@ -1,4 +1,9 @@
 <?php
+  require_once('./inc/_memcached.inc');
+
+  define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
+  define('ZIPCODES_URL', "./d/us_postal_codes.csv");
+
   $title = "July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events";
   $description = "On July 29th, Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.";
   $og_img = "http://www.bernie2016events.org/img/social-july29.jpg";
@@ -62,9 +67,33 @@
 </section>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+<script id='zipcodes-datadump' type='text/plain'>
+<?php
+    if ($mc->get(ZIPCODES_URL)) {
+      $zip_content = $mc->get(ZIPCODES_URL);
+    } else {
+      $zip_content = file_get_contents(ZIPCODES_URL);
+      $mc->set(ZIPCODES_URL, $zip_content);
+    }
+    echo $zip_content;
+?>
+</script>
 <script src="/js/jquery.js"></script>
 <script src='/js/mapbox.js'></script>
 <script type='text/javascript'>
+var bernMap = bernMap || {};
+bernMap.raw = {};
+bernMap.raw.zipcode = $("#zipcodes-datadump").html().trim();
+
+bernMap.raw.july29 = <?php
+    if ($mc->get(BERNIE2016_URL)) {
+      $content = $mc->get(BERNIE2016_URL);
+    } else {
+      $content = file_get_contents(BERNIE2016_URL);
+      $mc->set(BERNIE2016_URL, $content);
+    }
+    echo $content;
+?>;
 
 var $jq = jQuery;
 
@@ -489,12 +518,12 @@ var qtree = null;
 var bernie = new bernMap.draw();
 var bernieEvents = new bernMap.eventList("#map-event-list");
 
-d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
+// d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUrl),
   // d3.json("/d/july29.json",
-  function(data) {
+  // function(data) {
 
-  bernMap.d.meetupData = data.results;
-  bernMap.d.rawMeetupData = data.results;
+  bernMap.d.meetupData = bernMap.raw.july29.results;
+  bernMap.d.rawMeetupData = bernMap.raw.july29.results;
 
   var timeFormat = d3.time.format("%I:%M %p");
   var rawDateFormat = d3.time.format("%Y-%m-%d");
@@ -555,14 +584,15 @@ d3.json("./csv-grab.php?u=" + encodeURIComponent(bernMap.constants.spreadsheetUr
   , {});
 
   loadZipcodeData();
-});
+// });
 
 
 function loadZipcodeData() {
   // d3.tsv('/d/zipcodes.tsv', function(data) {
   // d3.csv('./d/zipcode-lookup.csv', function(data) {
-  d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
-    bernMap.d.allZipcodes = data;
+  // d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
+    bernMap.d.allZipcodes = d3.csv.parse(bernMap.raw.zipcode);
+    var data = bernMap.d.allZipcodes;
 
     data = data.filter(function(d) {
       return bernMap.d.aggregatedRSVP[d.zip];
@@ -614,7 +644,7 @@ function loadZipcodeData() {
     bernie.plot();
 
     $jq(window).trigger("hashchange");
-  });
+  // });
 }
 
 $jq("form input[type=radio]").on("click", function(d) {

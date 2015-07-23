@@ -24,10 +24,10 @@ section#map-section {
     padding: 5px; }
   section#map-section div#ad-push-banner {
     position: absolute;
-    bottom: -5px;
+    bottom: 0px;
     left: 5px;
     z-index: 1000;
-    width: 35%; }
+    width: 25%; }
     section#map-section div#ad-push-banner img {
       width: 100%; }
   section#map-section div#map-event-list {
