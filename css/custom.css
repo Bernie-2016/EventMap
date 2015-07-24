@@ -105,6 +105,25 @@ a {
       a.contribute.contribute-big:hover {
         text-decoration: none;
         background-color: #ea504e; }
+  a.button-rsvp {
+    background-color: #F55B5B;
+    display: inline-block;
+    padding: 0.5em 0.9em;
+    font-size: 0.8em;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    text-indent: 0.15em;
+    letter-spacing: 0.15em; }
+    a.button-rsvp:hover {
+      text-decoration: none;
+      background-color: #ea504e; }
+    a.button-rsvp + span.rsvp-counter {
+      padding-left: 1em;
+      font-size: 0.8em;
+      color: #F55B5B;
+      font-weight: bold;
+      letter-spacing: 0.15em; }
 
 body {
   font-family: 'Open Sans', sans-serif;

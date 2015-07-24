@@ -103,7 +103,7 @@ section#map-section {
 
       input[name=zipcode] {
           width: 80%;
-          font-size: 1.3em;
+          font-size: 1em;
           text-align: center;
           border-color: whitesmoke;
           border-collapse: collapse;
@@ -160,6 +160,10 @@ section#map-section {
       overflow: auto;
       .event-list-item {
         padding-bottom: 20px;
+        .event-item-name.event-full {
+          color: gray;
+        }
+
         h5.event-basics {
           color: #babbba;
           .event-item-date {
@@ -190,12 +194,16 @@ section#map-section {
       fill: $red;
       // stroke-width: 0px;
       &[data-maxcapacity='true'] {
-        fill: gray !important;
+        fill: gray;
       }
 
       stroke: #983130;
       &#center-item {
         fill: $blue;
+      }
+
+      &.circle-selected {
+        fill: $blue !important;
       }
     }
   }

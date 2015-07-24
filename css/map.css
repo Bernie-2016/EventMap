@@ -83,7 +83,7 @@ section#map-section {
         text-transform: uppercase; }
       section#map-section div#map-event-list form#zip-and-distance input[name=zipcode] {
         width: 80%;
-        font-size: 1.3em;
+        font-size: 1em;
         text-align: center;
         border-color: whitesmoke;
         border-collapse: collapse;
@@ -123,6 +123,8 @@ section#map-section {
       overflow: auto; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
         padding-bottom: 20px; }
+        section#map-section div#map-event-list #event-list-area .event-list-item .event-item-name.event-full {
+          color: gray; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics {
           color: #babbba; }
           section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics .event-item-date {
@@ -144,9 +146,11 @@ section#map-section {
       fill: #ea504e;
       stroke: #983130; }
       .leaflet-overlay-pane svg circle[data-maxcapacity='true'] {
-        fill: gray !important; }
+        fill: gray; }
       .leaflet-overlay-pane svg circle#center-item {
         fill: #147FD7; }
+      .leaflet-overlay-pane svg circle.circle-selected {
+        fill: #147FD7 !important; }
 
 footer {
   padding-top: 10px;

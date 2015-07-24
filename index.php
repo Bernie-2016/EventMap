@@ -1,8 +1,8 @@
 <?php
   require_once('./inc/_memcached.inc');
 
-  define('BERNIE2016_URL', './d/july29.json');
-  // define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
+  // define('BERNIE2016_URL', './d/july29.json');
+  define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
   define('ZIPCODES_URL', "./d/us_postal_codes.csv");
 
   $title = "July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events";
@@ -10,7 +10,7 @@
   $og_img = "http://www.bernie2016events.org/img/social-july29.jpg";
 
   $zipcode = isset($_GET['zipcode']) ? $_GET['zipcode'] : "" ;
-  $distance = isset($_GET['distance']) ? $_GET['distance'] : 5 ;
+  $distance = isset($_GET['distance']) ? $_GET['distance'] : 10 ;
 ?>
 <?php require_once(__DIR__ . '/inc/_header.inc'); ?>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
@@ -71,7 +71,8 @@
   </div>
 </section>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+<?php /* <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script> */ ?>
+<script src='./js/d3.js' type='text/javascript'></script>
 <script id='zipcodes-datadump' type='text/plain'>
 <?php
     // if ($mc->get(ZIPCODES_URL)) {
@@ -254,8 +255,8 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("data-maxcapacity", function(d) { return d.properties.attendee_count > d.properties.capacity ? "true" : "false" } )
-                              .attr("data-zip", function(d) { return d.properties.venue_zip; })
+                              .attr("data-maxcapacity", function(d) { return d.properties.attendee_count >= d.properties.capacity ? "true" : "false" } )
+                              .attr("data-location-id", function(d) { return d.properties.id; })
                               .attr("r", bernMap.mapBox.getZoom())
                               //   function(d) {
                               //     return bernMap.scale.radScale(d.properties.attendee_count);
@@ -431,7 +432,7 @@ bernMap.eventList = function(container) {
                             d.properties.distance = distance;
 
                             // consoel.log(distance);
-                            return  distance <= allowedDistance && d.properties.attendee_count < d.properties.capacity;
+                            return  distance <= allowedDistance;
                         }).map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
 
     // console.log(nearByZipcodes);
@@ -469,7 +470,7 @@ bernMap.eventList = function(container) {
 
     liContent.enter()
       .append("li")
-        .attr("data-zip", function(d) { return d.zip; })
+        .attr("data-location-id", function(d) { return d.properties.id })
         .attr("class", "event-list-item")
         .html(function(d) {
           var links = [];
@@ -488,33 +489,59 @@ bernMap.eventList = function(container) {
           // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>RSVP @ BernieSanders.com </a>"];
 
           // console.log(d.Date);
-          return "<h5><span class='event-item-date'>"
-            + "~" + d3.round(d.properties.distance,1) + "MI"
-            + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
-            + " &nbsp;&nbsp; "
-            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
-            + "</span></h5>"
-            + "<h3><a target='_blank' href='" + d.properties.url + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
-            // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-            + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
-            + "<p><a href='" + d.properties.url + "' target='_blank'>RSVP</a></p>"
-              ;
+
+          //If FULL
+          if (d.properties.attendee_count >= d.properties.capacity) {
+            return "<h5><span class='event-item-date'>"
+              + "~" + d3.round(d.properties.distance,1) + "MI"
+              + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
+              + " &nbsp;&nbsp; "
+              + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+              + "</span></h5>"
+              + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
+              // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
+              + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
+                ;
+          }
+          else {
+            return "<h5><span class='event-item-date'>"
+              + "~" + d3.round(d.properties.distance,1) + "MI"
+              + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
+              + " &nbsp;&nbsp; "
+              + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+              + "</span></h5>"
+              + "<h3><a target='_blank' href='" + d.properties.url + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+              // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
+              + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
+              + "<p><a href='" + d.properties.url + "' target='_blank' class='button-rsvp'>RSVP</a>"
+
+                  +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  "" ) + "</span></p>"
+                ;
+          }
         });
 
 
         liContent.on("mouseover", function() {
+          // console.log("XXXX");
           var zip = $(this).attr("data-zip");
-
+          var locationId = $(this).attr("data-location-id");
+          // console.log(locationId, d3.select("circle[data-location-id='" + locationId + "']"));
+          d3.select("circle[data-location-id='" + locationId + "']")
+            .attr("fill", "#147FD7")
+            .attr("opacity", "1")
+            .classed("circle-selected", true);
           // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 5);
-          $("circle[data-zip=" + zip + "]").attr("stroke-width", 5);
-
-          //
-
+          // $("circle[data-zip=" + zip + "]").attr("stroke-width", 5);
 
         })
         .on("mouseout", function() {
-          var zip = $(this).attr("data-zip");
-          d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 0);
+          // console.log("YYYYY");
+          var locationId = $(this).attr("data-location-id");
+          d3.select("circle[data-location-id='" + locationId+ "'")
+            .attr("fill", "#ea504e")
+            .attr("opacity", "0.5")
+            .classed("circle-selected", false);
+          // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 0);
         })
         ;
 //<li class='event-list-item'>
@@ -658,7 +685,7 @@ function loadZipcodeData() {
     var d3format = d3.format("0,000");
     var percFormat = d3.format("0.2%");
     // var percFull = parseFloat(parseFloat(bernMap.d.rsvp) / parseFloat(bernMap.d.capacity));
-    $("#meetup-counter").text(bernMap.d.meetupData.length);
+    $("#meetup-counter").text(d3format(bernMap.d.meetupData.length));
     $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
 
     _features.sort(function(a, b) { return b.properties.attendee_count - a.properties.attendee_count; });

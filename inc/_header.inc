@@ -41,7 +41,7 @@
 
   <div class='main-title-area'>
     <div style='margin-bottom: 4px;'>
-    <strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span>Organizing Meetings</strong> <strong style='color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong>
+    <strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading </span>&nbsp;Organizing Meetings</strong>&nbsp;&nbsp;<strong style='color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong>
 
     </div>
 
