@@ -1,7 +1,7 @@
 <pre>
 <?php
 DEFINE('MEETUP_KEY', "f135658543aa2b7f6195b2bab26");
-DEFINE('MEETUP_URL_SIGNATURE', 'https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=2000&country=*');
+DEFINE('MEETUP_URL_SIGNATURE', 'https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=attendee_count&orderby[1]=desc&event_type=0&mime=text/json&limit=105&country=*');
 
 $contents = file_get_contents(MEETUP_URL_SIGNATURE);
 
@@ -54,7 +54,9 @@ foreach ( $events->results as $item ):
             isset($item->venue_zip) && isset($item->venue_zip) ? $item->venue_zip : "NONE",
             "Bernie Sanders Campaign Volunteers",
             "http://www.berniesanders.com",
-            $item->url)) . "\n";
+            $item->url,
+            $item->attendee_count
+            )) . "\n";
 endforeach;
 ?>
 </pre>
