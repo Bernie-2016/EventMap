@@ -186,6 +186,10 @@ section#map-section {
       cursor: pointer;
       fill: $red;
       // stroke-width: 0px;
+      &[data-maxcapacity='true'] {
+        fill: gray !important;
+      }
+
       stroke: #983130;
       &#center-item {
         fill: $blue;

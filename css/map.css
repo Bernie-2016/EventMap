@@ -135,6 +135,8 @@ section#map-section {
       cursor: pointer;
       fill: #ea504e;
       stroke: #983130; }
+      .leaflet-overlay-pane svg circle[data-maxcapacity='true'] {
+        fill: gray !important; }
       .leaflet-overlay-pane svg circle#center-item {
         fill: #147FD7; }
 
