@@ -86,7 +86,7 @@
       */?>
       <!-- <li><a href='https://twitter.com/intent/follow?screen_name=BernieMeetups' >Follow</a></li> -->
 
-      <li><a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute contribute-big' target='_blank'>Contribute to the Campaign</a></li>
+      <li><a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events' class='contribute contribute-big' target='_blank'>Contribute to the Campaign</a></li>
     </ul>
   </nav>
   <div style='clear: both'></div>
