@@ -1,7 +1,8 @@
 <?php
   require_once('./inc/_memcached.inc');
 
-  define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
+  define('BERNIE2016_URL', './d/july29.json');
+  // define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
   define('ZIPCODES_URL', "./d/us_postal_codes.csv");
 
   $title = "July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events";
@@ -19,15 +20,14 @@
   <h4 class='page-subtitle'>34 meetings with 23,059 RSVPs. <a href='http://goo.gl/forms/1dCkCj4zi9' target='_blank'>Submit an event</a></h5>
   <h5 class='page-subtitle'>Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.</h5>
 </section> -->
+<?php /*
 <section id='main-title-area'>
   <h4 style='font-size: 0.8em'><strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings</strong> <span>&bull;</span> <strong style='font-size: 1.2em; color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong> <span>&bull;</span><span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a>&nbsp;&nbsp;
-    <!-- <div id='social' style="padding-top: 4px;"> -->
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <div class="fb-share-button" data-href="http://www.bernie2016events.org/july29" data-layout="button_count"></div>
-  <!-- </div> -->
 </h4>
-</section>
+</section> */ ?>
 <section id='map-section' />
  <!-- <div id='map-legend'>
     <svg width="100" height="100">
@@ -249,9 +249,9 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("data-zip", function(d) { return d.properties.zip; })
+                              .attr("data-zip", function(d) { return d.properties.venue_zip; })
                               .attr("r", function(d) {
-                                  return bernMap.scale.radScale(d.properties.zip_rsvp);
+                                  return bernMap.scale.radScale(d.properties.attendee_count);
                               })
                               .attr("stroke-width", 0)
                               .attr("opacity", 0.5)
@@ -320,7 +320,7 @@ bernMap.draw = function() {
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
                                       .attr("r", function (d) {
-                                          return bernMap.scale.radScale(d.properties.zip_rsvp);
+                                          return bernMap.scale.radScale(d.properties.attendee_count);
                                         })
                                       .attr("opacity", 0.6)
                                   ;
@@ -415,7 +415,7 @@ bernMap.eventList = function(container) {
 
     var targC = [parseFloat(target.lat), target.lon];
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
-                            var compC = [parseFloat(d.properties.lat), parseFloat(d.properties.lon)];
+                            var compC = [parseFloat(d.properties.latitude), parseFloat(d.properties.longitude)];
                             var distance = that._getDistanceInMi(targC[0], targC[1], compC[0], compC[1]);
                             d.properties.distance = distance;
                             return  distance <= allowedDistance;
@@ -554,98 +554,102 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   var weekStart = rawDateFormat.parse("7/05/2015");
   var weekEnd = rawDateFormat.parse("7/12/2015");
 
-  var today = new Date();
-      today.setDate(today.getDate() - 1);
-      today.setHours(0);
-      today.setMinutes(0);
-      today.setSeconds(0);
+  // var today = new Date();
+  //     today.setDate(today.getDate() - 1);
+  //     today.setHours(0);
+  //     today.setMinutes(0);
+  //     today.setSeconds(0);
 
-  bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
+  // bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
 
-    return d.Date >= today;
-    // return d.Date <= weekEnd && d.Date >= weekStart;
-  });
+  //   return d.Date >= today;
+  //   // return d.Date <= weekEnd && d.Date >= weekStart;
+  // });
 
 
-  var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
-  bernMap.d.aggregatedRSVP = map.reduce(
-      function(init, next) {
+  // var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
+  // bernMap.d.aggregatedRSVP = map.reduce(
+  //     function(init, next) {
 
-        if (init[next[0]]) {
-          init[next[0]].push(next[1]);
-        } else {
-          init[next[0]] = [next[1]];
-        }
-        return init;
-        //  = init[next[0]]
-        // ? init[next[0]] + parseInt(next[1])
-        // : [next[1]]; return init;
-      }
-  , {});
+  //       if (init[next[0]]) {
+  //         init[next[0]].push(next[1]);
+  //       } else {
+  //         init[next[0]] = [next[1]];
+  //       }
+  //       return init;
+  //       //  = init[next[0]]
+  //       // ? init[next[0]] + parseInt(next[1])
+  //       // : [next[1]]; return init;
+  //     }
+  // , {});
 
+  // bernMap.d.meetupData
   loadZipcodeData();
 // });
-
 
 function loadZipcodeData() {
   // d3.tsv('/d/zipcodes.tsv', function(data) {
   // d3.csv('./d/zipcode-lookup.csv', function(data) {
-  d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
-    // bernMap.d.allZipcodes = d3.csv.parse(bernMap.raw.zipcode);
-    // var data = bernMap.d.allZipcodes;
 
-    bernMap.d.allZipcodes = data;
-    data = data.filter(function(d) {
-      return bernMap.d.aggregatedRSVP[d.zip];
+    d3.csv("./csv-grab.php?u=" + encodeURIComponent('./d/us_postal_codes.csv'), function(data) {
+      // bernMap.d.allZipcodes = d3.csv.parse(bernMap.raw.zipcode);
+      // var data = bernMap.d.allZipcodes;
+
+      bernMap.d.allZipcodes = data;
+      // data = data.filter(function(d) {
+      //   return bernMap.d.aggregatedRSVP[d.zip];
+      // })
+
+      $jq(window).trigger("hashchange");
     });
-
 
     function reformat(array) {
       var data = [];
       array.map(function(d,i) {
         //add rsvps
-        d["rsvp"] = bernMap.d.aggregatedRSVP[d.zip];
+        // d["rsvp"] = bernMap.d.aggregatedRSVP[d.zip];
 
-        var totalRsvp = 0;
-        var totalCapacity = 0;
-        bernMap.d.aggregatedRSVP[d.zip].forEach(function(dI) {
-          totalRsvp += parseInt(dI.attendee_count);
-          totalCapacity += parseInt(dI.capacity);
-        });
-        d["zip_rsvp"] = totalRsvp;
-        d["zip_capacity"] = totalCapacity;
+        // var totalRsvp = 0;
+        // var totalCapacity = 0;
+        // bernMap.d.aggregatedRSVP[d.zip].forEach(function(dI) {
+        //   totalRsvp += parseInt(dI.attendee_count);
+        //   totalCapacity += parseInt(dI.capacity);
+        // });
+        // d["zip_rsvp"] = totalRsvp;
+        // d["zip_capacity"] = totalCapacity;
 
         data.push({
           id : i,
           type : "Feature",
           geometry: {
-            coordinates: [+d.lon,+d.lat],
+            coordinates: [+d.longitude,+d.latitude],
             type: "Point"
           },
           properties: d
         });
       });
 
-      var d3format = d3.format("0,000");
-      var percFormat = d3.format("0.2%");
-      var percFull = parseFloat(parseFloat(bernMap.d.rsvp) / parseFloat(bernMap.d.capacity));
-      $("#meetup-counter").text(bernMap.d.meetupData.length);
-      $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
       // $("#capacity-counter").text("(" + percFormat(percFull) + " Full)");
 
       return data;
     }
 
-    var _features = reformat(data);
-    _features.sort(function(a, b) { return b.properties.zip_rsvp - a.properties.zip_rsvp; });
+    var _features = reformat(bernMap.d.meetupData);
+
+    //Feature make it more ideal
+    var d3format = d3.format("0,000");
+    var percFormat = d3.format("0.2%");
+    // var percFull = parseFloat(parseFloat(bernMap.d.rsvp) / parseFloat(bernMap.d.capacity));
+    $("#meetup-counter").text(bernMap.d.meetupData.length);
+    $("#rsvp-counter").text(d3format(bernMap.d.rsvp));
+
+    _features.sort(function(a, b) { return b.properties.attendee_count - a.properties.attendee_count; });
 
     // console.log(_features);
 
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.plot();
 
-    $jq(window).trigger("hashchange");
-  });
 }
 
 $jq("form input[type=radio]").on("click", function(d) {

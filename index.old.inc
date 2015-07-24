@@ -8,12 +8,13 @@
 </section> -->
 <section id='main-title-area'>
   <h4>
-    <strong><span id="meetup-counter"><img src='./img/icon/ajax-loader.gif'> Loading</span> Bernie Sanders Events &amp; Meetups.</strong> <span>Discover upcoming events or</span> <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;your&nbsp;group&apos;s&nbsp;meetup</a> <div id="social">
+    <strong><span id="meetup-counter"><img src='./img/icon/ajax-loader.gif'> Loading</span> Bernie Sanders Events &amp; Meetups.</strong> <span>Discover upcoming events or</span> <a href="http://goo.gl/forms/1dCkCj4zi9" target="_blank">Submit&nbsp;your&nbsp;group&apos;s&nbsp;meetup</a>
+    <div id="social">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="Discover meetups and events about @BernieSanders near you #Bernie2016 #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
-
-  </div></h4>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
+    </div>
+  </h4>
 </section>
 <section id='map-section' />
   <?php require_once("./inc/_ad_push.inc" ); ?>

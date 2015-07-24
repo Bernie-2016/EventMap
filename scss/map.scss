@@ -19,6 +19,30 @@ section#main-title-area {
     & > * { vertical-align: middle; }
   }
 }
+
+div.main-title-area {
+  strong {
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #333333;
+  }
+  display: inline-block;
+  margin-left: 140px;
+  float: left;
+  padding: 5px 0 0;
+    // margin: 0;
+    // background-color: whitesmoke;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: gray;
+    font-size: 0.8em;
+
+    div#social {
+      display: inline-block;
+    }
+  & > * { vertical-align: middle; }
+}
 section#map-section {
   position: relative;
   min-height: 300px;
@@ -48,7 +72,7 @@ section#map-section {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 33% !important;
+    width: 30% !important;
     background-color: rgba(255,255,255,0.95);
     padding: 20px;
     border-radius: 4px;

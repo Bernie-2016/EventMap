@@ -31,7 +31,7 @@ h5.page-subtitle {
   HEADER AREA
 */
 div#header {
-  padding: 1%;
+  padding: 0.5% 1% 1%;
   border: 1px solid whitesmoke;
   border-width: 0 0 1px;
   a#header-logo {
@@ -49,7 +49,7 @@ div#header {
     ul {
       width: 100%;
       list-style-type: none;
-      margin-top: 5px;
+      margin-top: 12px;
       margin-bottom: 0;
       padding: 0;
       word-spacing: -0.26em;

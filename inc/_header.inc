@@ -37,6 +37,20 @@
 
 <div id='header'>
   <a id='header-logo' href='/' ><img src='/img/logo.png' style='float: left; margin-left: 10px;' /></a>
+
+  <div class='main-title-area'>
+    <div style='margin-bottom: 4px;'>
+    <strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings</strong> <strong style='color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong>
+
+    </div>
+
+    <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a>&nbsp;&nbsp;
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <div class="fb-share-button" data-href="http://www.bernie2016events.org/july29" data-layout="button_count"></div>
+
+  </div>
+
   <nav>
     <ul id="nav">
       <!-- <li><a href='./july29'><strong style="color: #ea504e">July 29 Organizing Kick-off events</strong></a></li> -->
@@ -50,15 +64,28 @@
 <li><a href='https://medium.com/@BernieMeetups/' target='_blank'>News</a></li>
   */ ?>
 
+<?php /*
       <li id='social-buttons'>
         <!-- <a class='subscribe-icon' href='https://twitter.com/intent/follow?screen_name=BernieMeetups' ><img src='/img/icon/twitter.png' /></a> -->
+
         <a class='subscribe-icon' href='http://twitter.com/BernieMeetups' target='_blank'><img src='/img/icon/twitter.png' /></a>
         <a class='subscribe-icon' href='http://www.facebook.com/berniemeetups' target='_blank'><img src='/img/icon/facebook.png' /></a>
         <a class='subscribe-icon' href='http://bernie2016events.us11.list-manage.com/subscribe?u=7101205eff90b8bd4cc638328&id=fcdf771f70' target='_blank'><img src='/img/icon/mailchimp.png' /></a>
         <a class='subscribe-icon' href='http://feeds.feedburner.com/Bernie2016Events?format=xml' target='_blank'><img src='/img/icon/rss.png' /></a>
 
+        <a class='subscribe-icon' href='https://twitter.com/BernieSanders' target='_blank'><img src='/img/icon/twitter.png' /></a>
+        <a class='subscribe-icon' href='https://www.facebook.com/berniesanders' target='_blank'><img src='/img/icon/facebook.png' /></a>
+        <!-- <a class='subscribe-icon' href='http://bernie2016events.us11.list-manage.com/subscribe?u=7101205eff90b8bd4cc638328&id=fcdf771f70' target='_blank'><img src='/img/icon/mailchimp.png' /></a> -->
+
+        <a class='subscribe-icon' href='https://go.berniesanders.com/page/event/search_results?format=commons_rss&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/xml&limit=10&country=*' target='_blank'><img src='/img/icon/rss.png' /></a>
+
+
+
+
       </li>
+      */?>
       <!-- <li><a href='https://twitter.com/intent/follow?screen_name=BernieMeetups' >Follow</a></li> -->
+
       <li><a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute contribute-big' target='_blank'>Contribute to the Campaign</a></li>
     </ul>
   </nav>

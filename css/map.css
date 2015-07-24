@@ -12,6 +12,25 @@ section#main-title-area h4 {
   section#main-title-area h4 > * {
     vertical-align: middle; }
 
+div.main-title-area {
+  display: inline-block;
+  margin-left: 140px;
+  float: left;
+  padding: 5px 0 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: gray;
+  font-size: 0.8em; }
+  div.main-title-area strong {
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #333333; }
+  div.main-title-area div#social {
+    display: inline-block; }
+  div.main-title-area > * {
+    vertical-align: middle; }
+
 section#map-section {
   position: relative;
   min-height: 300px; }
@@ -34,7 +53,7 @@ section#map-section {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 33% !important;
+    width: 30% !important;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: 4px;
