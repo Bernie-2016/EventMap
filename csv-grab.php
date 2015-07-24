@@ -1,16 +1,16 @@
 <?php
 
+  require_once('./inc/_memcached.inc');
   header("Content-Type: text/plain");
 
-  $mc = new Memcached();
   $url = $_GET['u'];
   $refresh = isset($_GET['refresh']) ? (int) $_GET['refresh'] : 0 ;
 
-  if ($mc) {
+  // if ($mc) {
 
-    $mc->setOption(Memcached::OPT_BINARY_PROTOCOL, true);
-    $mc->addServers(array_map(function($server) { return explode(':', $server, 2); }, explode(',', $_ENV['MEMCACHEDCLOUD_SERVERS'])));
-    $mc->setSaslAuthData($_ENV['MEMCACHEDCLOUD_USERNAME'], $_ENV['MEMCACHEDCLOUD_PASSWORD']);
+  //   $mc->setOption(Memcached::OPT_BINARY_PROTOCOL, true);
+  //   $mc->addServers(array_map(function($server) { return explode(':', $server, 2); }, explode(',', $_ENV['MEMCACHEDCLOUD_SERVERS'])));
+  //   $mc->setSaslAuthData($_ENV['MEMCACHEDCLOUD_USERNAME'], $_ENV['MEMCACHEDCLOUD_PASSWORD']);
 
     if (  ( $url == "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*" ||
             $url == "https://docs.google.com/spreadsheets/d/1IaJQtbrsb8_bxpoayN-DhgAb3o_RMUDZyI4TwADmM1g/export?gid=0&format=csv") ||
@@ -33,9 +33,9 @@
       }
     }
 
-  } else {
-    return;
-  }
+  // } else {
+  //   return;
+  // }
 
 
 

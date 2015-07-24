@@ -40,14 +40,16 @@
   <nav>
     <ul id="nav">
       <!-- <li><a href='./july29'><strong style="color: #ea504e">July 29 Organizing Kick-off events</strong></a></li> -->
-      <li><a href='/'>All Events</a></li>
+<?php /*      <li><a href='/'>All Events</a></li>
       <li><a href='/by-state' >By state</a></li>
       <li style='position: relative; text-align: center;'><a href='/july29' ><strong>Organizing<br/>Meetings</strong><div style='  position: absolute;
   text-align: center;
   top: -17px;
   width: 100%;
   margin-left: -13%;'><sub>July 29</sub></div></a></li>
-      <li><a href='https://medium.com/@BernieMeetups/' target='_blank'>News</a></li>
+<li><a href='https://medium.com/@BernieMeetups/' target='_blank'>News</a></li>
+  */ ?>
+
       <li id='social-buttons'>
         <!-- <a class='subscribe-icon' href='https://twitter.com/intent/follow?screen_name=BernieMeetups' ><img src='/img/icon/twitter.png' /></a> -->
         <a class='subscribe-icon' href='http://twitter.com/BernieMeetups' target='_blank'><img src='/img/icon/twitter.png' /></a>
