@@ -413,14 +413,20 @@ bernMap.eventList = function(container) {
       $("#event-city").text(target.zip);
     }
 
-    var targC = [parseFloat(target.lat), target.lon];
+    var targC = [parseFloat(target.lat), parseFloat(target.lon)];
+
+    // console.log(targetZipcode, targC);
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
                             var compC = [parseFloat(d.properties.latitude), parseFloat(d.properties.longitude)];
+
                             var distance = that._getDistanceInMi(targC[0], targC[1], compC[0], compC[1]);
                             d.properties.distance = distance;
-                            return  distance <= allowedDistance;
-                        }).map(function(d) { return { "distance" : d.properties.distance, "zipcode" : d.properties.zip}; });
 
+                            // consoel.log(distance);
+                            return  distance <= allowedDistance;
+                        }).map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
+
+    // console.log(nearByZipcodes);
     if (nearByZipcodes.length == 0) return;
 
 
@@ -429,26 +435,28 @@ bernMap.eventList = function(container) {
     })
 
     // collate list:
-    var collatedList = nearByZipcodes.map(function(d) {
-       var events = bernMap.d.aggregatedRSVP[d.zipcode];
-       events.forEach(function(t) {
-          t['distance'] = d.distance;
-       });
-       return events;
-    });
+    var collatedList = nearByZipcodes;
+    // var collatedList = nearByZipcodes.map(function(d) {
+    //    var events = bernMap.d.aggregatedRSVP[d.zipcode];
+    //    events.forEach(function(t) {
+    //       t['distance'] = d.distance;
+    //    });
+    //    return events;
+    // });
 
-    var finalCollatedList = [];
-    collatedList.forEach(function(item) { finalCollatedList = finalCollatedList.concat(item); });
+    // var finalCollatedList = [];
+    // collatedList.forEach(function(item) { finalCollatedList = finalCollatedList.concat(item); });
 
-    $("#event-counter").text(finalCollatedList.length + " " + (finalCollatedList.length == 1 ? "event" : "events") );
+    $("#event-counter").text(collatedList.length + " " + (collatedList.length == 1 ? "event" : "events") );
 
     //Render list
     var ul = d3.select(that.containerLabel).select("ul#event-list");
 
+    // console.log(finalCollatedList);
 
     var dateFormat = d3.time.format("%B %d");
     var liContent = ul.selectAll("li.event-list-item")
-                .data(finalCollatedList, function(d){ return d["id"] ;});
+                .data(collatedList, function(d){ return d.properties.id ;});
 
 
     liContent.enter()
@@ -457,31 +465,31 @@ bernMap.eventList = function(container) {
         .attr("class", "event-list-item")
         .html(function(d) {
           var links = [];
-          for ( var i = 1; i <= 9; i++) {
-            var link = "Link" + i;
+          // for ( var i = 1; i <= 9; i++) {
+          //   var link = "Link" + i;
 
-            if ( d[link] ) {
-              var name_link = d[link].split(/,(.+)?/)
-              links.push ( {name: name_link[0], link: name_link[1]} );
-            }
-          }
+          //   if ( d[link] ) {
+          //     var name_link = d[link].split(/,(.+)?/)
+          //     links.push ( {name: name_link[0], link: name_link[1]} );
+          //   }
+          // }
 
 
-          var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.AttendeeCount + " RSVPs </a>"];
+          // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.AttendeeCount + " RSVPs </a>"];
 
           // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>RSVP @ BernieSanders.com </a>"];
 
+          // console.log(d.Date);
           return "<h5><span class='event-item-date'>"
-            + d3.round(d.distance,1) + "MI"
+            + "~" + d3.round(d.properties.distance,1) + "MI"
+            + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
             + " &nbsp;&nbsp; "
-            + dateFormat(d.Date)
-            + " &nbsp;&nbsp; "
-            + (d.TimeStart ? "" + d.TimeStart + (d.TimeEnd ? " - " + d.TimeEnd : "") + "" : "")
+            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
             + "</span></h5>"
-            + "<h3><a target='_blank' href='" + links[0].link + "'><span class='event-item-name'>" + d.Title + "</span></a></h3>"
-            + (d.Organizer != "" ? ("<h4 class='event-organizer'>by <a target='_blank' href='" + (d.OrganizerWebsite ? d.OrganizerWebsite : "javascript: void(0);") + "'>" + d.Organizer + "</a></h4>") : "")
-            + "<h5 class='event-location'>" + d.Location + "</h5>"
-            + "<p>" + linkText.join(" &bull; ")+ "</p>"
+            + "<h3><a target='_blank' href='" + d.properties.url + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+            // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
+            + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
+            + "<p><a href='" + d.properties.url + "' target='_blank'>RSVP</a></p>"
               ;
         });
 
@@ -539,6 +547,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
     item.Link1 = "RSVP at BernieSanders.com," + item.url;
     item.OrganizerWebsite = "http://www.berniesanders.com";
     item.Organizer = "Bernie Sanders Campaign Volunteers";
+    // item.Date = rawDateFormat.parse(item.start_day);
     item.Title = item.name;
     item.zip = item.venue_zip;
     item.Zipcode = item.venue_zip;
