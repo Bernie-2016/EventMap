@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="<?php echo isset($description) ? $description : "This Map shows all upcoming meetups and events around the United States. Discover all events near you and meet other people who want to make the country better. Discuss plans, organize events, and strategize locally and nationally on how to get Bernie Sanders to the White House." ?>">
 <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern">
-<meta property="og:image" content="<?php echo isset($og_img) ? $og_img : "http://www.bernie2016events.org/img/bernie-logo.png"; ?>" />
+<meta property="og:image" content="<?php echo isset($og_img) ? $og_img : "http://maps.berniesanders.com/img/bernie-logo.png"; ?>" />
 <meta property="og:title" content="<?php echo isset($title) ? $title : "Map of Grassroot Events for Bernie Sanders - Discover events and meetups near you | Bernie Sanders 2016 Events"; ?>"/>
 <meta property="og:description" content="<?php echo isset($description) ? $description : "This Map shows all upcoming meetups and events around the United States. Discover all events near you and meet other people who want to make the country better. Discuss plans, organize events, and strategize locally and nationally on how to get Bernie Sanders to the White House." ?>"/>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
@@ -45,9 +45,9 @@
     </div>
 
     <span>Sign up to attend a July 29 Organizing Kickoff event! &nbsp;&nbsp;
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org/july29" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="BernieSanders">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      <div class="fb-share-button" data-href="http://www.bernie2016events.org/july29" data-layout="button_count"></div>
+      <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button_count"></div>
 
   </div>
 
