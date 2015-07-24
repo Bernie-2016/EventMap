@@ -40,7 +40,7 @@
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
         <div>
-          <input type='text' name='zipcode' id='input-text-zipcode' value='<?php echo $zipcode ?>' placeholder='Enter zipcode' maxlength='5'/>
+          <input type='text' name='zipcode' id='input-text-zipcode' value='<?php echo $zipcode ?>' placeholder='Enter zipcode to find events' maxlength='5'/>
         </div>
         <div>
           <ul id='distance-list'>
@@ -55,13 +55,18 @@
 
         </div>
       </form>
-      <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
-        <div id="event-city"></div>
-      </h2>
-      <div id='event-list-area'>
-        <ul id='event-list'>
-        </ul>
-        <p style='text-align: center; margin-top: 20px;'><img src='/img/list-end.png' width='100px'/></p>
+      <div id='event-results-area'>
+        <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
+          <div id="event-city"></div>
+        </h2>
+        <div id='event-list-area'>
+          <ul id='event-list'>
+          </ul>
+          <p style='text-align: center; margin-top: 20px;'>
+            <img src='/img/list-end.png' width='100px' id='bott-bg-logo' />
+            <img src='/img/logo.png' width='100px' id='bott-color-logo'/>
+          </p>
+        </div>
       </div>
   </div>
 </section>

@@ -235,8 +235,6 @@ div#social {
     display: block;
     margin-top: 0.7em; }
   #header a#header-logo {
-    display: block;
-    width: 100%;
     text-align: center;
     position: relative !important; }
     #header a#header-logo img {
