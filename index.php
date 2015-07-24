@@ -71,8 +71,8 @@
   </div>
 </section>
 
-<?php /* <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script> */ ?>
-<script src='./js/d3.js' type='text/javascript'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+<?php /* script src='./js/d3.js' type='text/javascript'></script> */ ?>
 <script id='zipcodes-datadump' type='text/plain'>
 <?php
     // if ($mc->get(ZIPCODES_URL)) {
