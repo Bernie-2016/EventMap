@@ -1,3 +1,9 @@
+#bott-bg-logo {
+  display: inline-block; }
+
+#bott-color-logo {
+  display: none; }
+
 section#main-title-area h4 {
   padding: 10px;
   margin: 0;
@@ -75,7 +81,7 @@ section#map-section {
         text-transform: uppercase; }
       section#map-section div#map-event-list form#zip-and-distance input[name=zipcode] {
         width: 80%;
-        font-size: 1.5em;
+        font-size: 1.3em;
         text-align: center;
         border-color: whitesmoke;
         border-collapse: collapse;
@@ -135,6 +141,8 @@ section#map-section {
       cursor: pointer;
       fill: #ea504e;
       stroke: #983130; }
+      .leaflet-overlay-pane svg circle[data-maxcapacity='true'] {
+        fill: gray !important; }
       .leaflet-overlay-pane svg circle#center-item {
         fill: #147FD7; }
 
@@ -144,6 +152,25 @@ footer {
 
 /* For Phones! */
 @media only screen and (min-width: 320px) and (max-width: 720px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto; }
+
+  footer {
+    display: none; }
+
+  div#header {
+    display: none; }
+    div#header a#header-logo {
+      margin-left: 0;
+      width: 100%; }
+      div#header a#header-logo img {
+        margin-left: 0 !important; }
+    div#header nav {
+      display: none; }
+    div#header div.main-title-area {
+      display: none; }
+
   #ad-push-banner {
     display: none; }
 
@@ -152,7 +179,8 @@ footer {
     height: auto !important;
     box-shadow: none !important; }
     section#map-section div#map {
-      display: none; }
+      height: 70vh !important;
+      margin-top: 15vh; }
     section#map-section div#map-event-list {
       width: 100% !important;
       position: relative;
@@ -160,9 +188,29 @@ footer {
       min-height: 0;
       max-height: auto;
       top: auto;
-      box-shadow: none !important; }
+      box-shadow: none !important;
+      position: absolute;
+      top: -15vh;
+      left: 0;
+      margin: 0;
+      padding-bottom: 10px;
+      margin-left: 50%;
+      transform: translate(-50%, 0); }
       section#map-section div#map-event-list div#event-list-area {
         max-height: inherit !important;
-        overflow: none; } }
+        overflow: none; }
+      section#map-section div#map-event-list div#event-results-area {
+        position: absolute;
+        top: 85vh;
+        left: 0;
+        margin: 0;
+        background-color: white;
+        width: 90%;
+        margin-left: 50%;
+        transform: translate(-49%, 0); }
+        section#map-section div#map-event-list div#event-results-area #bott-bg-logo {
+          display: none !important; }
+        section#map-section div#map-event-list div#event-results-area #bott-color-logo {
+          display: inline-block !important; } }
 
 /*# sourceMappingURL=map.css.map */

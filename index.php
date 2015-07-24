@@ -40,7 +40,7 @@
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
         <div>
-          <input type='text' name='zipcode' id='input-text-zipcode' value='<?php echo $zipcode ?>' placeholder='Enter zipcode' maxlength='5'/>
+          <input type='text' name='zipcode' id='input-text-zipcode' value='<?php echo $zipcode ?>' placeholder='Enter zipcode to find events' maxlength='5'/>
         </div>
         <div>
           <ul id='distance-list'>
@@ -55,13 +55,18 @@
 
         </div>
       </form>
-      <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
-        <div id="event-city"></div>
-      </h2>
-      <div id='event-list-area'>
-        <ul id='event-list'>
-        </ul>
-        <p style='text-align: center; margin-top: 20px;'><img src='/img/list-end.png' width='100px'/></p>
+      <div id='event-results-area'>
+        <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
+          <div id="event-city"></div>
+        </h2>
+        <div id='event-list-area'>
+          <ul id='event-list'>
+          </ul>
+          <p style='text-align: center; margin-top: 20px;'>
+            <img src='/img/list-end.png' width='100px' id='bott-bg-logo' />
+            <img src='/img/logo.png' width='100px' id='bott-color-logo'/>
+          </p>
+        </div>
       </div>
   </div>
 </section>
@@ -249,10 +254,12 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
+                              .attr("data-maxcapacity", function(d) { return d.properties.attendee_count > d.properties.capacity ? "true" : "false" } )
                               .attr("data-zip", function(d) { return d.properties.venue_zip; })
-                              .attr("r", function(d) {
-                                  return bernMap.scale.radScale(d.properties.attendee_count);
-                              })
+                              .attr("r", bernMap.mapBox.getZoom())
+                              //   function(d) {
+                              //     return bernMap.scale.radScale(d.properties.attendee_count);
+                              // })
                               .attr("stroke-width", 0)
                               .attr("opacity", 0.5)
                               .each(function(d) {
@@ -305,7 +312,7 @@ bernMap.draw = function() {
 
                         d3.select(this).attr("cx", coordinates[0])
                             .attr("cy", coordinates[1])
-                            .attr("r", bernMap.mapBox.getZoom() * 0.4)
+                            .attr("r", bernMap.mapBox.getZoom() * 0.6)
                             .attr("opacity", 0.9)
                         ;
                     });
@@ -319,9 +326,10 @@ bernMap.draw = function() {
 
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
-                                      .attr("r", function (d) {
-                                          return bernMap.scale.radScale(d.properties.attendee_count);
-                                        })
+                                      .attr("r", bernMap.mapBox.getZoom())
+                                        // function (d) {
+                                        //   return bernMap.scale.radScale(d.properties.attendee_count);
+                                        // })
                                       .attr("opacity", 0.6)
                                   ;
                               });
@@ -423,7 +431,7 @@ bernMap.eventList = function(container) {
                             d.properties.distance = distance;
 
                             // consoel.log(distance);
-                            return  distance <= allowedDistance;
+                            return  distance <= allowedDistance && d.properties.attendee_count < d.properties.capacity;
                         }).map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
 
     // console.log(nearByZipcodes);
@@ -554,6 +562,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
     item.Location = item.venue_name + " " + item.venue_addr1 + " " + item.venue_city + " " + item.venue_state_cd + " " + item.venue_zip;
 
     item.AttendeeCount = item.attendee_count;
+    // item.capacity = item.attendee_count;
 
     bernMap.d.rsvp += parseInt(item.attendee_count);
     bernMap.d.capacity += parseInt(item.capacity);
