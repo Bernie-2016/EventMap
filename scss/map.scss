@@ -254,12 +254,13 @@ $phone-max-width: 720px;
     height: auto !important;
     box-shadow: none !important;
     // div#map { display: none; }
+    width: 100vw !important;
     div#map {
       height: 70vh !important;
-      margin-top: 15vh;
+      margin-top: 17vh;
     }
     div#map-event-list {
-      width: 100% !important;
+      width: 100vw !important;
       position: relative;
       border: none;
       min-height: 0;
@@ -268,7 +269,7 @@ $phone-max-width: 720px;
       box-shadow: none !important;
 
       position: absolute;
-      top: -15vh;
+      top: -17vh;
       left: 0;
       margin: 0;
       padding-bottom: 10px;
@@ -286,14 +287,13 @@ $phone-max-width: 720px;
 
       div#event-results-area {
         position: absolute;
-        top: 85vh;
+        top: 87vh;
         left: 0;
         margin: 0;
         background-color: white;
-
-        width: 90%;
+        width: 100%;
         margin-left: 50%;
-        transform: translate(-49%,0);
+        transform: translate(-50%, 0);
 
         #bott-bg-logo { display: none !important; }
         #bott-color-logo { display: inline-block !important; }
