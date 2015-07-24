@@ -44,6 +44,7 @@ div.main-title-area {
       display: inline-block;
     }
   & > * { vertical-align: middle; }
+  & > span > * { vertical-align: middle; }
 }
 section#map-section {
   position: relative;

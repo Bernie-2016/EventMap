@@ -41,12 +41,13 @@
 
   <div class='main-title-area'>
     <div style='margin-bottom: 4px;'>
-    <strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span> Organizing Meetings</strong> <strong style='color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong>
+    <strong><span id="meetup-counter"><img src='/img/icon/ajax-loader.gif' /> Loading</span>Organizing Meetings</strong> <strong style='color: #ea504e;'><span id='rsvp-counter'><img src='/img/icon/ajax-loader-red.gif'></span> RSVPs <span style='font-size: 0.7em'></span><span id="capacity-counter"></span> </strong>
 
     </div>
 
-    <span>Discover nearby meetings or</span> <a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a>&nbsp;&nbsp;
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern" data-related="RedditForSanders">Tweet</a>
+    <span>
+        <span>Sign up to attend a July 29 Organizing Kickoff event! &nbsp;&nbsp;</span>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="BernieSanders">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button_count"></div>
 
@@ -87,7 +88,7 @@
       */?>
       <!-- <li><a href='https://twitter.com/intent/follow?screen_name=BernieMeetups' >Follow</a></li> -->
 
-      <li><a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events' class='contribute contribute-big' target='_blank'>Contribute to the Campaign</a></li>
+      <li><a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=action-page' class='contribute contribute-big' target='_blank'>Contribute</a></li>
     </ul>
   </nav>
   <div style='clear: both'></div>

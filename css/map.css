@@ -36,6 +36,8 @@ div.main-title-area {
     display: inline-block; }
   div.main-title-area > * {
     vertical-align: middle; }
+  div.main-title-area > span > * {
+    vertical-align: middle; }
 
 section#map-section {
   position: relative;

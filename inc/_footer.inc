@@ -1,13 +1,14 @@
 <?php /*
 <footer>
   <div id='social'>
-    <a href='https://secure.actblue.com/contribute/page/reddit-for-bernie' class='contribute' target='_blank'>Contribute to the Campaign</a>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="Discover meetups and events about @BernieSanders near you #Bernie2016 #FeelTheBern @BernieMeetups" data-related="RedditForSanders">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button_count"></div>
+    <a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events' class='contribute' target='_blank'>Contribute to the Campaign</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="Join the July 29 @BernieSanders organizing kick-off! Find nearby events and #FeelTheBern @BernieMeetups" data-related="BernieSanders">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button_count"></div>
+  <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button_count"></div>
   </div>
   <sub style='color: #999999; text-align: center;' >
-    &reg; <a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Reddit for Bernie 2016</a>. This site is not affiliated with the Official Bernie Sanders 2016 Campaign. <a target='_blank' href='mailto:rapi@bernie2016events.org' target="_blank">Contact us</a></sub>
+    &reg; <a href='http://www.berniesanders.com' target='_blank'>Benrie Sanders</a></sub>
 </footer>
  */ ?>
   <script>

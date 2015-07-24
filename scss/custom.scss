@@ -120,8 +120,21 @@ a {
     &.contribute-big {
       font-weight: bold;
       font-size: 12px;
-      background-color: $red;
+      background-color: #F55B5B;
       padding: 12px 32px;
+      letter-spacing: 0.15em;
+
+      margin: 0.3em auto 0;
+      border-radius: 3px;
+      padding: 0.7rem 1.7rem;
+
+
+      &:hover {
+        text-decoration: none;
+        background-color: $red;
+      }
+
+
 
     }
   }
