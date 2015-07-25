@@ -186,7 +186,6 @@ footer {
     box-shadow: none !important;
     width: 100vw !important; }
     section#map-section div#map {
-      height: 70vh !important;
       margin-top: 17vh; }
     section#map-section div#map-event-list {
       width: 100vw !important;
@@ -208,11 +207,9 @@ footer {
         overflow: none; }
       section#map-section div#map-event-list div#event-results-area {
         position: absolute;
-        top: 87vh;
-        left: 0;
         margin: 0;
         background-color: white;
-        width: 100%;
+        width: 98%;
         margin-left: 50%;
         transform: translate(-50%, 0); }
         section#map-section div#map-event-list div#event-results-area #bott-bg-logo {

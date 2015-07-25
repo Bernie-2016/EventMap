@@ -30,7 +30,7 @@
         unset($result->venue_addr1);
         unset($result->venue_city);
         unset($result->venue_state_cd);
-        unset($result->venue_zip);
+        // unset($result->venue_zip);
 
       $rsvp_count += $result->attendee_count;
     }
