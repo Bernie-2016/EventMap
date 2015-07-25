@@ -3,3 +3,5 @@ lib
 d/july29.json
 .orig
 *.orig
+.DS_Store
+*.pyc

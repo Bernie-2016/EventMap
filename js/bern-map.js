@@ -448,10 +448,10 @@ bernMap.eventList = function(container) {
               + " &nbsp;&nbsp; "
               + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
               + "</span></h5>"
-              + "<h3><a target='_blank' href='" + d.properties.url + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+              + "<h3><a target='_blank' href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
               // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
               + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
-              + "<p><a href='" + d.properties.url + "' target='_blank' class='button-rsvp'>RSVP</a>"
+              + "<p><a href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "' target='_blank' class='button-rsvp'>RSVP</a>"
 
                   +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>"
                 ;
