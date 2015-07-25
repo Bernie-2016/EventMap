@@ -268,7 +268,7 @@ $phone-max-width: 720px;
       // margin-top: 17vh;
     }
     div#map-event-list {
-      // width: 100% !important;
+      width: 100% !important;
       position: relative;
       border: none;
       min-height: 0;
@@ -281,10 +281,10 @@ $phone-max-width: 720px;
       left: 0;
       margin: 0;
       padding-bottom: 10px;
+      padding-left: 0;
 
-
-      margin-left: 50%;
-      transform: translate(-50%,0);
+      // margin-left: 50%;
+      // transform: translate(-50%,0);
 
 
       div#event-list-area {
@@ -292,7 +292,7 @@ $phone-max-width: 720px;
         overflow: none;
 
         & > p {
-          width: 98%;
+            width: 98%;
         }
 
       }
@@ -301,9 +301,10 @@ $phone-max-width: 720px;
         position: absolute;
         margin: 0;
         background-color: white;
-        width: 98%;
-        margin-left: 50%;
-        transform: translate(-50%, 0);
+        width: 96%;
+        padding: 2%;
+        // margin-left: 50%;
+        // transform: translate(-50%, 0);
 
         #bott-bg-logo { display: none !important; }
         #bott-color-logo { display: inline-block !important; }
