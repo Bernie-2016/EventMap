@@ -266,7 +266,7 @@ bernMap.draw = function() {
     that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
-                              .attr("data-maxcapacity", function(d) { return d.properties.attendee_count >= d.properties.capacity ? "true" : "false" } )
+                              .attr("data-maxcapacity", function(d) { return d.properties.capacity > 0 && d.properties.attendee_count >= d.properties.capacity ? "true" : "false" } )
                               .attr("data-location-id", function(d) { return d.properties.id; })
                               .attr("r", bernMap.mapBox.getZoom())
                               //   function(d) {
@@ -502,7 +502,7 @@ bernMap.eventList = function(container) {
           // console.log(d.Date);
 
           //If FULL
-          if (d.properties.attendee_count >= d.properties.capacity) {
+          if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
             return "<h5><span class='event-item-date'>"
               + "~" + d3.round(d.properties.distance,1) + "MI"
               + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
@@ -526,7 +526,7 @@ bernMap.eventList = function(container) {
               + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
               + "<p><a href='" + d.properties.url + "' target='_blank' class='button-rsvp'>RSVP</a>"
 
-                  +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  "" ) + "</span></p>"
+                  +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>"
                 ;
           }
         });
