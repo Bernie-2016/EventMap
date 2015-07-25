@@ -54,7 +54,9 @@ def update_event_data():
     outfile.write(json_dump)
     outfile.close()
 
-    print "Done!"
+    print "Done! GZipping..."
+
+    local('cd js; gzip < bern-july-29-data.js > bern-july-29-data.gz')
 
 def deploy():
     # update_pco_data()
