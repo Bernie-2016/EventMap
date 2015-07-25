@@ -57,5 +57,5 @@ def update_event_data():
     print "Done!"
 
 def deploy():
-    update_pco_data()
-    local("aws s3 cp . s3://kccaucus/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\"")
+    # update_pco_data()
+    local("aws s3 cp . s3://bernie2016events/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\"")
