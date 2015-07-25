@@ -1,8 +1,8 @@
 <?php
   require_once('./inc/_memcached.inc');
 
-  define('BERNIE2016_URL', './d/july29.json');
-  // define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
+  // define('BERNIE2016_URL', './d/july29.json');
+  define('BERNIE2016_URL', "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*");
   define('ZIPCODES_URL', "./d/us_postal_codes.csv");
 
   $title = "July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events";
