@@ -186,7 +186,6 @@ footer {
     box-shadow: none !important;
     width: 100% !important; }
     section#map-section div#map-event-list {
-      width: 100% !important;
       position: relative;
       border: none;
       min-height: 0;

@@ -118,7 +118,7 @@ $jq(window).on("resize", function() {
     var _formHeight = $("#map-event-list").outerHeight();
     $("#map").height(screenHeight - _formHeight - (screenHeight*0.25))
       .css("marginTop", (_formHeight) + "px");
-    $("#map-event-list").css("top", "-" + _formHeight + "px")
+    $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
     $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
   } else {
     $("#map-section, #map").height(wH - h - 25).css("marginTop", "auto");
