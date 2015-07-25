@@ -184,11 +184,9 @@ footer {
     min-height: 0;
     height: auto !important;
     box-shadow: none !important;
-    width: 100vw !important; }
-    section#map-section div#map {
-      margin-top: 17vh; }
+    width: 100% !important; }
     section#map-section div#map-event-list {
-      width: 100vw !important;
+      width: 100% !important;
       position: relative;
       border: none;
       min-height: 0;
@@ -205,6 +203,8 @@ footer {
       section#map-section div#map-event-list div#event-list-area {
         max-height: inherit !important;
         overflow: none; }
+        section#map-section div#map-event-list div#event-list-area > p {
+          width: 98%; }
       section#map-section div#map-event-list div#event-results-area {
         position: absolute;
         margin: 0;
