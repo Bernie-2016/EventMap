@@ -45,7 +45,6 @@ $jq(window).on("resize", function() {
   //Media
   if ($jq(window).width() < 720) {
     // alert("X");
-
     var _formHeight = $("#map-event-list").outerHeight();
     $("#map").height(screenHeight - _formHeight - (screenHeight*0.25))
       .css("marginTop", (_formHeight) + "px");
@@ -607,8 +606,8 @@ function loadZipcodeData() {
     bernie.plot();
 
     //Load Postal Codes
-    // d3.csv('/d/us_postal_codes.csv', function(data) {
-    d3.csv('/d/us_postal_codes.gz', function(data) {
+    d3.csv('/d/us_postal_codes.csv', function(data) {
+    // d3.csv('/d/us_postal_codes.gz', function(data) {
       bernMap.d.allZipcodes = data;
       $jq(window).trigger("hashchange");
     });
@@ -642,6 +641,11 @@ $jq("form#zip-and-distance").on("submit", function() {
       $jq(window).trigger("hashchange");
     } else {
       window.location.hash = $(this).closest("form").serialize();
+    }
+
+    // if mobile focus outside
+    if ( $jq(window).width() < 720 ) {
+      $("#map").focus();
     }
 
   } else {
