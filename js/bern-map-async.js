@@ -635,7 +635,10 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 $jq("form#zip-and-distance").on("submit", function() {
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-
+    // if mobile focus outside
+    if ( $jq(window).width() < 720 ) {
+      $jq("input#hidden-submit").focus();
+    }
 
     if( window.location.hash == "#" + $(this).closest("form").serialize()) {
       $jq(window).trigger("hashchange");
@@ -643,13 +646,9 @@ $jq("form#zip-and-distance").on("submit", function() {
       window.location.hash = $(this).closest("form").serialize();
     }
 
-    // if mobile focus outside
-    if ( $jq(window).width() < 720 ) {
-      $("#map").focus();
-    }
-
+    // $jq("form input[name=zipcode]").blur();
   } else {
-    bernieEvents.setError("Complete Zipcode");
+    bernieEvents.setError("Incomplete Zipcode");
   }
   return false;
 });
