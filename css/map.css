@@ -1,3 +1,6 @@
+#billionaire-logo {
+  fill: #147FD7; }
+
 #bott-bg-logo {
   display: inline-block; }
 
@@ -68,6 +71,8 @@ section#map-section {
     border: 1px solid whitesmoke;
     border-width: 15px 0 0;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.3); }
+    section#map-section div#map-event-list div#map-instructions {
+      display: none; }
     section#map-section div#map-event-list form#zip-and-distance {
       text-align: center;
       position: relative; }
@@ -121,6 +126,31 @@ section#map-section {
     section#map-section div#map-event-list #event-list-area {
       max-height: 300px;
       overflow: auto; }
+      section#map-section div#map-event-list #event-list-area div#footer-area {
+        text-align: center;
+        margin-top: 20px;
+        border: solid 3px #EEEEEE;
+        border-width: 3px 0 0 0;
+        padding-top: 10px; }
+        section#map-section div#map-event-list #event-list-area div#footer-area h5, section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box, section#map-section div#map-event-list #event-list-area div#footer-area sub {
+          text-transform: uppercase;
+          font-weight: normal;
+          letter-spacing: 0.15em;
+          margin: 0 0 5px 0;
+          color: #777777; }
+        section#map-section div#map-event-list #event-list-area div#footer-area sub {
+          display: block;
+          font-size: 0.7em; }
+        section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box {
+          padding: 0.7em 1em;
+          border: 1px #AAA solid;
+          font-size: 0.8em;
+          display: inline-block; }
+          section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box:after {
+            content: ' ';
+            clear: both; }
+        section#map-section div#map-event-list #event-list-area div#footer-area span#footer-billionaire {
+          display: inline-block; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
         padding-bottom: 20px; }
         section#map-section div#map-event-list #event-list-area .event-list-item .event-item-name.event-full {
@@ -198,10 +228,33 @@ footer {
       left: 0;
       margin: 0;
       padding-bottom: 10px;
-      padding-left: 0; }
+      padding-left: 0;
+      padding-top: 0; }
+      section#map-section div#map-event-list div#map-instructions {
+        display: block;
+        background-color: whitesmoke;
+        padding: 2%;
+        margin-bottom: 15px;
+        font-size: 0.7em;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #777777;
+        font-weight: 600; }
+        section#map-section div#map-event-list div#map-instructions > * {
+          vertical-align: middle; }
+        section#map-section div#map-event-list div#map-instructions img {
+          height: 20px; }
+        section#map-section div#map-event-list div#map-instructions span {
+          font-weight: 600; }
       section#map-section div#map-event-list div#event-list-area {
         max-height: inherit !important;
         overflow: none; }
+        section#map-section div#map-event-list div#event-list-area div#footer-area {
+          margin-top: 0px !important;
+          border: solid 3px #EEEEEE !important;
+          border-width: 0 !important;
+          padding-top: 0px !important; }
         section#map-section div#map-event-list div#event-list-area > p {
           width: 98%; }
       section#map-section div#map-event-list div#event-results-area {
