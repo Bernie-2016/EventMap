@@ -277,15 +277,15 @@ bernMap.draw = function() {
         ;
     });
 
-    var bounds = that.activityLayer[0][0].getBBox();
+    // var bounds = that.activityLayer[0][0].getBBox();
 
-    that.svg.attr("width", (bounds.width + 0) + "px")
-      .attr("height", (bounds.height + 0) + "px")
-      // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
-      .style("left", bounds.x + "px")
-      .style("top", bounds.y + "px");
+    // that.svg.attr("width", (bounds.width + 0) + "px")
+    //   .attr("height", (bounds.height + 0) + "px")
+    //   // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
+    //   .style("left", bounds.x + "px")
+    //   .style("top", bounds.y + "px");
 
-    that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
+    // that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
 
   };
 
@@ -579,7 +579,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   // , {});
 
   // bernMap.d.meetupData
-  
+
 // });
 
 function loadZipcodeData() {
@@ -607,6 +607,7 @@ function loadZipcodeData() {
     bernie.plot();
 
     //Load Postal Codes
+    // d3.csv('/d/us_postal_codes.csv', function(data) {
     d3.csv('/d/us_postal_codes.gz', function(data) {
       bernMap.d.allZipcodes = data;
       $jq(window).trigger("hashchange");

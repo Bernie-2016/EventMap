@@ -108,11 +108,14 @@
   <script type='text/javascript' src="/js/bern-map-async.js"></script>
   <script>
     $.ajax({
+      // url: '/js/bern-july-29-data.js',
       url: '/js/bern-july-29-data.gz',
       dataType: 'script',
       cache: true, // otherwise will get fresh copy every page load
       success: function() {
         window.dataCallback();
+      }, error: function(a,b,c) {
+        // console.log(b,c);
       }
     });
   </script>
