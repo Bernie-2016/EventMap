@@ -41,13 +41,13 @@ $jq(window).on("resize", function() {
   var wH = $jq(window).height();
   var padding = 20;
 
+  //Change billionaire size ^_-
 
   //Media
   if ($jq(window).width() < 720) {
     // alert("X");
-
     var _formHeight = $("#map-event-list").outerHeight();
-    $("#map").height(screenHeight - _formHeight - (screenHeight*0.25))
+    $("#map").height(screenHeight - _formHeight - (screenHeight*0.30))
       .css("marginTop", (_formHeight) + "px");
     $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
     $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
@@ -277,15 +277,15 @@ bernMap.draw = function() {
         ;
     });
 
-    var bounds = that.activityLayer[0][0].getBBox();
+    // var bounds = that.activityLayer[0][0].getBBox();
 
-    that.svg.attr("width", (bounds.width + 0) + "px")
-      .attr("height", (bounds.height + 0) + "px")
-      // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
-      .style("left", bounds.x + "px")
-      .style("top", bounds.y + "px");
+    // that.svg.attr("width", (bounds.width + 0) + "px")
+    //   .attr("height", (bounds.height + 0) + "px")
+    //   // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
+    //   .style("left", bounds.x + "px")
+    //   .style("top", bounds.y + "px");
 
-    that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
+    // that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
 
   };
 
@@ -579,7 +579,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   // , {});
 
   // bernMap.d.meetupData
-  
+
 // });
 
 function loadZipcodeData() {
@@ -607,7 +607,8 @@ function loadZipcodeData() {
     bernie.plot();
 
     //Load Postal Codes
-    d3.csv('/d/us_postal_codes.gz', function(data) {
+    d3.csv('/d/us_postal_codes.csv', function(data) {
+    // d3.csv('/d/us_postal_codes.gz', function(data) {
       bernMap.d.allZipcodes = data;
       $jq(window).trigger("hashchange");
     });
@@ -635,7 +636,10 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 $jq("form#zip-and-distance").on("submit", function() {
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-
+    // if mobile focus outside
+    if ( $jq(window).width() < 720 ) {
+      $jq("input#hidden-submit").focus();
+    }
 
     if( window.location.hash == "#" + $(this).closest("form").serialize()) {
       $jq(window).trigger("hashchange");
@@ -643,8 +647,9 @@ $jq("form#zip-and-distance").on("submit", function() {
       window.location.hash = $(this).closest("form").serialize();
     }
 
+    // $jq("form input[name=zipcode]").blur();
   } else {
-    bernieEvents.setError("Complete Zipcode");
+    bernieEvents.setError("Incomplete Zipcode");
   }
   return false;
 });

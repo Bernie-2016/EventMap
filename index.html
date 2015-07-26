@@ -68,10 +68,20 @@
 <section id='map-section' />
   <div id='map'></div>
   <div id='map-event-list'>
+    <div id='map-instructions'>
+      <span style="vertical-align: middle;font-weight: 600;">Attend a</span>  <img src="/img/logo.png" style="
+    height: 20px;
+
+    vertical-align: middle;
+"> <span style="
+
+vertical-align"> organizing kickoff, july 29</span>
+    </div>
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
         <div>
           <input type='text' name='zipcode' id='input-text-zipcode' value='' placeholder='Enter zipcode to find events' maxlength='5'/>
+          <input type='submit' id='hidden-submit' style='visibility: hidden; position: absolute; right:0;top:0; z-index: -1;'/>
         </div>
         <div>
           <ul id='distance-list'>
@@ -92,10 +102,24 @@
         <div id='event-list-area'>
           <ul id='event-list'>
           </ul>
-          <p style='text-align: center; margin-top: 20px;'>
-            <img src='/img/list-end.png' width='100px' id='bott-bg-logo' />
-            <img src='/img/logo.png' width='100px' id='bott-color-logo'/>
-          </p>
+          <div id='footer-area' style='text-align: center; margin-top: 20px; border: solid 3px #EEEEEE; border-width: 3px 0 0 0; padding-top: 10px;'>
+            <h5>Bernie 2016</h5>
+            <h5>PO BOx 905</h5>
+            <h5>Burlington, VT 05402</h5>
+
+            <div id='paid-for-bernie-box'>
+              Paid for By Bernie 2016
+            </div>
+            <div id='footer-billionaire' style="margin-bottom: 30px;">
+              <svg width="200" height="40">
+                  <image xlink:href="/img/billionaires.svg" width="200" height="40"
+                    x="50%"
+                  />
+              </svg>
+            </div>
+
+            <sub>&copy; Bernie 2016 | <a href='https://berniesanders.com/privacy-policy/'>Privacy Policy</a></sub>
+          </div>
         </div>
       </div>
   </div>
@@ -105,14 +129,17 @@
   <script id='zipcodes-datadump' type='text/plain'></script>
   <script src="/js/jquery.js"></script>
   <script src='/js/mapbox.js'></script>
-  <script type='text/javascript' src="/js/bern-map-async.js"></script>
+  <script type='text/javascript' src="/js/bern-map-async.js?q=1"></script>
   <script>
     $.ajax({
-      url: '/js/bern-july-29-data.gz',
+      url: '/js/bern-july-29-data.js',
+      // url: '/js/bern-july-29-data.gz',
       dataType: 'script',
       cache: true, // otherwise will get fresh copy every page load
       success: function() {
         window.dataCallback();
+      }, error: function(a,b,c) {
+        // console.log(b,c);
       }
     });
   </script>
