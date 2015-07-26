@@ -1,0 +1,2 @@
+AddEncoding gzip .gz
+AddType text/javascript .gz
