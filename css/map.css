@@ -185,9 +185,11 @@ section#map-section {
     .leaflet-overlay-pane svg circle {
       cursor: pointer;
       fill: #ea504e;
+      opacity: 0.7;
       stroke: #983130; }
       .leaflet-overlay-pane svg circle[data-maxcapacity='true'] {
-        fill: gray; }
+        fill: #ea504e;
+        opacity: 0.3; }
       .leaflet-overlay-pane svg circle#center-item {
         fill: #147FD7; }
       .leaflet-overlay-pane svg circle.circle-selected {
