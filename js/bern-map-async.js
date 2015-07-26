@@ -42,7 +42,6 @@ $jq(window).on("resize", function() {
   var padding = 20;
 
   //Change billionaire size ^_-
-  // $("div#footer-billionaire svg image").attr("x", $("div#footer-billionaire svg image").width()/2);
 
   //Media
   if ($jq(window).width() < 720) {
