@@ -170,6 +170,20 @@ section#map-section {
         border-width: 3px 0 0 0;
         padding-top: 10px;
 
+        #footer-billionaire {
+          svg image {
+            // transform: translate(-50%,0);
+            // -webkit-transform: translate(-50%,0);
+            // -moz-transform: translate(-50%, 0);
+            transform:translate(-100px,0);
+            -ms-transform:translate(-100px,0); /* IE 9 */
+            -moz-transform:translate(-100px,0); /* Firefox */
+            -webkit-transform:translate(-100px,0); /* Safari and Chrome */
+            -o-transform:translate(-100px,0); /* Opera */
+
+          }
+        }
+
         h5,div#paid-for-bernie-box, sub {
           text-transform: uppercase;
           font-weight: normal;
@@ -187,6 +201,8 @@ section#map-section {
           border: 1px #AAA solid;
           font-size: 0.8em;
           display: inline-block;
+
+          margin-top: 10px;
 
           &:after {
             content: ' ';

@@ -132,6 +132,16 @@ section#map-section {
         border: solid 3px #EEEEEE;
         border-width: 3px 0 0 0;
         padding-top: 10px; }
+        section#map-section div#map-event-list #event-list-area div#footer-area #footer-billionaire svg image {
+          transform: translate(-100px, 0);
+          -ms-transform: translate(-100px, 0);
+          /* IE 9 */
+          -moz-transform: translate(-100px, 0);
+          /* Firefox */
+          -webkit-transform: translate(-100px, 0);
+          /* Safari and Chrome */
+          -o-transform: translate(-100px, 0);
+          /* Opera */ }
         section#map-section div#map-event-list #event-list-area div#footer-area h5, section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box, section#map-section div#map-event-list #event-list-area div#footer-area sub {
           text-transform: uppercase;
           font-weight: normal;
@@ -145,7 +155,8 @@ section#map-section {
           padding: 0.7em 1em;
           border: 1px #AAA solid;
           font-size: 0.8em;
-          display: inline-block; }
+          display: inline-block;
+          margin-top: 10px; }
           section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box:after {
             content: ' ';
             clear: both; }
