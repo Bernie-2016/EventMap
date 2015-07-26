@@ -607,8 +607,8 @@ function loadZipcodeData() {
     bernie.plot();
 
     //Load Postal Codes
-    d3.csv('/d/us_postal_codes.csv', function(data) {
-    // d3.csv('/d/us_postal_codes.gz', function(data) {
+    // d3.csv('/d/us_postal_codes.csv', function(data) {
+    d3.csv('/d/us_postal_codes.gz', function(data) {
       bernMap.d.allZipcodes = data;
       $jq(window).trigger("hashchange");
     });
