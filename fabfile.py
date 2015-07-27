@@ -43,7 +43,7 @@ def update_event_data():
 
     data['settings']['rsvp'] = rsvp_count
 
-    data['settings']['count'] += 604 # hack; 604 private events
+    data['settings']['count'] = 3146
 
     data_out['settings'] = data['settings']    
 
@@ -61,12 +61,18 @@ def update_event_data():
     local('cd js; gzip < bern-july-29-data.js > bern-july-29-data.gz')
 
 
+def deploy_event_data():
+    update_event_data()
+    local("aws s3 cp js/bern-map-async.gz s3://map.berniesanders.com/js/bern-map-async.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    # todo: clear cache invalidation
+
+
+
 def zip_javascript():
     local('cd js; gzip < bern-map-async.js > bern-map-async.gz')
 
 
 def deploy():
-    # update_pco_data()
     local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --region \"us-west-2\"")
     local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
     local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
