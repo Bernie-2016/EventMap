@@ -292,4 +292,9 @@ div#social {
 }
 
 
+.fb_iframe_widget iframe
+{
+    width: 56px !important;
+}
+
 /*# sourceMappingURL=custom.css.map */
