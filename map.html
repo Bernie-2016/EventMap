@@ -62,11 +62,11 @@ vertical-align"> organizing kickoff, july 29</span>
     </div>
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
-        <div>
+        <div id='zipcode-container'>
           <input type='text' name='zipcode' id='input-text-zipcode' value='' placeholder='Enter zipcode to find events' maxlength='5'/>
           <input type='submit' id='hidden-submit' style='visibility: hidden; position: absolute; right:0;top:0; z-index: -1;'/>
         </div>
-        <div>
+        <div id='distance-container'>
           <ul id='distance-list'>
               <li>
                         <input type='radio' id='mile-5' name='distance' value='5' /> <label for='mile-5'>5mi</label></li><li>
@@ -121,7 +121,7 @@ vertical-align"> organizing kickoff, july 29</span>
       success: function() {
         window.dataCallback();
       }, error: function(a,b,c) {
-        console.log(b,c,a);
+        console.log(b,c);
       }
     });
   </script>

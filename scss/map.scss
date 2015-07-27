@@ -107,13 +107,17 @@ section#map-section {
 
       input[name=zipcode] {
           width: 80%;
+          min-width: 200px;
           font-size: 1em;
           text-align: center;
           border-color: whitesmoke;
           border-collapse: collapse;
           border: 1px solid lightgray;
           padding: 6px 0;
-          font-family: 'Open Sans';
+          font-family: 'Open Sans', sans-serif;
+
+          letter-spacing: 0.05em;
+
       }
 
       ul#distance-list {
@@ -362,16 +366,68 @@ $phone-max-width: 720px;
       // margin-left: 50%;
       // transform: translate(-50%,0);
 
+      form#zip-and-distance {
+
+        div#zipcode-container {
+          width: 7em;
+          display: inline-block;
+          vertical-align: middle;
+
+          input[name=zipcode] {
+            width: 92%;
+            min-width: 92%;
+            font-size: 0.9em;
+            text-transform: uppercase;
+          }
+        }
+
+        div#distance-container {
+          // float: right;
+          width: 12em;
+          vertical-align: middle;
+          display: inline-block;
+
+          ul#distance-list {
+            text-align: left;
+
+            li {
+              margin: 0 1.5%;
+              label {
+                padding: 0;
+                font-size: 0.85em;
+              }
+              &:last-child {
+                display: none;
+                margin-right: 0;
+              }
+              // &:first-child { margin-left: 0; }
+            }
+          }
+        }
+
+      }
 
       div#event-list-area {
         max-height: inherit !important;
         overflow: none;
+
+        ul#event-list {
+          li.event-list-item {
+
+            &:last-child {
+              padding-bottom: 20px;
+              margin-bottom: 20px;
+              border-width: 1px 0;
+            }
+          }
+        }
 
         div#footer-area {
           margin-top: 0px !important;
           border: solid 3px #EEEEEE !important;
           border-width: 0 !important;
           padding-top: 0px !important;
+          width: 100% !important;
         }
 
         & > p {
@@ -384,7 +440,7 @@ $phone-max-width: 720px;
         position: absolute;
         margin: 0;
         background-color: white;
-        width: 96%;
+        width: 91%;
         padding: 2%;
         // margin-left: 50%;
         // transform: translate(-50%, 0);
