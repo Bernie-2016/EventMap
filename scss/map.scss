@@ -23,6 +23,65 @@ section#main-title-area {
   }
 }
 
+#event-list-area {
+  div#footer-area {
+    display: none;
+  }
+}
+#event-list-area, footer {
+  div#footer-area {
+        text-align: center;
+        margin-top: 20px;
+        // border: solid 3px #EEEEEE;
+        // border-width: 3px 0 0 0;
+        // padding-top: 10px;
+
+        #footer-billionaire {
+          svg image {
+            // transform: translate(-50%,0);
+            // -webkit-transform: translate(-50%,0);
+            // -moz-transform: translate(-50%, 0);
+            transform:translate(-100px,0);
+            -ms-transform:translate(-100px,0); /* IE 9 */
+            -moz-transform:translate(-100px,0); /* Firefox */
+            -webkit-transform:translate(-100px,0); /* Safari and Chrome */
+            -o-transform:translate(-100px,0); /* Opera */
+
+          }
+        }
+
+        h5,div#paid-for-bernie-box, sub {
+          text-transform: uppercase;
+          font-weight: normal;
+          letter-spacing: 0.15em;
+          margin: 0 0 5px 0;
+          color: #777777;
+        }
+        sub {
+          display: block;
+          font-size: 0.7em;
+        }
+
+        div#paid-for-bernie-box {
+          padding: 0.7em 1em;
+          border: 1px #AAA solid;
+          font-size: 0.8em;
+          display: inline-block;
+
+          margin-top: 10px;
+
+          &:after {
+            content: ' ';
+            clear: both;
+          }
+        }
+        span#footer-billionaire {
+          display: inline-block;
+        }
+
+      }
+}
+
 div.main-title-area {
   strong {
     font-size: 1.5em;
@@ -167,57 +226,6 @@ section#map-section {
       max-height: 300px;
       overflow: auto;
 
-      div#footer-area {
-        text-align: center;
-        margin-top: 20px;
-        border: solid 3px #EEEEEE;
-        border-width: 3px 0 0 0;
-        padding-top: 10px;
-
-        #footer-billionaire {
-          svg image {
-            // transform: translate(-50%,0);
-            // -webkit-transform: translate(-50%,0);
-            // -moz-transform: translate(-50%, 0);
-            transform:translate(-100px,0);
-            -ms-transform:translate(-100px,0); /* IE 9 */
-            -moz-transform:translate(-100px,0); /* Firefox */
-            -webkit-transform:translate(-100px,0); /* Safari and Chrome */
-            -o-transform:translate(-100px,0); /* Opera */
-
-          }
-        }
-
-        h5,div#paid-for-bernie-box, sub {
-          text-transform: uppercase;
-          font-weight: normal;
-          letter-spacing: 0.15em;
-          margin: 0 0 5px 0;
-          color: #777777;
-        }
-        sub {
-          display: block;
-          font-size: 0.7em;
-        }
-
-        div#paid-for-bernie-box {
-          padding: 0.7em 1em;
-          border: 1px #AAA solid;
-          font-size: 0.8em;
-          display: inline-block;
-
-          margin-top: 10px;
-
-          &:after {
-            content: ' ';
-            clear: both;
-          }
-        }
-        span#footer-billionaire {
-          display: inline-block;
-        }
-
-      }
       .event-list-item {
         padding-bottom: 20px;
         .event-item-name.event-full {
@@ -391,7 +399,7 @@ $phone-max-width: 720px;
             text-align: left;
 
             li {
-              margin: 0 1.5%;
+              margin: 0 1%;
               label {
                 padding: 0;
                 font-size: 0.85em;
@@ -428,6 +436,7 @@ $phone-max-width: 720px;
           border-width: 0 !important;
           padding-top: 0px !important;
           width: 100% !important;
+          display: block;
         }
 
         & > p {
