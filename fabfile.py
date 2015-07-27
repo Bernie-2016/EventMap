@@ -36,14 +36,18 @@ def update_event_data():
         rsvp_count += row['attendee_count']
         return row
 
+    def remove_the_mormons(row):
+        if 'id_obfuscated' in row:
+            if row['id_obfuscated'] == '4vxqd':
+                return False
+        return True
 
-    data_out = {'results': map(clean_result, data['results'])}
+    data_out = {'results': map(clean_result, filter(remove_the_mormons, data['results']))}
 
     print "JSON cleaned! %s events." % len(data['results'])
 
-    data['settings']['rsvp'] = rsvp_count
-
-    data['settings']['count'] = 3146
+    data['settings']['rsvp'] = rsvp_count + 1318
+    data['settings']['count'] = 3146 # hax.
 
     data_out['settings'] = data['settings']    
 
