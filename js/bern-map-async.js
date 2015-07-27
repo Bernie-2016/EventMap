@@ -64,9 +64,8 @@ $jq(window).on("resize", function() {
 });
 $jq(window).trigger("resize");
 
-
-L.mapbox.accessToken = 'pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw';
-var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
+L.mapbox.accessToken = "pk.eyJ1IjoicmFwaWNhc3RpbGxvIiwiYSI6IjBlMGI3NTNhMWFiNGU4NmY4YmI4ZTNmOGRjYmQzZWVjIn0.KyTcvG8fiIStw8BkZjfvLA";
+var mapboxTiles = L.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 });
 
@@ -651,15 +650,15 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 $jq("form#zip-and-distance").on("submit", function() {
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-    // if mobile focus outside
-    if ( $jq(window).width() < 720 ) {
-      $jq("input#hidden-submit").focus();
-    }
-
     if( window.location.hash == "#" + $(this).closest("form").serialize()) {
       $jq(window).trigger("hashchange");
     } else {
       window.location.hash = $(this).closest("form").serialize();
+    }
+
+    // if mobile focus outside
+    if ( $jq(window).width() < 720 ) {
+      $jq("input#hidden-submit").focus();
     }
 
     // $jq("form input[name=zipcode]").blur();

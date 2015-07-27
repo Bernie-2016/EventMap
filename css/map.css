@@ -21,6 +21,43 @@ section#main-title-area h4 {
   section#main-title-area h4 > * {
     vertical-align: middle; }
 
+#event-list-area div#footer-area {
+  display: none; }
+
+#event-list-area div#footer-area, footer div#footer-area {
+  text-align: center;
+  margin-top: 20px; }
+  #event-list-area div#footer-area #footer-billionaire svg image, footer div#footer-area #footer-billionaire svg image {
+    transform: translate(-100px, 0);
+    -ms-transform: translate(-100px, 0);
+    /* IE 9 */
+    -moz-transform: translate(-100px, 0);
+    /* Firefox */
+    -webkit-transform: translate(-100px, 0);
+    /* Safari and Chrome */
+    -o-transform: translate(-100px, 0);
+    /* Opera */ }
+  #event-list-area div#footer-area h5, #event-list-area div#footer-area div#paid-for-bernie-box, #event-list-area div#footer-area sub, footer div#footer-area h5, footer div#footer-area div#paid-for-bernie-box, footer div#footer-area sub {
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    margin: 0 0 5px 0;
+    color: #777777; }
+  #event-list-area div#footer-area sub, footer div#footer-area sub {
+    display: block;
+    font-size: 0.7em; }
+  #event-list-area div#footer-area div#paid-for-bernie-box, footer div#footer-area div#paid-for-bernie-box {
+    padding: 0.7em 1em;
+    border: 1px #AAA solid;
+    font-size: 0.8em;
+    display: inline-block;
+    margin-top: 10px; }
+    #event-list-area div#footer-area div#paid-for-bernie-box:after, footer div#footer-area div#paid-for-bernie-box:after {
+      content: ' ';
+      clear: both; }
+  #event-list-area div#footer-area span#footer-billionaire, footer div#footer-area span#footer-billionaire {
+    display: inline-block; }
+
 div.main-title-area {
   display: inline-block;
   margin-left: 140px;
@@ -128,42 +165,6 @@ section#map-section {
     section#map-section div#map-event-list #event-list-area {
       max-height: 300px;
       overflow: auto; }
-      section#map-section div#map-event-list #event-list-area div#footer-area {
-        text-align: center;
-        margin-top: 20px;
-        border: solid 3px #EEEEEE;
-        border-width: 3px 0 0 0;
-        padding-top: 10px; }
-        section#map-section div#map-event-list #event-list-area div#footer-area #footer-billionaire svg image {
-          transform: translate(-100px, 0);
-          -ms-transform: translate(-100px, 0);
-          /* IE 9 */
-          -moz-transform: translate(-100px, 0);
-          /* Firefox */
-          -webkit-transform: translate(-100px, 0);
-          /* Safari and Chrome */
-          -o-transform: translate(-100px, 0);
-          /* Opera */ }
-        section#map-section div#map-event-list #event-list-area div#footer-area h5, section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box, section#map-section div#map-event-list #event-list-area div#footer-area sub {
-          text-transform: uppercase;
-          font-weight: normal;
-          letter-spacing: 0.15em;
-          margin: 0 0 5px 0;
-          color: #777777; }
-        section#map-section div#map-event-list #event-list-area div#footer-area sub {
-          display: block;
-          font-size: 0.7em; }
-        section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box {
-          padding: 0.7em 1em;
-          border: 1px #AAA solid;
-          font-size: 0.8em;
-          display: inline-block;
-          margin-top: 10px; }
-          section#map-section div#map-event-list #event-list-area div#footer-area div#paid-for-bernie-box:after {
-            content: ' ';
-            clear: both; }
-        section#map-section div#map-event-list #event-list-area div#footer-area span#footer-billionaire {
-          display: inline-block; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
         padding-bottom: 20px; }
         section#map-section div#map-event-list #event-list-area .event-list-item .event-item-name.event-full {
@@ -278,7 +279,7 @@ footer {
         section#map-section div#map-event-list form#zip-and-distance div#distance-container ul#distance-list {
           text-align: left; }
           section#map-section div#map-event-list form#zip-and-distance div#distance-container ul#distance-list li {
-            margin: 0 1.5%; }
+            margin: 0 1%; }
             section#map-section div#map-event-list form#zip-and-distance div#distance-container ul#distance-list li label {
               padding: 0;
               font-size: 0.85em; }
@@ -297,7 +298,8 @@ footer {
           border: solid 3px #EEEEEE !important;
           border-width: 0 !important;
           padding-top: 0px !important;
-          width: 100% !important; }
+          width: 100% !important;
+          display: block; }
         section#map-section div#map-event-list div#event-list-area > p {
           width: 98%; }
       section#map-section div#map-event-list div#event-results-area {
