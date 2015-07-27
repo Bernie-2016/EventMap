@@ -47,14 +47,17 @@ $jq(window).on("resize", function() {
   if ($jq(window).width() < 720) {
     // alert("X");
     var _formHeight = $("#map-event-list").outerHeight();
-    $("#map").height(screenHeight - _formHeight - (screenHeight*0.30))
+    $("#map").height(screenHeight - _formHeight - (screenHeight*0.3))
       .css("marginTop", (_formHeight) + "px");
     $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
     $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
+
+    $("input[name='zipcode']").attr("placeholder", "zipcode");
   } else {
     $("#map-section, #map").height(wH - h - 25).css("marginTop", "auto");
     $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240 - 25)
     $("#map-event-list").css("top", "20px");
+    $("input[name='zipcode']").attr("placeholder", "Enter zipcode to find events");
   }
 
 
@@ -380,13 +383,25 @@ bernMap.eventList = function(container) {
     // console.log(nearByZipcodes);
     if (nearByZipcodes.length == 0) return;
 
-
-    nearByZipcodes.sort(function(a,b) {
+    //START : Separate Full events and active events;
+    var nearByActive = nearByZipcodes.filter(function(d) {
+                        return d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0;
+                      });
+    var nearByFull = nearByZipcodes.filter(function(d) {
+                        return !( d.properties.attendee_count < d.properties.capacity && d.properties.capacity != 0 );
+                     });
+    nearByActive.sort(function(a,b) {
       return a.distance - b.distance;
-    })
+    });
+
+    nearByFull.sort(function(a,b) {
+      return a.distance - b.distance;
+    });
+
+    //END : Separate Full events and active events;
 
     // collate list:
-    var collatedList = nearByZipcodes;
+    var collatedList = nearByActive.concat(nearByFull);
     // var collatedList = nearByZipcodes.map(function(d) {
     //    var events = bernMap.d.aggregatedRSVP[d.zipcode];
     //    events.forEach(function(t) {
