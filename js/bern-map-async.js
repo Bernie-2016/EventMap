@@ -635,7 +635,7 @@ $jq("form input[type=radio]").on("click", function(d) {
     window.location.hash = $(this).closest("form").serialize();
   }
 });
-$jq("form input[name=zipcode]").on("keypress", function(e) {
+$jq("form input[name=zipcode]").on("keyup", function(e) {
   // bernie.filter($(this).val());
   if (e.keyCode == 13|| e.which == 13) {
     return false;
