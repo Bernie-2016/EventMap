@@ -620,7 +620,7 @@ function loadZipcodeData() {
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.plot();
 
-    d3.csv('/d/us_postal_codes.gz', function(data) {
+    d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
       bernMap.d.allZipcodes = data;
       $jq(window).trigger("hashchange");
     });
