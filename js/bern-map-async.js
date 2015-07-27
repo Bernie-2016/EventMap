@@ -642,6 +642,7 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
   if ( $(this).val().length == 5 ) {
     window.location.hash = $(this).closest("form").serialize();
     $(this).blur();
+    document.activeElement.blur();
   } else {
     bernieEvents.hideError();
   }
