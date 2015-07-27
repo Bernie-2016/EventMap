@@ -280,15 +280,15 @@ bernMap.draw = function() {
         ;
     });
 
-    // var bounds = that.activityLayer[0][0].getBBox();
+    var bounds = that.activityLayer[0][0].getBBox();
 
-    // that.svg.attr("width", (bounds.width + 0) + "px")
-    //   .attr("height", (bounds.height + 0) + "px")
-    //   // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
-    //   .style("left", bounds.x + "px")
-    //   .style("top", bounds.y + "px");
+    that.svg.attr("width", (bounds.width + 0) + "px")
+      .attr("height", (bounds.height + 0) + "px")
+      // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
+      .style("left", bounds.x + "px")
+      .style("top", bounds.y + "px");
 
-    // that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
+    that.activityLayer.attr("transform", "translate(" + -bounds.x + "," + -bounds.y + ")");
 
   };
 
@@ -297,7 +297,7 @@ bernMap.draw = function() {
 
 
     bernMap.mapBox.on('zoomstart', function() {
-      _that.activityLayer.style("display","none");
+      _that.activityLayer.style("visibility","hidden");
       // in_need_layer.style("visibility", "hidden");
       // percent_change_layer.style("visibility", "hidden");
       // funding_layer.style("visibility", "hidden");
@@ -305,7 +305,7 @@ bernMap.draw = function() {
     bernMap.mapBox.on('zoomend', function() {
         // triggerLayerChange();
         _that.replot();
-        _that.activityLayer.style("display","block");
+        _that.activityLayer.style("visibility","visible");
         // regionalLayer.recalibrateLayer();
     });
   }();
