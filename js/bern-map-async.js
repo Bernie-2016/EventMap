@@ -621,11 +621,16 @@ function loadZipcodeData() {
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.plot();
 
-    //Load Postal Codes
-    // d3.csv('/d/us_postal_codes.csv', function(data) {
-    d3.csv('/d/us_postal_codes.gz', function(data) {
-      bernMap.d.allZipcodes = data;
-      $jq(window).trigger("hashchange");
+    $.ajax({
+      url: '//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
+      dataType: 'text/csv',
+      cache: true, // otherwise will get fresh copy every page load
+      success: function(data) {
+        bernMap.d.allZipcodes = data;
+        $jq(window).trigger("hashchange");
+      }, error: function(a,b,c) {
+        console.log(b,c);
+      }
     });
 
 }
