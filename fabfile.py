@@ -43,6 +43,8 @@ def update_event_data():
 
     data['settings']['rsvp'] = rsvp_count
 
+    data['settings']['count'] += 604 # hack; 604 private events
+
     data_out['settings'] = data['settings']    
 
     json_dump = json.dumps(data)
