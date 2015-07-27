@@ -622,10 +622,17 @@ function loadZipcodeData() {
     bernie.plot();
 
     //Load Postal Codes
-    d3.csv('/d/us_postal_codes.csv', function(data) {
-    // d3.csv('/d/us_postal_codes.gz', function(data) {
-      bernMap.d.allZipcodes = data;
-      $jq(window).trigger("hashchange");
+    $.ajax({
+      url : '/d/us_postal_codes.gz',
+      dataType: "script",
+      error: function(a,b,c) {
+        console.log(a,b,c);
+      },
+      success: function() {
+        console.log(ZIPCODERAW);
+        bernMap.d.allZipcodes = ZIPCODERAW;
+        $jq(window).trigger("hashchange");
+      }
     });
 
 }
@@ -651,15 +658,15 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 $jq("form#zip-and-distance").on("submit", function() {
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-    // if mobile focus outside
-    if ( $jq(window).width() < 720 ) {
-      $jq("input#hidden-submit").focus();
-    }
-
     if( window.location.hash == "#" + $(this).closest("form").serialize()) {
       $jq(window).trigger("hashchange");
     } else {
       window.location.hash = $(this).closest("form").serialize();
+    }
+
+    // if mobile focus outside
+    if ( $jq(window).width() < 720 ) {
+      $jq("input#hidden-submit").focus();
     }
 
     // $jq("form input[name=zipcode]").blur();
