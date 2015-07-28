@@ -304,7 +304,7 @@ footer {
         margin: 0;
         background-color: white;
         width: 91%;
-        padding: 2%; }
+        padding: 0 2%; }
         section#map-section div#map-event-list div#event-results-area #bott-bg-logo {
           display: none !important; }
         section#map-section div#map-event-list div#event-results-area #bott-color-logo {
