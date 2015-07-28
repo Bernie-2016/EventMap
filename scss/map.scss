@@ -255,10 +255,10 @@ section#map-section {
       #error-box {
         color: $red;
         position: absolute;
-        width: 200px;
+        width: 250px;
         top: -15px;
         left: 50%;
-        margin-left: -100px;
+        margin-left: -125px;
         text-align: center;
         font-size: 0.6em;
         text-transform: uppercase;
@@ -384,7 +384,7 @@ $phone-max-width: 720px;
     overflow-x: hidden;
     overflow-y: auto;
   }
-  footer { display: none; }
+  footer { display: none !important; }
   div#header {
     display: none;
     a#header-logo {
@@ -523,7 +523,7 @@ $phone-max-width: 720px;
           border-width: 0 !important;
           padding-top: 0px !important;
           width: 100% !important;
-          display: block;
+          display: block !important;
         }
 
         & > p {
