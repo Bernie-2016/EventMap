@@ -1,7 +1,13 @@
+import datetime
+import hashlib
+import hmac
 import json
+import os
 import random
-import requests
 import string
+import sys
+
+import requests
 
 from fabric.api import *
 from fabric.operations import local
@@ -69,22 +75,45 @@ def update_event_data():
 
 
 def deploy_event_data():
-    # update_event_data()
-    # local("aws s3 cp js/bern-map-async.gz s3://map.berniesanders.com/js/bern-map-async.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    update_event_data()
+    local("aws s3 cp js/bern-map-async.gz s3://map.berniesanders.com/js/bern-map-async.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    invalidate_cloudfront_cache()
+
+
+def zip_javascript():
+    local('cd js; gzip < bern-map-async.js > bern-map-async.gz')
+
+
+def deploy():
+    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
+
+def sign(key, msg):
+    return hmac.new(key, msg.encode("utf-8"), hashlib.sha256).digest()
+
+def getSignatureKey(key, date_stamp, regionName, serviceName):
+    kDate = sign(('AWS4' + key).encode('utf-8'), date_stamp)
+    kRegion = sign(kDate, regionName)
+    kService = sign(kRegion, serviceName)
+    kSigning = sign(kService, 'aws4_request')
+    return kSigning
+
+
+def invalidate_cloudfront_cache():
     filein = open('cache-invalidation-tpl.xml')
     src = Template( filein.read() )
     invalidation_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(12))
-    print src.substitute({'invalidation_id': invalidation_id})
+    payload = src.substitute({'invalidation_id': invalidation_id})
 
-    def sign(key, msg):
-        return hmac.new(key, msg.encode("utf-8"), hashlib.sha256).digest()
-
-    def getSignatureKey(key, date_stamp, regionName, serviceName):
-        kDate = sign(('AWS4' + key).encode('utf-8'), date_stamp)
-        kRegion = sign(kDate, regionName)
-        kService = sign(kRegion, serviceName)
-        kSigning = sign(kService, 'aws4_request')
-        return kSigning
+    method = 'POST'
+    service = 'cloudfront'
+    host = 'cloudfront.amazonaws.com'
+    region = 'us-east-1'
+    path = "/2015-04-17/distribution/%s/invalidation" % ("E2SIHVDQUPIR5Z")
+    endpoint = "https://cloudfront.amazonaws.com%s" % path
+    content_type = 'text/xml'
 
     # Read AWS access key from env. variables or configuration file. Best practice is NOT
     # to embed credentials in code.
@@ -107,7 +136,7 @@ def deploy_event_data():
 
     # Step 2: Create canonical URI--the part of the URI from domain to query 
     # string (use '/' if no path)
-    canonical_uri = '/'
+    canonical_uri = path
 
     ## Step 3: Create the canonical query string. In this example, request
     # parameters are passed in the body of the request and the query string
@@ -117,7 +146,7 @@ def deploy_event_data():
     # Step 4: Create the canonical headers. Header names and values
     # must be trimmed and lowercase, and sorted in ASCII order.
     # Note that there is a trailing \n.
-    canonical_headers = 'content-type:' + content_type + '\n' + 'host:' + host + '\n' + 'x-amz-date:' + amz_date + '\n' + 'x-amz-target:' + amz_target + '\n'
+    canonical_headers = 'content-type:' + content_type + '\n' + 'host:' + host + '\n' + 'x-amz-date:' + amz_date + '\n'
 
     # Step 5: Create the list of signed headers. This lists the headers
     # in the canonical_headers list, delimited with ";" and in alpha order.
@@ -125,11 +154,11 @@ def deploy_event_data():
     # signed_headers include those that you want to be included in the
     # hash of the request. "Host" and "x-amz-date" are always required.
     # For DynamoDB, content-type and x-amz-target are also required.
-    signed_headers = 'content-type;host;x-amz-date;x-amz-target'
+    signed_headers = 'content-type;host;x-amz-date'
 
     # Step 6: Create payload hash. In this example, the payload (body of
     # the request) contains the request parameters.
-    payload_hash = hashlib.sha256(request_parameters).hexdigest()
+    payload_hash = hashlib.sha256(payload).hexdigest()
 
     # Step 7: Combine elements to create create canonical request
     canonical_request = method + '\n' + canonical_uri + '\n' + canonical_querystring + '\n' + canonical_headers + '\n' + signed_headers + '\n' + payload_hash
@@ -155,20 +184,22 @@ def deploy_event_data():
     # Put the signature information in a header named Authorization.
     authorization_header = algorithm + ' ' + 'Credential=' + access_key + '/' + credential_scope + ', ' +  'SignedHeaders=' + signed_headers + ', ' + 'Signature=' + signature
 
+    # For DynamoDB, the request can include any headers, but MUST include "host", "x-amz-date",
+    # "x-amz-target", "content-type", and "Authorization". Except for the authorization
+    # header, the headers must be included in the canonical_headers and signed_headers values, as
+    # noted earlier. Order here is not significant.
+    # # Python note: The 'host' header is added automatically by the Python 'requests' library.
+    headers = {'Content-Type':content_type,
+               'Authorization':authorization_header,
+               'X-Amz-Date':amz_date}
 
 
+    # ************* SEND THE REQUEST *************
+    print '\nBEGIN REQUEST++++++++++++++++++++++++++++++++++++'
+    print 'Request URL = ' + endpoint
 
-    
-    local('curl -H "Content-Type: text/xml" -H "Authorization: %s" http://cloudfront.amazonaws.com/distribution/E2SIHVDQUPIR5Z/invalidation')
+    r = requests.post(endpoint, data=payload, headers=headers)
 
-
-
-def zip_javascript():
-    local('cd js; gzip < bern-map-async.js > bern-map-async.gz')
-
-
-def deploy():
-    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
+    print '\nRESPONSE++++++++++++++++++++++++++++++++++++'
+    print 'Response code: %d\n' % r.status_code
+    print r.text
