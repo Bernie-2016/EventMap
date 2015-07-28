@@ -104,7 +104,8 @@ a {
       padding: 0.7rem 1.7rem; }
       a.contribute.contribute-big:hover {
         text-decoration: none;
-        background-color: #ea504e; }
+        background-color: #ea504e;
+        color: white; }
   a.button-rsvp {
     background-color: #F55B5B;
     display: inline-block;
@@ -280,15 +281,5 @@ div#social {
     font-size: 11px !important; }
     nav ul li .contribute-big {
       padding: 3px 5px !important; } }
-
-::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 7px;
-}
-::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0,0,0,.5);
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
 
 /*# sourceMappingURL=custom.css.map */

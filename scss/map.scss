@@ -1,6 +1,84 @@
 $blue: #147FD7;
 $red: #ea504e;
 
+@mixin event-item-content() {
+  font-family: 'Open Sans', sans-serif;
+  // li.event-nationwide-item, li.event-list-item {
+
+      a.button-rsvp:hover { color: white !important; }
+      a[href='javascript: void(0);'] {
+        color: rgb(51, 51, 51);
+        text-decoration: none;
+        cursor: text;
+      }
+      h5 { margin-bottom: 0; }
+      h3 { margin-top: 0; margin-bottom: 0;
+
+      }
+      h4.event-organizer { margin-top: 0;
+      font-size: 0.75em;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 1px;}
+    // }
+
+    #event-state-name {
+      h2 {
+        img {
+          height: 30px;
+          vertical-align: middle;
+          // border: solid 1px lightgray;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            color: #ea504e;
+            text-transform: uppercase;
+            font-size: 19px;
+        }
+      }
+
+    }
+    .event-item-date {
+      color: rgb(186, 187, 186);
+      display: block;
+      font-size: 0.9em;
+    }
+
+    h5.event-location {
+      font-weight: normal;
+      font-size: 0.9em;
+      color: #555555;
+    }
+
+
+  .event-item-name { font-weight: bold;}
+
+  .event-item-name.event-full {
+    color: gray;
+  }
+
+  h5.event-basics {
+    color: #babbba;
+    .event-item-date {
+      display: inline-block;
+    }
+  }
+  h5.event-location {
+    margin-top: 0.9em;
+  }
+
+  .event-item-date {
+    color: #babbba;
+    display: block;
+    font-size: 0.9em;
+  }
+
+  & > p { margin-bottom: 0; margin-top: 16px;}
+}
+
+
+
 #billionaire-logo { fill: $blue; }
 #bott-bg-logo { display: inline-block; }
 #bott-color-logo { display: none; }
@@ -28,6 +106,19 @@ section#main-title-area {
     display: none;
   }
 }
+
+.leaflet-popup-content {
+  @include event-item-content();
+
+  h5.event-location {
+    font-size: 1em !important;
+  }
+  & > p {
+    margin-bottom: 0;
+    margin-top: 0.5em;
+  }
+}
+
 #event-list-area, footer {
   div#footer-area {
         text-align: center;
@@ -228,21 +319,7 @@ section#map-section {
 
       .event-list-item {
         padding-bottom: 20px;
-        .event-item-name.event-full {
-          color: gray;
-        }
-
-        h5.event-basics {
-          color: #babbba;
-          .event-item-date {
-            display: inline-block;
-          }
-        }
-        h5.event-location {
-          margin-top: 0.7em;
-        }
-
-        & > p { margin-bottom: 0; }
+        @include event-item-content();
       }
     }
   }
@@ -350,7 +427,7 @@ $phone-max-width: 720px;
       top: -17vh;
       left: 0;
       margin: 0;
-      padding-bottom: 10px;
+      padding-bottom: 7px;
       padding-left: 0;
       padding-top: 0;
 
@@ -358,7 +435,7 @@ $phone-max-width: 720px;
         display: block;
         background-color: whitesmoke;
         padding: 2%;
-        margin-bottom: 15px;
+        margin-bottom: 7px;
         font-size: 0.7em;
         text-align: center;
         text-transform: uppercase;
@@ -431,7 +508,7 @@ $phone-max-width: 720px;
         }
 
         div#footer-area {
-          margin-top: 0px !important;
+          margin-top: 5px !important;
           border: solid 3px #EEEEEE !important;
           border-width: 0 !important;
           padding-top: 0px !important;
@@ -450,9 +527,13 @@ $phone-max-width: 720px;
         margin: 0;
         background-color: white;
         width: 91%;
-        padding: 2%;
+        padding: 0 2%;
         // margin-left: 50%;
         // transform: translate(-50%, 0);
+
+        h2#event-results-count {
+          margin-top: 10px !important;
+        }
 
         #bott-bg-logo { display: none !important; }
         #bott-color-logo { display: inline-block !important; }
