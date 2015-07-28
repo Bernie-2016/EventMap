@@ -139,7 +139,7 @@ bernMap.draw = function() {
     var target = bernMap.d.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
 
     if (target.length == 0) {
-      bernieEvents.setError("Zipcode does not exist.");
+      bernieEvents.setError("Zipcode does not exist. <a href=\"https://go.berniesanders.com/page/event/search_results?orderby=zip_radius&zip_radius%5b0%5d=" + params.zipcode + "&zip_radius%5b1%5d=100&country=US&radius_unit=mi\">Try our events page</a>");
     }
     else {
       var t = target[0];
@@ -345,7 +345,7 @@ bernMap.eventList = function(container) {
   this.hideError = function() { this.errorBox.text(''); };
   this.setError = function(message) {
     var that = this;
-    that.errorBox.text(message);
+    that.errorBox.html(message);
   };
 
   this.filterEvents = function(zipcode, allowedDistance) {

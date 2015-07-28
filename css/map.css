@@ -116,10 +116,10 @@ section#map-section {
       section#map-section div#map-event-list form#zip-and-distance #error-box {
         color: #ea504e;
         position: absolute;
-        width: 200px;
+        width: 250px;
         top: -15px;
         left: 50%;
-        margin-left: -100px;
+        margin-left: -125px;
         text-align: center;
         font-size: 0.6em;
         text-transform: uppercase; }
