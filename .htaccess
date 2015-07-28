@@ -1,2 +1,3 @@
-AddEncoding gzip .gz
+AddEncoding gzip .gz .csvgz
 AddType text/javascript .gz
+AddType text/plain  .csvgz
