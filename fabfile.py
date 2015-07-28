@@ -77,7 +77,15 @@ def update_event_data():
 def deploy_event_data():
     update_event_data()
     local("aws s3 cp js/bern-map-async.gz s3://map.berniesanders.com/js/bern-map-async.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
-    invalidate_cloudfront_cache()
+    invalidate_cloudfront_event_cache()
+
+
+def invalidate_cloudfront_event_cache():
+    filein = open('cache-invalidation-tpl.xml')
+    src = Template( filein.read() )
+    invalidation_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(12))
+    payload = src.substitute({'invalidation_id': invalidation_id})
+    invalidate_cloudfront_cache(payload)
 
 
 def zip_javascript():
@@ -85,10 +93,11 @@ def zip_javascript():
 
 
 def deploy():
-    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --exclude \"js/bern-july-29-data.gz\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --exclude \"js/bern-july-29-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --exclude \"js/bern-july-29-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --exclude \"js/bern-july-29-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
+    invalidate_cloudfront_cache_from_last_commit()
 
 def sign(key, msg):
     return hmac.new(key, msg.encode("utf-8"), hashlib.sha256).digest()
@@ -101,12 +110,11 @@ def getSignatureKey(key, date_stamp, regionName, serviceName):
     return kSigning
 
 
-def invalidate_cloudfront_cache():
-    filein = open('cache-invalidation-tpl.xml')
-    src = Template( filein.read() )
-    invalidation_id = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(12))
-    payload = src.substitute({'invalidation_id': invalidation_id})
+def invalidate_cloudfront_cache_from_last_commit():
+    pass
 
+
+def invalidate_cloudfront_cache(payload):
     method = 'POST'
     service = 'cloudfront'
     host = 'cloudfront.amazonaws.com'
