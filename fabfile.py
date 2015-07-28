@@ -53,10 +53,11 @@ def update_event_data():
 
     data_out = {'results': map(clean_result, filter(remove_the_mormons, data['results']))}
 
-    print "JSON cleaned! %s events." % len(data['results'])
 
     data['settings']['rsvp'] = rsvp_count + 1318
-    data['settings']['count'] = 3146 # hax.
+    data['settings']['count'] = 3344 # hax.
+
+    print "JSON cleaned! %s events, %s RSVP's." % len(data['results'], data['settings']['rsvp'])
 
     data_out['settings'] = data['settings']    
 
@@ -76,7 +77,7 @@ def update_event_data():
 
 def deploy_event_data():
     update_event_data()
-    local("aws s3 cp js/bern-map-async.gz s3://map.berniesanders.com/js/bern-map-async.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp js/bern-july-29-data.gz s3://map.berniesanders.com/js/bern-july-29-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
     invalidate_cloudfront_event_cache()
 
 
