@@ -208,9 +208,6 @@ footer {
     overflow-x: hidden;
     overflow-y: auto; }
 
-  footer {
-    display: none; }
-
   div#header {
     display: none; }
     div#header a#header-logo {
