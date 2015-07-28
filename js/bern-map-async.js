@@ -224,9 +224,9 @@ bernMap.draw = function() {
 
     //initialize event for zipcode
     that.zipcodeElements.on("click", function(d) {
-
-      $("input[name=zipcode]").val(d.properties.zip);
-      $jq("form#zip-and-distance").submit();
+      that.popupInfo(d);
+      // $("input[name=zipcode]").val(d.properties.zip);
+      // $jq("form#zip-and-distance").submit();
     });
 
     // var bounds = that.activityLayer[0][0].getBoundingClientRect();
@@ -239,6 +239,20 @@ bernMap.draw = function() {
       .style("top", bounds.y-10 + "px");
 
     that.activityLayer.attr("transform", "translate(" + -(bounds.x-10) + "," + -(bounds.y-10) + ")");
+  };
+
+  this.popupInfo = function(d) {
+    var that = this;
+
+    // console.log(that, parseFloat(d.properties.latitude));
+
+    setTimeout( function() { L.popup()
+      .setLatLng([parseFloat(d.properties.latitude), parseFloat(d.properties.longitude)])
+      .setContent(bernieEvents.buildEvent(d))
+      .openOn(bernMap.mapBox);
+    }
+      , 100);
+
   };
 
   this.replot = function () {
@@ -257,8 +271,8 @@ bernMap.draw = function() {
 
                         d3.select(this).attr("cx", coordinates[0])
                             .attr("cy", coordinates[1])
-                            .attr("r", bernMap.mapBox.getZoom() * 0.6)
-                            .attr("opacity", 0.9)
+                            .attr("r", bernMap.mapBox.getZoom() * 0.4)
+                            .attr("opacity", 0.2)
                         ;
                     });
     }
@@ -348,6 +362,32 @@ bernMap.eventList = function(container) {
     that.errorBox.html(message);
   };
 
+  this.buildEvent = function(d) {
+     if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
+          return "<h5><span class='event-item-date'>"
+            + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
+            + (d.Date ? (" " + dateFormat(d.properties.Date)) : "")
+            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            + "</span></h5>"
+            + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
+            // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
+            + "<h5 class='event-location'>" + d.properties.Location + "</h5>";
+        }
+        else {
+          return "<h5><span class='event-item-date'>"
+            + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
+            + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
+            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            + "</span></h5>"
+            + "<h3><a target='_blank' href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+            // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
+            + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
+            + "<p><a href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map' target='_blank' class='button-rsvp'>RSVP</a>"
+
+                +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>";
+        }
+  };
+
   this.filterEvents = function(zipcode, allowedDistance) {
     var that = this;
     var targetZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip == zipcode; });
@@ -428,53 +468,7 @@ bernMap.eventList = function(container) {
       .append("li")
         .attr("data-location-id", function(d) { return d.properties.id })
         .attr("class", "event-list-item")
-        .html(function(d) {
-          var links = [];
-          // for ( var i = 1; i <= 9; i++) {
-          //   var link = "Link" + i;
-
-          //   if ( d[link] ) {
-          //     var name_link = d[link].split(/,(.+)?/)
-          //     links.push ( {name: name_link[0], link: name_link[1]} );
-          //   }
-          // }
-
-
-          // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>" + d.AttendeeCount + " RSVPs </a>"];
-
-          // var linkText = ["<a target='" + (links[0].link.indexOf("mailto")!=0?"_blank":"_self") + "' href='" + links[0].link + "' class='" + links[0].name.toLowerCase().replace(/ /g, "-") + "-link'>RSVP @ BernieSanders.com </a>"];
-
-          // console.log(d.Date);
-
-          //If FULL
-          if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
-            return "<h5><span class='event-item-date'>"
-              + "~" + d3.round(d.properties.distance,1) + "MI"
-              + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
-              + " &nbsp;&nbsp; "
-              + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
-              + "</span></h5>"
-              + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
-              // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-              + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
-                ;
-          }
-          else {
-            return "<h5><span class='event-item-date'>"
-              + "~" + d3.round(d.properties.distance,1) + "MI"
-              + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
-              + " &nbsp;&nbsp; "
-              + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
-              + "</span></h5>"
-              + "<h3><a target='_blank' href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
-              // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-              + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
-              + "<p><a href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map' target='_blank' class='button-rsvp'>RSVP</a>"
-
-                  +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>"
-                ;
-          }
-        });
+        .html(that.buildEvent);
 
 
         liContent.on("mouseover", function() {
@@ -620,7 +614,8 @@ function loadZipcodeData() {
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.plot();
 
-    d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
+    ////d2bq2yf31lju3q.cloudfront.net
+    d3.csv('/d/us_postal_codes.gz', function(data) {
       bernMap.d.allZipcodes = data;
       $jq(window).trigger("hashchange");
     });

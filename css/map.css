@@ -1,3 +1,12 @@
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
+
 #billionaire-logo {
   fill: #147FD7; }
 
@@ -23,6 +32,65 @@ section#main-title-area h4 {
 
 #event-list-area div#footer-area {
   display: none; }
+
+.leaflet-popup-content {
+  font-family: 'Open Sans', sans-serif; }
+  .leaflet-popup-content a.button-rsvp:hover {
+    color: white !important; }
+  .leaflet-popup-content a[href='javascript: void(0);'] {
+    color: #333333;
+    text-decoration: none;
+    cursor: text; }
+  .leaflet-popup-content h5 {
+    margin-bottom: 0; }
+  .leaflet-popup-content h3 {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .leaflet-popup-content h4.event-organizer {
+    margin-top: 0;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 1px; }
+  .leaflet-popup-content #event-state-name h2 img {
+    height: 30px;
+    vertical-align: middle; }
+  .leaflet-popup-content #event-state-name h2 span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #ea504e;
+    text-transform: uppercase;
+    font-size: 19px; }
+  .leaflet-popup-content .event-item-date {
+    color: #babbba;
+    display: block;
+    font-size: 0.9em; }
+  .leaflet-popup-content h5.event-location {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #555555; }
+  .leaflet-popup-content .event-item-name {
+    font-weight: bold; }
+  .leaflet-popup-content .event-item-name.event-full {
+    color: gray; }
+  .leaflet-popup-content h5.event-basics {
+    color: #babbba; }
+    .leaflet-popup-content h5.event-basics .event-item-date {
+      display: inline-block; }
+  .leaflet-popup-content h5.event-location {
+    margin-top: 0.9em; }
+  .leaflet-popup-content .event-item-date {
+    color: #babbba;
+    display: block;
+    font-size: 0.9em; }
+  .leaflet-popup-content > p {
+    margin-bottom: 0;
+    margin-top: 16px; }
+  .leaflet-popup-content h5.event-location {
+    font-size: 1em !important; }
+  .leaflet-popup-content > p {
+    margin-bottom: 0;
+    margin-top: 0.5em; }
 
 #event-list-area div#footer-area, footer div#footer-area {
   text-align: center;
@@ -166,7 +234,44 @@ section#map-section {
       max-height: 300px;
       overflow: auto; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
-        padding-bottom: 20px; }
+        padding-bottom: 20px;
+        font-family: 'Open Sans', sans-serif; }
+        section#map-section div#map-event-list #event-list-area .event-list-item a.button-rsvp:hover {
+          color: white !important; }
+        section#map-section div#map-event-list #event-list-area .event-list-item a[href='javascript: void(0);'] {
+          color: #333333;
+          text-decoration: none;
+          cursor: text; }
+        section#map-section div#map-event-list #event-list-area .event-list-item h5 {
+          margin-bottom: 0; }
+        section#map-section div#map-event-list #event-list-area .event-list-item h3 {
+          margin-top: 0;
+          margin-bottom: 0; }
+        section#map-section div#map-event-list #event-list-area .event-list-item h4.event-organizer {
+          margin-top: 0;
+          font-size: 0.75em;
+          text-transform: uppercase;
+          font-weight: normal;
+          letter-spacing: 1px; }
+        section#map-section div#map-event-list #event-list-area .event-list-item #event-state-name h2 img {
+          height: 30px;
+          vertical-align: middle; }
+        section#map-section div#map-event-list #event-list-area .event-list-item #event-state-name h2 span {
+          display: inline-block;
+          vertical-align: middle;
+          color: #ea504e;
+          text-transform: uppercase;
+          font-size: 19px; }
+        section#map-section div#map-event-list #event-list-area .event-list-item .event-item-date {
+          color: #babbba;
+          display: block;
+          font-size: 0.9em; }
+        section#map-section div#map-event-list #event-list-area .event-list-item h5.event-location {
+          font-weight: normal;
+          font-size: 0.9em;
+          color: #555555; }
+        section#map-section div#map-event-list #event-list-area .event-list-item .event-item-name {
+          font-weight: bold; }
         section#map-section div#map-event-list #event-list-area .event-list-item .event-item-name.event-full {
           color: gray; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics {
@@ -174,9 +279,14 @@ section#map-section {
           section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics .event-item-date {
             display: inline-block; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-location {
-          margin-top: 0.7em; }
+          margin-top: 0.9em; }
+        section#map-section div#map-event-list #event-list-area .event-list-item .event-item-date {
+          color: #babbba;
+          display: block;
+          font-size: 0.9em; }
         section#map-section div#map-event-list #event-list-area .event-list-item > p {
-          margin-bottom: 0; }
+          margin-bottom: 0;
+          margin-top: 16px; }
   section#map-section div#map {
     width: 100%;
     height: 600px; }
@@ -207,6 +317,9 @@ footer {
   body {
     overflow-x: hidden;
     overflow-y: auto; }
+
+  footer {
+    display: none; }
 
   div#header {
     display: none; }
@@ -240,14 +353,14 @@ footer {
       top: -17vh;
       left: 0;
       margin: 0;
-      padding-bottom: 10px;
+      padding-bottom: 7px;
       padding-left: 0;
       padding-top: 0; }
       section#map-section div#map-event-list div#map-instructions {
         display: block;
         background-color: whitesmoke;
         padding: 2%;
-        margin-bottom: 15px;
+        margin-bottom: 7px;
         font-size: 0.7em;
         text-align: center;
         text-transform: uppercase;
@@ -291,7 +404,7 @@ footer {
           margin-bottom: 20px;
           border-width: 1px 0; }
         section#map-section div#map-event-list div#event-list-area div#footer-area {
-          margin-top: 0px !important;
+          margin-top: 5px !important;
           border: solid 3px #EEEEEE !important;
           border-width: 0 !important;
           padding-top: 0px !important;
@@ -305,6 +418,8 @@ footer {
         background-color: white;
         width: 91%;
         padding: 0 2%; }
+        section#map-section div#map-event-list div#event-results-area h2#event-results-count {
+          margin-top: 10px !important; }
         section#map-section div#map-event-list div#event-results-area #bott-bg-logo {
           display: none !important; }
         section#map-section div#map-event-list div#event-results-area #bott-color-logo {

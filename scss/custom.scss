@@ -132,6 +132,7 @@ a {
       &:hover {
         text-decoration: none;
         background-color: $red;
+        color: white;
       }
 
 
@@ -272,34 +273,34 @@ div#social {
         letter-spacing: 1px;}
     }
 
-  #event-state-name {
-    h2 {
-      img {
-        height: 30px;
-        vertical-align: middle;
-        // border: solid 1px lightgray;
-      }
-      span {
-          display: inline-block;
+    #event-state-name {
+      h2 {
+        img {
+          height: 30px;
           vertical-align: middle;
-          color: #ea504e;
-          text-transform: uppercase;
-          font-size: 19px;
+          // border: solid 1px lightgray;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            color: #ea504e;
+            text-transform: uppercase;
+            font-size: 19px;
+        }
       }
+
+    }
+    .event-item-date {
+      color: rgb(186, 187, 186);
+      display: block;
+      font-size: 14px;
     }
 
-  }
-  .event-item-date {
-    color: rgb(186, 187, 186);
-    display: block;
-    font-size: 14px;
-  }
-
-  h5.event-location {
-    font-weight: normal;
-    font-size: 0.9em;
-    color: #555555;
-  }
+    h5.event-location {
+      font-weight: normal;
+      font-size: 0.9em;
+      color: #555555;
+    }
 }
 
 #event-nationwide {
