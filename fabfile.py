@@ -55,7 +55,7 @@ def update_event_data():
 
 
     data['settings']['rsvp'] = rsvp_count + 1318
-    data['settings']['count'] = 3344 # hax.
+    data['settings']['count'] = 3520 # hax.
 
     print "JSON cleaned! %s events, %s RSVP's." % (len(data['results']), data['settings']['rsvp'])
 
