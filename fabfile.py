@@ -54,7 +54,7 @@ def update_event_data():
     data_out = {'results': map(clean_result, filter(remove_the_mormons, data['results']))}
 
 
-    data['settings']['rsvp'] = rsvp_count + 1318
+    data['settings']['rsvp'] = 104290
     data['settings']['count'] = 3520 # hax.
 
     print "JSON cleaned! %s events, %s RSVP's." % (len(data['results']), data['settings']['rsvp'])
