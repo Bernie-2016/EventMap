@@ -599,9 +599,11 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
         today.setMinutes(0);
         today.setSeconds(0);
 
+    var inTwoMonths = new Date(new Date(today).setMonth(today.getMonth()+2));
+
     bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
-      return d.Date >= today;
-      // return d.Date <= weekEnd && d.Date >= weekStart;
+      // return d.Date >= today;
+      return d.Date <= inTwoMonths && d.Date >= today;
     });
 
     loadZipcodeData();

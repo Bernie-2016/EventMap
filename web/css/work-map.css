@@ -31,7 +31,7 @@
     vertical-align: middle;
     margin-left: 4px; }
   .event-type.campaign-work .event-bullet {
-    color: #A6873C; }
+    color: #AD50C7; }
   .event-type.rally .event-bullet {
     color: #F55B5B; }
   .event-type.meetup .event-bullet {
@@ -52,7 +52,7 @@
   stroke: white;
   stroke-width: 2px; }
   #map svg circle.campaign-work {
-    fill: #A6873C; }
+    fill: #AD50C7; }
   #map svg circle.grassroots-event {
     fill: #258011; }
   #map svg circle.official-rally {
