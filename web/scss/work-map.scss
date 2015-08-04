@@ -1,0 +1,282 @@
+// div#header {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 98% !important;
+//   padding: 0 1% 10px !important;
+//   // background-color: rgba(255,255,255, 0.5);
+//   // background: transparent;
+//   background: transparent;
+
+//   border: none;
+//   z-index: 100;
+
+//   a#header-logo {
+//     padding: 0;
+//   }
+
+//   nav ul {
+//     margin: 10px 0 5px;
+//     li {
+//       > * {
+//         vertical-align: middle;
+//       }
+//     }
+//   }
+// }
+
+// #map-section {
+//   height: 100vh !important;
+//   background-image: url(../img/map-img.png);
+//   background-size: cover;
+//   background-position: center right;
+//   // margin-top: -20px;
+
+//   #congratulations-square {
+//     width: 90%;
+//     margin-left: 50%;
+//     transform: translate(-50%, 18%);
+//     position: relative;
+//     height: 75vh;
+//     box-shadow: 0px 4px 4px rgba(0,0,0, 0.2);
+//     border-radius: 20px;
+
+//     #congratulations-left {
+//       width: 50%;
+//       height: 100%;
+//       float: left;
+//       border-radius: 20px 0 0 20px;
+//       overflow: hidden;
+
+//       // img {
+//       //   width: 100%;
+//       //   margin-left: 50%;
+//       //   margin-top: 50%;
+//       //   transform: translate(-50%, -50%);
+
+//       // }
+//       #camera-setup {
+//         position: relative;
+//         width: 100%;
+//         height: 100%;
+
+
+//         .camera_wrap {
+//           width: 100%;
+//           height: 100%;
+
+//           .camera-item {
+//             position: absolute;
+//             z-index: 1000;
+//             top: 0;
+//             left: 0;
+//             width: inherit;
+//             height: inherit;
+//             background-size: cover;
+//             background-position: center center;
+//             background-repeat: none;
+
+//             .camera_caption_container {
+//               position: relative;
+//               background-size: cover;
+//               background-position: center center;
+
+//               width: 100%;
+//               height: 100%;
+
+//               .camera_caption {
+//                 position: absolute;
+//                 bottom: 0;
+//                 right: 0;
+//                 background-color: rgba(0, 0, 0, 0.6);
+//                 color: white;
+//                 font-size: 0.7em;
+//                 padding: 0.2em 0.6em 0.2em 0.4em;
+//                 text-transform: none;
+//                 font-weight: normal;
+//                 letter-spacing: 0.04em;
+//               }
+//             }
+//           }
+//         }
+//       }
+
+//     }
+
+//     #congratulations-right {
+//       width: 50%;
+//       float: right;
+//       background-color: rgba(255,255,255,0.94);
+//       border-radius: 0 20px 20px 0;
+//       height: 100%;
+
+//       h1 {
+//         text-transform: uppercase;
+//         letter-spacing: 3px;
+//         font-size: 2.8em;
+//         margin: 0.5em 0 0 5%;
+//         color: #F55B5B;
+//         text-align: left;
+//         text-shadow: 0 1px 0 rgba(255,255,0,0.4);
+//         font-weight: normal;
+//       }
+
+//       p {
+//         padding: 0 5%;
+//         line-height: 2;
+//         font-size: 1.1em;
+//         text-align: justify;
+//         color: #333333;
+
+//       }
+
+//        .button-work {
+//         color: white;
+//         font-size: 1.2em;
+//         text-transform: uppercase;
+//         letter-spacing: 3px;
+//         padding: 0.5em 2em;
+//         display: inline-block;
+//         background-color: #43bc65;
+//         font-weight: bold;
+//         border-radius: 2px;
+//         margin: 20px 0 40px;
+//         text-decoration: none;
+
+//         &:hover {
+//           background-color: #35924F;
+//         }
+//       }
+//     }
+
+//   }
+// }
+
+// $phone-min-width: 320px;
+// $phone-max-width: 720px;
+
+// /* For Phones! */
+// @media only screen
+//   and (min-width: $phone-min-width)
+//   and (max-width: $phone-max-width) {
+//   footer {
+//     display: block !important;
+//     position: relative;
+//   }
+//   body {
+//     #map-section {
+//       background-image: none;
+//       min-height: 0;
+//       height: 100% !important;
+//       box-shadow: none !important;
+//       // overflow: auto;
+//       display: block;
+//       padding-bottom: 2em;
+
+//       #congratulations-square {
+//         width: 100%;
+//         border-radius: 0;
+//         transform: translate(0,0);
+//         margin: 0;
+//         position: relative;
+//         height: auto !important;
+//         box-shadow: none;
+
+//         #congratulations-left, #congratulations-right {
+//           float: none;
+//           width: 100%;
+//           border-radius: 0;
+//           width: 100vmin;
+//           height: 100vmin;
+//           clear: both;
+//           box-shadow: none;
+//         }
+//         #congratulations-left {
+//           background-position: center bottom;
+//         }
+//         #congratulations-right {
+//             min-height: auto !important;
+//             height: auto !important;
+
+//             h1 { font-size: 2em; }
+//         }
+//       }
+//     }
+//   }
+//   div#header {
+//     width: 100% !important;
+//     padding: 0 !important;
+//     display: block;
+//     position: relative;
+//     nav {
+//       display: block;
+//       margin: 0 !important; padding: 0;
+//       ul#nav {
+//         margin: 0 !important; padding: 0;
+//         li#social { display: none; }
+//         li#contribute {
+//           margin: 0; padding: 0;
+//           border-radius: 0 !important;
+//           a {
+//             margin:0;
+//             width: 100%;
+//             padding: 0.9em 0;
+//             display: inline-block;
+//             border-radius: 0 !important;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .leaflet-popup-content-wrapper {
+//   position: relative;
+// }
+// .leaflet-popup-close-button+.leaflet-popup-content-wrapper .leaflet-popup-content {
+//   padding-top: 20px;
+// }
+
+.event-type {
+    position: absolute;
+    top: -8px;
+    width: auto;
+    padding: 0px 10px 0px;
+    left: -8px;
+    text-transform: uppercase;
+    color: #333333;
+    font-weight: bold;
+    font-size: 10px;
+    box-shadow: 1px 1px rgba(0,0,0,0.1);
+
+    &.campaign-work {
+      background-color: #FFF0AF;
+    }
+    &.rally {
+      background-color: #F55B5B;
+      color: white;
+    }
+    &.meetup {
+      background-color: #E2FFCB;
+    }
+}
+
+.event-list-item {
+  position: relative;
+  .event-type {
+    left: auto;
+    right: 0;
+    top: -1px;
+  }
+}
+
+#map svg {
+
+circle {
+  stroke: black;
+  stroke-width: 1px;
+  &.campaign-work { fill: #FFD20C;}
+  &.grassroots-event { fill: #61D803; }
+  &.official-rally { fill: #ea504e !important; }
+}
+}

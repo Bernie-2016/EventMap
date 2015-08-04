@@ -1,0 +1,37 @@
+.event-type {
+  position: absolute;
+  top: -8px;
+  width: auto;
+  padding: 0px 10px 0px;
+  left: -8px;
+  text-transform: uppercase;
+  color: #333333;
+  font-weight: bold;
+  font-size: 10px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.1); }
+  .event-type.campaign-work {
+    background-color: #FFF0AF; }
+  .event-type.rally {
+    background-color: #F55B5B;
+    color: white; }
+  .event-type.meetup {
+    background-color: #E2FFCB; }
+
+.event-list-item {
+  position: relative; }
+  .event-list-item .event-type {
+    left: auto;
+    right: 0;
+    top: -1px; }
+
+#map svg circle {
+  stroke: black;
+  stroke-width: 1px; }
+  #map svg circle.campaign-work {
+    fill: #FFD20C; }
+  #map svg circle.grassroots-event {
+    fill: #61D803; }
+  #map svg circle.official-rally {
+    fill: #ea504e !important; }
+
+/*# sourceMappingURL=work-map.css.map */
