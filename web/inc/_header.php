@@ -1,4 +1,5 @@
 <div id='header'>
+  <h1 id='title'><a id='meetup-title' href='/'>Meetups</a></h1>
   <a id='header-logo' href='/' ><img src='/img/logo.png' style='float: left; margin-left: 10px;' /></a>
 
   <div class='main-title-area'>

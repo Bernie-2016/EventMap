@@ -306,7 +306,9 @@ section#map-section {
       .leaflet-overlay-pane svg circle#center-item {
         fill: #147FD7; }
       .leaflet-overlay-pane svg circle.circle-selected {
-        fill: #147FD7 !important; }
+        stroke: white !important;
+        stroke-width: 5px !important;
+        opacity: 1; }
 
 footer {
   padding-top: 10px;

@@ -1,3 +1,15 @@
+#header #title {
+  position: absolute;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-weight: normal;
+  top: 2px;
+  left: 140px;
+  letter-spacing: 5px;
+  font-size: 1.3em; }
+  #header #title a {
+    text-decoration: none; }
+
 .event-type {
   position: absolute;
   top: -16px;
@@ -45,5 +57,10 @@
     fill: #258011; }
   #map svg circle.official-rally {
     fill: #F55B5B !important; }
+
+.leaflet-popup-close-button {
+  z-index: 1000;
+  top: -13px;
+  right: 3px; }
 
 /*# sourceMappingURL=work-map.css.map */

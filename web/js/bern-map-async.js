@@ -226,6 +226,8 @@ bernMap.draw = function() {
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
                                   ;
+                              }).call(function () {
+                                    $(".official-rally").prependTo($(that.activityLayer[0]));
                               });
 
 
@@ -510,7 +512,7 @@ bernMap.eventList = function(container) {
           var locationId = $(this).attr("data-location-id");
           // console.log(locationId, d3.select("circle[data-location-id='" + locationId + "']"));
           d3.select("circle[data-location-id='" + locationId + "']")
-            // .attr("fill", "#147FD7")
+            .attr("fill", "#147FD7")
             // .attr("opacity", "1")
             .classed("circle-selected", true);
           // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 5);

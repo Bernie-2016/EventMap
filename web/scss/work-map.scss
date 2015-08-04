@@ -241,6 +241,18 @@ $yellow: #A6873C;
 $red: #F55B5B;
 $green: #258011;
 
+#header #title {
+      position: absolute;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    font-weight: normal;
+    top: 2px;
+    left: 140px;
+    letter-spacing: 5px;
+    font-size: 1.3em;
+    a { text-decoration: none; }
+}
+
 .event-type {
     position: absolute;
     top: -16px;
@@ -316,4 +328,11 @@ circle {
   &.grassroots-event { fill: $green; }
   &.official-rally { fill: $red !important; }
 }
+}
+
+.leaflet-popup-close-button {
+  z-index: 1000;
+  top: -13px;
+  right: 3px;
+  // &:hover { background: transparent;}
 }

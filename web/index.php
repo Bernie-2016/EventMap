@@ -18,7 +18,7 @@
     <link href='/css/work-map.css?v=1.11' rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <title>July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events</title>
+    <title>Bernie Sanders 2016 Campaign Work Map</title>
   </head>
   <body>
 
@@ -49,9 +49,9 @@ vertical-align"> organizing kickoff, july 29</span>
           <ul id='distance-list'>
               <li>
                         <input type='radio' id='mile-5' name='distance' value='5' /> <label for='mile-5'>5mi</label></li><li>
-                        <input type='radio' id='mile-10' name='distance' value='10' /> <label for='mile-10'>10mi</label></li><li>
+                        <input type='radio' id='mile-10' name='distance' value='10' checked='checked' /> <label for='mile-10'>10mi</label></li><li>
                         <input type='radio' id='mile-20' name='distance' value='20' /> <label for='mile-20'>20mi</label></li><li>
-                        <input type='radio' id='mile-50' name='distance' value='50' checked='checked' /> <label for='mile-50'>50mi</label></li><li>
+                        <input type='radio' id='mile-50' name='distance' value='50' /> <label for='mile-50'>50mi</label></li><li>
                         <input type='radio' id='mile-100' name='distance' value='100' /> <label for='mile-100'>100mi</label></li><li>
                         <input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>          </ul>
 
