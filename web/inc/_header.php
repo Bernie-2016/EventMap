@@ -9,13 +9,16 @@
 
         <!-- <span>Sign up to attend a July 29 Organizing Kickoff event! &nbsp;&nbsp;</span> -->
         <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="I'm attending a July 29 meeting for Bernie Sanders' campaign for president! See events near you:" data-related="BernieSanders" data-count="none">Tweet</a>
-      <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button"></div> -->
+      <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button"></div>
+
+https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events
+    -->
 
   </div>
 
   <nav>
     <ul id="nav">
-      <li><a href='https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events' class='contribute contribute-big' target='_blank'>Contribute</a></li>
+      <li><a href='https://secure.actblue.com/contribute/page/reddit-for-bernie/' class='contribute contribute-big' target='_blank'>Contribute</a></li>
     </ul>
   </nav>
   <div style='clear: both'></div>

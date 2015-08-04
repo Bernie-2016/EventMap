@@ -237,46 +237,83 @@
 //   padding-top: 20px;
 // }
 
+$yellow: #A6873C;
+$red: #F55B5B;
+$green: #258011;
+
 .event-type {
     position: absolute;
-    top: -8px;
-    width: auto;
-    padding: 0px 10px 0px;
-    left: -8px;
+    top: -16px;
+    width: 100%;
+    padding: 2px 10px 2px;
+    font-size: 1em;
+    left: 0px;
     text-transform: uppercase;
-    color: #333333;
-    font-weight: bold;
-    font-size: 10px;
-    box-shadow: 1px 1px rgba(0,0,0,0.1);
+    color: gray;
+    font-weight: normal;
+    border-radius: 10px 10px 0 0;
+    background: whitesmoke;
+    letter-spacing: 1px;
+
+    .event-bullet {
+      display: inline-block;
+      font-size: 2.5em;
+      vertical-align: middle;
+    }
+
+    .event-text {
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    // text-shadow: -1px -1px rgba(0,0,0,0.3);
+
+    // .event-bullet {
+    //   display: none;
+    // }
+
+    // color: white;
+    // &.campaign-work {
+    //   background-color: $yellow;
+    // }
+    // &.rally {
+    //   background-color: $red;
+    // }
+    // &.meetup {
+    //   background-color: $green;
+    // }
 
     &.campaign-work {
-      background-color: #FFF0AF;
+      .event-bullet { color: $yellow; }
     }
     &.rally {
-      background-color: #F55B5B;
-      color: white;
+      .event-bullet { color: $red; }
     }
     &.meetup {
-      background-color: #E2FFCB;
+      .event-bullet { color: $green; }
     }
 }
 
 .event-list-item {
   position: relative;
   .event-type {
-    left: auto;
-    right: 0;
-    top: -1px;
+    position: relative;
+    color: gray;
+    background: none;
+    top: auto;
+    text-shadow: none;
+    font-size: 0.8em;
+    padding: 0;
+
   }
 }
 
 #map svg {
 
 circle {
-  stroke: black;
-  stroke-width: 1px;
-  &.campaign-work { fill: #FFD20C;}
-  &.grassroots-event { fill: #61D803; }
-  &.official-rally { fill: #ea504e !important; }
+  stroke: white;
+  stroke-width: 2px;
+  &.campaign-work { fill: $yellow;}
+  &.grassroots-event { fill: $green; }
+  &.official-rally { fill: $red !important; }
 }
 }

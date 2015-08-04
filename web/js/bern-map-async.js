@@ -402,14 +402,17 @@ bernMap.eventList = function(container) {
             + "<h5 class='event-location'>" + d.properties.Location + "</h5>";
         }
         else {
+
+
+
           console.log(dateFormat(d.properties.Date));
-          return "<div class='event-type " + eventType + "'>" + eventText + "</div>"
-            + "<h5><span class='event-item-date'>"
+          return "<h5><span class='event-item-date'>"
             + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
             + (d.properties.Date ? ("" + dateFormat(d.properties.Date)) : "")
             + (d.properties.TimeStart ? " &nbsp;&nbsp; " + timeFormat(d.properties.TimeStart) : "")
             + "</span></h5>"
             + "<h3><a target='_blank' href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
             + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>JOIN</a>"

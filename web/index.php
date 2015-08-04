@@ -68,7 +68,7 @@ vertical-align"> organizing kickoff, july 29</span>
   </div>
 </section>
 <footer>
-  <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a> | Rapinski Castillo 2016. I'm not affiliated with the Bernie Sanders Campaign</sub>
+  <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a> This is is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders</a> Campaign</sub>
 
 </footer>
 
