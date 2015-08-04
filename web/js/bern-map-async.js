@@ -413,7 +413,7 @@ bernMap.eventList = function(container) {
             + (d.properties.Date ? ("" + dateFormat(d.properties.Date)) : "")
             + (d.properties.TimeStart ? " &nbsp;&nbsp; " + timeFormat(d.properties.TimeStart) : "")
             + "</span></h5>"
-            + "<h3><a target='_blank' href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+            + "<h3><a target='_blank' href='" + d.properties.link + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
             + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
