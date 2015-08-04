@@ -38,11 +38,24 @@ foreach ( $events->results as $item ):
   //   $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
   // }
 
+  $lat = 0;
+  $lon = 0;
+  if(isset($item->venue->lat) && $item->venue->lat != 0) {
+    $lat = $item->venue->lat;
+  } else {
+    $lat = $item->group->group_lat;
+  }
+
+  if(isset($item->venue->lon) && $item->venue->lon != 0) {
+    $lon = $item->venue->lon;
+  } else {
+    $lon = $item->group->group_lon;
+  }
+
   echo @join("&lt;TAB&gt;", array(
             $item->event_url,
             $name, $start_time->format('m/d/Y'),
             $start_time->format('h:i A'),
-            $end_time ? $end_time->format('h:i A') : "",
             isset($item->venue) ? join("", array(
                 isset($item->venue->name) ? ($item->venue->name ." "):"",
                 isset($item->venue->address_1) ? ($item->venue->address_1 . " ") : "",
@@ -51,6 +64,8 @@ foreach ( $events->results as $item ):
                 isset($item->venue->zip) ? ($item->venue->zip . " ") : "", )) : "",
             isset($item->venue) && isset($item->venue->state) ? $item->venue->state : "NONE",
             isset($item->venue) && isset($item->venue->zip) ? $item->venue->zip : "NONE",
+            $lat,
+            $lon,
             isset($item->group) ?
               $item->group->name : "",
             isset($item->group) ?
