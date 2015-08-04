@@ -68,7 +68,7 @@ vertical-align"> organizing kickoff, july 29</span>
   </div>
 </section>
 <footer>
-  <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a>. This site is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders</a> Campaign</sub>. <a href='mailto:rapi@bernie2016events.org'>Contact Us</a>.
+  <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a>. This site is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders</a> Campaign. <a href='mailto:rapi@bernie2016events.org'>Contact Us</a>.</sub>
 
 </footer>
 
