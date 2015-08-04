@@ -31,13 +31,13 @@
   <div id='map'></div>
   <div id='map-event-list'>
     <div id='map-instructions'>
-      <span style="vertical-align: middle;font-weight: 600;">Attend a</span>  <img src="/img/logo.png" style="
+      <span style="vertical-align: middle;font-weight: 600;"></span>  <img src="/img/logo.png" style="
     height: 20px;
 
     vertical-align: middle;
 "> <span style="
 
-vertical-align"> organizing kickoff, july 29</span>
+vertical-align"> Let's get to work!</span>
     </div>
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
