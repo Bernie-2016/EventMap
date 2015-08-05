@@ -95,7 +95,7 @@ vertical-align"> Let's get to work!</span>
   </div>
 </section>
 <footer>
-  <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a>. This site is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders</a> Campaign. <a href='mailto:rapi@bernie2016events.org'>Contact Us</a>.</sub>
+  <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a>. This site is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders</a> Campaign. <a href='mailto:rapi@bernie2016events.org'>Contact&nbsp;Us</a>.</sub>
 
 </footer>
 

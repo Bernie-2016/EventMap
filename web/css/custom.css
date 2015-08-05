@@ -3,8 +3,7 @@ html, body {
   padding: 0px;
   font-family: "Open Sans",sans-serif;
   height: 100%;
-  width: 100%;
-  overflow: hidden; }
+  width: 100%; }
 
 #social > * {
   vertical-align: middle; }
