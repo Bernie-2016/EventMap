@@ -85,11 +85,16 @@ vertical-align"> Let's get to work!</span>
         </div>
 
       <div id='event-results-area'>
-        <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
+        <h2 id='event-results-count' style='display: none'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
           <div id="event-city"></div>
         </h2>
         <div id='event-list-area'>
           <ul id='event-list'>
+            <li>
+              <a href='http://www.voteforbernie.org/debate/'>
+                <img src='http://i.imgur.com/isjLHv5.png' width='100%;'/>
+              </a>
+            </li>
           </ul>
         </div>
   </div>
