@@ -52,12 +52,12 @@ $jq(window).on("resize", function() {
     $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
     $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
 
-    $("input[name='zipcode']").attr("placeholder", "zipcode");
+    // $("input[name='zipcode']").attr("placeholder", "zipcode");
   } else {
-    // $("#map-section, #map").height(wH - h - 25).css("marginTop", "auto");
+    $("#map-section, #map").height(wH - h - 25).css("marginTop", "auto");
     $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240 - 25)
     $("#map-event-list").css("top", "20px");
-    $("input[name='zipcode']").attr("placeholder", "Enter zipcode to find events");
+    // $("input[name='zipcode']").attr("placeholder", "Enter zipcode to find events");
   }
 
 
@@ -98,6 +98,8 @@ bernMap.d.aggregatedRSVP = null;
 
 var bernMap = bernMap || {};
 bernMap.draw = function() {
+
+
   this.filteredZipcode = null;
 
   this.svg = d3.select(bernMap.mapBox.getPanes().overlayPane).append("svg");
@@ -105,6 +107,8 @@ bernMap.draw = function() {
   this.zipcodeElements = null;
 
   this.centerItem = null;
+
+  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true};
 
   this._projectPoint = function(x,y) {
     var point = bernMap.mapBox.latLngToLayerPoint(new L.LatLng(y, x));
@@ -127,6 +131,19 @@ bernMap.draw = function() {
 
   this._deserialize = function(query) {
     return query.split("&").map(function(d) { var q = d.split("="); return [q[0], q[1]]; }).reduce(function(init, next) { init[next[0]] = next[1]; return init;}, {});
+  };
+
+  //****
+  // Show / hide event types
+  this.changeVisibility = function(type, visibility) {
+    var that = this;
+    switch (type) {
+      case "CW" : that.visibleTypes.volunteerWork = visibility; break;
+      case "E" : that.visibleTypes.grassrootsEvent = visibility; break;
+      case "R" : that.visibleTypes.officialRally = visibility; break;
+    };
+
+    that.replot();
   };
 
   // *********************
@@ -306,6 +323,13 @@ bernMap.draw = function() {
                 case "CW" : return bernMap.mapBox.getZoom(); break;
                 case "E" : return bernMap.mapBox.getZoom(); break;
                 case "R" : return bernMap.mapBox.getZoom() * 3; break;
+              }
+            })
+            .style("visibility", function(d) {
+              switch (d.properties.type) {
+                case "CW" : return that.visibleTypes.volunteerWork ? "inherit" : "hidden"; break;
+                case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
+                case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
               }
             })
               // function (d) {
@@ -663,11 +687,17 @@ function loadZipcodeData() {
 
 }
 
+$jq("input[name=eventtype]").on("click", function(d) {
+  var $this = $(this);
+  bernie.changeVisibility($this.val(),$this[0].checked);
+});
+
 $jq("form input[type=radio]").on("click", function(d) {
   if( $jq("form input[name=zipcode]").val().length == 5 ) {
     window.location.hash = $(this).closest("form").serialize();
   }
 });
+
 $jq("form input[name=zipcode]").on("keyup", function(e) {
   // bernie.filter($(this).val());
   if (e.keyCode == 13|| e.which == 13) {

@@ -1,11 +1,15 @@
 $blue: #147FD7;
 $red: #ea504e;
 
-html,body{
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Open Sans",sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
+
 
 #social > * {
   vertical-align: middle;
@@ -93,6 +97,8 @@ div#header {
     }
   }
 }
+
+.clear { clear: both; }
 
 /** FOOTER */
 footer {

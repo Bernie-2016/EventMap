@@ -10,6 +10,51 @@
   #header #title a {
     text-decoration: none; }
 
+#map-section #map-event-list #zip-and-distance #zipcode-container {
+  width: 30%;
+  min-width: auto;
+  float: left; }
+  #map-section #map-event-list #zip-and-distance #zipcode-container input[name=zipcode] {
+    width: 99%;
+    min-width: auto;
+    text-transform: uppercase;
+    letter-spacing: 2px; }
+#map-section #map-event-list #zip-and-distance #distance-container {
+  float: left;
+  margin-top: -5px;
+  margin-left: 5px;
+  width: 65%; }
+#map-section #map-event-list #event-type-container {
+  margin-top: 10px;
+  border-radius: 3px;
+  background-color: whitesmoke; }
+  #map-section #map-event-list #event-type-container #event-type-list {
+    text-align: center; }
+    #map-section #map-event-list #event-type-container #event-type-list .event-type-item {
+      border: none;
+      margin: 0;
+      display: inline-block;
+      padding: 1%; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] {
+        display: none; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] + label {
+        cursor: pointer; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] + label .etype-bullet {
+        color: lightgray; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='E'] + label .etype-bullet {
+        color: #258011; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='CW'] + label .etype-bullet {
+        color: #AD50C7; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='R'] + label .etype-bullet {
+        color: #F55B5B; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-bullet {
+        vertical-align: middle;
+        font-size: 0.8em; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-name {
+        vertical-align: middle;
+        text-transform: uppercase;
+        font-size: 0.55em; }
+
 .event-type {
   position: absolute;
   top: -16px;
@@ -62,5 +107,14 @@
   z-index: 1000;
   top: -13px;
   right: 3px; }
+
+/* For Phones! */
+@media only screen and (min-width: 320px) and (max-width: 720px) {
+  #map-section #map-event-list #event-type-container {
+    border: 1px solid whitesmoke;
+    background-color: white;
+    width: 95%;
+    margin: 2%;
+    padding-bottom: 3px; } }
 
 /*# sourceMappingURL=work-map.css.map */

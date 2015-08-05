@@ -253,6 +253,66 @@ $green: #258011;
     a { text-decoration: none; }
 }
 
+#map-section {
+  #map-event-list {
+    #zip-and-distance {
+      #zipcode-container {
+        width: 30%;
+        min-width: auto;
+        float: left;
+
+        input[name=zipcode] {
+          width: 99%;
+          min-width: auto;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+      }
+      #distance-container {
+        float: left;
+        margin-top: -5px;
+        margin-left: 5px;
+        width: 65%;
+      }
+    }
+
+      #event-type-container {
+        margin-top: 10px;
+        border-radius: 3px;
+        background-color: whitesmoke;
+
+        #event-type-list {
+          text-align: center;
+          .event-type-item {
+            border: none;
+            // padding: none;
+            margin: 0;
+            display: inline-block;
+            padding: 1%;
+
+            input[name='eventtype'] { display: none; }
+            input[name='eventtype'] + label {
+              cursor: pointer;
+            }
+            input[name='eventtype'] + label .etype-bullet {
+                color: lightgray;
+            }
+            input[name='eventtype']:checked  {
+               &[value='E'] + label .etype-bullet { color: $green; }
+               &[value='CW'] + label .etype-bullet { color: $yellow; }
+               &[value='R'] + label .etype-bullet { color: $red; }
+            }
+            .etype-bullet { vertical-align: middle; font-size: 0.8em; }
+            .etype-name { vertical-align: middle;
+              text-transform: uppercase;
+              font-size: 0.55em;
+            }
+          }
+        }
+      }
+  }
+}
+
 .event-type {
     position: absolute;
     top: -16px;
@@ -335,4 +395,22 @@ circle {
   top: -13px;
   right: 3px;
   // &:hover { background: transparent;}
+}
+
+$phone-min-width: 320px;
+$phone-max-width: 720px;
+
+/* For Phones! */
+@media only screen
+  and (min-width: $phone-min-width)
+  and (max-width: $phone-max-width) {
+
+  #map-section #map-event-list #event-type-container {
+      border: 1px solid whitesmoke;
+      background-color: white;
+      width: 95%;
+      margin: 2%;
+      padding-bottom: 3px;
+  }
+
 }

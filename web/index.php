@@ -42,7 +42,7 @@ vertical-align"> Let's get to work!</span>
       <form id='zip-and-distance' action="#">
         <div id="error-box"></div>
         <div id='zipcode-container'>
-          <input type='text' name='zipcode' id='input-text-zipcode' value='' placeholder='Enter zipcode to find events' maxlength='5'/>
+          <input type='text' name='zipcode' id='input-text-zipcode' value='' placeholder='Zipcode' maxlength='5'/>
           <input type='submit' id='hidden-submit' style='visibility: hidden; position: absolute; right:0;top:0; z-index: -1;'/>
         </div>
         <div id='distance-container'>
@@ -56,7 +56,34 @@ vertical-align"> Let's get to work!</span>
                         <input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>          </ul>
 
         </div>
-      </form>
+        </form>
+        <div class='clear'></div>
+        <div id='event-type-container'>
+          <ul id='event-type-list'>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
+              <label for='event-R'>
+                <span class='etype-bullet etype-selected'>&#9673;</span>
+                <span class='etype-name'>Official Rally</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-CW' value='CW' />
+              <label for='event-CW'>
+                <span class='etype-bullet etype-selected'>&#9673;</span>
+                <span class='etype-name'>Volunteer Work</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-E' value='E' />
+              <label for='event-E'>
+                <span class='etype-bullet etype-selected'>&#9673;</span>
+                <span class='etype-name'>Grassroots Events</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
       <div id='event-results-area'>
         <h2 id='event-results-count'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
           <div id="event-city"></div>
@@ -64,7 +91,7 @@ vertical-align"> Let's get to work!</span>
         <div id='event-list-area'>
           <ul id='event-list'>
           </ul>
-      </div>
+        </div>
   </div>
 </section>
 <footer>

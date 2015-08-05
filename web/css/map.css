@@ -211,11 +211,11 @@ section#map-section {
             display: none; }
           section#map-section div#map-event-list form#zip-and-distance ul#distance-list li input[type=radio]:checked + label {
             font-weight: bold;
-            font-size: 1em;
+            font-size: 0.8em;
             color: #147FD7; }
           section#map-section div#map-event-list form#zip-and-distance ul#distance-list li label {
             color: gray;
-            font-size: 0.8em;
+            font-size: 0.7em;
             text-transform: uppercase;
             padding: 0 5px;
             cursor: pointer; }
