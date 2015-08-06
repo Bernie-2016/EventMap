@@ -91,8 +91,9 @@ vertical-align"> Let's get to work!</span>
         <div id='event-list-area'>
           <ul id='event-list'>
             <li>
-              <a href='http://www.voteforbernie.org/debate/'>
-                <img src='http://i.imgur.com/isjLHv5.png' width='100%;'/>
+              <h5 id='upcoming-event'>Upcoming nationwide event</h5>
+              <a href='https://www.facebook.com/events/835545563198517/'>
+                <img src='./img/ad.png' style='width: 100%; height: auto;'/>
               </a>
             </li>
           </ul>

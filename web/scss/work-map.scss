@@ -237,6 +237,7 @@
 //   padding-top: 20px;
 // }
 
+$blue: #147FD7;
 $yellow: #AD50C7;
 $red: #F55B5B;
 $green: #258011;
@@ -388,6 +389,20 @@ footer {
     padding: 0;
 
   }
+}
+
+#upcoming-event {
+  width: 100%;
+  padding: 4px 0;
+  background-color: $blue;
+  margin-top: 5px;
+  text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-size: 11px;
 }
 
 #map svg {

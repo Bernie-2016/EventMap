@@ -93,6 +93,19 @@
     font-size: 0.8em;
     padding: 0; }
 
+#upcoming-event {
+  width: 100%;
+  padding: 4px 0;
+  background-color: #147FD7;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  font-size: 11px; }
+
 #map svg circle {
   stroke: white;
   stroke-width: 2px; }
