@@ -1,0 +1,143 @@
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; }
+
+ul {
+  list-style-type: none;
+  position: relative;
+  padding: 0;
+  margin: 0; }
+  ul li {
+    padding: 0;
+    margin: 0; }
+
+#header h1 {
+  color: white;
+  margin: 0;
+  padding: 0.3em;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #147FD7;
+  letter-spacing: 2px; }
+#header h4 {
+  text-transform: uppercase;
+  color: lightgray;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  text-align: center; }
+
+#ordered-list-container {
+  position: relative; }
+  #ordered-list-container #ordered-list-number {
+    font-size: 1.5em;
+    font-weight: 600;
+    position: absolute; }
+  #ordered-list-container #ordered-list {
+    text-align: center; }
+    #ordered-list-container #ordered-list .ordered-list-item {
+      display: inline-block;
+      list-style-type: none;
+      position: relative;
+      padding: 4px 6px;
+      margin: 1px 0;
+      border-radius: 4px;
+      background-color: whitesmoke;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 0.8em;
+      text-align: left;
+      width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      #ordered-list-container #ordered-list .ordered-list-item.highlight {
+        background-color: #ea504e; }
+        #ordered-list-container #ordered-list .ordered-list-item.highlight .empty {
+          color: white !important; }
+      #ordered-list-container #ordered-list .ordered-list-item.item-show-all {
+        white-space: normal;
+        overflow: auto; }
+      #ordered-list-container #ordered-list .ordered-list-item.ui-sortable-placeholder, #ordered-list-container #ordered-list .ordered-list-item .droppable-list-item {
+        visibility: visible !important;
+        background-color: lightgray;
+        box-shadow: -2px -2px 3px rgba(255, 255, 255, 0.5);
+        text-align: center;
+        color: gray;
+        font-size: 1em;
+        font-weight: 600;
+        text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.7);
+        height: auto !important; }
+      #ordered-list-container #ordered-list .ordered-list-item span.empty {
+        font-size: 1em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        color: lightgray; }
+      #ordered-list-container #ordered-list .ordered-list-item .droppable-list-item {
+        background-color: whitesmoke;
+        border: 2px gray dashed;
+        padding: 4px 0;
+        border-radius: 5px; }
+      #ordered-list-container #ordered-list .ordered-list-item.ui-sortable-helper {
+        opacity: 0.6;
+        height: auto !important; }
+
+#quotes-area #quotes-container #quote-count {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  padding: 2px 0;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  background-color: whitesmoke;
+  color: gray;
+  font-weight: 600;
+  letter-spacing: 1px; }
+#quotes-area #quotes-container #quotes-list .ordered-list-item {
+  line-height: 1.75;
+  padding: 0 0.6em; }
+  #quotes-area #quotes-container #quotes-list .ordered-list-item:first-child {
+    position: relative;
+    margin: 10px;
+    border-radius: 4px;
+    left: 0px;
+    top: 0px;
+    background-color: #F1F9FF;
+    color: #333333; }
+#quotes-area #quotes-container #quotes-list .ordered-list-item, #quotes-area #quotes-container #quotes-list .not-ordered-item {
+  display: none; }
+  #quotes-area #quotes-container #quotes-list .ordered-list-item:first-child, #quotes-area #quotes-container #quotes-list .ordered-list-item.ui-draggable-dragging, #quotes-area #quotes-container #quotes-list .not-ordered-item:first-child, #quotes-area #quotes-container #quotes-list .not-ordered-item.ui-draggable-dragging {
+    display: block; }
+  #quotes-area #quotes-container #quotes-list .ordered-list-item.ui-draggable-dragging, #quotes-area #quotes-container #quotes-list .not-ordered-item.ui-draggable-dragging {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    background: #F1F9FF;
+    color: #333333;
+    border-radius: 4px;
+    border: 2px solid #B7E0FF; }
+#quotes-area #quotes-container #quotes-list .not-ordered-item {
+  margin-top: -10px; }
+  #quotes-area #quotes-container #quotes-list .not-ordered-item a {
+    border: 0;
+    border-radius: 0;
+    width: 100%;
+    padding: 1em 0;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: white;
+    background-color: #ea504e;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; }
+
+/*# sourceMappingURL=quotes.css.map */
