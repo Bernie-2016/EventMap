@@ -64,7 +64,7 @@ vertical-align"> Let's get to work!</span>
               <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
               <label for='event-R'>
                 <span class='etype-bullet etype-selected'>&#9673;</span>
-                <span class='etype-name'>Official Rally</span>
+                <span class='etype-name'>Official Event</span>
               </label>
             </li>
             <li class='event-type-item'>

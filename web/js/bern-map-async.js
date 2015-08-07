@@ -414,7 +414,7 @@ bernMap.eventList = function(container) {
      switch (d.properties.type) {
       case "CW": eventType = 'campaign-work'; eventText = "Volunteer Work"; break;
       case "E" : eventType = 'meetup'; eventText = "Grassroots Event"; break;
-      case "R" : eventType = 'rally'; eventText = "Official Rally"; break;
+      case "R" : eventType = 'rally'; eventText = "Official Event"; break;
      }
 
      if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
