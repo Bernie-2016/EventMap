@@ -1,0 +1,123 @@
+{
+  "data": [
+    {
+      "id": 1001,
+      "correspondents" : 5000,
+      "demographic": {
+        "gender": [{"name": "Cis Male", "count": 10},
+                 {"name": "Cis Female", "count": 5},
+                 {"name": "Trans Male", "count": 3},
+                 {"name": "Trans Female", "count": 3}],
+        "ethnicity": [{"name": "Asian", "count": 4},
+                    {"name": "Black", "count": 6},
+                    {"name": "Latino", "count": 7},
+                    {"name": "White", "count": 14}]
+      },
+      "quotes": [
+        {"id": 1, "votes": 50, "quote": "1. We must remember that the struggle for our rights is not the struggle of a day, or a year, or a generation. It is the struggle of a lifetime, and one that must be fought by every generation. Our time to fight is now."},
+        {"id": 2, "votes": 30, "quote": "2. Jeb Bush saying that a half billion dollars for women's health care is too much shows just how low the Republican candidates will sink to cater to the radical fringe in this election. We must fight Republican attacks on women's health care."},
+        {"id": 3, "votes": 10, "quote": "3. We will take on the current ruling class. From Wall Street, to the insurance companies, to the drug companies to Big Energy, to the Koch Brothers to the Military Industrial Complex."},
+        {"id": 4, "votes": 25, "quote": "4. For decades, Republicans have been trying to deny a woman the right to control her own body. At a time when 35 million Americans lack health insurance, Planned Parenthood clinics all over the country provide health care to over 2 million women each year, including 1.5 million low-income patients. Instead of trying to take away health care from millions of women, we should be passing legislation to provide family and medical leave to all of our families."},
+        {"id": 5, "votes": 34, "quote": "5. I understand that Republicans, including many of those running for president, are dependent on the Koch brothers, oil companies and other fossil-fuel contributors. Maybe for once they can overcome the needs of their campaign contributors and worry instead about the planet."},
+        {"id": 6, "votes": 20, "quote": "6. We cannot live in a vibrant democracy unless people get divergent sources of information. Unfortunately, today a few massive multinational media conglomerates control more and more of the sources of our information."},
+        {"id": 7, "votes": 70, "quote": "7. Today, according to the Department of Labor, nearly eight out of ten workers who are eligible to take time off under current law cannot do so because they can't afford it. Even worse, 40 percent of American workers aren't even eligible for this unpaid leave."},
+        {"id": 8, "votes": 35, "quote": "8. I am very honored to receive the endorsement of one of the great environmental organizations not only in America but in the world."},
+        {"id": 9, "votes": 100, "quote": "9. At a time when our middle class is disappearing and the gap between the very rich and everyone else is growing wider, this anti-worker trade agreement must be defeated."},
+        {"id": 10, "votes": 550, "quote": "10. New Hampshire, I will be in Franklin for a town meeting tomorrow. Join me for a discussion on getting big money out of politics, combating climate change, making college education more affordable, and dealing with obscene wealth and income inequality."}
+      ],
+      "demographic" : {
+        "gender" : [{
+          "name": "Cis Male", "correspondents" : 50,
+          "tally" : { "1": 10, "2": 8, "3": 1, "4": 7, "5": 11, "6": 20, "7": 25, "8": 60, "9": 5, "10": 20 }
+          },{
+          "name": "Cis Female", "correspondents" : 50,
+          "tally" : { "1": 1, "2": 82, "3": 21, "4": 17, "5": 1, "6": 2, "7": 5, "8": 0, "9": 6, "10": 20 }
+          },
+          {
+          "name": "Trans Male", "correspondents" : 50,
+          "tally" : { "1": 20, "2": 8, "3": 1, "4": 7, "5": 11, "6": 20, "7": 25, "8": 60, "9": 5, "10": 20 }
+          },
+          {
+          "name": "Trans Female", "correspondents" : 50,
+          "tally" : { "1": 10, "2": 58, "3": 1, "4": 7, "5": 11, "6": 20, "7": 25, "8": 60, "9": 5, "10": 20 }
+          }],
+        "ethnicity" : [{
+          "name": "Asian", "correspondents" : 50,
+          "tally" : { "1": 10, "2": 8, "3": 1, "4": 7, "5": 11, "6": 20, "7": 25, "8": 60, "9": 5, "10": 20 }
+          },{
+          "name": "Black", "correspondents" : 50,
+          "tally" : { "1": 1, "2": 82, "3": 21, "4": 17, "5": 1, "6": 2, "7": 5, "8": 0, "9": 6, "10": 20 }
+          },
+          {
+          "name": "Latino", "correspondents" : 50,
+          "tally" : { "1": 20, "2": 8, "3": 1, "4": 7, "5": 11, "6": 20, "7": 25, "8": 60, "9": 5, "10": 20 }
+          },
+          {
+          "name": "White", "correspondents" : 50,
+          "tally" : { "1": 10, "2": 58, "3": 1, "4": 7, "5": 11, "6": 20, "7": 25, "8": 60, "9": 5, "10": 20 }
+          }]
+      },
+      "breakdown": [
+        {
+          "id": 1,
+          "demographic": {
+            "gender": [{"name": "Cis Male", "votes": 10},
+                 {"name": "Cis Female", "votes": 5},
+                 {"name": "Trans Male", "votes": 3},
+                 {"name": "Trans Female", "votes": 3}],
+            "ethnicity": [
+                {"name": "Asian", "votes": 4},
+                {"name": "Black", "votes": 6},
+                {"name": "Latino", "votes": 7},
+                {"name": "White", "votes": 14}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 1002,
+      "correspondents" : 5000,
+      "demographic": {
+        "gender": [{"name": "Cis Male", "count": 10},
+                 {"name": "Cis Female", "count": 5},
+                 {"name": "Trans Male", "count": 3},
+                 {"name": "Trans Female", "count": 3}],
+        "ethnicity": [{"name": "Asian", "count": 4},
+                    {"name": "Black", "count": 6},
+                    {"name": "Latino", "count": 7},
+                    {"name": "White", "count": 14}]
+      },
+      "quotes": [
+        {"id": 1, "votes": 50, "quote": "Quote # 51"},
+        {"id": 2, "votes": 30, "quote": "Quote # 52"},
+        {"id": 3, "votes": 10, "quote": "Quote # 53"},
+        {"id": 4, "votes": 25, "quote": "Quote # 54"},
+        {"id": 5, "votes": 34, "quote": "Quote # 55"},
+        {"id": 6, "votes": 20, "quote": "Quote # 56"},
+        {"id": 7, "votes": 70, "quote": "Quote # 57"},
+        {"id": 8, "votes": 35, "quote": "Quote # 58"},
+        {"id": 9, "votes": 100, "quote": "Quote # 59"},
+        {"id": 10, "votes": 550, "quote": "Quote # 60"}
+      ],
+      "breakdown": [
+        {
+          "id": 1,
+          "demographic": {
+            "gender": [{"name": "Cis Male", "votes": 10},
+                 {"name": "Cis Female", "votes": 5},
+                 {"name": "Trans Male", "votes": 3},
+                 {"name": "Trans Female", "votes": 3}],
+            "ethnicity": [
+                {"name": "Asian", "votes": 4},
+                {"name": "Black", "votes": 6},
+                {"name": "Latino", "votes": 7},
+                {"name": "White", "votes": 14}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -90,12 +90,12 @@ vertical-align"> Let's get to work!</span>
         </h2>
         <div id='event-list-area'>
           <ul id='event-list'>
-            <li>
+            <!-- li>
               <h5 id='upcoming-event'>Upcoming nationwide event</h5>
               <a href='https://www.facebook.com/events/835545563198517/'>
                 <img src='./img/ad.png' style='width: 100%; height: auto;'/>
               </a>
-            </li>
+            </li -->
           </ul>
         </div>
   </div>
