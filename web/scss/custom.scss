@@ -68,7 +68,9 @@ div#header {
         letter-spacing: 2px;
         font-size: 12px;
         vertical-align: middle;
-
+        * {
+          vertical-align: middle;
+        }
         &:last-child { padding-right: 0; margin-top: -3px; }
         &:first-child { padding-left: 0; }
 

@@ -55,6 +55,8 @@ div#header {
         letter-spacing: 2px;
         font-size: 12px;
         vertical-align: middle; }
+        div#header nav ul li * {
+          vertical-align: middle; }
         div#header nav ul li:last-child {
           padding-right: 0;
           margin-top: -3px; }
