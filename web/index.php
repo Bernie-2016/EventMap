@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name='google-site-verification' content='-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="On July 29th, Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class.">
-    <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern">
+    <meta name="description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
+    <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
     <meta property="og:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/July29_FBMapImage_600px.png" />
-    <meta property="og:url" content="http://map.berniesanders.com" />
-    <meta property="og:title" content="July 29 Nationwide Organizing Meeting - Find Meetings Near You | Bernie Sanders 2016 Events"/>
-    <meta property="og:description" content="On July 29th, Bernie is asking Americans from across the country to come together for a series of conversations about how we can organize an unprecedented grassroots movement that takes on the greed of Wall Street and the billionaire class."/>
+    <meta property="og:url" content="http://www.bernie2016events.org" />
+    <meta property="og:title" content="Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders"/>
+    <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
@@ -18,7 +18,7 @@
     <link href='/css/work-map.css?v=1.11' rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <title>Bernie Sanders 2016 Campaign Work Map</title>
+    <title>Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders</title>
   </head>
   <body>
 
