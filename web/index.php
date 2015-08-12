@@ -113,15 +113,19 @@ vertical-align"> Let's get to work!</span>
   <script>
     $.ajax({
       // url: '//d2bq2yf31lju3q.cloudfront.net/js/bern-july-29-data.gz',
-      url: 'd/work.csv',
+      url: './csv-grab.php',
+      data: {
+        u: "https://docs.google.com/spreadsheets/d/1Ze8IkpTq2nBWKGxtd4Zxs8QH1oUoiqXbFwdqC5CzcpI/export?gid=0&format=csv"
+      },
       // dataType: 'script',
       dataType: 'text',
       cache: true, // otherwise will get fresh copy every page load
       success: function(data) {
+        console.log("X", data);
         window.WORKDATA = data;
         window.dataCallback();
       }, error: function(a,b,c) {
-        console.log(b,c);
+        console.log("ERROR", b,c);
       }
     });
   </script>
