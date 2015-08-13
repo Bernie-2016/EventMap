@@ -19,6 +19,7 @@ https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events
 
   <nav>
     <ul id="nav">
+      <li><a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a></li>
       <li><a href='http://www.feelthebern.org' target='_blank'>On The Issues</a></li>
       <li><a href='http://www.voteforbernie.org' target='_blank'>How to Vote</a></li>
       <li>
