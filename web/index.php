@@ -111,6 +111,7 @@ vertical-align"> Let's get to work!</span>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
   <script type='text/javascript' src="/js/bern-map-async.js"></script>
   <script>
+
     $.ajax({
       // url: '//d2bq2yf31lju3q.cloudfront.net/js/bern-july-29-data.gz',
       url: './csv-grab.php',
@@ -121,13 +122,13 @@ vertical-align"> Let's get to work!</span>
       dataType: 'text',
       cache: true, // otherwise will get fresh copy every page load
       success: function(data) {
-        console.log("X", data);
         window.WORKDATA = data;
         window.dataCallback();
       }, error: function(a,b,c) {
         console.log("ERROR", b,c);
       }
     });
+
   </script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
