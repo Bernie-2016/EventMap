@@ -104,9 +104,13 @@ div#header {
 
 /** FOOTER */
 footer {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  padding: 0px 0 2px;
+  background: rgba(255,255,255,0.5);
+  width: auto;
+  font-size: 0.8em;
+  white-space: nowrap;
 }
 
 a {
