@@ -81,7 +81,7 @@ section#main-title-area h4 {
     .leaflet-popup-content h5.event-basics .event-item-date {
       display: inline-block; }
   .leaflet-popup-content h5.event-location {
-    margin-top: 0.9em; }
+    margin-top: 0em; }
   .leaflet-popup-content .event-item-date {
     color: #babbba;
     display: block;
@@ -90,7 +90,8 @@ section#main-title-area h4 {
     margin-bottom: 0;
     margin-top: 16px; }
   .leaflet-popup-content h5.event-location {
-    font-size: 1em !important; }
+    font-size: 1em !important;
+    margin-top: 0; }
   .leaflet-popup-content > p {
     margin-bottom: 0;
     margin-top: 0.5em; }
@@ -280,7 +281,7 @@ section#map-section {
           section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics .event-item-date {
             display: inline-block; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-location {
-          margin-top: 0.9em; }
+          margin-top: 0em; }
         section#map-section div#map-event-list #event-list-area .event-list-item .event-item-date {
           color: #babbba;
           display: block;

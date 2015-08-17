@@ -26,7 +26,7 @@ def update_event_data():
 
     def clean_result(row):
         global rsvp_count
-        for key in ['description', 'closed_msg', 'distance', 'url']:
+        for key in ['description', 'closed_msg', 'distance']:
             if key in row:
                 del row[key]
 
@@ -38,11 +38,11 @@ def update_event_data():
                 del row[key]
 
         # not sure we need these?
-        for key in ['type_id', 'timezone', 'is_official', 'event_type_name']:
+        for key in ['type_id', 'timezone']:
             if key in row:
                 del row[key]
 
-        # rsvp_count += row['attendee_count']
+        # rsvp_count += row['depl_count']
         return row
 
     def remove_the_mormons(row):
