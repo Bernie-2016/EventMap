@@ -87,7 +87,9 @@ $red: #ea504e;
   & > p { margin-bottom: 0; margin-top: 16px;}
 }
 
-
+.leaflet-popup-content-wrapper {
+  min-width: 20em !important;
+}
 
 #billionaire-logo { fill: $blue; }
 #bott-bg-logo { display: inline-block; }
@@ -243,8 +245,8 @@ section#map-section {
     background-color: rgba(255,255,255,0.95);
     padding: 20px;
     border-radius: 4px;
-    border: 1px solid whitesmoke;
-    border-width: 15px 0 0;
+    // border: 1px solid whitesmoke;
+    // border-width: 15px 0 0;
     box-shadow: 0px 2px 1px rgba(0,0,0,0.3);
 
 
@@ -293,13 +295,13 @@ section#map-section {
           input[type=radio] {
             &:checked+label {
               font-weight: bold;
-              font-size: 1em;
+              font-size: 0.8em;
               color: $blue;
             }
           }
           label {
             color: gray;
-            font-size: 0.8em;
+            font-size: 0.7em;
             text-transform: uppercase;
             padding: 0 5px;
             cursor: pointer;
@@ -360,7 +362,10 @@ section#map-section {
       }
 
       &.circle-selected {
-        fill: $blue !important;
+        // fill: $blue !important;
+        stroke: white !important;
+        stroke-width: 5px !important;
+        opacity: 1;
       }
     }
   }
@@ -478,7 +483,7 @@ $phone-max-width: 720px;
 
         div#distance-container {
           // float: right;
-          width: 12em;
+          // width: 12em;
           vertical-align: middle;
           display: inline-block;
 
@@ -486,7 +491,7 @@ $phone-max-width: 720px;
             text-align: left;
 
             li {
-              margin: 0 1%;
+              margin: 0.5em 1%;
               label {
                 padding: 0;
                 font-size: 0.85em;

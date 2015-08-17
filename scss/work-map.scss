@@ -1,0 +1,203 @@
+$blue: #147FD7;
+$yellow: #AD50C7;
+$red: #F55B5B;
+$green: #258011;
+
+#header #title {
+      position: absolute;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    font-weight: normal;
+    top: 2px;
+    left: 140px;
+    letter-spacing: 5px;
+    font-size: 1.3em;
+    a { text-decoration: none; }
+}
+
+#map-section {
+  #map-event-list {
+    #zip-and-distance {
+      #zipcode-container {
+        width: 30%;
+        min-width: auto;
+        float: left;
+
+        input[name=zipcode] {
+          width: 99%;
+          min-width: auto;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+      }
+      #distance-container {
+        float: left;
+        margin-top: -5px;
+        margin-left: 5px;
+        width: 65%;
+      }
+    }
+
+      #event-type-container {
+        margin-top: 10px;
+        border-radius: 3px;
+        background-color: whitesmoke;
+
+        #event-type-list {
+          text-align: center;
+          .event-type-item {
+            border: none;
+            // padding: none;
+            margin: 0;
+            display: inline-block;
+            padding: 1%;
+
+            input[name='eventtype'] { display: none; }
+            input[name='eventtype'] + label {
+              cursor: pointer;
+            }
+            input[name='eventtype'] + label .etype-bullet {
+                color: lightgray;
+            }
+            input[name='eventtype']:checked  {
+               &[value='E'] + label .etype-bullet { color: $green; }
+               &[value='CW'] + label .etype-bullet { color: $yellow; }
+               &[value='R'] + label .etype-bullet { color: $red; }
+            }
+            .etype-bullet { vertical-align: middle; font-size: 0.8em; }
+            .etype-name { vertical-align: middle;
+              text-transform: uppercase;
+              font-size: 0.55em;
+            }
+          }
+        }
+      }
+  }
+}
+
+footer {
+    //   width: auto;
+    // text-align: center;
+    // padding-bottom: 5px;
+    // position: absolute;
+    // bottom: 0;
+    // font-size: 12px;
+    // padding-top: 0px;
+
+}
+
+.event-type {
+    position: absolute;
+    top: -16px;
+    width: 100%;
+    padding: 2px 10px 2px;
+    font-size: 1em;
+    left: 0px;
+    text-transform: uppercase;
+    color: gray;
+    font-weight: normal;
+    border-radius: 10px 10px 0 0;
+    background: whitesmoke;
+    letter-spacing: 1px;
+
+    .event-bullet {
+      display: inline-block;
+      font-size: 2.5em;
+      vertical-align: middle;
+    }
+
+    .event-text {
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    // text-shadow: -1px -1px rgba(0,0,0,0.3);
+
+    // .event-bullet {
+    //   display: none;
+    // }
+
+    // color: white;
+    // &.campaign-work {
+    //   background-color: $yellow;
+    // }
+    // &.rally {
+    //   background-color: $red;
+    // }
+    // &.meetup {
+    //   background-color: $green;
+    // }
+
+    &.campaign-work {
+      .event-bullet { color: $yellow; }
+    }
+    &.rally {
+      .event-bullet { color: $red; }
+    }
+    &.meetup {
+      .event-bullet { color: $green; }
+    }
+}
+
+.event-list-item {
+  position: relative;
+  .event-type {
+    position: relative;
+    color: gray;
+    background: none;
+    top: auto;
+    text-shadow: none;
+    font-size: 0.8em;
+    padding: 0;
+
+  }
+}
+
+#upcoming-event {
+  width: 100%;
+  padding: 4px 0;
+  background-color: $blue;
+  margin-top: 5px;
+  text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-size: 11px;
+}
+
+#map svg {
+
+circle {
+  stroke: white;
+  stroke-width: 2px;
+  &.campaign-work { fill: $yellow;}
+  &.grassroots-event { fill: $green; }
+  &.official-rally { fill: $red !important; }
+}
+}
+
+.leaflet-popup-close-button {
+  z-index: 1000;
+  top: -13px;
+  right: 3px;
+  // &:hover { background: transparent;}
+}
+
+$phone-min-width: 320px;
+$phone-max-width: 720px;
+
+/* For Phones! */
+@media only screen
+  and (min-width: $phone-min-width)
+  and (max-width: $phone-max-width) {
+
+  #map-section #map-event-list #event-type-container {
+      border: 1px solid whitesmoke;
+      background-color: white;
+      width: 95%;
+      margin: 2%;
+      padding-bottom: 3px;
+  }
+
+}

@@ -14,10 +14,10 @@ from fabric.operations import local
 from string import Template
 
 def update_event_data():
-    
-    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*')
+
+    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=4000&country=*')
     print "Request complete."
-    
+
     data = json.loads(resp.text)
     print "JSON loaded."
 
@@ -32,7 +32,7 @@ def update_event_data():
 
         location_fields = filter(lambda x: x in row, ['venue_name', 'venue_addr1', 'venue_city', 'venue_state_cd', 'venue_zip'])
         row['location'] = " ".join(row[key] for key in location_fields)
-        
+
         for key in ['venue_name', 'venue_addr1', 'venue_city', 'venue_state_cd']:
             if key in row:
                 del row[key]
@@ -42,7 +42,7 @@ def update_event_data():
             if key in row:
                 del row[key]
 
-        rsvp_count += row['attendee_count']
+        # rsvp_count += row['attendee_count']
         return row
 
     def remove_the_mormons(row):
@@ -59,25 +59,25 @@ def update_event_data():
 
     print "JSON cleaned! %s events, %s RSVP's." % (len(data['results']), data['settings']['rsvp'])
 
-    data_out['settings'] = data['settings']    
+    data_out['settings'] = data['settings']
 
     json_dump = json.dumps(data)
-    json_dump = "window.JULY_29_EVENT_DATA = " + json_dump
+    json_dump = "window.EVENT_DATA = " + json_dump
 
     print "Writing data..."
 
-    outfile = open('js/bern-july-29-data.js', 'w')
+    outfile = open('js/event-data.js', 'w')
     outfile.write(json_dump)
     outfile.close()
 
     print "Done! GZipping..."
 
-    local('cd js; gzip < bern-july-29-data.js > bern-july-29-data.gz')
+    local('cd js; gzip < event-data.js > event-data.gz')
 
 
 def deploy_event_data():
     update_event_data()
-    local("aws s3 cp js/bern-july-29-data.gz s3://map.berniesanders.com/js/bern-july-29-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp js/event-data.gz s3://map.berniesanders.com/js/event-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
     invalidate_cloudfront_event_cache()
 
 
@@ -94,10 +94,10 @@ def zip_javascript():
 
 
 def deploy():
-    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --exclude \"js/bern-july-29-data.gz\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --exclude \"js/bern-july-29-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --exclude \"js/bern-july-29-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --exclude \"js/bern-july-29-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --exclude \"js/event-data.gz\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
     invalidate_cloudfront_cache_from_last_commit()
 
 def sign(key, msg):
@@ -143,7 +143,7 @@ def invalidate_cloudfront_cache(payload):
 
     # Step 1 is to define the verb (GET, POST, etc.)--already done.
 
-    # Step 2: Create canonical URI--the part of the URI from domain to query 
+    # Step 2: Create canonical URI--the part of the URI from domain to query
     # string (use '/' if no path)
     canonical_uri = path
 

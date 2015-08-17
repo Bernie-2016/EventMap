@@ -1,7 +1,51 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif; }
+  margin: 0px;
+  padding: 0px;
+  font-family: "Open Sans",sans-serif;
+  height: 100%;
+  width: 100%; }
+
+/* Specifically for hovers */
+[data-tooltip] {
+  position: relative; }
+  [data-tooltip] .tooltip-data-item {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    /* IE 9 */
+    -moz-transform: translate(-50%, 0);
+    /* Firefox */
+    -webkit-transform: translate(-50%, 0);
+    /* Safari and Chrome */
+    -o-transform: translate(-50%, 0);
+    /* Opera */
+    font-size: 0.5em;
+    width: 15em;
+    background-color: #147FD7;
+    color: white;
+    top: 28px;
+    padding: 2px;
+    display: none; }
+  [data-tooltip] .tooltip-data-arrow {
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #147FD7;
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    /* IE 9 */
+    -moz-transform: translate(-50%, 0);
+    /* Firefox */
+    -webkit-transform: translate(-50%, 0);
+    /* Safari and Chrome */
+    -o-transform: translate(-50%, 0);
+    /* Opera */
+    left: 50%; }
+  [data-tooltip] .tooltip-data-arrow, [data-tooltip] .tooltip-data-item {
+    display: none; }
+  [data-tooltip]:hover .tooltip-data-item, [data-tooltip]:hover .tooltip-data-arrow {
+    display: block; }
 
 #social > * {
   vertical-align: middle; }
@@ -46,13 +90,15 @@ div#header {
       div#header nav ul li {
         display: inline-block;
         list-style: none;
-        padding: 0 1.5%;
+        padding: 0 1%;
         word-spacing: initial;
         margin-right: -1px;
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-size: 12px;
+        font-size: 11px;
         vertical-align: middle; }
+        div#header nav ul li * {
+          vertical-align: middle; }
         div#header nav ul li:last-child {
           padding-right: 0;
           margin-top: -3px; }
@@ -74,12 +120,10 @@ div#header {
     div#header nav::after {
       clear: both; }
 
-/** FOOTER */
-footer {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 10px; }
+.clear {
+  clear: both; }
 
+/** FOOTER */
 a {
   text-decoration: none;
   color: #147FD7; }
@@ -190,7 +234,7 @@ section {
         padding: 0; }
 
 sub {
-  margin: 1%; }
+  padding: 1%; }
 
 div#social {
   margin: 0 1%; }

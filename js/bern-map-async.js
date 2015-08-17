@@ -7,7 +7,8 @@ var $jq = jQuery;
 
 var timeFormat = d3.time.format("%I:%M %p");
 var rawDateFormat = d3.time.format("%Y-%m-%d");
-var rawTime = d3.time.format("%X")
+var rawTime = d3.time.format("%X");
+var dateFormat = d3.time.format("%b %d");
 
 
 /* some minor initialization */
@@ -42,7 +43,6 @@ $jq(window).on("resize", function() {
   var padding = 20;
 
   //Change billionaire size ^_-
-
   //Media
   if ($jq(window).width() < 720) {
     // alert("X");
@@ -52,12 +52,12 @@ $jq(window).on("resize", function() {
     $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
     $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
 
-    $("input[name='zipcode']").attr("placeholder", "zipcode");
+    // $("input[name='zipcode']").attr("placeholder", "zipcode");
   } else {
     $("#map-section, #map").height(wH - h - 25).css("marginTop", "auto");
     $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240 - 25)
     $("#map-event-list").css("top", "20px");
-    $("input[name='zipcode']").attr("placeholder", "Enter zipcode to find events");
+    // $("input[name='zipcode']").attr("placeholder", "Enter zipcode to find events");
   }
 
 
@@ -98,6 +98,8 @@ bernMap.d.aggregatedRSVP = null;
 
 var bernMap = bernMap || {};
 bernMap.draw = function() {
+
+
   this.filteredZipcode = null;
 
   this.svg = d3.select(bernMap.mapBox.getPanes().overlayPane).append("svg");
@@ -105,6 +107,8 @@ bernMap.draw = function() {
   this.zipcodeElements = null;
 
   this.centerItem = null;
+
+  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true};
 
   this._projectPoint = function(x,y) {
     var point = bernMap.mapBox.latLngToLayerPoint(new L.LatLng(y, x));
@@ -127,6 +131,19 @@ bernMap.draw = function() {
 
   this._deserialize = function(query) {
     return query.split("&").map(function(d) { var q = d.split("="); return [q[0], q[1]]; }).reduce(function(init, next) { init[next[0]] = next[1]; return init;}, {});
+  };
+
+  //****
+  // Show / hide event types
+  this.changeVisibility = function(type, visibility) {
+    var that = this;
+    switch (type) {
+      case "CW" : that.visibleTypes.volunteerWork = visibility; break;
+      case "E" : that.visibleTypes.grassrootsEvent = visibility; break;
+      case "R" : that.visibleTypes.officialRally = visibility; break;
+    };
+
+    that.replot();
   };
 
   // *********************
@@ -201,17 +218,33 @@ bernMap.draw = function() {
                               .append("circle")
                               .attr("data-maxcapacity", function(d) { return d.properties.capacity > 0 && d.properties.attendee_count >= d.properties.capacity ? "true" : "false" } )
                               .attr("data-location-id", function(d) { return d.properties.id; })
-                              .attr("r", bernMap.mapBox.getZoom())
+
                               //   function(d) {
                               //     return bernMap.scale.radScale(d.properties.attendee_count);
                               // })
                               .attr("stroke-width", 0)
                               .attr("opacity", 0.5)
+                              .attr("class", function(d) {
+                                switch (d.properties.type) {
+                                  case "CW" : return "campaign-work"; break;
+                                  case "E" : return "grassroots-event"; break;
+                                  case "R" : return "official-rally"; break;
+                                }
+                              })
+                              .attr("r", function(d) {
+                                switch (d.properties.type) {
+                                  case "CW" : return bernMap.mapBox.getZoom(); break;
+                                  case "E" : return bernMap.mapBox.getZoom(); break;
+                                  case "R" : return bernMap.mapBox.getZoom() * 3; break;
+                                }
+                              })
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
                                   d3.select(this).attr("cx", coordinates[0])
                                       .attr("cy", coordinates[1])
                                   ;
+                              }).call(function () {
+                                    $(".official-rally").prependTo($(that.activityLayer[0]));
                               });
 
 
@@ -285,7 +318,20 @@ bernMap.draw = function() {
 
         d3.select(this).attr("cx", coordinates[0])
             .attr("cy", coordinates[1])
-            .attr("r", bernMap.mapBox.getZoom())
+            .attr("r", function(d) {
+              switch (d.properties.type) {
+                case "CW" : return bernMap.mapBox.getZoom(); break;
+                case "E" : return bernMap.mapBox.getZoom(); break;
+                case "R" : return bernMap.mapBox.getZoom() * 3; break;
+              }
+            })
+            .style("visibility", function(d) {
+              switch (d.properties.type) {
+                case "CW" : return that.visibleTypes.volunteerWork ? "inherit" : "hidden"; break;
+                case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
+                case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
+              }
+            })
               // function (d) {
               //   return bernMap.scale.radScale(d.properties.attendee_count);
               // })
@@ -363,28 +409,45 @@ bernMap.eventList = function(container) {
   };
 
   this.buildEvent = function(d) {
+     var eventType, eventText;
+     // console.log(d.properties.type);
+     switch (d.properties.type) {
+      case "CW": eventType = 'campaign-work'; eventText = "Volunteer Activity"; break;
+      case "E" : eventType = 'meetup'; eventText = "Meeting"; break;
+      case "R" : eventType = 'rally'; eventText = "Official Event"; break;
+     }
+
+
      if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
           return "<h5><span class='event-item-date'>"
-            + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
+            + (d.properties.distance && !isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
             + (d.Date ? (" " + dateFormat(d.properties.Date)) : "")
-            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            //+ (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            + (d.properties.TimeStart ? d.properties.TimeStart : "")
             + "</span></h5>"
             + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
+
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.Location + "</h5>";
         }
         else {
+
+
+
+          // console.log(dateFormat(d.properties.Date));
           return "<h5><span class='event-item-date'>"
-            + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
-            + (d.Date ? (" &nbsp;&nbsp; " + dateFormat(d.properties.Date)) : "")
-            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            + (d.properties.distance && !isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
+            + (d.properties.Date ? ("" + dateFormat(d.properties.Date)) : "")
+            + (d.properties.TimeStart ? " &nbsp;&nbsp; " + d.properties.TimeStart : "")
             + "</span></h5>"
-            + "<h3><a target='_blank' href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+            + "<h3><a target='_blank' href='" + d.properties.link + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
-            + "<p><a href='https://go.berniesanders.com/page/event/detail/july29organizingmeeting/" + d.properties.id_obfuscated + "?utm_source=jul29newsletter&utm_medium=email&utm_campaign=map' target='_blank' class='button-rsvp'>RSVP</a>"
+            + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>JOIN</a>"
 
-                +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>";
+            + (eventType =="rally" ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>" )) ;
         }
   };
 
@@ -478,7 +541,7 @@ bernMap.eventList = function(container) {
           // console.log(locationId, d3.select("circle[data-location-id='" + locationId + "']"));
           d3.select("circle[data-location-id='" + locationId + "']")
             .attr("fill", "#147FD7")
-            .attr("opacity", "1")
+            // .attr("opacity", "1")
             .classed("circle-selected", true);
           // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 5);
           // $("circle[data-zip=" + zip + "]").attr("stroke-width", 5);
@@ -488,8 +551,8 @@ bernMap.eventList = function(container) {
           // console.log("YYYYY");
           var locationId = $(this).attr("data-location-id");
           d3.select("circle[data-location-id='" + locationId+ "'")
-            .attr("fill", "#ea504e")
-            .attr("opacity", "0.5")
+            // .attr("fill", "#ea504e")
+            // .attr("opacity", "0.5")
             .classed("circle-selected", false);
           // d3.select("circle[data-zip='" + zip + "']").attr("stroke-width", 0);
         })
@@ -500,10 +563,22 @@ bernMap.eventList = function(container) {
           // </li>
 
     // liContent.exit().remove();
-
-
-
   };
+
+  //Create tooltips
+  this.initialize = function() {
+    $("[data-tooltip]").each(function(i,item) {
+      var $this = $(this);
+      $this.append(
+          $("<div/>")
+            .text($this.attr("data-tooltip"))
+            .addClass("tooltip-data-item")
+      );
+      $this.append($("<div/>").addClass("tooltip-data-arrow"));
+    });
+  };
+
+  this.initialize();
 };
 
 
@@ -516,58 +591,83 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   // function(data) {
 
   window.dataCallback = function(){
+    // console.log(window);
+    // bernMap.raw.workdata = d3.csv.parse(window.WORKDATA);
 
-    bernMap.raw.july29 = window.JULY_29_EVENT_DATA;
+    bernMap.raw.events = window.EVENT_DATA;
 
-    bernMap.d.meetupData = bernMap.raw.july29.results;
-    bernMap.d.rawMeetupData = bernMap.raw.july29.results;
+    bernMap.d.meetupData = bernMap.raw.events.results; //.filter(function(d) { return !isNaN(d.lon) && !isNaN(d.lat); });
+    bernMap.d.rawMeetupData = bernMap.raw.events.results;
 
-    $jq("#meetup-counter").text(d3format(bernMap.raw.july29.settings.count));
-    $jq("#rsvp-counter").text(d3format(bernMap.raw.july29.settings.rsvp));
+    // bernMap.d.meetupData = bernMap.raw.workdata.filter(function(d) { return d.hide !== "Y"; });
+    //bernMap.d.rawMeetupData = bernMap.d.meetupData;
+
+    // $jq("#meetup-counter").text(d3format(bernMap.raw.workdata.settings.count));
+    // $jq("#rsvp-counter").text(d3format(bernMap.raw.workdata.settings.rsvp));
 
     $(bernMap.d.meetupData).each(function(i, item) {
 
+      // console.log(item);
       item.Date = rawDateFormat.parse(item.start_day);
 
+      // console.log(item.starttime, item);
 
       var tempTime = rawTime.parse(item.start_time);
       item.TimeStart = timeFormat(tempTime);
       item.TimeEnd = "";
       item.Link1 = "RSVP at BernieSanders.com," + item.url;
+      item.link = item.url;
       item.OrganizerWebsite = "http://www.berniesanders.com";
       item.Organizer = "Bernie Sanders Campaign Volunteers";
       // item.Date = rawDateFormat.parse(item.start_day);
       item.Title = item.name;
       item.zip = item.venue_zip;
       item.Zipcode = item.venue_zip;
-      item.Location = item.location;
+      item.Location = item.venue_addr1 + " "
+                        + item.venue_city + " "
+                        + item.venue_state_cd + " "
+                        + item.venue_zip;
 
+      item.lat = item.latitude;
+      item.lon = item.longitude;
+
+      item.attendee_count = parseInt(item.attendee_count);
       item.AttendeeCount = item.attendee_count;
-      // item.capacity = item.attendee_count;
+      item.capacity = parseInt(item.capacity);
 
-      bernMap.d.rsvp += parseInt(item.attendee_count);
-      bernMap.d.capacity += parseInt(item.capacity);
+      item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
+      switch(item.event_type_name) {
+        case "Volunteer activity (flyering, calling, walking, etc)":
+          item.type = "CW"; break;
+        case "Volunteer meeting to get organized or learn more" :
+          item.type = "E"; break;
+        case "Official Event":
+          item.type = "R"; break;
+      }
+      // bernMap.d.rsvp += parseInt(item.attendee_count);
+      // bernMap.d.capacity += parseInt(item.capacity);
 
+    });
+
+    var weekStart = rawDateFormat.parse("7/05/2015");
+    var weekEnd = rawDateFormat.parse("7/12/2015");
+
+    var today = new Date();
+        today.setDate(today.getDate() - 1);
+        today.setHours(0);
+        today.setMinutes(0);
+        today.setSeconds(0);
+
+    var inTwoMonths = new Date(new Date(today).setMonth(today.getMonth()+2));
+
+    bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
+      // return d.Date >= today;
+      return d.Date <= inTwoMonths && d.Date >= today;
     });
 
     loadZipcodeData();
 
   };
-
-  var weekStart = rawDateFormat.parse("7/05/2015");
-  var weekEnd = rawDateFormat.parse("7/12/2015");
-
-  // var today = new Date();
-  //     today.setDate(today.getDate() - 1);
-  //     today.setHours(0);
-  //     today.setMinutes(0);
-  //     today.setSeconds(0);
-
-  // bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
-
-  //   return d.Date >= today;
-  //   // return d.Date <= weekEnd && d.Date >= weekStart;
-  // });
 
 
   // var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
@@ -599,7 +699,7 @@ function loadZipcodeData() {
           id : i,
           type : "Feature",
           geometry: {
-            coordinates: [+d.longitude,+d.latitude],
+            coordinates: [+d.lon,+d.lat],
             type: "Point"
           },
           properties: d
@@ -622,11 +722,17 @@ function loadZipcodeData() {
 
 }
 
+$jq("input[name=eventtype]").on("click", function(d) {
+  var $this = $(this);
+  bernie.changeVisibility($this.val(),$this[0].checked);
+});
+
 $jq("form input[type=radio]").on("click", function(d) {
   if( $jq("form input[name=zipcode]").val().length == 5 ) {
     window.location.hash = $(this).closest("form").serialize();
   }
 });
+
 $jq("form input[name=zipcode]").on("keyup", function(e) {
   // bernie.filter($(this).val());
   if (e.keyCode == 13|| e.which == 13) {
@@ -679,6 +785,7 @@ $jq(window).on("hashchange", function(){
     if ($jq("form input[name=zipcode]").val() != parameters.zipcode) {
       $jq("form input[name=zipcode]").val(parameters.zipcode);
     }
+
 
     if(bernMap.d.allZipcodes){
       bernie.focusZipcode(hash.substr(1));
