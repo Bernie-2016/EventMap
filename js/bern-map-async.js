@@ -78,7 +78,7 @@ bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/sear
 
 
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
-
+// bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: true}).addLayer(mapboxTiles);
 bernMap.mapBox.touchZoom.disable();
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
@@ -447,7 +447,7 @@ bernMap.eventList = function(container) {
             + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
-            + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>JOIN</a>"
+            + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>RSVP</a>"
 
             + (eventType =="rally" ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>" )) ;
         }

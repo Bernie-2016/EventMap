@@ -141,16 +141,17 @@ section#main-title-area {
         // padding-top: 10px;
 
         #footer-billionaire {
+          margin-left: 50%;
+          transform:translate(-50%,0);
+          -ms-transform:translate(-50%,0); /* IE 9 */
+          -moz-transform:translate(-50%,0); /* Firefox */
+          -webkit-transform:translate(-50%,0); /* Safari and Chrome */
+          -o-transform:translate(-50%,0); /* Opera */
+
           svg image {
             // transform: translate(-50%,0);
             // -webkit-transform: translate(-50%,0);
             // -moz-transform: translate(-50%, 0);
-            transform:translate(-100px,0);
-            -ms-transform:translate(-100px,0); /* IE 9 */
-            -moz-transform:translate(-100px,0); /* Firefox */
-            -webkit-transform:translate(-100px,0); /* Safari and Chrome */
-            -o-transform:translate(-100px,0); /* Opera */
-
           }
         }
 
@@ -470,9 +471,10 @@ $phone-max-width: 720px;
       form#zip-and-distance {
 
         div#zipcode-container {
-          width: 7em;
+          // width: 7em;
           display: inline-block;
           vertical-align: middle;
+          float: none;
 
           input[name=zipcode] {
             width: 92%;
@@ -487,12 +489,14 @@ $phone-max-width: 720px;
           // width: 12em;
           vertical-align: middle;
           display: inline-block;
+          float: none;
 
           ul#distance-list {
-            text-align: left;
+            text-align: center;
+            width: 100%;
 
             li {
-              margin: 0.5em 1%;
+              margin: 0.5em 2%;
               label {
                 padding: 0;
                 font-size: 0.85em;
