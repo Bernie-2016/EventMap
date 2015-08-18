@@ -79,7 +79,7 @@ bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/sear
 
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
 // bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: true}).addLayer(mapboxTiles);
-bernMap.mapBox.touchZoom.disable();
+// bernMap.mapBox.touchZoom.disable();
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
 bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
