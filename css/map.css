@@ -194,8 +194,7 @@ section#map-section {
         font-size: 0.6em;
         text-transform: uppercase; }
       section#map-section div#map-event-list form#zip-and-distance input[name=zipcode] {
-        width: 80%;
-        min-width: 200px;
+        width: 30%;
         font-size: 1em;
         text-align: center;
         border-color: whitesmoke;

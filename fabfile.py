@@ -62,6 +62,12 @@ def update_event_data():
     data_out['settings'] = data['settings']
 
     json_dump = json.dumps(data)
+    eventsjson = json.dumps(data)
+
+    jsonfile = open('d/events.json', 'w')
+    jsonfile.write(eventsjson)
+    jsonfile.close()
+
     json_dump = "window.EVENT_DATA = " + json_dump
 
     print "Writing data..."
@@ -78,6 +84,8 @@ def update_event_data():
 def deploy_event_data():
     update_event_data()
     local("aws s3 cp js/event-data.gz s3://map.berniesanders.com/js/event-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp d/events.json s3://map.berniesanders.com/d/events.json --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
+
     invalidate_cloudfront_event_cache()
 
 
