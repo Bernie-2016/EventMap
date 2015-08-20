@@ -1,0 +1,451 @@
+$blue: #147FD7;
+$yellow: #AD50C7;
+$red: #b73b3b;
+$green: #258011;
+$darkblue: #014985;
+
+html,body {
+  margin: 0; padding: 0;
+  font-family: 'Roboto Slab';
+  .clear { clear: both; }
+  section {
+    position: relative;
+    padding: 4%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+
+
+    .credit {
+      position: absolute;
+      font-size: 11px;
+      bottom: 0;
+      right: 0;
+      color: white;
+      background-color: rgba(0,0,0,0.4);
+      padding: 2px 4px 2px 2px;
+      a {
+        color: white;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+
+    &.hero-link {
+      display: inline-block;
+      background-color: rgba(20, 127, 215, 0.8);
+      color: white;
+      border-radius: 5px;
+      padding: 0.5em;
+      font-family: "Open Sans";
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 2em;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba(20, 127, 215, 1);
+      }
+
+      sub {
+        display: block;
+        font-size: 0.5em;
+        letter-spacing: 20px;
+        padding: 0;
+        display: block;
+        text-align: center;
+        text-indent: 1.3em;
+      }
+    }
+  }
+}
+
+#newyork-title-page {
+  background-image:url(../images/liberty.jpg);
+
+  h1 {
+    font-size: 5em;
+    margin: 0;
+    color: white;
+    line-height: 1.5;
+
+    span { opacity: 0.7; }
+    strong {
+      opacity: 1;
+      background-color: white;
+      color: $blue;
+      padding: 0 0.3em;
+    }
+  }
+  h3 {
+    float: left;
+  }
+  h5 {
+    float: left;
+    margin-top: -30px;
+    bottom: 40px;
+    font-family: 'Open Sans';
+    color: rgb(183, 59, 59);
+    line-height: 6em;
+    transform: translate(25%, 0);
+    background-color: rgba(255,255,255,0.8);
+    padding: 0 40px;
+    position: relative;
+    text-align: center;
+
+    span {
+
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      line-height: 1;
+      padding: 1em;
+      background-color: rgb(183, 59, 59);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: translate(-50%,0);
+
+    }
+    div#super-hero {
+
+      font-size: 16em;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+
+    }
+
+    sub {
+
+      /* position: absolute; */
+      line-height: 1px;
+      text-transform: uppercase;
+      font-size: 3em;
+      letter-spacing: 0.1em;
+
+    }
+
+  }
+
+  .scroll-down {
+    a {
+        width: 60px;
+        display: inline-block;
+        font-size: 10px !important;
+        text-align: center;
+        background-color: rgba(20, 127, 215, 0.7);
+        color: white;
+        border-radius: 50px;
+        padding: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: absolute;
+        top: 90vh;
+        right: 1%;
+    }
+  }
+}
+
+#not-democrat {
+  background-image: url(../images/bernie.jpg);
+  padding-left: 55%;
+
+  p {
+
+    /* background-color: rgba(255,255,255,1); */
+    padding: 13px;
+    margin: 0;
+    color: white;
+    position: relative;
+    margin-bottom: 3em;
+
+    span.bad-mark {
+      font-size: 3.4em;
+      vertical-align: middle;
+      color: white;
+      position: absolute;
+      left: -0.8em;
+      top: 0;
+    }
+
+    span.bad-statement {
+      font-size: 2em;
+      /* color: white; */
+      vertical-align: middle;
+      /* color: #b73b3b; */
+
+      strong {
+        color: $red;
+        background-color: white;
+        padding: 0px 9px;
+
+      }
+    }
+  }
+  #sub-super-hero {
+    .hero-link {
+      margin-left: -53%;
+      padding: 6% 5%;
+      span.mark {
+        background-color: #258011;
+        border-radius: 100px;
+        padding: 4px 10px;
+        border: 3px white solid;
+        vertical-align: middle;
+      }
+      span.main-text {  font-size: 0.9em; }
+    }
+  }
+}
+
+
+section#heres-how {
+  background-image: url(../images/nyc-pride.jpg);
+  h1 {
+        opacity: 1;
+    background-color: $darkblue;
+    color: white;
+    padding: 0 0.3em;
+    display: inline-block;
+    font-size: 3em;
+    margin: 0;
+  }
+
+  div.heres-how-text {
+    width: 73%;
+    background-color: rgba(255,255,255,0.95);
+    padding: 2%;
+    margin-left: 50%;
+    transform: translate(-50%,0);
+    margin-top: 2em;
+    margin-bottom: 5em;
+    color: $darkblue;
+
+    & > ul {
+      & > li {
+        margin-bottom: 1em;
+        font-size: 1.5em;
+        a {
+            display: inline-block;
+            background-color: rgba(20, 127, 215, 0.8);
+            color: white;
+            padding: 0 7px;
+            border-radius: 4px;
+
+            &:hover { background-color: rgba(20, 127, 215, 1); }
+        }
+
+        & > ul li {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+section#thankyou {
+  background-image: url(../images/bernie-nv.jpg);
+
+  h1 {
+    color: rgba(255,255,255,0.95);
+    font-size: 3.5em;
+
+    strong {
+      color: #147FD7;
+      padding: 0.2em 0.4em;
+      background-color: white;
+    }
+  }
+
+  h2 {
+    a {
+      display: inline-block;
+      color: white;
+      font-size: 1.4em;
+
+      &:hover {
+        background-color: rgba(183, 59, 59, 0.4);
+      }
+    }
+  }
+
+  p {
+    color: white;
+    padding: 0;
+    font-size: 2em;
+  }
+  p#thunderclap-spiel {
+
+    width: 50%;
+    float: left;
+
+    strong {
+      padding: 0em 0.2em;
+      background-color: rgba(183, 59, 59, 0.9);
+      color: white;
+      display: inline-block;
+    }
+  }
+
+  p#thunderclap-spiel-2 {
+    padding-left: 50%;
+  }
+
+  h3 {
+
+    width: 40%;
+    float: left;
+
+    &#last {
+      float: left;
+      margin-left: 50%;
+    }
+    a {
+      background-color: rgba(37, 128, 17, 0.8);
+      color: white;
+      padding: 0.8em 1em;
+      font-size: 2.4em;
+      display: inline-block;
+      margin-top: 1em;
+      font-family: "Open Sans";
+
+      sub {
+        padding: 0;
+        margin: 0;
+        font-size: 0.5em;
+        display: block;
+      }
+
+      &:hover {
+        background-color: rgba(37, 128, 17, 0.8);
+      }
+    }
+  }
+}
+
+section#what-else-todo {
+  background-color: #333333;
+  text-align: center;
+
+  h3 {
+    font-size: 3em;
+    color: lightgray;
+    margin: 0 0 30px;
+  }
+
+  & > div {
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1%;
+    margin-left: 1%;
+
+    h4 {
+      position: relative;
+
+      margin: 0;
+      padding: 0;
+      background-image: url(http://placehold.it/500x500);
+      width: 100%;
+      height: 290px;
+      background-size: cover;
+      background-position: center center;
+      border-radius: 15px 15px 0 0;
+
+      & > div.credit {
+        background: transparent;
+        font-size:8px;
+        font-family: "Open Sans";
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+        }
+        // top: 223px;
+        // right: -49px;
+        // transform: rotate(270deg);
+        // bottom: auto;
+      }
+      &#first-item {
+        background-image: url(../images/share.jpg);
+        background-position: top center;
+      }
+
+      &#second-item {
+        background-image: url(../images/volunteer.jpg);
+      }
+
+      &#third-item {
+        background-image: url(../images/longisland.jpg);
+      }
+
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        padding: 0.3em 0.7em;
+        font-family: "Open Sans";
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.3em;
+        background-color: #147FD7;
+        color: white;
+      }
+    }
+
+    & > div {
+
+      background-color: #147FD7;
+      margin: 0;
+      padding: 13px;
+      color: whitesmoke;
+      border-radius: 0 0 2px 2px;
+      height: 150px;
+
+      p {
+        margin: 0;
+        text-align: left;
+      }
+
+      a {
+        background-color: white;
+        color: $blue;
+
+        display: inline-block;
+        padding: 0.3em 2em;
+        border-radius: 4px;
+        margin-top: 1em;
+        font-size: 1.2em;
+        border: 1px solid white;
+
+        &:hover {
+          background: transparent;
+          color: white;
+        }
+
+      }
+
+    }
+  }
+}
+
+footer {
+    background-color: #333333;
+    color: white;
+    font-size: 0.8em;
+    padding: 2% 10%;
+    text-align: center;
+    font-family: "Open Sans";
+
+    a {
+      color: white;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+}
