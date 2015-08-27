@@ -1,5 +1,5 @@
 <div id='header'>
-  <h1 id='title'><a id='meetup-title' href='/'>Meetups<sub style='font-size: 11px;'>BETA</sub></a></h1>
+  <h1 id='title'><a id='meetup-title' href='/'>2016<strong>events</strong><sub style='font-size: 11px;'></sub></a></h1>
   <a id='header-logo' href='/' ><img src='/img/logo.png' style='float: left; margin-left: 10px;' /></a>
 
   <div class='main-title-area'>
