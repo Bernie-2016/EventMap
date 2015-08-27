@@ -1,0 +1,15 @@
+section#map-section div#map-event-list h1, section#map-section div#map-event-list h2#event-results-count {
+  margin-top: 0;
+  top: auto; }
+section#map-section div#map-event-list h1 {
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 3px; }
+section#map-section div#map-event-list #zip-and-distance #zipcode-container {
+  width: 100%;
+  float: none;
+  text-align: center; }
+  section#map-section div#map-event-list #zip-and-distance #zipcode-container input[type=text] {
+    width: 50%; }
+
+/*# sourceMappingURL=berning-manhattan.css.map */
