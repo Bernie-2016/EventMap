@@ -8,8 +8,8 @@
     <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
     <meta property="og:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/July29_FBMapImage_600px.png" />
     <meta property="og:url" content="http://www.bernie2016events.org/berning-manhattan/index.php" />
-    <meta property="og:title" content="Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders"/>
-    <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
+    <meta property="og:title" content="B2016E Special Edition: Berning Manhattan Canvassing Station Map"/>
+    <meta property="og:description" content="We are going to put a Bernie Sanders canvasser on as many street corners and subway station entrances as possible all over Manhattan, all at the same time. This is happening on Saturday, September 5th, from 12 p.m. to 4 p.m."/>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
