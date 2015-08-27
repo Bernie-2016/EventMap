@@ -7,7 +7,7 @@
     <meta name="description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
     <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
     <meta property="og:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/July29_FBMapImage_600px.png" />
-    <meta property="og:url" content="http://www.bernie2016events.org" />
+    <meta property="og:url" content="http://www.bernie2016events.org/berning-manhattan/index.php" />
     <meta property="og:title" content="Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders"/>
     <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
 
