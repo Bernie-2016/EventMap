@@ -1,3 +1,6 @@
 vendor/
 .env
 .sass-cache
+*.quotes*
+quotes-register.php
+web/quotes-index.php web/quotes-login.php web/quotes-register.php web/quotes.php

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<?php
-
-  if(!isset($_GET['sample'])) { return; }
-?>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="/css/jquery-ui.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="/js/quotes/jquery.js"></script>
+<script src="/js/quotes/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
+
+<link href='/css/quotes-base.css' rel='stylesheet' />
 <link href='/css/quotes.css' rel='stylesheet' />
 <body>
 <section id='header'>
@@ -16,6 +14,7 @@
 </section>
 
 <section id='ordered-list-container'>
+  <h5>Drop quotes here</h5>
   <ul id='ordered-list'>
     <li class="ordered-list-item"><span class='empty'>Drop <strong>best</strong> quote here</span></li>
     <li class="ordered-list-item"><span class='empty'>Drop quote here</span></li>
@@ -48,11 +47,11 @@
 
     <li class="ordered-list-item"><span class='quote-text'>Today, according to the Department of Labor, nearly eight out of ten workers who are eligible to take time off under current law cannot do so because they can't afford it. Even worse, 40 percent of American workers aren't even eligible for this unpaid leave.</span></li>
 
-    <li class="ordered-list-item"><span class='quotes-text'>I am very honored to receive the endorsement of one of the great environmental organizations not only in America but in the world.</span></li>
+    <li class="ordered-list-item"><span class='quote-text'>I am very honored to receive the endorsement of one of the great environmental organizations not only in America but in the world.</span></li>
 
-    <li class="ordered-list-item"><span class='quotes-text'>At a time when our middle class is disappearing and the gap between the very rich and everyone else is growing wider, this anti-worker trade agreement must be defeated.</span></li>
+    <li class="ordered-list-item"><span class='quote-text'>At a time when our middle class is disappearing and the gap between the very rich and everyone else is growing wider, this anti-worker trade agreement must be defeated.</span></li>
 
-    <li class="ordered-list-item" data-rank='10'><span class='quotes-text'>New Hampshire, I will be in Franklin for a town meeting tomorrow. Join me for a discussion on getting big money out of politics, combating climate change, making college education more affordable, and dealing with obscene wealth and income inequality.</span></li>
+    <li class="ordered-list-item" data-rank='10'><span class='quote-text'>New Hampshire, I will be in Franklin for a town meeting tomorrow. Join me for a discussion on getting big money out of politics, combating climate change, making college education more affordable, and dealing with obscene wealth and income inequality.</span></li>
 
     <li class='not-ordered-item'>
       <a href='#'>Submit Ratings</a>

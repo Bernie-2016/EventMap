@@ -6,7 +6,7 @@ var $jq = jQuery;
 
 
 var timeFormat = d3.time.format("%I:%M %p");
-var rawDateFormat = d3.time.format("%m/%d/%Y");
+var rawDateFormat = d3.time.format("%Y-%m-%d");
 var rawTime = d3.time.format("%X");
 var dateFormat = d3.time.format("%b %d");
 
@@ -64,7 +64,7 @@ $jq(window).on("resize", function() {
 });
 $jq(window).trigger("resize");
 
-L.mapbox.accessToken = "pk.eyJ1IjoicmFwaWNhc3RpbGxvIiwiYSI6IjBlMGI3NTNhMWFiNGU4NmY4YmI4ZTNmOGRjYmQzZWVjIn0.KyTcvG8fiIStw8BkZjfvLA";
+L.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
 var mapboxTiles = L.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 });
@@ -78,8 +78,8 @@ bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/sear
 
 
 bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
-
-bernMap.mapBox.touchZoom.disable();
+// bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: true}).addLayer(mapboxTiles);
+// bernMap.mapBox.touchZoom.disable();
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
 bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
@@ -165,9 +165,9 @@ bernMap.draw = function() {
 
       //Plot zipcode center
       $("circle#center-item").remove();
-      // console.log("Center", t);
+
       var centerCoords = that._projectPoint(t.lon, t.lat);
-      // console.log("CenterCoords", centerCoords)
+
 
       that.centerItem = that.activityLayer.append("circle")
             .datum(t)
@@ -277,7 +277,7 @@ bernMap.draw = function() {
   this.popupInfo = function(d) {
     var that = this;
 
-    // console.log(that, parseFloat(d.properties.latitude));
+
 
     setTimeout( function() { L.popup()
       .setLatLng([parseFloat(d.properties.latitude), parseFloat(d.properties.longitude)])
@@ -409,41 +409,47 @@ bernMap.eventList = function(container) {
   };
 
   this.buildEvent = function(d) {
+
+
      var eventType, eventText;
-     console.log(d.properties.type);
+
      switch (d.properties.type) {
-      case "CW": eventType = 'campaign-work'; eventText = "Volunteer Work"; break;
-      case "E" : eventType = 'meetup'; eventText = "Grassroots Event"; break;
+      case "CW": eventType = 'campaign-work'; eventText = "Volunteer Activity"; break;
+      case "E" : eventType = 'meetup'; eventText = "Meeting"; break;
       case "R" : eventType = 'rally'; eventText = "Official Event"; break;
      }
 
+
      if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
           return "<h5><span class='event-item-date'>"
-            + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
+            + (d.properties.distance && !isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
             + (d.Date ? (" " + dateFormat(d.properties.Date)) : "")
-            + (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            //+ (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
+            + (d.properties.TimeStart ? d.properties.TimeStart : "")
             + "</span></h5>"
             + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
+
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-            + "<h5 class='event-location'>" + d.properties.Location + "</h5>";
+            + "<h5 class='event-location'>" + d.properties.location + "</h5>";
         }
         else {
 
 
 
-          console.log(dateFormat(d.properties.Date));
+
           return "<h5><span class='event-item-date'>"
-            + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
+            + (d.properties.distance && !isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
             + (d.properties.Date ? ("" + dateFormat(d.properties.Date)) : "")
-            + (d.properties.TimeStart ? " &nbsp;&nbsp; " + timeFormat(d.properties.TimeStart) : "")
+            + (d.properties.TimeStart ? " &nbsp;&nbsp; " + d.properties.TimeStart : "")
             + "</span></h5>"
             + "<h3><a target='_blank' href='" + d.properties.link + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
             + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-            + "<h5 class='event-location'>" + d.properties.Location + "</h5>"
-            + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>JOIN</a>"
+            + "<h5 class='event-location'>" + d.properties.location + "</h5>"
+            + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>RSVP</a>"
 
-                // +"<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>";
+            + (eventType =="rally" ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>" )) ;
         }
   };
 
@@ -467,7 +473,7 @@ bernMap.eventList = function(container) {
 
     var targC = [parseFloat(target.lat), parseFloat(target.lon)];
 
-    // console.log(targetZipcode, targC);
+
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
                             var compC = [parseFloat(d.properties.latitude), parseFloat(d.properties.longitude)];
 
@@ -478,7 +484,7 @@ bernMap.eventList = function(container) {
                             return  distance <= allowedDistance;
                         }).map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
 
-    // console.log(nearByZipcodes);
+
     if (nearByZipcodes.length == 0) return;
 
     //START : Separate Full events and active events;
@@ -516,7 +522,7 @@ bernMap.eventList = function(container) {
     //Render list
     var ul = d3.select(that.containerLabel).select("ul#event-list");
 
-    // console.log(finalCollatedList);
+
 
     var dateFormat = d3.time.format("%B %d");
     var liContent = ul.selectAll("li.event-list-item")
@@ -531,10 +537,10 @@ bernMap.eventList = function(container) {
 
 
         liContent.on("mouseover", function() {
-          // console.log("XXXX");
+
           var zip = $(this).attr("data-zip");
           var locationId = $(this).attr("data-location-id");
-          // console.log(locationId, d3.select("circle[data-location-id='" + locationId + "']"));
+
           d3.select("circle[data-location-id='" + locationId + "']")
             .attr("fill", "#147FD7")
             // .attr("opacity", "1")
@@ -544,7 +550,7 @@ bernMap.eventList = function(container) {
 
         })
         .on("mouseout", function() {
-          // console.log("YYYYY");
+
           var locationId = $(this).attr("data-location-id");
           d3.select("circle[data-location-id='" + locationId+ "'")
             // .attr("fill", "#ea504e")
@@ -559,10 +565,22 @@ bernMap.eventList = function(container) {
           // </li>
 
     // liContent.exit().remove();
-
-
-
   };
+
+  //Create tooltips
+  this.initialize = function() {
+    $("[data-tooltip]").each(function(i,item) {
+      var $this = $(this);
+      $this.append(
+          $("<div/>")
+            .text($this.attr("data-tooltip"))
+            .addClass("tooltip-data-item")
+      );
+      $this.append($("<div/>").addClass("tooltip-data-arrow"));
+    });
+  };
+
+  this.initialize();
 };
 
 
@@ -575,40 +593,62 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   // function(data) {
 
   window.dataCallback = function(){
-    console.log(window);
-    bernMap.raw.workdata = d3.csv.parse(window.WORKDATA);
 
-    bernMap.d.meetupData = bernMap.raw.workdata.filter(function(d) { return d.hide !== "Y"; });
-    bernMap.d.rawMeetupData = bernMap.d.meetupData;
+    // bernMap.raw.workdata = d3.csv.parse(window.WORKDATA);
+
+    bernMap.raw.events = window.EVENT_DATA;
+
+    bernMap.d.meetupData = bernMap.raw.events.results; //.filter(function(d) { return !isNaN(d.lon) && !isNaN(d.lat); });
+    bernMap.d.rawMeetupData = bernMap.raw.events.results;
+
+    // bernMap.d.meetupData = bernMap.raw.workdata.filter(function(d) { return d.hide !== "Y"; });
+    //bernMap.d.rawMeetupData = bernMap.d.meetupData;
 
     // $jq("#meetup-counter").text(d3format(bernMap.raw.workdata.settings.count));
     // $jq("#rsvp-counter").text(d3format(bernMap.raw.workdata.settings.rsvp));
 
     $(bernMap.d.meetupData).each(function(i, item) {
 
-      item.Date = rawDateFormat.parse(item.date);
 
-      // console.log(item.starttime, item);
+      item.Date = rawDateFormat.parse(item.start_day);
 
-      // var tempTime = rawTime.parse(item.starttime);
 
-      // console.log(tempTime);
-      item.latitude = item.lat;
-      item.longitude = item.lon ;
-      item.TimeStart = timeFormat.parse(item.starttime);
-      // item.TimeEnd = "";
-      // item.Link1 = "RSVP at BernieSanders.com," + item.url;
-      item.OrganizerWebsite = item.organizer_url;
-      item.Organizer = item.organizer;
+
+      var tempTime = rawTime.parse(item.start_time);
+      item.TimeStart = timeFormat(tempTime);
+      item.TimeEnd = "";
+      item.Link1 = "RSVP at BernieSanders.com," + item.url;
+      item.link = item.url;
+      item.OrganizerWebsite = "http://www.berniesanders.com";
+      item.Organizer = "Bernie Sanders Campaign Volunteers";
       // item.Date = rawDateFormat.parse(item.start_day);
-      item.Title = item.title;
-      // item.zip = item.venue_zip;
-      // item.Zipcode = item.venue_zip;
-      item.Location = item.address;
+      item.Title = item.name;
+      item.zip = item.venue_zip;
+      item.Zipcode = item.venue_zip;
 
-      // item.AttendeeCount = item.attendee_count;
-      // item.capacity = item.attendee_count;
+      // item.Location = item.venue_addr1 + " "
+                        // + item.venue_city + " "
+                        // + item.venue_state_cd + " "
+                        // + item.venue_zip;
+      // item.location = item.Location;
 
+
+      item.lat = item.latitude;
+      item.lon = item.longitude;
+
+      item.attendee_count = parseInt(item.attendee_count);
+      item.AttendeeCount = item.attendee_count;
+      item.capacity = parseInt(item.capacity);
+
+      item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
+      switch(item.event_type_name) {
+        case "Volunteer activity (flyering, calling, walking, etc)":
+          item.type = "CW"; break;
+        case "Volunteer meeting to get organized or learn more" :
+          item.type = "E"; break;
+        case "Official Event":
+          item.type = "R"; break;
+      }
       // bernMap.d.rsvp += parseInt(item.attendee_count);
       // bernMap.d.capacity += parseInt(item.capacity);
 
@@ -625,10 +665,11 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
     var inTwoMonths = new Date(new Date(today).setMonth(today.getMonth()+2));
 
-    bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
-      // return d.Date >= today;
-      return d.Date <= inTwoMonths && d.Date >= today;
-    });
+    // bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
+    //   // return d.Date >= today;
+    //   return d.Date <= inTwoMonths && d.Date >= today;
+    // });
+
 
     loadZipcodeData();
 
@@ -751,12 +792,13 @@ $jq(window).on("hashchange", function(){
       $jq("form input[name=zipcode]").val(parameters.zipcode);
     }
 
+
     if(bernMap.d.allZipcodes){
       bernie.focusZipcode(hash.substr(1));
       bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
     }
 
-    // console.log(hash.substr(1));
+
   } else {
     bernMap.mapBox.setView([37.8, -96.9], 4);
     var offset = bernMap.mapBox.getSize().x * 0.15;
