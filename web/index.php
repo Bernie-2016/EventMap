@@ -62,23 +62,23 @@ vertical-align"> Let's get to work!</span>
           <ul id='event-type-list'>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
-              <label for='event-R'>
+              <label for='event-R' data-tooltip="Show/Hide Official Bernie Sanders Events">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
                 <span class='etype-name'>Official Event</span>
               </label>
             </li>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-CW' value='CW' />
-              <label for='event-CW'>
+              <label for='event-CW' data-tooltip="Show/Hide Volunteer activity (flyering, calling, walking, etc)">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
                 <span class='etype-name'>Volunteer Work</span>
               </label>
             </li>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-E' value='E' />
-              <label for='event-E'>
+              <label for='event-E' data-tooltip="Show/Hide Volunteer meetings to get organized or learn more.">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
-                <span class='etype-name'>Grassroots Events</span>
+                <span class='etype-name'>Meetings</span>
               </label>
             </li>
           </ul>

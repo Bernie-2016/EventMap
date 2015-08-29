@@ -1,6 +1,14 @@
 $blue: #147FD7;
 $red: #ea504e;
 
+@mixin translateAll($a, $b) {
+  transform:translate($a,$b);
+  -ms-transform:translate($a,$b); /* IE 9 */
+  -moz-transform:translate($a,$b); /* Firefox */
+  -webkit-transform:translate($a,$b); /* Safari and Chrome */
+  -o-transform:translate($a,$b); /* Opera */
+}
+
 html, body {
     margin: 0px;
     padding: 0px;
@@ -10,7 +18,54 @@ html, body {
     // overflow: hidden;
 }
 
+/* Specifically for hovers */
+[data-tooltip]
+{
+  position: relative;
 
+  .tooltip-data-item {
+
+    position: absolute;
+    left: 50%;
+    @include translateAll(-50%, 0);
+
+    font-size: 0.5em;
+    width: 15em;
+    background-color: #147FD7;
+    color: white;
+    top: 28px;
+
+    padding: 2px;
+
+    display: none;
+  }
+
+  .tooltip-data-arrow {
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #147FD7;
+    @include translateAll(-50%, 0);
+    left: 50%;
+
+  }
+
+  .tooltip-data-arrow, .tooltip-data-item {
+    display: none;
+    // visibility:hidden;
+    // opacity:0;
+    // transition:visibility 0s linear 0.5s,opacity 0.5s linear
+  }
+
+  &:hover {
+    .tooltip-data-item,.tooltip-data-arrow {
+      display: block;
+      // visibility:visible;
+      // opacity:1;
+      // transition-delay:0s;
+    }
+  }
+}
 #social > * {
   vertical-align: middle;
 }
@@ -104,16 +159,20 @@ div#header {
 
 /** FOOTER */
 footer {
-  position: fixed;
-  bottom: 0;
-  padding: 0px 0 2px;
-  background: rgba(255,255,255,0.5);
-  width: auto;
-  font-size: 0.8em;
-  white-space: nowrap;
+  // position: fixed;
+  // bottom: 0;
+  // padding: 0px 0 2px;
+  // background: rgba(255,255,255,0.5);
+  // width: auto;
+  // font-size: 0.8em;
+  // white-space: nowrap;
 }
 
 a {
+  img {
+    border: none;
+  }
+
   text-decoration: none;
   color: #147FD7;
 
@@ -174,6 +233,12 @@ a {
       color: #F55B5B;
       font-weight: bold;
       letter-spacing: 0.15em;
+    }
+
+    &.button-disabled {
+      background-color: lightgray;
+
+      &+span.rsvp-counter { color: lightgray; }
     }
   }
 }
@@ -336,6 +401,9 @@ $phone-max-width: 720px;
   and (min-width: $phone-min-width)
   and (max-width: $phone-max-width) {
 
+  .tooltip-data-item,.tooltip-data-arrow {
+    display: none !important;
+  }
   section {
     .page-subtitle a {
       display: block !important;

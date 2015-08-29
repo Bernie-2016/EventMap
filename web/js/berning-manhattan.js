@@ -412,13 +412,14 @@ bernMap.eventList = function(container) {
       eventType = "rally";
      }
 
-     if (d.properties.assigned >= d.properties.capacity && d.properties.capacity > 0) {
+     if (d.properties.assigned >= d.properties.capacity) {
           return "<h5><span class='event-item-date'>"
             + (!isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
             + "</span></h5>"
             + "<h3><span class='event-item-name event-full'>" + d.properties.station + " Station (FULL)</span></h3>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-            + "<h5 class='event-location'>" + d.properties.address + "</h5>";
+            + "<h5 class='event-location'>" + d.properties.address + "</h5>"
+            + "<p><a href='javascript: void(null);' target='_blank' class='button-rsvp button-full button-disabled'>FULL " + d.properties.assigned + "/" + d.properties.capacity+ "</a>";
         }
         else {
 
@@ -599,7 +600,8 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
       // item.Location = item.address;
 
       // item.AttendeeCount = item.attendee_count;
-      // item.capacity = item.attendee_count;
+      item.capacity = parseInt(item.capacity);
+      item.assigned = parseInt(item.assigned);
 
       // bernMap.d.rsvp += parseInt(item.attendee_count);
       // bernMap.d.capacity += parseInt(item.capacity);

@@ -5,6 +5,48 @@ html, body {
   height: 100%;
   width: 100%; }
 
+/* Specifically for hovers */
+[data-tooltip] {
+  position: relative; }
+  [data-tooltip] .tooltip-data-item {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    /* IE 9 */
+    -moz-transform: translate(-50%, 0);
+    /* Firefox */
+    -webkit-transform: translate(-50%, 0);
+    /* Safari and Chrome */
+    -o-transform: translate(-50%, 0);
+    /* Opera */
+    font-size: 0.5em;
+    width: 15em;
+    background-color: #147FD7;
+    color: white;
+    top: 28px;
+    padding: 2px;
+    display: none; }
+  [data-tooltip] .tooltip-data-arrow {
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #147FD7;
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    /* IE 9 */
+    -moz-transform: translate(-50%, 0);
+    /* Firefox */
+    -webkit-transform: translate(-50%, 0);
+    /* Safari and Chrome */
+    -o-transform: translate(-50%, 0);
+    /* Opera */
+    left: 50%; }
+  [data-tooltip] .tooltip-data-arrow, [data-tooltip] .tooltip-data-item {
+    display: none; }
+  [data-tooltip]:hover .tooltip-data-item, [data-tooltip]:hover .tooltip-data-arrow {
+    display: block; }
+
 #social > * {
   vertical-align: middle; }
 
@@ -82,18 +124,11 @@ div#header {
   clear: both; }
 
 /** FOOTER */
-footer {
-  position: fixed;
-  bottom: 0;
-  padding: 0px 0 2px;
-  background: rgba(255, 255, 255, 0.5);
-  width: auto;
-  font-size: 0.8em;
-  white-space: nowrap; }
-
 a {
   text-decoration: none;
   color: #147FD7; }
+  a img {
+    border: none; }
   a:hover {
     text-decoration: underline; }
   a.contribute {
@@ -136,6 +171,10 @@ a {
       color: #F55B5B;
       font-weight: bold;
       letter-spacing: 0.15em; }
+    a.button-rsvp.button-disabled {
+      background-color: lightgray; }
+      a.button-rsvp.button-disabled + span.rsvp-counter {
+        color: lightgray; }
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -248,6 +287,9 @@ div#social {
 
 /* For Phones! */
 @media only screen and (min-width: 320px) and (max-width: 720px) {
+  .tooltip-data-item, .tooltip-data-arrow {
+    display: none !important; }
+
   section {
     padding: 0; }
     section .page-subtitle a {

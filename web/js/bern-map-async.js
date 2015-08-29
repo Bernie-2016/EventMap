@@ -431,7 +431,10 @@ bernMap.eventList = function(container) {
             + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
 
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-            + "<h5 class='event-location'>" + d.properties.location + "</h5>";
+            + "<h5 class='event-location'>" + d.properties.location + "</h5>"
+            + "<p><a href='javascript: void(null);' target='_blank' class='button-rsvp button-full button-disabled'>FULL</a>"
+
+            + (eventType =="rally" ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>" )) ;;
         }
         else {
 

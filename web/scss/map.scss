@@ -15,7 +15,10 @@ $red: #ea504e;
   font-family: 'Open Sans', sans-serif;
   // li.event-nationwide-item, li.event-list-item {
 
-      a.button-rsvp:hover { color: white !important; }
+      a.button-rsvp {
+        &:hover { color: white !important; }
+      }
+
       a[href='javascript: void(0);'] {
         color: rgb(51, 51, 51);
         text-decoration: none;
