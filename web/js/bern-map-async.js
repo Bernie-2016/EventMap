@@ -774,7 +774,7 @@ $jq("#daterange-opt").on(
         }
     }
   )
-$jq("#daterange-opt ul li.daterange-options-item").on("click,touchstart", function() {
+$jq("#daterange-opt ul li.daterange-options-item").on("click", function() {
   var value = $(this).attr("data-daterange");
   $jq("select[name='daterange']").val(value);
   // $jq("#daterange-opt ul").hide();
