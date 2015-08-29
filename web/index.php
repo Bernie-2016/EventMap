@@ -56,7 +56,6 @@ vertical-align"> Let's get to work!</span>
                         <input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>          </ul>
 
         </div>
-        </form>
         <div class='clear'></div>
         <div id='event-type-container'>
           <ul id='event-type-list'>
@@ -83,6 +82,26 @@ vertical-align"> Let's get to work!</span>
             </li>
           </ul>
         </div>
+        <div id='daterange-opt'>
+          <span id='daterange-value'>All Events</span>
+          <ul id='daterange-options'>
+            <li data-daterange='today' class='daterange-options-item'>Today</li>
+            <li data-daterange='this-week' class='daterange-options-item'>This Week</li>
+            <li data-daterange='in-2-weeks' class='daterange-options-item'>In 2 Weeks</li>
+            <li data-daterange='this-month' class='daterange-options-item'>This Month</li>
+            <li data-daterange='all-events' class='daterange-options-item'>All Events</li>
+          </ul>
+
+          <select name='daterange'>
+            <option value='today'>Today</option>
+            <option value='this-week'>This Week</option>
+            <option value='in-2-weeks'>In 2 Weeks</option>
+            <option value='this-month'>This Month</option>
+            <option value='all-events'>All Events</option>
+          </select>
+        </div>
+        <div class='clear'></div>
+        </form>
 
       <div id='event-results-area'>
         <h2 id='event-results-count' style='display: none'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>

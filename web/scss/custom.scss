@@ -169,6 +169,10 @@ footer {
 }
 
 a {
+  &[href='javascript: void(null);'] {
+    cursor: default;
+  }
+
   img {
     border: none;
   }

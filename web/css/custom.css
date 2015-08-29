@@ -127,6 +127,8 @@ div#header {
 a {
   text-decoration: none;
   color: #147FD7; }
+  a[href='javascript: void(null);'] {
+    cursor: default; }
   a img {
     border: none; }
   a:hover {

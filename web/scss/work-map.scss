@@ -32,16 +32,89 @@ $green: #258011;
       }
       #distance-container {
         float: left;
-        margin-top: -5px;
-        margin-left: 5px;
+        margin-top: -4px;
+        margin-left: 11px;
         width: 65%;
       }
     }
 
+    #daterange-opt
+    {
+      position: relative;
+
+      float: right;
+      width: 105px;
+      font-size: 10px;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-color: whitesmoke;
+      color: black;
+      border-radius: 3px;
+      // overflow: hidden;
+      cursor: pointer;
+      &:hover {
+        background-color: lightgray;
+        // ul#daterange-options {
+        //   display: block;
+        // }
+      }
+
+      // ul#daterange-options.temp-hide {
+      //   display: none !important;
+      // }
+
+      span#daterange-value {
+        width: 80px;
+        background-image: url(../img/icon/time.png);
+        background-repeat: no-repeat;
+        background-size: 15px 15px;
+        display: inline-block;
+        padding: 7px 0 7px 24px;
+        text-align: left;
+        background-position: 4px center;
+      }
+
+      ul#daterange-options {
+        position: absolute;
+        background-color: #FAFAFA;
+        width: 105px;
+        border-radius: 0 0 8px 8px;
+        border: 3px solid lightgray;
+        border-width: 0 0 2px 0;
+        margin-top: -2px;
+
+        display: none;
+
+        li.daterange-options-item {
+          padding: 4px 0;
+          border: none;
+          margin: 0;
+          &:hover {
+            background-color: rgba(0,0,0,0.1);
+          }
+          &:last-child {
+            border-radius: 0 0 8px 8px;
+          }
+        }
+      }
+
+
+
+      select[name='daterange'] {
+        display: none;
+      }
+
+
+    }
       #event-type-container {
         margin-top: 10px;
         border-radius: 3px;
         background-color: whitesmoke;
+
+        width: 280px;
+        float: left;
+
 
         #event-type-list {
           text-align: center;
@@ -193,11 +266,22 @@ $phone-max-width: 720px;
   and (max-width: $phone-max-width) {
 
   #map-section #map-event-list #event-type-container {
-      border: 1px solid whitesmoke;
+      border: none;
       background-color: white;
       width: 95%;
-      margin: 2%;
-      padding-bottom: 3px;
+      margin: 0;
+      padding-bottom: 1px;
+
   }
+
+#map-section #map-event-list #zip-and-distance #distance-container {
+  margin-top: 5px;
+  margin-left: 3px;
+}
+#map-section #map-event-list #daterange-opt {
+  position: absolute;
+  right: 5px;
+  bottom: -42px;
+}
 
 }
