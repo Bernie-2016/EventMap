@@ -87,7 +87,16 @@ $green: #258011;
         display: none;
 
         li.daterange-options-item {
-          padding: 4px 0;
+          label {
+            cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            padding: 4px 0;
+
+            input { display: none; }
+          }
+
+          padding: 0px 0;
           border: none;
           margin: 0;
           &:hover {

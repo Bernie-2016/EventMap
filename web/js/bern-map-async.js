@@ -489,7 +489,9 @@ bernMap.eventList = function(container) {
 
                             // consoel.log(distance);
                             return  distance <= allowedDistance;
-                        }).map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
+                        });
+
+    nearByZipcodes = nearByZipcodes.map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
 
 
     if (nearByZipcodes.length == 0) return;
@@ -498,8 +500,9 @@ bernMap.eventList = function(container) {
     var nearByActive = nearByZipcodes.filter(function(d) {
                         return d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0;
                       });
+
     var nearByFull = nearByZipcodes.filter(function(d) {
-                        return !( d.properties.attendee_count < d.properties.capacity && d.properties.capacity != 0 );
+                        return !( d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0 );
                      });
     nearByActive.sort(function(a,b) {
       return a.distance - b.distance;
@@ -774,7 +777,7 @@ $jq("#daterange-opt").on(
         }
     }
   )
-$jq("#daterange-opt ul li.daterange-options-item").on("click", function() {
+$jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
   var value = $(this).attr("data-daterange");
   $jq("select[name='daterange']").val(value);
   // $jq("#daterange-opt ul").hide();
@@ -866,8 +869,8 @@ $jq(window).on("hashchange", function(){
 
         bernMap.d.meetupData = bernMap.d.rawMeetupData.filter(function(d) { return d.Date >= today && d.Date <= future; });
         loadZipcodeData();
-        // console.log("X");
       } else {
+        $("#daterange-value").text("This Month");
         bernMap.d.meetupData = bernMap.d.rawMeetupData;
         loadZipcodeData();
       }

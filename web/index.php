@@ -85,20 +85,35 @@ vertical-align"> Let's get to work!</span>
         <div id='daterange-opt'>
           <span id='daterange-value'>All Events</span>
           <ul id='daterange-options'>
-            <li data-daterange='today' class='daterange-options-item'>Today</li>
-            <li data-daterange='this-week' class='daterange-options-item'>This Week</li>
-            <li data-daterange='in-2-weeks' class='daterange-options-item'>In 2 Weeks</li>
-            <li data-daterange='this-month' class='daterange-options-item'>This Month</li>
-            <li data-daterange='all-events' class='daterange-options-item'>All Events</li>
+            <li data-daterange='today' class='daterange-options-item'>
+              <label for='daterange-today'>
+                <input name='daterange' type='radio' id='daterange-today' value='today' />Today
+              </label>
+            </li>
+            <li data-daterange='this-week' class='daterange-options-item'>
+              <label for='daterange-this-week'>
+                <input name='daterange' type='radio' id='daterange-this-week' value='this-week' />This Week
+              </label>
+            </li>
+            <li data-daterange='in-2-weeks' class='daterange-options-item'>
+              <label for='daterange-in-2-weeks'>
+                <input name='daterange' type='radio' id='daterange-in-2-weeks' value='in-2-weeks'/>
+                In 2 Weeks
+              </label>
+            </li>
+            <li data-daterange='this-month' class='daterange-options-item'>
+              <label for='daterange-this-month'>
+                <input name='daterange' type='radio' id='daterange-this-month' value='this-month'/>
+                This Month
+              </label>
+            </li>
+            <li data-daterange='all-events' class='daterange-options-item'>
+              <label for='daterange-all-events'>
+                <input name='daterange' type='radio' id='daterange-all-events' value='all-events' checked="checked"/>
+                All Events
+              </label>
+            </li>
           </ul>
-
-          <select name='daterange'>
-            <option value='today'>Today</option>
-            <option value='this-week'>This Week</option>
-            <option value='in-2-weeks'>In 2 Weeks</option>
-            <option value='this-month'>This Month</option>
-            <option value='all-events'>All Events</option>
-          </select>
         </div>
         <div class='clear'></div>
         </form>

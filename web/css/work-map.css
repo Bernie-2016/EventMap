@@ -57,9 +57,16 @@
     margin-top: -2px;
     display: none; }
     #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item {
-      padding: 4px 0;
+      padding: 0px 0;
       border: none;
       margin: 0; }
+      #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item label {
+        cursor: pointer;
+        width: 100%;
+        display: inline-block;
+        padding: 4px 0; }
+        #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item label input {
+          display: none; }
       #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item:hover {
         background-color: rgba(0, 0, 0, 0.1); }
       #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item:last-child {
