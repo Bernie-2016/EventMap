@@ -273,6 +273,9 @@ $phone-max-width: 720px;
 @media only screen
   and (min-width: $phone-min-width)
   and (max-width: $phone-max-width) {
+  section#map-section div#map-event-list {
+    padding-right: 0;
+  }
 
   #map-section #map-event-list #event-type-container {
       border: none;
