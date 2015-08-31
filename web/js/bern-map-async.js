@@ -778,10 +778,6 @@ $jq(":not(#daterange-opt)").on({
 
 $jq("#daterange-opt").on(
     {
-        touchend: function(e) {
-          // e.stopPropagation();
-          $jq("#daterange-opt ul").show();
-        },
         mouseover : function(e) {
           e.stopPropagation();
           $jq("#daterange-opt ul").show();
