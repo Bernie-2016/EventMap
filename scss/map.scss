@@ -15,7 +15,10 @@ $red: #ea504e;
   font-family: 'Open Sans', sans-serif;
   // li.event-nationwide-item, li.event-list-item {
 
-      a.button-rsvp:hover { color: white !important; }
+      a.button-rsvp {
+        &:hover { color: white !important; }
+      }
+
       a[href='javascript: void(0);'] {
         color: rgb(51, 51, 51);
         text-decoration: none;
@@ -75,7 +78,7 @@ $red: #ea504e;
     }
   }
   h5.event-location {
-    margin-top: 0em;
+    margin-top: 0.9em;
   }
 
   .event-item-date {
@@ -87,9 +90,7 @@ $red: #ea504e;
   & > p { margin-bottom: 0; margin-top: 16px;}
 }
 
-.leaflet-popup-content-wrapper {
-  min-width: 20em !important;
-}
+
 
 #billionaire-logo { fill: $blue; }
 #bott-bg-logo { display: inline-block; }
@@ -124,7 +125,6 @@ section#main-title-area {
 
   h5.event-location {
     font-size: 1em !important;
-    margin-top: 0;
   }
   & > p {
     margin-bottom: 0;
@@ -141,17 +141,16 @@ section#main-title-area {
         // padding-top: 10px;
 
         #footer-billionaire {
-          margin-left: 50%;
-          transform:translate(-50%,0);
-          -ms-transform:translate(-50%,0); /* IE 9 */
-          -moz-transform:translate(-50%,0); /* Firefox */
-          -webkit-transform:translate(-50%,0); /* Safari and Chrome */
-          -o-transform:translate(-50%,0); /* Opera */
-
           svg image {
             // transform: translate(-50%,0);
             // -webkit-transform: translate(-50%,0);
             // -moz-transform: translate(-50%, 0);
+            transform:translate(-100px,0);
+            -ms-transform:translate(-100px,0); /* IE 9 */
+            -moz-transform:translate(-100px,0); /* Firefox */
+            -webkit-transform:translate(-100px,0); /* Safari and Chrome */
+            -o-transform:translate(-100px,0); /* Opera */
+
           }
         }
 
@@ -243,11 +242,11 @@ section#map-section {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 30% !important;
+    width: 390px !important;
     background-color: rgba(255,255,255,0.95);
     padding: 20px;
     border-radius: 4px;
-    // border: 1px solid whitesmoke;
+    border: 1px solid whitesmoke;
     // border-width: 15px 0 0;
     box-shadow: 0px 2px 1px rgba(0,0,0,0.3);
 
@@ -270,8 +269,8 @@ section#map-section {
       }
 
       input[name=zipcode] {
-          width: 30%;
-          // min-width: 200px;
+          width: 80%;
+          min-width: 200px;
           font-size: 1em;
           text-align: center;
           border-color: whitesmoke;
@@ -305,7 +304,7 @@ section#map-section {
             color: gray;
             font-size: 0.7em;
             text-transform: uppercase;
-            padding: 0 5px;
+            padding: 0 7px;
             cursor: pointer;
           }
         }
@@ -391,6 +390,30 @@ $phone-max-width: 720px;
     overflow-x: hidden;
     overflow-y: auto;
   }
+
+  #event-list-area, footer {
+  div#footer-area {
+      text-align: center;
+      margin-top: 20px;
+      // border: solid 3px #EEEEEE;
+      // border-width: 3px 0 0 0;
+      // padding-top: 10px;
+
+      #footer-billionaire {
+        svg image {
+          // transform: translate(-50%,0);
+          // -webkit-transform: translate(-50%,0);
+          // -moz-transform: translate(-50%, 0);
+          transform:translate(-100px,0);
+          -ms-transform:translate(-100px,0); /* IE 9 */
+          -moz-transform:translate(-100px,0); /* Firefox */
+          -webkit-transform:translate(0px,0); /* Safari and Chrome */
+          -o-transform:translate(-100px,0); /* Opera */
+
+        }
+      }
+    }
+  }
   footer { display: none !important; }
   div#header {
     display: none;
@@ -471,10 +494,9 @@ $phone-max-width: 720px;
       form#zip-and-distance {
 
         div#zipcode-container {
-          // width: 7em;
+          width: 7em;
           display: inline-block;
           vertical-align: middle;
-          float: none;
 
           input[name=zipcode] {
             width: 92%;
@@ -486,17 +508,15 @@ $phone-max-width: 720px;
 
         div#distance-container {
           // float: right;
-          // width: 12em;
+          width: 12em;
           vertical-align: middle;
           display: inline-block;
-          float: none;
 
           ul#distance-list {
-            text-align: center;
-            width: 100%;
+            text-align: left;
 
             li {
-              margin: 0.5em 2%;
+              margin: 0 1%;
               label {
                 padding: 0;
                 font-size: 0.85em;
@@ -546,8 +566,8 @@ $phone-max-width: 720px;
         position: absolute;
         margin: 0;
         background-color: white;
-        width: 91%;
-        padding: 0 2%;
+        width: 100%;
+        padding: 0;
         // margin-left: 50%;
         // transform: translate(-50%, 0);
 
@@ -557,6 +577,10 @@ $phone-max-width: 720px;
 
         #bott-bg-logo { display: none !important; }
         #bott-color-logo { display: inline-block !important; }
+
+        & > h2, &  > #event-list-area {
+          padding: 0 2%;
+        }
       }
     }
   }

@@ -47,7 +47,7 @@ $jq(window).on("resize", function() {
   if ($jq(window).width() < 720) {
     // alert("X");
     var _formHeight = $("#map-event-list").outerHeight();
-    $("#map").height(screenHeight - _formHeight - (screenHeight*0.3))
+    $("#map").height(screenHeight - _formHeight - (screenHeight*0.25))
       .css("marginTop", (_formHeight) + "px");
     $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
     $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
@@ -76,8 +76,11 @@ bernMap.constants = {};
 // bernMap.constants.spreadsheetUrl = "/d/july29.json";
 bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*";
 
-
-bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
+if (WIDTH >= 720) {
+  bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
+} else {
+  bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, zoomControl: false, paddingTopLeft: [400, 0],  scrollWheelZoom: false}).addLayer(mapboxTiles);
+}
 // bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: true}).addLayer(mapboxTiles);
 // bernMap.mapBox.touchZoom.disable();
 
@@ -87,6 +90,7 @@ bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
 bernMap.d = {};
 bernMap.scale = {};
 bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 150]);
+bernMap.daterange = "all-events";
 bernMap.d.rsvp=0;
 bernMap.d.capacity = 0;
 bernMap.d.zipcodes = null;
@@ -213,7 +217,10 @@ bernMap.draw = function() {
 
                                       bernMap.mapBox.getZoom()
                                       + (bernMap.mapBox.getZoom()  * 3)]);
-    that.zipcodeElements = that.activityLayer.selectAll("circle.zipcode")
+
+    that.activityLayer.selectAll("circle").remove();
+
+    that.zipcodeElements = that.activityLayer.selectAll("circle")
                               .data(bernMap.d.zipcodes.features).enter()
                               .append("circle")
                               .attr("data-maxcapacity", function(d) { return d.properties.capacity > 0 && d.properties.attendee_count >= d.properties.capacity ? "true" : "false" } )
@@ -431,7 +438,10 @@ bernMap.eventList = function(container) {
             + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
 
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
-            + "<h5 class='event-location'>" + d.properties.location + "</h5>";
+            + "<h5 class='event-location'>" + d.properties.location + "</h5>"
+            + "<p><a href='javascript: void(null);' target='_blank' class='button-rsvp button-full button-disabled'>FULL</a>"
+
+            + (eventType =="rally" ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + (d.properties.capacity!=0 ? " / " + d.properties.capacity :  " / &infin;" ) + "</span></p>" )) ;;
         }
         else {
 
@@ -482,7 +492,9 @@ bernMap.eventList = function(container) {
 
                             // consoel.log(distance);
                             return  distance <= allowedDistance;
-                        }).map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
+                        });
+
+    nearByZipcodes = nearByZipcodes.map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
 
 
     if (nearByZipcodes.length == 0) return;
@@ -491,8 +503,9 @@ bernMap.eventList = function(container) {
     var nearByActive = nearByZipcodes.filter(function(d) {
                         return d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0;
                       });
+
     var nearByFull = nearByZipcodes.filter(function(d) {
-                        return !( d.properties.attendee_count < d.properties.capacity && d.properties.capacity != 0 );
+                        return !( d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0 );
                      });
     nearByActive.sort(function(a,b) {
       return a.distance - b.distance;
@@ -654,16 +667,16 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
     });
 
-    var weekStart = rawDateFormat.parse("7/05/2015");
-    var weekEnd = rawDateFormat.parse("7/12/2015");
+    // var weekStart = rawDateFormat.parse("7/05/2015");
+    // var weekEnd = rawDateFormat.parse("7/12/2015");
 
-    var today = new Date();
-        today.setDate(today.getDate() - 1);
-        today.setHours(0);
-        today.setMinutes(0);
-        today.setSeconds(0);
+    // var today = new Date();
+    //     today.setDate(today.getDate() - 1);
+    //     today.setHours(0);
+    //     today.setMinutes(0);
+    //     today.setSeconds(0);
 
-    var inTwoMonths = new Date(new Date(today).setMonth(today.getMonth()+2));
+    // var inTwoMonths = new Date(new Date(today).setMonth(today.getMonth()+2));
 
     // bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
     //   // return d.Date >= today;
@@ -721,10 +734,12 @@ function loadZipcodeData() {
     bernie.plot();
 
     ////d2bq2yf31lju3q.cloudfront.net
-    d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
-      bernMap.d.allZipcodes = data;
-      $jq(window).trigger("hashchange");
-    });
+    if (!bernMap.d.allZipcodes) {
+      d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
+        bernMap.d.allZipcodes = data;
+        $jq(window).trigger("hashchange");
+      });
+    }
 
 }
 
@@ -735,7 +750,7 @@ $jq("input[name=eventtype]").on("click", function(d) {
 
 $jq("form input[type=radio]").on("click", function(d) {
   if( $jq("form input[name=zipcode]").val().length == 5 ) {
-    window.location.hash = $(this).closest("form").serialize();
+    window.location.hash = $(this).closest("form").find(":not([name='eventtype'])").serialize();
   }
 });
 
@@ -746,7 +761,7 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
   }
 
   if ( $(this).val().length == 5 ) {
-    window.location.hash = $(this).closest("form").serialize();
+    window.location.hash = $(this).closest("form").find(":not([name='eventtype'])").serialize();
     $(this).blur();
     document.activeElement.blur();
   } else {
@@ -754,13 +769,57 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
   }
 });
 
+//Just change value of select[name=daterange]
+$jq(":not(#daterange-opt)").on({
+  touchend : function(e) {
+    $jq("#daterange-opt ul").hide();
+  }
+});
+
+$jq("#daterange-opt").on(
+    {
+        touchend: function(e) {
+          e.stopPropagation();
+          $jq("#daterange-opt ul").show();
+        },
+        mouseover : function(e) {
+          e.stopPropagation();
+          $jq("#daterange-opt ul").show();
+        },
+        mouseout : function(e) {
+          e.stopPropagation();
+          $jq("#daterange-opt ul").hide();
+        }
+    }
+  );
+//For a more direct clicking of a filter...
+$jq(".daterange-options-item").on("touchend", function(e) {
+  e.stopPropagation();
+  $jq("#daterange-opt ul").hide();
+  $jq(this).find("label").trigger("click");
+});
+
+$jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
+  var value = $(this).attr("data-daterange");
+  // $jq("[name='daterange']").val(value);
+  // $jq("#daterange-opt ul").hide();
+  // $("[name='daterange']").trigger("change");
+  $jq("#daterange-opt ul").hide();
+  $jq("form#zip-and-distance").trigger("submit");
+});
+
+$("select[name='daterange']").on("change", function() {
+  // console.log("Hello World", $(this).val());
+});
+
 $jq("form#zip-and-distance").on("submit", function() {
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
 
-    if( window.location.hash == "#" + $(this).closest("form").serialize()) {
+    var serializedForm = $(this).closest("form").find(":not([name='eventtype'])").serialize();
+    if( window.location.hash == "#" + serializedForm) {
       $jq(window).trigger("hashchange");
     } else {
-      window.location.hash = $(this).closest("form").serialize();
+      window.location.hash = serializedForm;
     }
 
     // if mobile focus outside
@@ -770,7 +829,7 @@ $jq("form#zip-and-distance").on("submit", function() {
 
     // $jq("form input[name=zipcode]").blur();
   } else {
-    bernieEvents.setError("Incomplete Zipcode");
+    window.location.hash = $(this).closest("form").find(":not([name='eventtype'])").serialize();
   }
   return false;
 });
@@ -792,14 +851,68 @@ $jq(window).on("hashchange", function(){
       $jq("form input[name=zipcode]").val(parameters.zipcode);
     }
 
+    if ($jq("form select[name=daterange]").val() != parameters.daterange) {
+      $jq("form select[name=daterange]").val(parameters.daterange);
+    }
 
-    if(bernMap.d.allZipcodes){
-      bernie.focusZipcode(hash.substr(1));
-      bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
+    //if bernMap daterange does not match, refilter
+    if (bernMap.daterange != parameters.daterange) {
+      bernMap.daterange = parameters.daterange;
+
+
+      if (bernMap.daterange != "all-events") {
+        var today = new Date();
+        today.setDate(today.getDate() - 1);
+        today.setHours(0);
+        today.setMinutes(0);
+        today.setSeconds(0);
+
+        var future = null;
+        switch (bernMap.daterange) {
+          case "today" :
+            $("#daterange-value").text("Today");
+            future = new Date();
+            break;
+          case "this-week":
+            $("#daterange-value").text("This Week");
+            future = new Date(); future.setDate(future.getDate()+7);
+            break;
+          case "in-2-weeks":
+            $("#daterange-value").text("In 2 Weeks");
+            future = new Date(); future.setDate(future.getDate()+14);
+            break;
+          case "this-month":
+            $("#daterange-value").text("This Month");
+            future = new Date(); future.setDate(future.getDate()+31);
+            break;
+        }
+        future.setHours(23); future.setMinutes(59); future.setSeconds(59);
+
+        bernMap.d.meetupData = bernMap.d.rawMeetupData.filter(function(d) { return d.Date >= today && d.Date <= future; });
+        loadZipcodeData();
+      } else {
+        $("#daterange-value").text("All Events");
+        bernMap.d.meetupData = bernMap.d.rawMeetupData;
+        loadZipcodeData();
+      }
+
+    }
+
+    //Will avoid focusing if zipcode is not equal to 5
+    if (parameters.zipcode.length == 5) {
+      if(bernMap.d.allZipcodes){
+        bernie.focusZipcode(hash.substr(1));
+        bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
+      }
     }
 
 
   } else {
+    if (bernMap.daterange != "all-events") {
+      bernMap.d.meetupData = bernMap.d.rawMeetupData;
+      loadZipcodeData();
+    }
+
     bernMap.mapBox.setView([37.8, -96.9], 4);
     var offset = bernMap.mapBox.getSize().x * 0.15;
     bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
@@ -807,8 +920,8 @@ $jq(window).on("hashchange", function(){
 
 });
 
-if ($jq("form input[name=zipcode]").val().length != 0 ) {
-  $jq("form#zip-and-distance").trigger("submit");
-} else {
-  $jq(window).trigger("hashchange");
-}
+// if ($jq("form input[name=zipcode]").val().length != 0 ) {
+//   $jq("form#zip-and-distance").trigger("submit");
+// } else {
+//   $jq(window).trigger("hashchange");
+// }

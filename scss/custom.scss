@@ -169,6 +169,10 @@ footer {
 }
 
 a {
+  &[href='javascript: void(null);'] {
+    cursor: default;
+  }
+
   img {
     border: none;
   }
@@ -233,6 +237,12 @@ a {
       color: #F55B5B;
       font-weight: bold;
       letter-spacing: 0.15em;
+    }
+
+    &.button-disabled {
+      background-color: lightgray;
+
+      &+span.rsvp-counter { color: lightgray; }
     }
   }
 }

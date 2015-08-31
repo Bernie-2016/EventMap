@@ -32,7 +32,7 @@
   <div class='main-title-area'>
     <div style='margin-bottom: 4px;'>
     <strong>Join the political revolution!</strong><br/>
-    Find the nearest volunteer activity or meeting near you!
+    Find the nearest volunteer activity or meeting near you.
 
     </div>
 
@@ -86,7 +86,6 @@ vertical-align"> Let's get to work!</span>
                         <input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>          </ul>
 
         </div>
-        </form>
         <div class='clear'></div>
         <div id='event-type-container'>
           <ul id='event-type-list'>
@@ -94,14 +93,14 @@ vertical-align"> Let's get to work!</span>
               <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
               <label for='event-R' data-tooltip="Show/Hide Official Bernie Sanders Events">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
-                <span class='etype-name'>Official Events</span>
+                <span class='etype-name'>Official Event</span>
               </label>
             </li>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-CW' value='CW' />
               <label for='event-CW' data-tooltip="Show/Hide Volunteer activity (flyering, calling, walking, etc)">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
-                <span class='etype-name'>Volunteer Activities</span>
+                <span class='etype-name'>Volunteer Work</span>
               </label>
             </li>
             <li class='event-type-item'>
@@ -113,6 +112,42 @@ vertical-align"> Let's get to work!</span>
             </li>
           </ul>
         </div>
+        <div id='daterange-opt'>
+          <span id='daterange-value'>All Events</span>
+          <ul id='daterange-options'>
+            <li data-daterange='today' class='daterange-options-item'>
+              <label for='daterange-today'>
+                <input name='daterange' type='radio' id='daterange-today' value='today' />Today
+              </label>
+            </li>
+            <li data-daterange='this-week' class='daterange-options-item'>
+              <label for='daterange-this-week'>
+                <input name='daterange' type='radio' id='daterange-this-week' value='this-week' />This Week
+              </label>
+            </li>
+            <li data-daterange='in-2-weeks' class='daterange-options-item'>
+              <label for='daterange-in-2-weeks'>
+                <input name='daterange' type='radio' id='daterange-in-2-weeks' value='in-2-weeks'/>
+                In 2 Weeks
+              </label>
+            </li>
+            <li data-daterange='this-month' class='daterange-options-item'>
+              <label for='daterange-this-month'>
+                <input name='daterange' type='radio' id='daterange-this-month' value='this-month'/>
+                This Month
+              </label>
+            </li>
+            <li data-daterange='all-events' class='daterange-options-item'>
+              <label for='daterange-all-events'>
+                <input name='daterange' type='radio' id='daterange-all-events' value='all-events' checked="checked"/>
+                All Events
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+        </form>
+
 
       <div id='event-results-area'>
         <h2 id='event-results-count' style='display: none'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
@@ -172,7 +207,7 @@ vertical-align"> Let's get to work!</span>
 
     $.ajax({
       // url: '/js/bern-july-29-data.gz',
-      url: '/js/event-data.gz',
+      url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
       // data: {
       //   u: "https://docs.google.com/spreadsheets/d/1Ze8IkpTq2nBWKGxtd4Zxs8QH1oUoiqXbFwdqC5CzcpI/export?gid=0&format=csv"
       // },

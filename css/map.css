@@ -7,9 +7,6 @@
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
 
-.leaflet-popup-content-wrapper {
-  min-width: 20em !important; }
-
 #billionaire-logo {
   fill: #147FD7; }
 
@@ -81,7 +78,7 @@ section#main-title-area h4 {
     .leaflet-popup-content h5.event-basics .event-item-date {
       display: inline-block; }
   .leaflet-popup-content h5.event-location {
-    margin-top: 0em; }
+    margin-top: 0.9em; }
   .leaflet-popup-content .event-item-date {
     color: #babbba;
     display: block;
@@ -90,8 +87,7 @@ section#main-title-area h4 {
     margin-bottom: 0;
     margin-top: 16px; }
   .leaflet-popup-content h5.event-location {
-    font-size: 1em !important;
-    margin-top: 0; }
+    font-size: 1em !important; }
   .leaflet-popup-content > p {
     margin-bottom: 0;
     margin-top: 0.5em; }
@@ -99,16 +95,15 @@ section#main-title-area h4 {
 #event-list-area div#footer-area, footer div#footer-area {
   text-align: center;
   margin-top: 20px; }
-  #event-list-area div#footer-area #footer-billionaire, footer div#footer-area #footer-billionaire {
-    margin-left: 50%;
-    transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
+  #event-list-area div#footer-area #footer-billionaire svg image, footer div#footer-area #footer-billionaire svg image {
+    transform: translate(-100px, 0);
+    -ms-transform: translate(-100px, 0);
     /* IE 9 */
-    -moz-transform: translate(-50%, 0);
+    -moz-transform: translate(-100px, 0);
     /* Firefox */
-    -webkit-transform: translate(-50%, 0);
+    -webkit-transform: translate(-100px, 0);
     /* Safari and Chrome */
-    -o-transform: translate(-50%, 0);
+    -o-transform: translate(-100px, 0);
     /* Opera */ }
   #event-list-area div#footer-area h5, #event-list-area div#footer-area div#paid-for-bernie-box, #event-list-area div#footer-area sub, footer div#footer-area h5, footer div#footer-area div#paid-for-bernie-box, footer div#footer-area sub {
     text-transform: uppercase;
@@ -174,10 +169,11 @@ section#map-section {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 30% !important;
+    width: 390px !important;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: 4px;
+    border: 1px solid whitesmoke;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.3); }
     section#map-section div#map-event-list div#map-instructions {
       display: none; }
@@ -195,7 +191,8 @@ section#map-section {
         font-size: 0.6em;
         text-transform: uppercase; }
       section#map-section div#map-event-list form#zip-and-distance input[name=zipcode] {
-        width: 30%;
+        width: 80%;
+        min-width: 200px;
         font-size: 1em;
         text-align: center;
         border-color: whitesmoke;
@@ -219,7 +216,7 @@ section#map-section {
             color: gray;
             font-size: 0.7em;
             text-transform: uppercase;
-            padding: 0 5px;
+            padding: 0 7px;
             cursor: pointer; }
     section#map-section div#map-event-list h2#event-results-count {
       text-transform: uppercase;
@@ -281,7 +278,7 @@ section#map-section {
           section#map-section div#map-event-list #event-list-area .event-list-item h5.event-basics .event-item-date {
             display: inline-block; }
         section#map-section div#map-event-list #event-list-area .event-list-item h5.event-location {
-          margin-top: 0em; }
+          margin-top: 0.9em; }
         section#map-section div#map-event-list #event-list-area .event-list-item .event-item-date {
           color: #babbba;
           display: block;
@@ -321,6 +318,20 @@ footer {
   body {
     overflow-x: hidden;
     overflow-y: auto; }
+
+  #event-list-area div#footer-area, footer div#footer-area {
+    text-align: center;
+    margin-top: 20px; }
+    #event-list-area div#footer-area #footer-billionaire svg image, footer div#footer-area #footer-billionaire svg image {
+      transform: translate(-100px, 0);
+      -ms-transform: translate(-100px, 0);
+      /* IE 9 */
+      -moz-transform: translate(-100px, 0);
+      /* Firefox */
+      -webkit-transform: translate(0px, 0);
+      /* Safari and Chrome */
+      -o-transform: translate(-100px, 0);
+      /* Opera */ }
 
   footer {
     display: none !important; }
@@ -378,23 +389,22 @@ footer {
         section#map-section div#map-event-list div#map-instructions span {
           font-weight: 600; }
       section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
+        width: 7em;
         display: inline-block;
-        vertical-align: middle;
-        float: none; }
+        vertical-align: middle; }
         section#map-section div#map-event-list form#zip-and-distance div#zipcode-container input[name=zipcode] {
           width: 92%;
           min-width: 92%;
           font-size: 0.9em;
           text-transform: uppercase; }
       section#map-section div#map-event-list form#zip-and-distance div#distance-container {
+        width: 12em;
         vertical-align: middle;
-        display: inline-block;
-        float: none; }
+        display: inline-block; }
         section#map-section div#map-event-list form#zip-and-distance div#distance-container ul#distance-list {
-          text-align: center;
-          width: 100%; }
+          text-align: left; }
           section#map-section div#map-event-list form#zip-and-distance div#distance-container ul#distance-list li {
-            margin: 0.5em 2%; }
+            margin: 0 1%; }
             section#map-section div#map-event-list form#zip-and-distance div#distance-container ul#distance-list li label {
               padding: 0;
               font-size: 0.85em; }
@@ -421,13 +431,15 @@ footer {
         position: absolute;
         margin: 0;
         background-color: white;
-        width: 91%;
-        padding: 0 2%; }
+        width: 100%;
+        padding: 0; }
         section#map-section div#map-event-list div#event-results-area h2#event-results-count {
           margin-top: 10px !important; }
         section#map-section div#map-event-list div#event-results-area #bott-bg-logo {
           display: none !important; }
         section#map-section div#map-event-list div#event-results-area #bott-color-logo {
-          display: inline-block !important; } }
+          display: inline-block !important; }
+        section#map-section div#map-event-list div#event-results-area > h2, section#map-section div#map-event-list div#event-results-area > #event-list-area {
+          padding: 0 2%; } }
 
 /*# sourceMappingURL=map.css.map */

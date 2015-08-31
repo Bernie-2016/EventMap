@@ -127,6 +127,10 @@ div#header {
 a {
   text-decoration: none;
   color: #147FD7; }
+  a[href='javascript: void(null);'] {
+    cursor: default; }
+  a img {
+    border: none; }
   a:hover {
     text-decoration: underline; }
   a.contribute {
@@ -169,6 +173,10 @@ a {
       color: #F55B5B;
       font-weight: bold;
       letter-spacing: 0.15em; }
+    a.button-rsvp.button-disabled {
+      background-color: lightgray; }
+      a.button-rsvp.button-disabled + span.rsvp-counter {
+        color: lightgray; }
 
 body {
   font-family: 'Open Sans', sans-serif;

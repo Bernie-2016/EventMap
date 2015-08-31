@@ -12,22 +12,73 @@
 
 #map-section #map-event-list #zip-and-distance #zipcode-container {
   width: 30%;
-  min-width: auto;
+  min-width: 0;
   float: left; }
   #map-section #map-event-list #zip-and-distance #zipcode-container input[name=zipcode] {
     width: 99%;
-    min-width: auto;
+    min-width: 0;
     text-transform: uppercase;
     letter-spacing: 2px; }
 #map-section #map-event-list #zip-and-distance #distance-container {
   float: left;
-  margin-top: -5px;
-  margin-left: 5px;
+  margin-top: -4px;
+  margin-left: 11px;
   width: 65%; }
+#map-section #map-event-list #daterange-opt {
+  position: relative;
+  float: right;
+  width: 105px;
+  font-size: 10px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 3px;
+  cursor: pointer; }
+  #map-section #map-event-list #daterange-opt:hover {
+    background-color: lightgray; }
+  #map-section #map-event-list #daterange-opt span#daterange-value {
+    width: 80px;
+    background-image: url(../img/icon/time.png);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    display: inline-block;
+    padding: 7px 0 7px 24px;
+    text-align: left;
+    background-position: 4px center; }
+  #map-section #map-event-list #daterange-opt ul#daterange-options {
+    position: absolute;
+    background-color: #FAFAFA;
+    width: 105px;
+    border-radius: 0 0 8px 8px;
+    border: 3px solid lightgray;
+    border-width: 0 0 2px 0;
+    margin-top: -2px;
+    display: none; }
+    #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item {
+      padding: 0px 0;
+      border: none;
+      margin: 0; }
+      #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item label {
+        cursor: pointer;
+        width: 100%;
+        display: inline-block;
+        padding: 4px 0; }
+        #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item label input {
+          display: none; }
+      #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item:hover {
+        background-color: rgba(0, 0, 0, 0.1); }
+      #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item:last-child {
+        border-radius: 0 0 8px 8px; }
+  #map-section #map-event-list #daterange-opt select[name='daterange'] {
+    display: none; }
 #map-section #map-event-list #event-type-container {
   margin-top: 10px;
   border-radius: 3px;
-  background-color: whitesmoke; }
+  background-color: whitesmoke;
+  width: 280px;
+  float: left; }
   #map-section #map-event-list #event-type-container #event-type-list {
     text-align: center; }
     #map-section #map-event-list #event-type-container #event-type-list .event-type-item {
@@ -123,11 +174,50 @@
 
 /* For Phones! */
 @media only screen and (min-width: 320px) and (max-width: 720px) {
+  section#map-section div#map-event-list {
+    padding-right: 0; }
+
+  section#map-section div#map-event-list div#event-list-area div#footer-area {
+    width: 100% !important; }
+
   #map-section #map-event-list #event-type-container {
-    border: 1px solid whitesmoke;
-    background-color: white;
-    width: 95%;
-    margin: 2%;
-    padding-bottom: 3px; } }
+    border: none;
+    background-color: whitesmoke;
+    margin: 0;
+    padding-bottom: 1px;
+    position: absolute;
+    bottom: -38px;
+    left: 2px; }
+
+  section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
+    width: 30%; }
+
+  section#map-section div#map-event-list form#zip-and-distance div#distance-container {
+    width: 69%;
+    position: relative; }
+    section#map-section div#map-event-list form#zip-and-distance div#distance-container ul li {
+      margin: 0 !important;
+      width: 19%;
+      text-align: center; }
+
+  #map-section #map-event-list #zip-and-distance #distance-container {
+    margin-top: 5px;
+    margin-left: 3px; }
+
+  #map-section #map-event-list #daterange-opt {
+    position: absolute;
+    left: 2px;
+    bottom: -67px;
+    margin-top: 0;
+    width: 86px; }
+
+  #map-section #map-event-list #daterange-opt span#daterange-value {
+    width: 69px;
+    background-size: 10px 10px;
+    padding-left: 17px;
+    font-size: 9px; }
+
+  #map-section #map-event-list #daterange-opt ul#daterange-options {
+    width: 86px; } }
 
 /*# sourceMappingURL=work-map.css.map */
