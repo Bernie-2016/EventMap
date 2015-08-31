@@ -772,7 +772,10 @@ $jq("#daterange-opt").on(
         mouseover : function() {
           $jq("#daterange-opt ul").show();
         },
-        "touchleave mouseout" : function() {
+        mouseout : function() {
+          $jq("#daterange-opt ul").hide();
+        },
+        touchleave : function() {
           $jq("#daterange-opt ul").hide();
         }
     }
