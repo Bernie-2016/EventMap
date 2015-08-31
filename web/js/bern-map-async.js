@@ -770,13 +770,11 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 });
 
 //Just change value of select[name=daterange]
-// $jq(":not(#daterange-opt)").on({
-//   touchend : function() {
-//     // e.stopPropagation();
-//     $jq("#daterange-opt ul").hide();
-//     e.stopPropagation();
-//   }
-// });
+$jq(":not(#daterange-opt)").on({
+  touchend : function(e) {
+    $jq("#daterange-opt ul").hide();
+  }
+});
 
 $jq("#daterange-opt").on(
     {
@@ -784,7 +782,7 @@ $jq("#daterange-opt").on(
           e.stopPropagation();
           $jq("#daterange-opt ul").show();
         },
-        mouseout : function() {
+        mouseout : function(e) {
           e.stopPropagation();
           $jq("#daterange-opt ul").hide();
         }
