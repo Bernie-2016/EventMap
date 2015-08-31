@@ -20,12 +20,12 @@ $green: #258011;
     #zip-and-distance {
       #zipcode-container {
         width: 30%;
-        min-width: auto;
+        min-width: 0;
         float: left;
 
         input[name=zipcode] {
           width: 99%;
-          min-width: auto;
+          min-width: 0;
           text-transform: uppercase;
           letter-spacing: 2px;
         }

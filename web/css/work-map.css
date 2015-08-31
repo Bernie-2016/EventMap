@@ -12,11 +12,11 @@
 
 #map-section #map-event-list #zip-and-distance #zipcode-container {
   width: 30%;
-  min-width: auto;
+  min-width: 0;
   float: left; }
   #map-section #map-event-list #zip-and-distance #zipcode-container input[name=zipcode] {
     width: 99%;
-    min-width: auto;
+    min-width: 0;
     text-transform: uppercase;
     letter-spacing: 2px; }
 #map-section #map-event-list #zip-and-distance #distance-container {
