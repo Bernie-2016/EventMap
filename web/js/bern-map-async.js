@@ -778,6 +778,10 @@ $jq(":not(#daterange-opt)").on({
 
 $jq("#daterange-opt").on(
     {
+        touchend: function(e) {
+          e.stopPropagation();
+          $jq("#daterange-opt ul").show();
+        },
         mouseover : function(e) {
           e.stopPropagation();
           $jq("#daterange-opt ul").show();
@@ -789,7 +793,8 @@ $jq("#daterange-opt").on(
     }
   );
 //For a more direct clicking of a filter...
-$jq(".daterange-options-item").on("touchend", function() {
+$jq(".daterange-options-item").on("touchend", function(e) {
+  e.stopPropagation();
   $jq("#daterange-opt ul").hide();
   $jq(this).find("label").trigger("click");
 });
