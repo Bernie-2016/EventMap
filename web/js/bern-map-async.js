@@ -870,7 +870,7 @@ $jq(window).on("hashchange", function(){
         bernMap.d.meetupData = bernMap.d.rawMeetupData.filter(function(d) { return d.Date >= today && d.Date <= future; });
         loadZipcodeData();
       } else {
-        $("#daterange-value").text("This Month");
+        $("#daterange-value").text("All Events");
         bernMap.d.meetupData = bernMap.d.rawMeetupData;
         loadZipcodeData();
       }
