@@ -783,7 +783,12 @@ $jq("#daterange-opt").on(
           $jq("#daterange-opt ul").hide();
         }
     }
-  )
+  );
+//For a more direct clicking of a filter...
+$jq(".daterange-options-item").on("touchend", function() {
+  $jq(this).find("label").trigger("click");
+});
+
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
   var value = $(this).attr("data-daterange");
   // $jq("[name='daterange']").val(value);
