@@ -774,13 +774,14 @@ $jq("#daterange-opt").on(
         },
         mouseout : function() {
           $jq("#daterange-opt ul").hide();
-        },
-        focusout : function() {
-          $jq("#daterange-opt ul").hide();
-        },
-
+        }
     }
   )
+$jq(":not(#daterange-opt)").on({
+  touchend : function() {
+    $jq("#daterange-opt ul").hide();
+  }
+});
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
   var value = $(this).attr("data-daterange");
   // $jq("[name='daterange']").val(value);
