@@ -196,7 +196,7 @@ vertical-align"> Let's get to work!</span>
   <?php if(isset($_GET['test'])) : ?>
   <script>
     $(function() {
-      $(".daterange-options-item").on("touchstart", function() {
+      $(".daterange-options-item").on("touchend", function() {
         $(this).find("label").trigger("click");
       });
     });
