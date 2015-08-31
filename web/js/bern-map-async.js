@@ -774,6 +774,7 @@ $jq(":not(#daterange-opt)").on({
   touchend : function() {
     // e.stopPropagation();
     $jq("#daterange-opt ul").hide();
+    e.stopPropagation();
   }
 });
 
