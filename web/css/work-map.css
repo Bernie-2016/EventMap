@@ -187,10 +187,10 @@
     left: 5px; }
 
   section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
-    width: 40%; }
+    width: 30%; }
 
   section#map-section div#map-event-list form#zip-and-distance div#distance-container {
-    width: 59%;
+    width: 69%;
     position: relative; }
     section#map-section div#map-event-list form#zip-and-distance div#distance-container ul li {
       margin: 0 !important;
