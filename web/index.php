@@ -197,7 +197,7 @@ vertical-align"> Let's get to work!</span>
   <script>
     $(function() {
       $(".daterange-options-item").on("touchstart", function() {
-        alert("Hello");
+        $(this).find("label").trigger("click");
       });
     });
   </script>
