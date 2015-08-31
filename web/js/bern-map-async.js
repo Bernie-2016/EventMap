@@ -76,8 +76,11 @@ bernMap.constants = {};
 // bernMap.constants.spreadsheetUrl = "/d/july29.json";
 bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*";
 
-
-bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
+if (WIDTH >= 720) {
+  bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
+} else {
+  bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, zoomControl: false, paddingTopLeft: [400, 0],  scrollWheelZoom: false}).addLayer(mapboxTiles);
+}
 // bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: true}).addLayer(mapboxTiles);
 // bernMap.mapBox.touchZoom.disable();
 
@@ -767,8 +770,9 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 });
 
 //Just change value of select[name=daterange]
-$jq("html").on({
+$jq(":not(#daterange-opt)").on({
   touchend : function() {
+    e.stopPropagation();
     $jq("#daterange-opt ul").hide();
   }
 });
@@ -780,6 +784,7 @@ $jq("#daterange-opt").on(
           $jq("#daterange-opt ul").show();
         },
         mouseout : function() {
+          e.stopPropagation();
           $jq("#daterange-opt ul").hide();
         }
     }

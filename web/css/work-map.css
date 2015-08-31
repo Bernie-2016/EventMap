@@ -176,10 +176,23 @@
 @media only screen and (min-width: 320px) and (max-width: 720px) {
   #map-section #map-event-list #event-type-container {
     border: none;
-    background-color: white;
-    width: 95%;
+    background-color: whitesmoke;
     margin: 0;
-    padding-bottom: 1px; }
+    padding-bottom: 1px;
+    position: absolute;
+    bottom: -43px;
+    left: 5px; }
+
+  section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
+    width: 40%; }
+
+  section#map-section div#map-event-list form#zip-and-distance div#distance-container {
+    width: 59%;
+    position: relative; }
+    section#map-section div#map-event-list form#zip-and-distance div#distance-container ul li {
+      margin: 0 !important;
+      width: 19%;
+      text-align: center; }
 
   #map-section #map-event-list #zip-and-distance #distance-container {
     margin-top: 5px;
