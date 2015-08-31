@@ -323,14 +323,14 @@ footer {
     text-align: center;
     margin-top: 20px; }
     #event-list-area div#footer-area #footer-billionaire svg image, footer div#footer-area #footer-billionaire svg image {
-      transform: translate(-100px, 0);
-      -ms-transform: translate(-100px, 0);
+      transform: translate(0, 0);
+      -ms-transform: translate(0px, 0);
       /* IE 9 */
-      -moz-transform: translate(-100px, 0);
+      -moz-transform: translate(0px, 0);
       /* Firefox */
       -webkit-transform: translate(0px, 0);
       /* Safari and Chrome */
-      -o-transform: translate(-100px, 0);
+      -o-transform: translate(0px, 0);
       /* Opera */ }
 
   footer {
