@@ -795,6 +795,7 @@ $jq("#daterange-opt").on(
 //For a more direct clicking of a filter...
 $jq(".daterange-options-item").on("touchend", function() {
   $jq(this).find("label").trigger("click");
+  $jq("#daterange-opt ul").hide();
 });
 
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
