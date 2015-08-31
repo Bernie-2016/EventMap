@@ -183,8 +183,8 @@
     margin: 0;
     padding-bottom: 1px;
     position: absolute;
-    bottom: -43px;
-    left: 5px; }
+    bottom: -38px;
+    left: 2px; }
 
   section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
     width: 30%; }
@@ -203,7 +203,18 @@
 
   #map-section #map-event-list #daterange-opt {
     position: absolute;
-    left: 5px;
-    bottom: -76px; } }
+    left: 2px;
+    bottom: -67px;
+    margin-top: 0;
+    width: 86px; }
+
+  #map-section #map-event-list #daterange-opt span#daterange-value {
+    width: 69px;
+    background-size: 10px 10px;
+    padding-left: 17px;
+    font-size: 9px; }
+
+  #map-section #map-event-list #daterange-opt ul#daterange-options {
+    width: 86px; } }
 
 /*# sourceMappingURL=work-map.css.map */
