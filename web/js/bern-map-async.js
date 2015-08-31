@@ -775,7 +775,7 @@ $jq("#daterange-opt").on(
         mouseout : function() {
           $jq("#daterange-opt ul").hide();
         },
-        blur : function() {
+        focusout : function() {
           $jq("#daterange-opt ul").hide();
         },
 
