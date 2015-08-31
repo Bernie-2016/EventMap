@@ -775,9 +775,10 @@ $jq("#daterange-opt").on(
         mouseout : function() {
           $jq("#daterange-opt ul").hide();
         },
-        touchleave : function() {
+        blur : function() {
           $jq("#daterange-opt ul").hide();
-        }
+        },
+
     }
   )
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
