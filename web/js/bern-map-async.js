@@ -783,11 +783,10 @@ $jq("#daterange-opt").on(
   )
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
   var value = $(this).attr("data-daterange");
-  $jq("select[name='daterange']").val(value);
+  // $jq("[name='daterange']").val(value);
   // $jq("#daterange-opt ul").hide();
-  $("select[name='daterange']").trigger("change");
+  // $("[name='daterange']").trigger("change");
   $jq("#daterange-opt ul").hide();
-
   $jq("form#zip-and-distance").trigger("submit");
 });
 
