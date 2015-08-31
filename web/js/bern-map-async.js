@@ -780,6 +780,7 @@ $jq("#daterange-opt").on(
 $jq(":not(#daterange-opt)").on({
   touchend : function() {
     $jq("#daterange-opt ul").hide();
+    $jq("#daterange-opt ul").show();
   }
 });
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
