@@ -772,7 +772,7 @@ $jq("form input[name=zipcode]").on("keyup", function(e) {
 //Just change value of select[name=daterange]
 $jq(":not(#daterange-opt)").on({
   touchend : function() {
-    e.stopPropagation();
+    // e.stopPropagation();
     $jq("#daterange-opt ul").hide();
   }
 });
