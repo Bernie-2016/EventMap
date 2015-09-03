@@ -244,6 +244,12 @@ bernMap.draw = function() {
                                   case "E" : return bernMap.mapBox.getZoom(); break;
                                   case "R" : return bernMap.mapBox.getZoom() * 3; break;
                                 }
+                              }).style("visibility", function(d) {
+                                switch (d.properties.type) {
+                                  case "CW" : return that.visibleTypes.volunteerWork ? "inherit" : "hidden"; break;
+                                  case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
+                                  case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
+                                }
                               })
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);

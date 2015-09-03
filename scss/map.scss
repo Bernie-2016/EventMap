@@ -145,11 +145,11 @@ section#main-title-area {
             // transform: translate(-50%,0);
             // -webkit-transform: translate(-50%,0);
             // -moz-transform: translate(-50%, 0);
-            transform:translate(-100px,0);
-            -ms-transform:translate(-100px,0); /* IE 9 */
-            -moz-transform:translate(-100px,0); /* Firefox */
-            -webkit-transform:translate(-100px,0); /* Safari and Chrome */
-            -o-transform:translate(-100px,0); /* Opera */
+            transform:translate(0px,0);
+            -ms-transform:translate(0px,0); /* IE 9 */
+            -moz-transform:translate(0px,0); /* Firefox */
+            -webkit-transform:translate(0px,0); /* Safari and Chrome */
+            -o-transform:translate(0px,0); /* Opera */
 
           }
         }

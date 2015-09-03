@@ -96,14 +96,14 @@ section#main-title-area h4 {
   text-align: center;
   margin-top: 20px; }
   #event-list-area div#footer-area #footer-billionaire svg image, footer div#footer-area #footer-billionaire svg image {
-    transform: translate(-100px, 0);
-    -ms-transform: translate(-100px, 0);
+    transform: translate(0px, 0);
+    -ms-transform: translate(0px, 0);
     /* IE 9 */
-    -moz-transform: translate(-100px, 0);
+    -moz-transform: translate(0px, 0);
     /* Firefox */
-    -webkit-transform: translate(-100px, 0);
+    -webkit-transform: translate(0px, 0);
     /* Safari and Chrome */
-    -o-transform: translate(-100px, 0);
+    -o-transform: translate(0px, 0);
     /* Opera */ }
   #event-list-area div#footer-area h5, #event-list-area div#footer-area div#paid-for-bernie-box, #event-list-area div#footer-area sub, footer div#footer-area h5, footer div#footer-area div#paid-for-bernie-box, footer div#footer-area sub {
     text-transform: uppercase;
