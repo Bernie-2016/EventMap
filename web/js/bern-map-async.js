@@ -262,8 +262,8 @@ bernMap.draw = function() {
               .attr("class", "bernie-main-office")
               .each(function(d) {
                 var coordinates = that._projectPoint(d.lon, d.lat);
-                  d3.select(this).attr("x", coordinates[0])
-                      .attr("y", coordinates[1])
+                  d3.select(this).attr("x", coordinates[0] - 7)
+                      .attr("y", coordinates[1] - 7)
                   ;
                   d3.select(this).attr("xlink\:href", "/img/icon/star.png");
               });
