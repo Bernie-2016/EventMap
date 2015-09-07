@@ -615,7 +615,7 @@ bernMap.eventList = function(container) {
       $("input#entity-type-events").prop("checked", true);
       $("#office-counter").text("OFFICES");
 
-      this.toggleEvents();
+      that.toggleEvents();
     }
 
     //Filter events
@@ -633,7 +633,15 @@ bernMap.eventList = function(container) {
 
 
     if (nearByZipcodes.length == 0) {
+
       $("ul#event-list").append($("<li/>").css("text-align", "center").html('<a href="https://go.berniesanders.com/page/event/create" class="contribute contribute-big" target="_blank">HOST AN EVENT</a>'));
+
+      if ( nearByOffices.length > 0) {
+        $("input#entity-type-offices").prop("checked", true);
+        that.currentEntity = "offices";
+        that.toggleEvents();
+      }
+
       return;
     }
 
