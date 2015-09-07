@@ -84,6 +84,7 @@
     border: 3px solid lightgray;
     border-width: 0 0 2px 0;
     margin-top: -2px;
+    z-index: 100;
     display: none; }
     #map-section #map-event-list #daterange-opt ul#daterange-options li.daterange-options-item {
       padding: 0px 0;
