@@ -7,9 +7,9 @@
     <meta name="description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
     <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
     <meta property="og:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/July29_FBMapImage_600px.png" />
-    <meta property="og:url" content="http://www.bernie2016events.org/berning-manhattan/index.php" />
-    <meta property="og:title" content="B2016E Special Edition: Berning Manhattan Canvassing Station Map"/>
-    <meta property="og:description" content="We are going to put a Bernie Sanders canvasser on as many street corners and subway station entrances as possible all over Manhattan, all at the same time. This is happening on Saturday, September 5th, from 12 p.m. to 4 p.m."/>
+    <meta property="og:url" content="http://www.bernie2016events.org/berning-new-paltz/index.php" />
+    <meta property="og:title" content="B2016E Special Edition: Berning New Paltz Canvassing Station Map"/>
+    <meta property="og:description" content="We are going to put a Bernie Sanders canvasser on as many street corners all over New Paltz, all at the same time."/>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
@@ -36,12 +36,12 @@
     height: 20px;
     display: block;
     vertical-align: middle;
-"> <span style="vertical-align">B16E Special Edition: Berning Manhattan</span>
+"> <span style="vertical-align">Berning New Paltz NY</span>
     </div>
     <form id='zip-and-distance' action="#">
         <h2 id='event-results-count'>B16E Special Edition</h2>
         <h1>
-          Berning Manhattan
+          Berning New Paltz
         </h1>
         <div id='zipcode-container'>
           <input type='text' name='zipcode' id='input-text-zipcode' value='' placeholder='Zipcode' maxlength='5'/>
@@ -77,15 +77,15 @@
   <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a>. This site is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders Campaign.</a>&nbsp;|&nbsp;<a href='mailto:rapi@bernie2016events.org'>Contact&nbsp;Us</a>.</sub>
 
 </footer>
-<script>
-window.initialCoords = [40.7572854,-73.996644];
-window.formURL = {
-  "url" : "https://docs.google.com/forms/d/1rshQNhVufch_FR4iPCTyk0PDRag1Xw9jWVlZT2tY294/viewform",
-  "id" : "entry.554476735",
-  "address" : "entry.279674121"
-};
-</script>
 
+  <script>
+  window.initialCoords = [41.747476,-74.0793875];
+  window.formURL = {
+    "url" : "https://docs.google.com/forms/d/1g4CwmH4c_-0R5VLlEpt3F9EX3zLAWOZywIA8MVjltH8/viewform",
+    "id" : "entry.554476735",
+    "address" : "entry.279674121"
+  };
+  </script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.gz' type='text/javascript'></script>
   <script id='zipcodes-datadump' type='text/plain'></script>
   <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
@@ -98,13 +98,15 @@ window.formURL = {
       url: '../csv-grab.php',
       data: {
         //https://docs.google.com/spreadsheets/d/1WCZdHAPmdAEUsDl-ipJGCeejDahaCiekbrauhl5llDA/export?gid=0&format=csv
-        u: "https://docs.google.com/spreadsheets/d/16ZVTKJrPGYp1NVouJh1tIYUetqiQU6xVi7Hmybg13rk/export?gid=0&format=csv"
+        u: "https://docs.google.com/spreadsheets/d/1V81zmp3EfRkkB1IBZ6oSb38PBp2Bq2Q-62hMaHx2Bkg/export?gid=0&format=csv"
       },
       // dataType: 'script',
       dataType: 'text',
       cache: true, // otherwise will get fresh copy every page load
       success: function(data) {
+        // console.log(data);
         window.WORKDATA = data;
+        // console.log("TEST");
         window.dataCallback();
       }, error: function(a,b,c) {
         console.log("ERROR", b,c);

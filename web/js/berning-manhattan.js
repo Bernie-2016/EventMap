@@ -178,7 +178,7 @@ bernMap.draw = function() {
             .attr("id", "center-item")
             .attr("cx", centerCoords[0])
             .attr("cy", centerCoords[1])
-            .attr("r", bernMap.mapBox.getZoom() * 0.4 )
+            .attr("r", 10 )
             .attr("fill", "#147FD7")
             .attr("opacity", 0.9);
 
@@ -236,7 +236,8 @@ bernMap.draw = function() {
                                 }
                               })
                               .attr("r", function(d) {
-                                return bernMap.mapBox.getZoom()* 0.8;
+                                // return bernMap.mapBox.getZoom()* 0.8;
+                                return 8;
                               })
                               .each(function(d) {
                                 var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
@@ -567,10 +568,11 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   // function(data) {
 
   window.dataCallback = function(){
-    // console.log(window);
+    // console.log("Hello world");
     bernMap.raw.workdata = d3.csv.parse(window.WORKDATA);
 
-    bernMap.d.meetupData = bernMap.raw.workdata.filter(function(d) { return d.manhattan == "Y"; });
+    // bernMap.d.meetupData = bernMap.raw.workdata.filter(function(d) { return d.manhattan == "Y"; });
+    bernMap.d.meetupData = bernMap.raw.workdata;
     bernMap.d.rawMeetupData = bernMap.d.meetupData;
 
     // $jq("#meetup-counter").text(d3format(bernMap.raw.workdata.settings.count));
@@ -587,7 +589,7 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
       // console.log(tempTime);
       item.latitude = item.lat;
       item.longitude = item.lon;
-      item.link = "https://docs.google.com/forms/d/1rshQNhVufch_FR4iPCTyk0PDRag1Xw9jWVlZT2tY294/viewform?entry.554476735=" + item.id + "&entry.279674121=" + encodeURIComponent(item.station + " Station, " + item.address ) + "&entry.986802208&entry.622241787&entry.381623989"
+      item.link = window.formURL.url + "?" + window.formURL.id + "=" + item.id + "&" + window.formURL.address  + "=" + encodeURIComponent(item.station + " Station, " + item.address );
       // item.TimeStart = timeFormat.parse(item.starttime);
       // item.TimeEnd = "";
       // item.Link1 = "RSVP at BernieSanders.com," + item.url;
@@ -607,6 +609,8 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
       // bernMap.d.capacity += parseInt(item.capacity);
 
     });
+
+    console.log(bernMap.d.meetupData);
 
     var weekStart = rawDateFormat.parse("7/05/2015");
     var weekEnd = rawDateFormat.parse("7/12/2015");
@@ -752,7 +756,7 @@ $jq(window).on("hashchange", function(){
 
     // console.log(hash.substr(1));
   } else {
-    bernMap.mapBox.setView([40.7572854,-73.996644], 14);
+    bernMap.mapBox.setView(window.initialCoords, 14);
     var offset = bernMap.mapBox.getSize().x * 0.15;
     bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
   }
