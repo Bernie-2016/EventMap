@@ -316,6 +316,9 @@ ul#office-list li {
 
 /* For Phones! */
 @media only screen and (min-width: 320px) and (max-width: 720px) {
+  .leaflet-control-zoom {
+    display: none !important; }
+
   section#map-section div#map-event-list {
     padding-right: 0; }
 

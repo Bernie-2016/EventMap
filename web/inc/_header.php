@@ -20,9 +20,9 @@ https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events
   <nav>
     <ul id="nav">
       <li><a href='https://go.berniesanders.com/page/event/create' target='_blank'>Host an Event</a></li>
-      <li><a href='http://www.feelthebern.org'>On The Issues</a></li>
-      <li><a href='http://www.voteforbernie.org'>How to Vote</a></li>
-      <li><a href='http://www.reddit.com/r/SandersForPresident'>Join the Discussion</a></li>
+      <li><a href='http://www.feelthebern.org' target='_blank'>On The Issues</a></li>
+      <li><a href='http://www.voteforbernie.org' target='_blank'>How to Vote</a></li>
+      <li><a href='http://www.reddit.com/r/SandersForPresident' target='_blank'>Join the Discussion</a></li>
       <li>
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="I'm attending a July 29 meeting for Bernie Sanders' campaign for president! See events near you:" data-related="BernieSanders" data-count="none">Tweet</a>
         <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button"></div>

@@ -416,6 +416,9 @@ $phone-max-width: 720px;
 @media only screen
   and (min-width: $phone-min-width)
   and (max-width: $phone-max-width) {
+
+  .leaflet-control-zoom { display: none !important; }
+
   section#map-section div#map-event-list {
     padding-right: 0;
   }

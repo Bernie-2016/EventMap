@@ -474,10 +474,12 @@ $phone-max-width: 720px;
   and (max-width: 900px) {
     nav {
       ul {
-        li {
-          padding: 0 10px !important;
-          font-size: 11px !important;
-          .contribute-big { padding: 3px 5px !important; }
+        li { display: none !important; }
+        li:last-child {
+          display: inline-block !important;
+          // padding: 0 10px !important;
+          // font-size: 11px !important;
+          // .contribute-big { padding: 3px 5px !important; }
         }
       }
     }
