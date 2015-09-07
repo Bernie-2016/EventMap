@@ -8,8 +8,8 @@
     <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
     <meta property="og:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/July29_FBMapImage_600px.png" />
     <meta property="og:url" content="http://www.bernie2016events.org" />
-    <meta property="og:title" content="Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders"/>
-    <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
+    <meta property="og:title" content="Happy Birthday Bernie!!"/>
+    <meta property="og:description" content="Celebrate Bernie's birthday volunteering to an event near you!"/>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
@@ -25,7 +25,7 @@
 
 
 
-<?php require_once('inc/_header.php'); ?>
+<?php require_once('inc/_birthday.php'); ?>
 <div></div>
 <section id='map-section' />
   <div id='map'></div>
@@ -148,7 +148,7 @@ vertical-align"> Let's get to work!</span>
   <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
   <script src='/js/leaflet-bouncer.js'></script>
-  <script type='text/javascript' src="/js/bern-map-async.js"></script>
+  <script type='text/javascript' src="/js/birthday.js"></script>
   <script>
 
 
