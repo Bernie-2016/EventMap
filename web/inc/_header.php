@@ -27,7 +27,7 @@ https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bernie2016events.org" data-text="I'm attending a July 29 meeting for Bernie Sanders' campaign for president! See events near you:" data-related="BernieSanders" data-count="none">Tweet</a>
         <div class="fb-share-button" data-href="http://www.bernie2016events.org" data-layout="button"></div>
       </li>
-      <li><a href='https://secure.actblue.com/contribute/page/reddit-for-bernie/' class='contribute contribute-big' target='_blank'>Contribute</a></li>
+      <li><a href='http://berniesanders.com/Reddit' class='contribute contribute-big' target='_blank'>Contribute</a></li>
     </ul>
   </nav>
   <div style='clear: both'></div>
