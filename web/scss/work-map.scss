@@ -378,6 +378,14 @@ ul#office-list {
       }
     }
 
+    &:first-child {
+      margin-top: 0px !important;
+
+      .office-popup {
+        margin-top: 0px !important;
+      }
+    }
+
   }
 }
 

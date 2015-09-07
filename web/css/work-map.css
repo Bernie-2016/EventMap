@@ -296,6 +296,10 @@ ul#office-list li {
       font-size: 0.5em; }
       ul#office-list li .office-popup a.button-rsvp img {
         width: 11px; }
+  ul#office-list li:first-child {
+    margin-top: 0px !important; }
+    ul#office-list li:first-child .office-popup {
+      margin-top: 0px !important; }
 
 .leaflet-popup-content-wrapper {
   overflow: hidden; }
