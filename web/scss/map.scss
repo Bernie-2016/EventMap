@@ -313,16 +313,29 @@ section#map-section {
     h2#event-results-count {
         text-transform: uppercase;
         color: #ea504e;
-        // text-shadow: 0 1px 1px rgba(0,0,0,0.3);
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         font-size: 1em;
-        padding: 0 0 5px;
-        margin: 20px 0 0;
+        padding: 3px 0 5px;
+        margin: 10px 0 0;
         font-weight: normal;
-        box-shadow: 0 5px 1px rgba(0,0,0,0.03);
+        text-align: left;
+        border: 1px solid whitesmoke;
+        border-width: 1px 0 1px 0;
+
+        span {
+          font-size: 0.8em;
+
+          &#event-distance {
+            font-weight: bold;
+          }
+        }
 
         #event-city {
-          font-size: 1.4em;
+          // font-size: 1.4em;
+          letter-spacing: 2px;
+          font-size: 0.9em;
+          // text-align: center;
+          font-weight: bold;
         }
         // #event-counter, #event-distance { font-weight: bold; font-size:}
     }

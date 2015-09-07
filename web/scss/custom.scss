@@ -1,6 +1,6 @@
 $blue: #147FD7;
 $red: #ea504e;
-
+$lightred: #F55B5B;
 @mixin translateAll($a, $b) {
   transform:translate($a,$b);
   -ms-transform:translate($a,$b); /* IE 9 */

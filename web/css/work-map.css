@@ -10,6 +10,35 @@
   #header #title a {
     text-decoration: none; }
 
+#map-section #map-event-list ul#event-or-office {
+  margin-top: 4px;
+  margin-bottom: 5px; }
+  #map-section #map-event-list ul#event-or-office li {
+    margin: 0;
+    display: inline-block;
+    border: none; }
+    #map-section #map-event-list ul#event-or-office li input[type="radio"] {
+      display: none; }
+    #map-section #map-event-list ul#event-or-office li label {
+      padding: 0px 8px 3px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-right: 3px;
+      border-radius: 3px;
+      border: 1px solid rgba(245, 91, 91, 0.2);
+      color: rgba(245, 91, 91, 0.5); }
+      #map-section #map-event-list ul#event-or-office li label:hover {
+        background-color: #F55B5B;
+        color: white; }
+    #map-section #map-event-list ul#event-or-office li input[type="radio"]:checked + label {
+      background-color: #ea504e;
+      color: white;
+      font-weight: bold; }
+    #map-section #map-event-list ul#event-or-office li input[type="radio"]:disabled + label {
+      color: lightgray;
+      border: lightgray; }
+      #map-section #map-event-list ul#event-or-office li input[type="radio"]:disabled + label:hover {
+        background-color: white !important; }
 #map-section #map-event-list #zip-and-distance #zipcode-container {
   width: 30%;
   min-width: 0;
@@ -126,6 +155,8 @@
   .event-type .event-text {
     vertical-align: middle;
     margin-left: 4px; }
+  .event-type.campaign-office .event-text {
+    vertical-align: top; }
   .event-type.campaign-work .event-bullet {
     color: #AD50C7; }
   .event-type.rally .event-bullet {
@@ -166,16 +197,129 @@
     fill: #258011; }
   #map svg circle.official-rally {
     fill: #F55B5B !important; }
+#map svg .bernie-main-office {
+  cursor: pointer; }
+
+.leaflet-popup-pane .office-popup {
+  width: 304px;
+  margin-left: -12px;
+  margin-top: -8px; }
+  .leaflet-popup-pane .office-popup div.office-image-container {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    overflow: hidden; }
+    .leaflet-popup-pane .office-popup div.office-image-container img.office-main-image {
+      width: 100%;
+      transform: translate(0, -25%); }
+  .leaflet-popup-pane .office-popup h3 {
+    padding-left: 15px;
+    padding-right: 15px; }
+  .leaflet-popup-pane .office-popup h5 {
+    padding-left: 15px;
+    padding-right: 15px; }
+    .leaflet-popup-pane .office-popup h5 img {
+      height: 13px;
+      opacity: 0.2;
+      vertical-align: middle;
+      margin-right: 4px; }
+    .leaflet-popup-pane .office-popup h5 > span {
+      text-indent: -17px;
+      padding-left: 15px;
+      display: inline-block;
+      width: 100%;
+      font-size: 12px;
+      color: #555555;
+      vertical-align: middle; }
+  .leaflet-popup-pane .office-popup a.button-rsvp {
+    margin-top: 10px;
+    margin-left: 15px; }
+    .leaflet-popup-pane .office-popup a.button-rsvp img {
+      vertical-align: middle;
+      width: 16px; }
+
+ul#office-list li {
+  margin-bottom: 1em;
+  padding-bottom: 1.5em; }
+  ul#office-list li .office-popup {
+    margin-top: 1em; }
+    ul#office-list li .office-popup div.office-image-container {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      overflow: hidden; }
+      ul#office-list li .office-popup div.office-image-container img.office-main-image {
+        width: 100%;
+        transform: translate(0, -25%); }
+    ul#office-list li .office-popup h3 {
+      padding-left: 15px;
+      padding-right: 15px; }
+    ul#office-list li .office-popup h5 {
+      padding-left: 15px;
+      padding-right: 15px; }
+      ul#office-list li .office-popup h5 img {
+        height: 13px;
+        opacity: 0.2;
+        vertical-align: middle;
+        margin-right: 4px; }
+      ul#office-list li .office-popup h5 > span {
+        text-indent: -17px;
+        padding-left: 15px;
+        display: inline-block;
+        width: 100%;
+        font-size: 12px;
+        color: #555555;
+        vertical-align: middle; }
+    ul#office-list li .office-popup a.button-rsvp {
+      margin-top: 10px;
+      margin-left: 15px; }
+      ul#office-list li .office-popup a.button-rsvp img {
+        vertical-align: middle;
+        width: 16px; }
+    ul#office-list li .office-popup .event-type {
+      position: relative !important;
+      padding: 0;
+      top: auto;
+      background: none;
+      display: none; }
+    ul#office-list li .office-popup div.office-image-container {
+      margin-bottom: 5px; }
+    ul#office-list li .office-popup h3, ul#office-list li .office-popup h5 {
+      margin: 0;
+      padding: 0; }
+      ul#office-list li .office-popup h3 span, ul#office-list li .office-popup h5 span {
+        padding: 0;
+        text-indent: 0; }
+    ul#office-list li .office-popup a.button-rsvp {
+      margin: 10px 0 0 !important;
+      font-size: 0.5em; }
+      ul#office-list li .office-popup a.button-rsvp img {
+        width: 11px; }
+
+.leaflet-popup-content-wrapper {
+  overflow: hidden; }
 
 .leaflet-popup-close-button {
   z-index: 1000;
   top: -13px;
   right: 3px; }
 
+.leaflet-marker-icon {
+  margin-left: -5px !important;
+  margin-top: -18px !important;
+  width: 12px !important;
+  height: 18px !important; }
+
+.leaflet-marker-shadow {
+  display: none; }
+
 /* For Phones! */
 @media only screen and (min-width: 320px) and (max-width: 720px) {
   section#map-section div#map-event-list {
     padding-right: 0; }
+
+  section#map-section div#map-event-list div#event-list-area div#footer-area {
+    width: 100% !important; }
 
   #map-section #map-event-list #event-type-container {
     border: none;

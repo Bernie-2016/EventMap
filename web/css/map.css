@@ -221,14 +221,22 @@ section#map-section {
     section#map-section div#map-event-list h2#event-results-count {
       text-transform: uppercase;
       color: #ea504e;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       font-size: 1em;
-      padding: 0 0 5px;
-      margin: 20px 0 0;
+      padding: 3px 0 5px;
+      margin: 10px 0 0;
       font-weight: normal;
-      box-shadow: 0 5px 1px rgba(0, 0, 0, 0.03); }
+      text-align: left;
+      border: 1px solid whitesmoke;
+      border-width: 1px 0 1px 0; }
+      section#map-section div#map-event-list h2#event-results-count span {
+        font-size: 0.8em; }
+        section#map-section div#map-event-list h2#event-results-count span#event-distance {
+          font-weight: bold; }
       section#map-section div#map-event-list h2#event-results-count #event-city {
-        font-size: 1.4em; }
+        letter-spacing: 2px;
+        font-size: 0.9em;
+        font-weight: bold; }
     section#map-section div#map-event-list #event-list-area {
       max-height: 300px;
       overflow: auto; }

@@ -31,7 +31,7 @@
   <div id='map'></div>
   <div id='map-event-list'>
     <div id='map-instructions'>
-      <span style="vertical-align: middle;font-weight: 600;"></span>  <img src="/img/logo.png" style="
+      <span style="vertical-align: middle;font-weight: 600;"></span>  <img src="//d2bq2yf31lju3q.cloudfront.net/img/logo.png" style="
     height: 20px;
 
     vertical-align: middle;
@@ -49,9 +49,9 @@ vertical-align"> Let's get to work!</span>
           <ul id='distance-list'>
               <li>
                         <input type='radio' id='mile-5' name='distance' value='5' /> <label for='mile-5'>5mi</label></li><li>
-                        <input type='radio' id='mile-10' name='distance' value='10' checked='checked' /> <label for='mile-10'>10mi</label></li><li>
+                        <input type='radio' id='mile-10' name='distance' value='10' /> <label for='mile-10'>10mi</label></li><li>
                         <input type='radio' id='mile-20' name='distance' value='20' /> <label for='mile-20'>20mi</label></li><li>
-                        <input type='radio' id='mile-50' name='distance' value='50' /> <label for='mile-50'>50mi</label></li><li>
+                        <input type='radio' id='mile-50' name='distance' value='50'  checked='checked' /> <label for='mile-50'>50mi</label></li><li>
                         <input type='radio' id='mile-100' name='distance' value='100' /> <label for='mile-100'>100mi</label></li><li>
                         <input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>          </ul>
 
@@ -118,19 +118,23 @@ vertical-align"> Let's get to work!</span>
         <div class='clear'></div>
         </form>
 
+
       <div id='event-results-area'>
-        <h2 id='event-results-count' style='display: none'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
-          <div id="event-city"></div>
+        <h2 id='event-results-count' style='display: none'> <span>within</span> <span id='event-distance'></span> <span>of</span>
+          <span id="event-city"></span>
+          <ul id='event-or-office'>
+            <li><input type='radio' name='entity-type' value='events' checked='checked' id='entity-type-events'/><label for='entity-type-events'><span id='event-counter'></span></label></li>
+            <li><input type='radio' name='entity-type' value='offices' id='entity-type-offices' /><label for='entity-type-offices'><span id='office-counter'>3 offices</span></label></li>
+          </ul>
         </h2>
         <div id='event-list-area'>
-          <ul id='event-list'>
-            <!-- li>
-              <h5 id='upcoming-event'>Upcoming nationwide event</h5>
-              <a href='https://www.facebook.com/events/835545563198517/'>
-                <img src='./img/ad.png' style='width: 100%; height: auto;'/>
-              </a>
-            </li -->
+          <ul id='office-list'>
           </ul>
+          <ul id='event-list'>
+          </ul>
+          <div id="footer-area" style="text-align: center; margin-top: 20px; border: solid 3px #EEEEEE; border-width: 3px 0 0 0; padding-top: 10px;">
+            <sub>&copy; <a href='http://www.reddit.com/r/SandersForPresident'>SandersForPresident</a>. This site is not affiliated with the <a href='http://www.berniesanders.com'>Bernie Sanders Campaign.</a>&nbsp;|&nbsp;<a href='mailto:rapi@bernie2016events.org'>Contact&nbsp;Us</a>.</sub>
+          </div>
         </div>
   </div>
 </section>
@@ -143,6 +147,7 @@ vertical-align"> Let's get to work!</span>
   <script id='zipcodes-datadump' type='text/plain'></script>
   <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
+  <script src='/js/leaflet-bouncer.js'></script>
   <script type='text/javascript' src="/js/bern-map-async.js"></script>
   <script>
 
