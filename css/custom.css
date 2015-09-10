@@ -24,7 +24,7 @@ html, body {
     width: 15em;
     background-color: #147FD7;
     color: white;
-    top: 28px;
+    top: 27px;
     padding: 2px;
     display: none; }
   [data-tooltip] .tooltip-data-arrow {
@@ -332,9 +332,8 @@ div#social {
       margin-top: 12px; } }
 @media only screen and (min-width: 720px) and (max-width: 900px) {
   nav ul li {
-    padding: 0 10px !important;
-    font-size: 11px !important; }
-    nav ul li .contribute-big {
-      padding: 3px 5px !important; } }
+    display: none !important; }
+  nav ul li:last-child {
+    display: inline-block !important; } }
 
 /*# sourceMappingURL=custom.css.map */

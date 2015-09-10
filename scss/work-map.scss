@@ -2,7 +2,66 @@ $blue: #147FD7;
 $yellow: #AD50C7;
 $red: #F55B5B;
 $green: #258011;
+$darkred: #ea504e;
 
+@mixin translateAll($a, $b) {
+  transform:translate($a,$b);
+  -ms-transform:translate($a,$b); /* IE 9 */
+  -moz-transform:translate($a,$b); /* Firefox */
+  -webkit-transform:translate($a,$b); /* Safari and Chrome */
+  -o-transform:translate($a,$b); /* Opera */
+}
+
+@mixin officeItem {
+  div.office-image-container {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      overflow: hidden;
+
+      img.office-main-image {
+        width: 100%;
+        // margin-left: 50%;
+        // transform: translate(0, -25%);
+        @include translateAll(0, -25%);
+      }
+    }
+
+    h3 {
+      padding-left: 15px;
+      padding-right: 15px;
+
+    }
+    h5 {
+      padding-left: 15px;
+      padding-right: 15px;
+      img {
+        height: 13px;
+        opacity: 0.2;
+        vertical-align: middle;
+        margin-right: 4px;
+      }
+      & > span {
+        text-indent: -17px;
+        padding-left: 15px;
+        display: inline-block;
+        width: 100%;
+        font-size: 12px;
+        color: #555555;
+        vertical-align: middle;
+      }
+    }
+
+    a.button-rsvp {
+      margin-top: 10px;
+      margin-left: 15px;
+
+      img {
+        vertical-align: middle;
+        width: 16px;
+      }
+    }
+}
 #header #title {
       position: absolute;
     font-family: 'Open Sans';
@@ -17,6 +76,34 @@ $green: #258011;
 
 #map-section {
   #map-event-list {
+
+    ul#event-or-office {
+      margin-top: 4px;
+      margin-bottom: 5px;
+      li {
+        margin: 0;
+        display: inline-block;
+        border: none;
+
+        input[type="radio"] { display: none; }
+        label { padding: 0px 8px 3px; cursor: pointer; font-size: 0.9em; margin-right: 3px; border-radius: 3px; border: 1px solid rgba(245, 91, 91, 0.2); color: rgba(245, 91, 91, 0.5);
+
+          &:hover { background-color: $red; color: white; }
+        }
+        input[type="radio"]:checked + label {
+          background-color: $darkred;
+          color: white;
+          font-weight: bold;
+        }
+        input[type="radio"]:disabled + label {
+          color: lightgray;
+          border: lightgray;
+
+          &:hover { background-color: white !important; }
+        }
+      }
+    }
+
     #zip-and-distance {
       #zipcode-container {
         width: 30%;
@@ -83,7 +170,7 @@ $green: #258011;
         border: 3px solid lightgray;
         border-width: 0 0 2px 0;
         margin-top: -2px;
-
+        z-index: 100;
         display: none;
 
         li.daterange-options-item {
@@ -140,6 +227,7 @@ $green: #258011;
             }
             input[name='eventtype'] + label .etype-bullet {
                 color: lightgray;
+                font-size:0.7em;
             }
             input[name='eventtype']:checked  {
                &[value='E'] + label .etype-bullet { color: $green; }
@@ -168,6 +256,20 @@ footer {
 
 }
 
+div#event-list-area #event-list {
+
+  .event-type {
+    .event-text {
+      line-height: 0.7;
+      margin-top: 4px;
+      display: inline-block;
+    }
+  }
+
+  #footer-area {
+    display: none !important;
+  }
+}
 .event-type {
     position: absolute;
     top: -16px;
@@ -188,9 +290,13 @@ footer {
       vertical-align: middle;
     }
 
-    .event-text {
+   .event-text {
       vertical-align: middle;
-      margin-left: 4px;
+      // margin-left: 4px;
+    }
+
+    &.campaign-office {
+      .event-text { vertical-align: top; }
     }
     // text-shadow: -1px -1px rgba(0,0,0,0.3);
 
@@ -250,21 +356,96 @@ footer {
 
 #map svg {
 
-circle {
-  stroke: white;
-  stroke-width: 2px;
-  &.campaign-work { fill: $yellow;}
-  &.grassroots-event { fill: $green; }
-  &.official-rally { fill: $red !important; }
-}
+  circle {
+    stroke: whitesmoke;
+    stroke-width: 1px;
+    &.campaign-work { fill: $yellow;}
+    &.grassroots-event { fill: $green; }
+    &.official-rally { fill: $red !important; }
+  }
+  .bernie-main-office {
+    cursor: pointer;
+  }
+
 }
 
+.leaflet-popup-pane{
+  .office-popup {
+    width: 304px;
+    margin-left: -12px;
+    margin-top: -8px;
+
+    @include officeItem;
+  }
+}
+
+ul#office-list {
+  li {
+    margin-bottom: 1em;
+    padding-bottom: 1.5em;
+
+    .office-popup {
+      @include officeItem;
+
+      margin-top: 1em;
+      .event-type {
+        position: relative !important;
+        padding: 0;
+        top: auto;
+        background: none;
+        display: none;
+      }
+      div.office-image-container{ margin-bottom : 5px; }
+      h3,h5 { margin: 0; padding: 0; span { padding: 0; text-indent: 0;}}
+      a.button-rsvp { margin: 10px 0 0 !important; font-size: 0.5em;
+        img { width: 11px; }
+      }
+    }
+
+    &:first-child {
+      margin-top: 0px !important;
+
+      .office-popup {
+        margin-top: 0px !important;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0.5em;
+    }
+
+  }
+}
+
+.leaflet-popup-content-wrapper {
+  overflow: hidden;
+  .only-for-side { display: none; }
+}
 .leaflet-popup-close-button {
   z-index: 1000;
   top: -13px;
   right: 3px;
   // &:hover { background: transparent;}
 }
+
+.leaflet-marker-icon {
+    margin-left: -5px !important;
+    margin-top: -18px !important;
+    width: 12px !important;
+    height: 18px !important;
+}
+.leaflet-marker-shadow {
+      display: none;
+  // width: 24px !important;
+// margin-left: -5px !important;
+//     margin-top: -24px !important;
+//     height: 24px !important;
+}
+
+
+
+
 
 $phone-min-width: 320px;
 $phone-max-width: 720px;
@@ -273,6 +454,9 @@ $phone-max-width: 720px;
 @media only screen
   and (min-width: $phone-min-width)
   and (max-width: $phone-max-width) {
+
+  .leaflet-control-zoom { display: none !important; }
+
   section#map-section div#map-event-list {
     padding-right: 0;
   }
@@ -281,6 +465,12 @@ $phone-max-width: 720px;
     width: 100% !important;
   }
 
+div#event-list-area #event-list {
+
+  #footer-area {
+    display: none !important;
+  }
+}
   #map-section #map-event-list #event-type-container {
       border: none;
       background-color: whitesmoke;
@@ -330,3 +520,4 @@ section#map-section div#map-event-list form#zip-and-distance div#distance-contai
 }
 
 }
+

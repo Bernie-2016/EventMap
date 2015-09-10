@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
     <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
-    <meta property="og:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/volunteer-map.png" />
+    <meta property="og:image" content="http:/img/volunteer-map.png" />
     <meta property="og:url" content="http://map.berniesanders.com" />
     <meta property="og:title" content="Let's Get to Work! Find Volunteer Activities, Volunteer meetings, and official Rallies for Bernie Sanders"/>
     <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
@@ -16,10 +16,10 @@
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
     <link href='//d2bq2yf31lju3q.cloudfront.net/css/map.css' rel='stylesheet' />
     <link href='//d2bq2yf31lju3q.cloudfront.net/css/custom.css' rel="stylesheet" type="text/css" />
-    <link href='//d2bq2yf31lju3q.cloudfront.net/css/work-map.css' rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link href='/css/work-map.css' rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="//d2bq2yf31lju3q.cloudfront.net/favicon.ico">
 
-    <title>Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders</title>
+    <title>Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders.</title>
   </head>
   <body>
 
@@ -93,7 +93,7 @@ vertical-align"> Let's get to work!</span>
               <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
               <label for='event-R' data-tooltip="Show/Hide Official Bernie Sanders Events">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
-                <span class='etype-name'>Official Event</span>
+                <span class='etype-name'>Official</span>
               </label>
             </li>
             <li class='event-type-item'>
@@ -107,7 +107,7 @@ vertical-align"> Let's get to work!</span>
               <input type='checkbox' checked='checked' name='eventtype' id='event-E' value='E' />
               <label for='event-E' data-tooltip="Show/Hide Volunteer meetings to get organized or learn more.">
                 <span class='etype-bullet etype-selected'>&#9673;</span>
-                <span class='etype-name'>Meetings</span>
+                <span class='etype-name'>Volunteer Event</span>
               </label>
             </li>
           </ul>
@@ -150,10 +150,16 @@ vertical-align"> Let's get to work!</span>
 
 
       <div id='event-results-area'>
-        <h2 id='event-results-count' style='display: none'><span id='event-counter'></span> <span>within</span> <span id='event-distance'></span> <span>of</span>
-          <div id="event-city"></div>
+        <h2 id='event-results-count' style='display: none'> <span>within</span> <span id='event-distance'></span> <span>of</span>
+          <span id="event-city"></span>
+          <ul id='event-or-office'>
+            <li><input type='radio' name='entity-type' value='events' checked='checked' id='entity-type-events'/><label for='entity-type-events'><span id='event-counter'></span></label></li>
+            <li><input type='radio' name='entity-type' value='offices' id='entity-type-offices' /><label for='entity-type-offices'><span id='office-counter'>3 offices</span></label></li>
+          </ul>
         </h2>
         <div id='event-list-area'>
+          <ul id='office-list'>
+          </ul>
           <ul id='event-list'>
           </ul>
           <div id="footer-area" style="text-align: center; margin-top: 20px; border: solid 3px #EEEEEE; border-width: 3px 0 0 0; padding-top: 10px;">
@@ -170,7 +176,7 @@ vertical-align"> Let's get to work!</span>
               </svg>
             </div>
 
-            <sub>© Bernie 2016 | <a href="https://berniesanders.com/privacy-policy/">Privacy Policy</a></sub>
+            <sub>&copy; Bernie 2016 | <a href="https://berniesanders.com/privacy-policy/">Privacy Policy</a></sub>
           </div>
         </div>
   </div>
@@ -201,10 +207,9 @@ vertical-align"> Let's get to work!</span>
   <script id='zipcodes-datadump' type='text/plain'></script>
   <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
-  <script src="//d2bq2yf31lju3q.cloudfront.net/js/bern-map-async.gz"></script>
+  <script src='//d2bq2yf31lju3q.cloudfront.net/js/leaflet-bouncer.gz'></script>
+  <script src="//d2bq2yf31lju3q.cloudfront.net/js/bern-map-async.js"></script>
   <script>
-
-
     $.ajax({
       // url: '/js/bern-july-29-data.gz',
       url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
@@ -221,7 +226,6 @@ vertical-align"> Let's get to work!</span>
         console.log("ERROR", b,c);
       }
     });
-
   </script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
