@@ -79,7 +79,7 @@ bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Par
 
 
 if (WIDTH >= 720) {
-  console.log("Map Center", window.MAP_CENTER);
+  // console.log("Map Center", window.MAP_CENTER);
   bernMap.mapBox = new L.Map("map", {
         center: window.MAP_CENTER?window.MAP_CENTER.latlng:[37.8, -96.9],
         zoom: window.MAP_CENTER?window.MAP_CENTER.zoom:4,
