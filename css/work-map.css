@@ -124,7 +124,7 @@
         color: lightgray;
         font-size: 0.7em; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='E'] + label .etype-bullet {
-        color: #258011; }
+        color: #104672; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='CW'] + label .etype-bullet {
         color: #AD50C7; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='R'] + label .etype-bullet {
@@ -170,7 +170,7 @@ div#event-list-area #event-list #footer-area {
   .event-type.rally .event-bullet {
     color: #F55B5B; }
   .event-type.meetup .event-bullet {
-    color: #258011; }
+    color: #104672; }
 
 .event-list-item {
   position: relative; }
@@ -202,9 +202,11 @@ div#event-list-area #event-list #footer-area {
   #map svg circle.campaign-work {
     fill: #AD50C7; }
   #map svg circle.grassroots-event {
-    fill: #258011; }
+    fill: #104672;
+    r: 4; }
   #map svg circle.official-rally {
-    fill: #F55B5B !important; }
+    fill: #F55B5B !important;
+    r: 10; }
 #map svg .bernie-main-office {
   cursor: pointer; }
 
@@ -356,9 +358,6 @@ ul#office-list li {
 
   section#map-section div#map-event-list div#event-list-area div#footer-area {
     width: 100% !important; }
-
-  div#event-list-area #event-list #footer-area {
-    display: none !important; }
 
   #map-section #map-event-list #event-type-container {
     border: none;

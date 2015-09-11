@@ -1,7 +1,7 @@
 $blue: #147FD7;
 $yellow: #AD50C7;
 $red: #F55B5B;
-$green: #258011;
+$green: #104672; //Turned to dark blue
 $darkred: #ea504e;
 
 @mixin translateAll($a, $b) {
@@ -360,8 +360,8 @@ div#event-list-area #event-list {
     stroke: whitesmoke;
     stroke-width: 1px;
     &.campaign-work { fill: $yellow;}
-    &.grassroots-event { fill: $green; }
-    &.official-rally { fill: $red !important; }
+    &.grassroots-event { fill: $green; r: 4;}
+    &.official-rally { fill: $red !important;  r: 10;}
   }
   .bernie-main-office {
     cursor: pointer;
@@ -465,12 +465,6 @@ $phone-max-width: 720px;
     width: 100% !important;
   }
 
-div#event-list-area #event-list {
-
-  #footer-area {
-    display: none !important;
-  }
-}
   #map-section #map-event-list #event-type-container {
       border: none;
       background-color: whitesmoke;

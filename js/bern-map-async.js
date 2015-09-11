@@ -79,9 +79,16 @@ bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Par
 
 
 if (WIDTH >= 720) {
-  bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
+  console.log("Map Center", window.MAP_CENTER);
+  bernMap.mapBox = new L.Map("map", {
+        center: window.MAP_CENTER?window.MAP_CENTER.latlng:[37.8, -96.9],
+        zoom: window.MAP_CENTER?window.MAP_CENTER.zoom:4,
+        paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
 } else {
-  bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, zoomControl: false, paddingTopLeft: [400, 0],  scrollWheelZoom: false}).addLayer(mapboxTiles);
+  bernMap.mapBox = new L.Map("map", {
+    center: window.MAP_CENTER?window.MAP_CENTER.latlng:[37.8, -96.9],
+    zoom: window.MAP_CENTER?window.MAP_CENTER.zoom:4,
+    zoomControl: false, paddingTopLeft: [400, 0],  scrollWheelZoom: false}).addLayer(mapboxTiles);
 }
 // bernMap.mapBox = new L.Map("map", {center: [37.8, -96.9], zoom: 4, paddingTopLeft: [400, 0], scrollWheelZoom: true}).addLayer(mapboxTiles);
 // bernMap.mapBox.touchZoom.disable();
@@ -357,7 +364,8 @@ bernMap.draw = function() {
       .attr("height", (bounds.height + 20) + "px")
       // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
       .style("left", bounds.x-10 + "px")
-      .style("top", bounds.y-10 + "px");
+      .style("top", bounds.y-10 + "px")
+      .style("z-index", "1000");
 
     that.activityLayer.attr("transform", "translate(" + -(bounds.x-10) + "," + -(bounds.y-10) + ")");
   };
@@ -431,6 +439,9 @@ bernMap.draw = function() {
   var _that = this;
   this.initialize = function() {
 
+    if (window.MAP_CALLBACK) {
+      window.MAP_CALLBACK(bernMap.mapBox);
+    }
 
     bernMap.mapBox.on('zoomstart', function() {
       _that.activityLayer.style("visibility","hidden");
@@ -543,7 +554,7 @@ bernMap.eventList = function(container) {
             + (d.properties.TimeStart ? d.properties.TimeStart : "")
             + "</span></h5>"
             + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
-            + "<div class='event-type " + eventType + "'><span class='event-text'><span class='event-bullet'>&bull;</span>" + eventText + "</span></div>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
 
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
@@ -558,7 +569,7 @@ bernMap.eventList = function(container) {
             + (d.properties.TimeStart ? " &nbsp;&nbsp; " + d.properties.TimeStart : "")
             + "</span></h5>"
             + "<h3><a target='_blank' href='" + d.properties.link + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
-            + "<div class='event-type " + eventType + "'><span class='event-text'><span class='event-bullet'>&bull;</span>" + eventText + "</span></div>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
             + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>RSVP</a>"
@@ -779,16 +790,25 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
       item.AttendeeCount = item.attendee_count;
       item.capacity = parseInt(item.capacity);
 
-      item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
+      // item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
       switch(item.event_type_name) {
-        case "Volunteer activity (flyering, calling, walking, etc)":
-          item.eventType = "Volunteer Work";
+        case "Iowa event":
+        case "New Hampshire event":
+        case "South Carolina event":
+          item.event_type_name = item.eventType = "Official Event";
           item.type = "CW"; break;
-        case "Official Event":
-          item.eventType = "Official Event";
+        case "Rally":
+        case "Town Meeting":
+          item.eventType = item.event_type_name;
           item.type = "R"; break;
         default:
-          item.eventType = "Volunteer Event <span class='only-for-side'>- " + item.event_type_name.replace(/ *\([^)]*\) */g, "") + "</span>";
+
+          switch (item.event_type_name) {
+            case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
+            case "Volunteer meeting to get organized or learn more " : item.eventType = "Volunteer Meeting"; break;
+            case "Volunteer activity (flyering, calling, walking, etc)" : item.eventType = "Volunteer Activity"; break;
+            default: item.eventType = "Volunteer Event"; break;
+          }
           item.type = "E"; break;
       }
       // bernMap.d.rsvp += parseInt(item.attendee_count);
@@ -1021,9 +1041,12 @@ $jq(window).on("hashchange", function(){
             future = new Date(); future.setDate(future.getDate()+31);
             break;
         }
-        future.setHours(23); future.setMinutes(59); future.setSeconds(59);
 
-        bernMap.d.meetupData = bernMap.d.rawMeetupData.filter(function(d) { return d.Date >= today && d.Date <= future; });
+        if (future) {
+          future.setHours(23); future.setMinutes(59); future.setSeconds(59);
+          bernMap.d.meetupData = bernMap.d.rawMeetupData.filter(function(d) { return d.Date >= today && d.Date <= future; });
+        }
+
         loadZipcodeData();
       } else {
         $("#daterange-value").text("All Events");
@@ -1048,7 +1071,13 @@ $jq(window).on("hashchange", function(){
       loadZipcodeData();
     }
 
-    bernMap.mapBox.setView([37.8, -96.9], 4);
+
+    //http://leafletjs.com/examples/us-states.js
+    if (window.MAP_CENTER) {
+      bernMap.mapBox.setView(window.MAP_CENTER.latlng, window.MAP_CENTER.zoom);
+    } else {
+      bernMap.mapBox.setView([37.8, -96.9], 4);
+    }
     var offset = bernMap.mapBox.getSize().x * 0.15;
     bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
   }
