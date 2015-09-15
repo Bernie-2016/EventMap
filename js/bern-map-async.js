@@ -150,8 +150,8 @@ bernMap.draw = function() {
   this._getRadius = function(d) {
     var that = this;
     switch (d.properties.type) {
-      case "CW" : return 5; break;
-      case "E" : return 5; break;
+      case "CW" : return 4; break;
+      case "E" : return 4; break;
       case "R" : return 9; break;
     }
   };
@@ -456,8 +456,8 @@ bernMap.draw = function() {
     });
     bernMap.mapBox.on('zoomend', function() {
         // triggerLayerChange();
-        _that.replot();
         _that.mapOffices();
+        _that.replot();
         _that.activityLayer.style("visibility","visible");
         // regionalLayer.recalibrateLayer();
     });
@@ -886,8 +886,9 @@ function loadZipcodeData() {
     var _features = reformat(bernMap.d.meetupData);
     _features.sort(function(a, b) { return b.properties.attendee_count - a.properties.attendee_count; });
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
-    bernie.plot();
     bernie.mapOffices();
+    bernie.plot();
+
 
     ////d2bq2yf31lju3q.cloudfront.net
     if (!bernMap.d.allZipcodes) {
