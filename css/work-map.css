@@ -56,7 +56,7 @@
 #map-section #map-event-list #daterange-opt {
   position: relative;
   float: right;
-  width: 105px;
+  width: 100px;
   font-size: 10px;
   margin-top: 10px;
   text-transform: uppercase;
@@ -79,7 +79,7 @@
   #map-section #map-event-list #daterange-opt ul#daterange-options {
     position: absolute;
     background-color: #FAFAFA;
-    width: 105px;
+    width: 100px;
     border-radius: 0 0 8px 8px;
     border: 3px solid lightgray;
     border-width: 0 0 2px 0;
@@ -107,7 +107,7 @@
   margin-top: 10px;
   border-radius: 3px;
   background-color: whitesmoke;
-  width: 280px;
+  width: 285px;
   float: left; }
   #map-section #map-event-list #event-type-container #event-type-list {
     text-align: center; }
@@ -200,7 +200,8 @@ div#event-list-area #event-list #footer-area {
   stroke: whitesmoke;
   stroke-width: 1px; }
   #map svg circle.campaign-work {
-    fill: #AD50C7; }
+    fill: #AD50C7;
+    r: 4; }
   #map svg circle.grassroots-event {
     fill: #104672;
     r: 4; }

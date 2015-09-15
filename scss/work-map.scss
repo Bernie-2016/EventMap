@@ -130,7 +130,7 @@ $darkred: #ea504e;
       position: relative;
 
       float: right;
-      width: 105px;
+      width: 100px;
       font-size: 10px;
       margin-top: 10px;
       text-transform: uppercase;
@@ -165,7 +165,7 @@ $darkred: #ea504e;
       ul#daterange-options {
         position: absolute;
         background-color: #FAFAFA;
-        width: 105px;
+        width: 100px;
         border-radius: 0 0 8px 8px;
         border: 3px solid lightgray;
         border-width: 0 0 2px 0;
@@ -208,7 +208,7 @@ $darkred: #ea504e;
         border-radius: 3px;
         background-color: whitesmoke;
 
-        width: 280px;
+        width: 285px;
         float: left;
 
 
@@ -359,7 +359,7 @@ div#event-list-area #event-list {
   circle {
     stroke: whitesmoke;
     stroke-width: 1px;
-    &.campaign-work { fill: $yellow;}
+    &.campaign-work { fill: $yellow; r: 4;}
     &.grassroots-event { fill: $green; r: 4;}
     &.official-rally { fill: $red !important;  r: 10;}
   }

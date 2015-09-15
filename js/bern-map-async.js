@@ -75,7 +75,7 @@ var bernMap = bernMap || {};
 bernMap.constants = {};
 // bernMap.constants.spreadsheetUrl = "/d/july29.json";
 bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*";
-bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Parkway Suite 100 Des Moines IA 50310","name":"Des Moines - State HQ","phone":"(515) 277-6073 ","lat":41.6262238,"lon":-93.6523551,"photo":"/img/offices/IO-1.png"},{"address":"3839 Merle Hay #259 Des Moines IA 50310","name":"Polk","phone":"(515) 251-6335","lat":41.6308099,"lon":-93.697183,"photo":"/img/offices/IO-2.png"},{"address":"500 West Broadway #150 Council Bluffs IA 51503","name":"Council Bluffs","phone":"(712) 323-7232","lat":41.2612218,"lon":-95.8499378,"photo":"/img/offices/IO-3.png"},{"address":"105 N. Court St Ottumwa IA 52501","name":"Ottumwa","phone":"(641) 682-0686","lat":41.019002,"lon":-92.411845,"photo":"/img/offices/IO-4.png"},{"address":"1918 Pierce St Sioux City IA 51104","name":"Sioux City","phone":"(712) 258-9445","lat":42.5107837,"lon":-96.4048652,"photo":"/img/offices/IO-5.png"},{"address":"1728 Central Ave Fort Dodge IA 50501","name":"Fort Dodge","phone":"(515) 955-2016","lat":42.5064161,"lon":-94.1739369,"photo":"/img/offices/IO-6.png"},{"address":"303 Main St Ames IA 50010","name":"Ames","phone":"(515) 233-4414","lat":42.0251178,"lon":-93.6139446,"photo":"/img/offices/IO-15.png"},{"address":"513 Federal Ave Mason City 50401","name":"Mason City","phone":"(641) 424-4505","lat":43.1465735,"lon":-93.2010729,"photo":"/img/offices/IO-7.png"},{"address":"217 W 4th St Waterloo IA 50701","name":"Waterloo","phone":"(319) 232-1535","lat":42.494518,"lon":-92.340007,"photo":"/img/offices/IO-8.png"},{"address":"198 Main St #4 Dubuque IA 52001","name":"Dubuque","phone":"(563) 556-5276","lat":42.495859,"lon":-90.66412,"photo":"/img/offices/IO-9.png"},{"address":"736 Federal St #2101 Davenport IA 52801","name":"Davenport","phone":"(563) 323-0559","lat":41.5247596,"lon":-90.5633143,"photo":"/img/offices/IO-10.png"},{"address":"725 11th St Marion IA 52302","name":"Cedar Rapids","phone":"(319) 373-3088","lat":42.0337172,"lon":-91.5980691,"photo":"/img/offices/IO-11.png"},{"address":"Office #4 Second Floor 101 West Main Street West Branch IA 52358","name":"West Branch","phone":"(319) 643-3779","lat":41.6715074,"lon":-91.3468293,"photo":"/img/offices/IO-12.png"},{"address":"702 S Gilbert #101 Iowa City IA 52240","name":"Iowa City","phone":"(319) 338-1204","lat":41.6525972,"lon":-91.530271,"photo":"/img/offices/IO-13.png"},{"address":"1525 Mt. Pleasant St Burlington IA 52601","name":"Burlington ","phone":" (319) 752-8867  ","lat":40.819149,"lon":-91.120272,"photo":"/img/offices/IO-14.png"},{"address":"312 Mass Ave NE, Washington, DC 20002","name":"Washington, D.C.","phone":"-","lat":38.8943255,"lon":-77.0013426,"photo":"/img/offices/DC-01.png"}]};
+bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Parkway Suite 100 Des Moines IA 50310","name":"Des Moines - State HQ","phone":"(515) 277-6073 ","lat":41.6262238,"lon":-93.6523551,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-1.png"},{"address":"3839 Merle Hay #259 Des Moines IA 50310","name":"Polk","phone":"(515) 251-6335","lat":41.6308099,"lon":-93.697183,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-2.png"},{"address":"500 West Broadway #150 Council Bluffs IA 51503","name":"Council Bluffs","phone":"(712) 323-7232","lat":41.2612218,"lon":-95.8499378,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-3.png"},{"address":"105 N. Court St Ottumwa IA 52501","name":"Ottumwa","phone":"(641) 682-0686","lat":41.019002,"lon":-92.411845,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-4.png"},{"address":"1918 Pierce St Sioux City IA 51104","name":"Sioux City","phone":"(712) 258-9445","lat":42.5107837,"lon":-96.4048652,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-5.png"},{"address":"1728 Central Ave Fort Dodge IA 50501","name":"Fort Dodge","phone":"(515) 955-2016","lat":42.5064161,"lon":-94.1739369,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-6.png"},{"address":"303 Main St Ames IA 50010","name":"Ames","phone":"(515) 233-4414","lat":42.0251178,"lon":-93.6139446,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-15.png"},{"address":"513 Federal Ave Mason City 50401","name":"Mason City","phone":"(641) 424-4505","lat":43.1465735,"lon":-93.2010729,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-7.png"},{"address":"217 W 4th St Waterloo IA 50701","name":"Waterloo","phone":"(319) 232-1535","lat":42.494518,"lon":-92.340007,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-8.png"},{"address":"198 Main St #4 Dubuque IA 52001","name":"Dubuque","phone":"(563) 556-5276","lat":42.495859,"lon":-90.66412,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-9.png"},{"address":"736 Federal St #2101 Davenport IA 52801","name":"Davenport","phone":"(563) 323-0559","lat":41.5247596,"lon":-90.5633143,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-10.png"},{"address":"725 11th St Marion IA 52302","name":"Cedar Rapids","phone":"(319) 373-3088","lat":42.0337172,"lon":-91.5980691,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-11.png"},{"address":"Office #4 Second Floor 101 West Main Street West Branch IA 52358","name":"West Branch","phone":"(319) 643-3779","lat":41.6715074,"lon":-91.3468293,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-12.png"},{"address":"702 S Gilbert #101 Iowa City IA 52240","name":"Iowa City","phone":"(319) 338-1204","lat":41.6525972,"lon":-91.530271,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-13.png"},{"address":"1525 Mt. Pleasant St Burlington IA 52601","name":"Burlington ","phone":" (319) 752-8867  ","lat":40.819149,"lon":-91.120272,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-14.png"},{"address":"312 Mass Ave NE, Washington, DC 20002","name":"Washington, D.C.","phone":"-","lat":38.8943255,"lon":-77.0013426,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/DC-01.png"},{"address":"835 Hanover St #204, Manchester, NH 03104","name":"Manchester","phone":"(603) 935-9084","lat":42.9873012,"lon":-71.4294765,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-01.png"},{"address":"117 Manchester St, Concord, NH 03301","name":"Concord","phone":"(603) 935-9084","lat":43.190093,"lon":-71.5062669,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-02.png"},{"address":"235 West Rd #10 Portsmouth, NH 03801","name":"Portsmouth","phone":"(603) 935-9084","lat":43.0411037,"lon":-70.7781674,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-03.png"},{"address":"89 Main St #2, West Lebanon, NH 03784","name":"West Lebanon","phone":"(603) 935-9084","lat":43.638622,"lon":-72.3143382,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-04.png"},{"address":"20 Central Square #202, Keene, NH 03431","name":"Keene","phone":"(603) 935-9084","lat":42.9346334,"lon":-72.2782219,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-05.png"},{"address":"381 Main St, Nashua, NH 03060","name":"Nashua","phone":"(603) 935-9084","lat":42.7440827,"lon":-71.459357,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-06.png"},{"address":"44 Opera House Square, Claremont, NH 03743","name":"Claremont","phone":"(603) 935-9084","lat":43.3728368,"lon":-72.3383047,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-07.png"},{"address":"177 Main St, Berlin, NH 03570","name":"Berlin","phone":"(603) 935-9084","lat":44.4702048,"lon":-71.1800314,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-08.png"}]};
 
 
 if (WIDTH >= 720) {
@@ -263,16 +263,21 @@ bernMap.draw = function() {
           .enter()
             .append("image")
               .attr("xlink:href", "/img/icon/star.png")
-              .attr("xlink:xlink:href", function() { return "/img/icon/star.png";})
-              .attr("width", "14px")
-              .attr("height", "14px")
+              .attr("xlink:xlink:href", function() {
+
+                return "/img/icon/star.png";})
+              .attr("width", "10px")
+              .attr("height", "10px")
               .attr("class", "bernie-main-office")
               .each(function(d) {
                 var coordinates = that._projectPoint(d.lon, d.lat);
-                  d3.select(this).attr("x", coordinates[0] - 7)
-                      .attr("y", coordinates[1] - 7)
+                  d3.select(this).attr("x", coordinates[0] - 5)
+                      .attr("y", coordinates[1] - 5)
                   ;
                   d3.select(this).attr("xlink\:href", "/img/icon/star.png");
+
+                  //Preload image :
+                  // d3.select("body").append("img").attr("class", "preload").attr("src", d.photo);
               });
 
         that.mainOffices.on("click", function(d) {
@@ -284,8 +289,8 @@ bernMap.draw = function() {
           that.activityLayer.selectAll("image")
               .each(function(d) {
                 var coordinates = that._projectPoint(d.lon, d.lat);
-                  d3.select(this).attr("x", coordinates[0] - 7)
-                      .attr("y", coordinates[1] - 7)
+                  d3.select(this).attr("x", coordinates[0] - 5)
+                      .attr("y", coordinates[1] - 5)
                   ;
                   // d3.select(this).attr("xlink\:href", "/img/icon/star.png");
               });
@@ -792,10 +797,11 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
 
       // item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
       switch(item.event_type_name) {
-        case "Iowa event":
-        case "New Hampshire event":
-        case "South Carolina event":
-          item.event_type_name = item.eventType = "Official Event";
+        case "Iowa Event":
+        case "New Hampshire Event":
+        case "South Carolina Event":
+          // item.event_type_name =
+          item.eventType = "Official Event";
           item.type = "CW"; break;
         case "Rally":
         case "Town Meeting":
