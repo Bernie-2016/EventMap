@@ -262,7 +262,7 @@ bernMap.draw = function() {
           .data(bernMap.constants.mainOffices.locs)
           .enter()
             .append("image")
-              .attr("xlink:href", "/img/icon/star.png")
+              .attr("xlink:href", "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png")
               .attr("xlink:xlink:href", function() {
 
                 return "/img/icon/star.png";})
@@ -565,7 +565,7 @@ bernMap.eventList = function(container) {
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
             + "<p><a href='javascript: void(null);' target='_blank' class='button-rsvp button-full button-disabled'>FULL</a>"
 
-            + (eventType =="rally" || d.properties.attendee_count <= 5 ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span></p>" )) ;;
+            + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span></p>" )) ;;
         }
         else {
           return "<h5><span class='event-item-date'>"
@@ -579,7 +579,7 @@ bernMap.eventList = function(container) {
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
             + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>RSVP</a>"
 
-            + (eventType =="rally" || d.properties.attendee_count <= 5 ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span></p>" )) ;
+            + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span></p>" )) ;
         }
   };
 
