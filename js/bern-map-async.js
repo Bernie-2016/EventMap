@@ -373,17 +373,18 @@ bernMap.draw = function() {
     }
 
     bernMap.mapBox.on('zoomstart', function() {
-      _that.activityLayer.style("visibility","hidden");
+      // _that.activityLayer.style("visibility","hidden");
+      $(".leaflet-overlay-pane").css("visibility", "hidden");
     });
     bernMap.mapBox.on('zoomend', function() {
         _that.mapOffices();
         _that.replot();
-        _that.activityLayer.style("visibility","visible");
+        $(".leaflet-overlay-pane").css("visibility","visible");
     });
 
-    bernMap.mapBox.on('moveend', function() {
-      _that.mapOffices();
-    });
+    // bernMap.mapBox.on('moveend', function() {
+    //   _that.mapOffices();
+    // });
   }();
 };
 
@@ -811,7 +812,8 @@ function loadZipcodeData() {
 
     setTimeout(function() {
       bernie.mapOffices();
-    }, 1);
+      $("image.bernie-main-office").prependTo(".leaflet-zoom-hide");
+    }, 0);
 
     bernie.plot();
 
