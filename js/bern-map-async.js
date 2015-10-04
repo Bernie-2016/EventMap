@@ -808,8 +808,13 @@ function loadZipcodeData() {
     bernMap.d.meetupData = _features;
     // console.log("X");
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
-    bernie.mapOffices();
+
+    setTimeout(function() {
+      bernie.mapOffices();
+    }, 1);
+
     bernie.plot();
+
 
     if (!bernMap.d.allZipcodes) {
       d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
