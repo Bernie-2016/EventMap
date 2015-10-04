@@ -10,6 +10,9 @@
   #header #title a {
     text-decoration: none; }
 
+.tooltip-data-item {
+  z-index: 1000; }
+
 #map-section #map-event-list ul#event-or-office {
   margin-top: 4px;
   margin-bottom: 5px; }
@@ -69,11 +72,11 @@
     background-color: lightgray; }
   #map-section #map-event-list #daterange-opt span#daterange-value {
     width: 80px;
-    background-image: url(../img/icon/time.png);
+    background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/time.png);
     background-repeat: no-repeat;
     background-size: 15px 15px;
     display: inline-block;
-    padding: 7px 0 7px 24px;
+    padding: 6px 0 6px 24px;
     text-align: left;
     background-position: 4px center; }
   #map-section #map-event-list #daterange-opt ul#daterange-options {
@@ -103,6 +106,54 @@
         border-radius: 0 0 8px 8px; }
   #map-section #map-event-list #daterange-opt select[name='daterange'] {
     display: none; }
+#map-section #map-event-list #sort-opt {
+  position: relative;
+  float: right;
+  width: 100px;
+  font-size: 10px;
+  margin-top: 1px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 3px;
+  cursor: pointer; }
+  #map-section #map-event-list #sort-opt:hover {
+    background-color: lightgray; }
+  #map-section #map-event-list #sort-opt span#sort-value {
+    width: 80px;
+    background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/sort.png);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    display: inline-block;
+    padding: 6px 0 6px 24px;
+    text-align: left;
+    background-position: 4px center; }
+  #map-section #map-event-list #sort-opt ul#sort-options {
+    position: absolute;
+    background-color: #FAFAFA;
+    width: 100px;
+    border-radius: 0 0 8px 8px;
+    border: 3px solid lightgray;
+    border-width: 0 0 2px 0;
+    margin-top: -2px;
+    z-index: 100;
+    display: none; }
+    #map-section #map-event-list #sort-opt ul#sort-options li.sort-options-item {
+      padding: 0px 0;
+      border: none;
+      margin: 0; }
+      #map-section #map-event-list #sort-opt ul#sort-options li.sort-options-item label {
+        cursor: pointer;
+        width: 100%;
+        display: inline-block;
+        padding: 4px 0; }
+        #map-section #map-event-list #sort-opt ul#sort-options li.sort-options-item label input {
+          display: none; }
+      #map-section #map-event-list #sort-opt ul#sort-options li.sort-options-item:hover {
+        background-color: rgba(0, 0, 0, 0.1); }
+      #map-section #map-event-list #sort-opt ul#sort-options li.sort-options-item:last-child {
+        border-radius: 0 0 8px 8px; }
 #map-section #map-event-list #event-type-container {
   margin-top: 10px;
   border-radius: 3px;
@@ -110,7 +161,7 @@
   width: 285px;
   float: left; }
   #map-section #map-event-list #event-type-container #event-type-list {
-    text-align: center; }
+    text-align: left; }
     #map-section #map-event-list #event-type-container #event-type-list .event-type-item {
       border: none;
       margin: 0;
@@ -121,14 +172,22 @@
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] + label {
         cursor: pointer; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] + label .etype-bullet {
-        color: lightgray;
+        display: inline-block;
+        border-radius: 50%;
+        width: 7px;
+        height: 7px;
+        border: 2px solid white;
+        background-color: lightgray;
         font-size: 0.7em; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='E'] + label .etype-bullet {
-        color: #104672; }
+        background-color: #104672; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='CW'] + label .etype-bullet {
-        color: #AD50C7; }
+        background-color: #AD50C7; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='R'] + label .etype-bullet {
-        color: #F55B5B; }
+        background-color: #F55B5B; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='D'] + label .etype-bullet {
+        background-color: #104672;
+        border-color: #FFFB89; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-bullet {
         vertical-align: middle;
         font-size: 0.8em; }
@@ -136,6 +195,19 @@
         vertical-align: middle;
         text-transform: uppercase;
         font-size: 0.55em; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child {
+        float: right; }
+        #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child a {
+          color: #C1C1C1;
+          padding: 3px 9px;
+          margin-right: -2px;
+          border-radius: 3px;
+          margin-bottom: -1px; }
+          #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child a:hover {
+            text-decoration: bold;
+            color: gray; }
+          #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child a:not(.activated) {
+            display: none; }
 
 div#event-list-area #event-list .event-type .event-text {
   line-height: 0.7;
@@ -165,15 +237,33 @@ div#event-list-area #event-list #footer-area {
     vertical-align: middle; }
   .event-type.campaign-office .event-text {
     vertical-align: top; }
+  .event-type .event-bullet {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid white;
+    vertical-align: middle;
+    margin-right: 4px; }
   .event-type.campaign-work .event-bullet {
-    color: #AD50C7; }
+    background-color: #AD50C7; }
   .event-type.rally .event-bullet {
-    color: #F55B5B; }
+    background-color: #F55B5B; }
   .event-type.meetup .event-bullet {
-    color: #104672; }
+    background-color: #104672; }
+  .event-type.debate-watch .event-bullet {
+    background-color: #104672;
+    border: 2px solid #FFFB89; }
 
+section#map-section div#map-event-list #event-list-area
 .event-list-item {
   position: relative; }
+  section#map-section div#map-event-list #event-list-area
+  .event-list-item h5 span.event-item-date {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px; }
+  section#map-section div#map-event-list #event-list-area
   .event-list-item .event-type {
     position: relative;
     color: gray;
@@ -182,6 +272,29 @@ div#event-list-area #event-list #footer-area {
     text-shadow: none;
     font-size: 0.8em;
     padding: 0; }
+  section#map-section div#map-event-list #event-list-area
+  .event-list-item span.rsvp-counter {
+    padding-left: 1em;
+    font-size: 0.8em;
+    color: #F55B5B;
+    font-weight: normal;
+    letter-spacing: 0.15em; }
+
+.social-buttons {
+  display: inline-block;
+  vertical-align: middle;
+  float: right; }
+  .social-buttons a img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.07;
+    margin-left: 5px; }
+  .social-buttons a:hover img {
+    transition: opacity 0.3s ease;
+    opacity: 1; }
+
+span.rsvp-counter {
+  font-weight: normal !important; }
 
 #upcoming-event {
   width: 100%;
@@ -201,13 +314,21 @@ div#event-list-area #event-list #footer-area {
   stroke-width: 1px; }
   #map svg circle.campaign-work {
     fill: #AD50C7;
+    stroke-width: 2;
     r: 4; }
   #map svg circle.grassroots-event {
     fill: #104672;
+    stroke-width: 2;
     r: 4; }
   #map svg circle.official-rally {
     fill: #F55B5B !important;
-    r: 10; }
+    r: 9;
+    stroke-width: 2; }
+  #map svg circle.debate-watch {
+    fill: #104672;
+    stroke: #FFFB89;
+    stroke-width: 2;
+    r: 4; }
 #map svg .bernie-main-office {
   cursor: pointer; }
 
@@ -366,7 +487,7 @@ ul#office-list li {
     margin: 0;
     padding-bottom: 1px;
     position: absolute;
-    bottom: -38px;
+    bottom: -68px;
     left: 2px; }
 
   section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
@@ -377,7 +498,7 @@ ul#office-list li {
     position: relative; }
     section#map-section div#map-event-list form#zip-and-distance div#distance-container ul li {
       margin: 0 !important;
-      width: 19%;
+      width: 18%;
       text-align: center; }
 
   #map-section #map-event-list #zip-and-distance #distance-container {
@@ -387,7 +508,7 @@ ul#office-list li {
   #map-section #map-event-list #daterange-opt {
     position: absolute;
     left: 2px;
-    bottom: -67px;
+    bottom: -97px;
     margin-top: 0;
     width: 86px; }
 
@@ -398,6 +519,18 @@ ul#office-list li {
     font-size: 9px; }
 
   #map-section #map-event-list #daterange-opt ul#daterange-options {
-    width: 86px; } }
+    width: 86px; }
+
+  section#map-section div#map-event-list {
+    top: -75px; }
+    section#map-section div#map-event-list div#sort-opt {
+      position: absolute;
+      bottom: -97px;
+      left: 91px; }
+    section#map-section div#map-event-list div#event-results-area {
+      top: calc(100vh - 90px); }
+  section#map-section div#map {
+    height: calc(100vh - 165px);
+    margin-top: 75px; } }
 
 /*# sourceMappingURL=work-map.css.map */

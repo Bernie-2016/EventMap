@@ -23,46 +23,12 @@ if(distance){
   $('#mile-' + distance[1]).click();
 }
 
-
-
-
 /* end init */
-
-
 var d3format = d3.format("0,000");
 
 
 //Initialize items
 $("h2#event-results-count").hide();
-
-//Window Resize
-$jq(window).on("resize", function() {
-  var h = $jq("#header").height() + $jq("#main-title-area").height();
-  var screenHeight = screen.height;
-  var wH = $jq(window).height();
-  var padding = 20;
-
-  //Change billionaire size ^_-
-  //Media
-  if ($jq(window).width() < 720) {
-    // alert("X");
-    var _formHeight = $("#map-event-list").outerHeight();
-    $("#map").height(screenHeight - _formHeight - (screenHeight*0.25))
-      .css("marginTop", (_formHeight) + "px");
-    $("#map-event-list").css("top", "-" + _formHeight + "px").width($("#map").width() + "px");
-    $("#event-results-area").css("top", _formHeight + $("#map").height() + "px");
-
-    // $("input[name='zipcode']").attr("placeholder", "zipcode");
-  } else {
-    $("#map-section, #map").height(wH - h - 25).css("marginTop", "auto");
-    $("#event-list-area").css("maxHeight", wH - h - (padding * 2) - 240 - 25)
-    $("#map-event-list").css("top", "20px");
-    // $("input[name='zipcode']").attr("placeholder", "Enter zipcode to find events");
-  }
-
-
-});
-$jq(window).trigger("resize");
 
 L.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
 var mapboxTiles = L.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
@@ -75,7 +41,7 @@ var bernMap = bernMap || {};
 bernMap.constants = {};
 // bernMap.constants.spreadsheetUrl = "/d/july29.json";
 bernMap.constants.spreadsheetUrl = "https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=13&mime=text/json&limit=4000&country=*";
-bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Parkway Suite 100 Des Moines IA 50310","name":"Des Moines - State HQ","phone":"(515) 277-6073 ","lat":41.6262238,"lon":-93.6523551,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-1.png"},{"address":"3839 Merle Hay #259 Des Moines IA 50310","name":"Polk","phone":"(515) 251-6335","lat":41.6308099,"lon":-93.697183,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-2.png"},{"address":"500 West Broadway #150 Council Bluffs IA 51503","name":"Council Bluffs","phone":"(712) 323-7232","lat":41.2612218,"lon":-95.8499378,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-3.png"},{"address":"105 N. Court St Ottumwa IA 52501","name":"Ottumwa","phone":"(641) 682-0686","lat":41.019002,"lon":-92.411845,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-4.png"},{"address":"1918 Pierce St Sioux City IA 51104","name":"Sioux City","phone":"(712) 258-9445","lat":42.5107837,"lon":-96.4048652,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-5.png"},{"address":"1728 Central Ave Fort Dodge IA 50501","name":"Fort Dodge","phone":"(515) 955-2016","lat":42.5064161,"lon":-94.1739369,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-6.png"},{"address":"303 Main St Ames IA 50010","name":"Ames","phone":"(515) 233-4414","lat":42.0251178,"lon":-93.6139446,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-15.png"},{"address":"513 Federal Ave Mason City 50401","name":"Mason City","phone":"(641) 424-4505","lat":43.1465735,"lon":-93.2010729,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-7.png"},{"address":"217 W 4th St Waterloo IA 50701","name":"Waterloo","phone":"(319) 232-1535","lat":42.494518,"lon":-92.340007,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-8.png"},{"address":"198 Main St #4 Dubuque IA 52001","name":"Dubuque","phone":"(563) 556-5276","lat":42.495859,"lon":-90.66412,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-9.png"},{"address":"736 Federal St #2101 Davenport IA 52801","name":"Davenport","phone":"(563) 323-0559","lat":41.5247596,"lon":-90.5633143,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-10.png"},{"address":"725 11th St Marion IA 52302","name":"Cedar Rapids","phone":"(319) 373-3088","lat":42.0337172,"lon":-91.5980691,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-11.png"},{"address":"Office #4 Second Floor 101 West Main Street West Branch IA 52358","name":"West Branch","phone":"(319) 643-3779","lat":41.6715074,"lon":-91.3468293,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-12.png"},{"address":"702 S Gilbert #101 Iowa City IA 52240","name":"Iowa City","phone":"(319) 338-1204","lat":41.6525972,"lon":-91.530271,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-13.png"},{"address":"1525 Mt. Pleasant St Burlington IA 52601","name":"Burlington ","phone":" (319) 752-8867  ","lat":40.819149,"lon":-91.120272,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-14.png"},{"address":"312 Mass Ave NE, Washington, DC 20002","name":"Washington, D.C.","phone":"-","lat":38.8943255,"lon":-77.0013426,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/DC-01.png"},{"address":"835 Hanover St #204, Manchester, NH 03104","name":"Manchester","phone":"(603) 935-9084","lat":42.9873012,"lon":-71.4294765,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-01.png"},{"address":"117 Manchester St, Concord, NH 03301","name":"Concord","phone":"(603) 935-9084","lat":43.190093,"lon":-71.5062669,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-02.png"},{"address":"235 West Rd #10 Portsmouth, NH 03801","name":"Portsmouth","phone":"(603) 935-9084","lat":43.0411037,"lon":-70.7781674,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-03.png"},{"address":"89 Main St #2, West Lebanon, NH 03784","name":"West Lebanon","phone":"(603) 935-9084","lat":43.638622,"lon":-72.3143382,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-04.png"},{"address":"20 Central Square #202, Keene, NH 03431","name":"Keene","phone":"(603) 935-9084","lat":42.9346334,"lon":-72.2782219,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-05.png"},{"address":"381 Main St, Nashua, NH 03060","name":"Nashua","phone":"(603) 935-9084","lat":42.7440827,"lon":-71.459357,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-06.png"},{"address":"44 Opera House Square, Claremont, NH 03743","name":"Claremont","phone":"(603) 935-9084","lat":43.3728368,"lon":-72.3383047,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-07.png"},{"address":"177 Main St, Berlin, NH 03570","name":"Berlin","phone":"(603) 935-9084","lat":44.4702048,"lon":-71.1800314,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-08.png"}]};
+bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Parkway Suite 100 Des Moines IA 50310","name":"Des Moines - State HQ","phone":"(515) 277-6073 ","lat":41.6262238,"lon":-93.6523551,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-1.png"},{"address":"3839 Merle Hay #259 Des Moines IA 50310","name":"Polk","phone":"(515) 251-6335","lat":41.6308099,"lon":-93.697183,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-2.png"},{"address":"500 West Broadway #150 Council Bluffs IA 51503","name":"Council Bluffs","phone":"(712) 323-7232","lat":41.2612218,"lon":-95.8499378,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-3.png"},{"address":"105 N. Court St Ottumwa IA 52501","name":"Ottumwa","phone":"(641) 682-0686","lat":41.019002,"lon":-92.411845,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-4.png"},{"address":"1918 Pierce St Sioux City IA 51104","name":"Sioux City","phone":"(712) 258-9445","lat":42.5107837,"lon":-96.4048652,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-5.png"},{"address":"1728 Central Ave Fort Dodge IA 50501","name":"Fort Dodge","phone":"(515) 955-2016","lat":42.5064161,"lon":-94.1739369,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-6.png"},{"address":"303 Main St Ames IA 50010","name":"Ames","phone":"(515) 233-4414","lat":42.0251178,"lon":-93.6139446,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-15.png"},{"address":"513 Federal Ave Mason City 50401","name":"Mason City","phone":"(641) 424-4505","lat":43.1465735,"lon":-93.2010729,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-7.png"},{"address":"217 W 4th St Waterloo IA 50701","name":"Waterloo","phone":"(319) 232-1535","lat":42.494518,"lon":-92.340007,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-8.png"},{"address":"198 Main St #4 Dubuque IA 52001","name":"Dubuque","phone":"(563) 556-5276","lat":42.495859,"lon":-90.66412,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-9.png"},{"address":"736 Federal St #2101 Davenport IA 52801","name":"Davenport","phone":"(563) 323-0559","lat":41.5247596,"lon":-90.5633143,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-10.png"},{"address":"725 11th St Marion IA 52302","name":"Cedar Rapids","phone":"(319) 373-3088","lat":42.0337172,"lon":-91.5980691,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-11.png"},{"address":"Office #4 Second Floor 101 West Main Street West Branch IA 52358","name":"West Branch","phone":"(319) 643-3779","lat":41.6715074,"lon":-91.3468293,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-12.png"},{"address":"702 S Gilbert #101 Iowa City IA 52240","name":"Iowa City","phone":"(319) 338-1204","lat":41.6525972,"lon":-91.530271,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-13.png"},{"address":"1525 Mt. Pleasant St Burlington IA 52601","name":"Burlington ","phone":" (319) 752-8867  ","lat":40.819149,"lon":-91.120272,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/IO-14.png"},{"address":"312 Mass Ave NE, Washington, DC 20002","name":"Washington, D.C.","phone":"-","lat":38.8943255,"lon":-77.0013426,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/DC-01.png"},{"address":"835 Hanover St #204,+Manchester, NH 03104","name":"Manchester","phone":"(603) 935-9084","lat":42.9873012,"lon":-71.4294765,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-01.png"},{"address":"117 Manchester St, Concord, NH 03301","name":"Concord","phone":"(603) 935-9084","lat":43.190093,"lon":-71.5062669,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-02.png"},{"address":"235 West Rd #10 Portsmouth, NH 03801","name":"Portsmouth","phone":"(603) 935-9084","lat":43.0411037,"lon":-70.7781674,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-03.png"},{"address":"89 Main St #2, West Lebanon, NH 03784","name":"West Lebanon","phone":"(603) 935-9084","lat":43.638622,"lon":-72.3143382,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-04.png"},{"address":"20 Central Square #202, Keene, NH 03431","name":"Keene","phone":"(603) 935-9084","lat":42.9346334,"lon":-72.2782219,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-05.png"},{"address":"381 Main St, Nashua, NH 03060","name":"Nashua","phone":"(603) 935-9084","lat":42.7440827,"lon":-71.459357,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-06.png"},{"address":"44 Opera House Square, Claremont, NH 03743","name":"Claremont","phone":"(603) 935-9084","lat":43.3728368,"lon":-72.3383047,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-07.png"},{"address":"177 Main St, Berlin, NH 03570","name":"Berlin","phone":"(603) 935-9084","lat":44.4702048,"lon":-71.1800314,"photo":"//d2bq2yf31lju3q.cloudfront.net/img/offices/NH-08.png"}]};
 
 
 if (WIDTH >= 720) {
@@ -94,12 +60,15 @@ if (WIDTH >= 720) {
 // bernMap.mapBox.touchZoom.disable();
 
 var offset = bernMap.mapBox.getSize().x * 0.15;
-bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+if (WIDTH >= 720) {
+  bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+}
 
 bernMap.d = {};
 bernMap.scale = {};
 bernMap.scale.radScale = d3.scale.pow().domain([0, 5, 150]);
 bernMap.daterange = "all-events";
+bernMap.sort = "distance";
 bernMap.d.rsvp=0;
 bernMap.d.capacity = 0;
 bernMap.d.zipcodes = null;
@@ -108,21 +77,32 @@ bernMap.d.meetupData = null;
 bernMap.d.rawMeetupData = null;
 bernMap.d.targetZipcodes = null;
 bernMap.d.aggregatedRSVP = null;
+bernMap.d.initialLoad = true;
 
 var bernMap = bernMap || {};
 bernMap.draw = function() {
 
-
   this.filteredZipcode = null;
-
   this.svg = d3.select(bernMap.mapBox.getPanes().overlayPane).append("svg");
   this.activityLayer = this.svg.append("g").attr("class","leaflet-zoom-hide");
   this.zipcodeElements = null;
   this.mainOffices = null;
   this.centerItem = null;
-  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true};
+  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true, debateWatchEvent: true};
 
   this.currentZipcode = null;
+
+  this.showAll  = function() {
+    var that = this;
+    $("form#zip-and-distance").find("[name='eventtype']").prop("checked", true);
+    $("form#zip-and-distance").submit();
+  };
+
+  this.hideAll  = function() {
+    var that = this;
+    $("form#zip-and-distance").find("[name='eventtype']").prop("checked", false);
+    $("form#zip-and-distance").submit();
+  };
 
   this._projectPoint = function(x,y) {
     var point = bernMap.mapBox.latLngToLayerPoint(new L.LatLng(y, x));
@@ -144,7 +124,10 @@ bernMap.draw = function() {
   };
 
   this._deserialize = function(query) {
-    return query.split("&").map(function(d) { var q = d.split("="); return [q[0], q[1]]; }).reduce(function(init, next) { init[next[0]] = next[1]; return init;}, {});
+    var params = $.deparam(query);
+    if (typeof params.eventtype === "string") { params.eventtype = [params.eventtype]; }
+    // console.log(params);
+    return params;
   };
 
   this._getRadius = function(d) {
@@ -153,6 +136,7 @@ bernMap.draw = function() {
       case "CW" : return 4; break;
       case "E" : return 4; break;
       case "R" : return 9; break;
+      default: return 4;
     }
   };
 
@@ -161,6 +145,7 @@ bernMap.draw = function() {
     switch (d.properties.type) {
       case "CW" : return that.visibleTypes.volunteerWork ? "inherit" : "hidden"; break;
       case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
+      case "D" : return that.visibleTypes.debateWatchEvent ? "inherit" : "hidden"; break;
       case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
     }
   };
@@ -173,6 +158,7 @@ bernMap.draw = function() {
       case "CW" : that.visibleTypes.volunteerWork = visibility; break;
       case "E" : that.visibleTypes.grassrootsEvent = visibility; break;
       case "R" : that.visibleTypes.officialRally = visibility; break;
+      case "D" : that.visibleTypes.debateWatchEvent = visibility; break;
     };
 
     that.replot();
@@ -181,9 +167,9 @@ bernMap.draw = function() {
   // *********************
   // FOCUS ZIPCODE
   // *********************
-  this.focusZipcode = function(hash) {
+  this.focusZipcode = function(params) {
     var that = this;
-    var params = that._deserialize(hash);
+    // var params = that._deserialize(hash);
 
     var target = bernMap.d.allZipcodes.filter(function(d) { return d.zip == params.zipcode; });
 
@@ -197,32 +183,14 @@ bernMap.draw = function() {
 
       //Plot zipcode center
       $("circle#center-item").remove();
-
-      // var centerCoords = that._projectPoint(t.lon, t.lat);
-      // that.centerItem = that.activityLayer.append("circle")
-      //       .datum(t)
-      //       .attr("id", "center-item")
-      //       .attr("cx", centerCoords[0])
-      //       .attr("cy", centerCoords[1])
-      //       .attr("r", bernMap.mapBox.getZoom() * 0.4 )
-      //       .attr("fill", "#147FD7")
-      //       .attr("opacity", 0.9);
-
       //Focus on map
 
       bernMap.mapBox.setView([parseFloat(t.lat), parseFloat(t.lon)], that._getZoomValue(parseInt(params.distance)), { animate: false });
 
-      // if (that.centerItem) { bernMap.mapBox.removeLayer(that.centerItem); }
-      // that.centerItem = L.marker([t.lat, t.lon],
-      //                       { bounceOnAdd: true,
-      //                         bounceOnAddOptions: {duration: 500, height: 100},
-      //                         bounceOnAddCallback: function() {console.log("done");}
-      //                       }).addTo(bernMap.mapBox);
-
       var offset = bernMap.mapBox.getSize().x * 0.15;
-
-
-      bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+      if (WIDTH >= 720) {
+        bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+      }
       that.replot();
 
       //Setting the marker
@@ -241,19 +209,6 @@ bernMap.draw = function() {
 
   };
 
-  // this.filter = function(str) {
-  //   var that = this;
-  //   if ( str == '' ) { that.filteredZipcode = null; }
-  //   else {
-  //     if ( that.filteredZipcode == null ) {
-  //       that.filteredZipcode = bernMap.d.allZipcodes.filter(function(d) { return d.zip.indexOf(str) >= 0; });
-  //     } else {
-  //       that.filteredZipcode = that.filteredZipcode.filter(function(d) { return d.zip.indexOf(str) >= 0; });
-  //     }
-  //   }
-
-  // };
-
   this.mapOffices = function() {
     var that = this;
     //<image xlink:href="firefox.jpg" x="0" y="0" height="50px" width="50px"/>
@@ -265,7 +220,7 @@ bernMap.draw = function() {
               .attr("xlink:href", "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png")
               .attr("xlink:xlink:href", function() {
 
-                return "/img/icon/star.png";})
+                return "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png";})
               .attr("width", "10px")
               .attr("height", "10px")
               .attr("class", "bernie-main-office")
@@ -274,10 +229,7 @@ bernMap.draw = function() {
                   d3.select(this).attr("x", coordinates[0] - 5)
                       .attr("y", coordinates[1] - 5)
                   ;
-                  d3.select(this).attr("xlink\:href", "/img/icon/star.png");
-
-                  //Preload image :
-                  // d3.select("body").append("img").attr("class", "preload").attr("src", d.photo);
+                  d3.select(this).attr("xlink\:href", "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png");
               });
 
         that.mainOffices.on("click", function(d) {
@@ -292,10 +244,8 @@ bernMap.draw = function() {
                   d3.select(this).attr("x", coordinates[0] - 5)
                       .attr("y", coordinates[1] - 5)
                   ;
-                  // d3.select(this).attr("xlink\:href", "/img/icon/star.png");
               });
     }
-    // console.log(that.mainOffices);
 
   };
 
@@ -313,28 +263,26 @@ bernMap.draw = function() {
     that.activityLayer.selectAll("circle").remove();
 
     that.zipcodeElements = that.activityLayer.selectAll("circle")
-                              .data(bernMap.d.zipcodes.features).enter()
+                              .data(bernMap.d.zipcodes.features, function(d) { return d.properties.id; } ).enter()
                               .append("circle")
                               .attr("data-maxcapacity", function(d) { return d.properties.capacity > 0 && d.properties.attendee_count >= d.properties.capacity ? "true" : "false" } )
                               .attr("data-location-id", function(d) { return d.properties.id; })
-
-                              //   function(d) {
-                              //     return bernMap.scale.radScale(d.properties.attendee_count);
-                              // })
                               .attr("stroke-width", 0)
-                              .attr("opacity", 0.5)
+                              .attr("opacity", 0.7)
                               .attr("class", function(d) {
                                 switch (d.properties.type) {
                                   case "CW" : return "campaign-work"; break;
                                   case "E" : return "grassroots-event"; break;
                                   case "R" : return "official-rally"; break;
+                                  case "D" : return "debate-watch"; break;
                                 }
                               })
-                              .attr("r", that._getRadius).style("visibility", function(d) {
+                              .style("visibility", function(d) {
                                 switch (d.properties.type) {
-                                  case "CW" : return that.visibleTypes.volunteerWork ? "inherit" : "hidden"; break;
-                                  case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
-                                  case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
+                                  case "CW" : return that.show ? "visible" : "hidden"; break;
+                                  case "E" : return that.show ? "visible" : "hidden"; break;
+                                  case "R" : return that.show ? "visible" : "hidden"; break;
+                                  case "D" : return that.show ? "visible" : "hidden"; break;
                                 }
                               })
                               .each(function(d) {
@@ -346,20 +294,9 @@ bernMap.draw = function() {
                                     $(".official-rally").prependTo($(that.activityLayer[0]));
                               });
 
-
-
-
-    // that.zipcodeElements
-          // .transition()
-          // .duration(500)
-          // .delay(function() { return Math.random() * 3000})
-          // .attr("r", bernMap.mapBox.getZoom() * 3);
-
     //initialize event for zipcode
     that.zipcodeElements.on("click", function(d) {
       that.popupInfo(d);
-      // $("input[name=zipcode]").val(d.properties.zip);
-      // $jq("form#zip-and-distance").submit();
     });
 
     // var bounds = that.activityLayer[0][0].getBoundingClientRect();
@@ -402,38 +339,25 @@ bernMap.draw = function() {
 
      bernMap.scale.radScale.range([parseFloat(bernMap.mapBox.getZoom()) * 0.6,
                                       bernMap.mapBox.getZoom(),
-
                                       bernMap.mapBox.getZoom()
                                       + (bernMap.mapBox.getZoom()  * 3)]);
 
-    // if (that.centerItem) {
-    //   that.centerItem.each(function(d) {
-    //                   var coordinates = that._projectPoint(d.lon, d.lat)
-
-    //                     d3.select(this).attr("cx", coordinates[0])
-    //                         .attr("cy", coordinates[1])
-    //                         .attr("r", bernMap.mapBox.getZoom() * 0.4)
-    //                         .attr("opacity", 0.2)
-    //                     ;
-    //                 });
-    // }
-
-
-    that.zipcodeElements.each(function(d) {
-      var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
-        d3.select(this).attr("cx", coordinates[0])
-            .attr("cy", coordinates[1])
-            .attr("r", that._getRadius)
-            .style("visibility", function(d) { return that._getVisibility(d); })
-            .attr("opacity", 0.6)
-        ;
-    });
+    that.zipcodeElements = that.activityLayer.selectAll("circle")
+      .data(bernMap.d.zipcodes.features, function(d) { return d.properties.id; })
+      .each(function(d) {
+        var coordinates = that._projectPoint(d.geometry.coordinates[0], d.geometry.coordinates[1]);
+          d3.select(this).attr("cx", coordinates[0])
+              .attr("cy", coordinates[1])
+              .attr("r", that._getRadius)
+              .style("visibility", function(d) { return d.show ? "visible" : "hidden"; })
+              .attr("opacity", 0.7)
+          ;
+      });
 
     var bounds = that.activityLayer[0][0].getBBox();
 
     that.svg.attr("width", (bounds.width + 0) + "px")
       .attr("height", (bounds.height + 0) + "px")
-      // .attr("transform", "translate(" + -bounds.left + "," + -bounds.top + ")");
       .style("left", bounds.x + "px")
       .style("top", bounds.y + "px");
 
@@ -450,16 +374,11 @@ bernMap.draw = function() {
 
     bernMap.mapBox.on('zoomstart', function() {
       _that.activityLayer.style("visibility","hidden");
-      // in_need_layer.style("visibility", "hidden");
-      // percent_change_layer.style("visibility", "hidden");
-      // funding_layer.style("visibility", "hidden");
     });
     bernMap.mapBox.on('zoomend', function() {
-        // triggerLayerChange();
         _that.mapOffices();
         _that.replot();
         _that.activityLayer.style("visibility","visible");
-        // regionalLayer.recalibrateLayer();
     });
 
     bernMap.mapBox.on('moveend', function() {
@@ -529,13 +448,42 @@ bernMap.eventList = function(container) {
         ))
         .append($("<h3/>").text(d.name))
         .append($("<div/>").addClass("event-type campaign-office")
-              .html('<span style="vertical-align: middle"><img src="/img/icon/star.png" width="14px" height="14px"></span><span class="event-text">Campaign Office</span>'))
-        .append($("<h5/>").html("<span><img src='/img/icon/map.png'/>" + d.address + "</span>"))
-        .append($("<h5/>").html("<span><img src='/img/icon/phone.png'/>" + d.phone + "</span>"))
-        .append($("<div/>").html("<a class='button-rsvp' href='https://www.google.com/maps?q=" + encodeURIComponent(d.address) + "' target='_blank'><img src='/img/icon/map-white.png'/> VIEW MAP</a>"));
+              .html('<span style="vertical-align: middle"><img src="//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png" width="14px" height="14px"></span><span class="event-text">Campaign Office</span>'))
+        .append($("<h5/>").html("<span><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/map.png'/>" + d.address + "</span>"))
+        .append($("<h5/>").html("<span><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/phone.png'/>" + d.phone + "</span>"))
+        .append($("<div/>").html("<a class='button-rsvp' href='https://www.google.com/maps?q=" + encodeURIComponent(d.address) + "' target='_blank'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/map-white.png'/> VIEW MAP</a>"));
 
     return $popupItem.clone().wrap('<div>').parent().html();
   };
+
+  this.shareFacebook = function(url, title) {
+    // console.log(this);
+    var winWidth = 520, winHeight = 350;
+    // function fbShare(url, title, descr, image, winWidth, winHeight) {
+    var winTop = (screen.height / 2) - (winHeight / 2);
+    var winLeft = (screen.width / 2) - (winWidth / 2);
+    window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    // // }
+  };
+
+  this.shareTwitter = function(url, date) {
+    var message = "I'm attending a @BernieSanders Event on " + date + "! #Bernie2016 ";
+
+    var twitter_url = "http://twitter.com/share?url=" + url + "&text=" + encodeURIComponent(message);
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = url,
+        opts   = 'status=1' +
+                 ',text=' + message +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(twitter_url, 'twitte', opts);
+  }
 
   this.buildEvent = function(d) {
 
@@ -546,40 +494,61 @@ bernMap.eventList = function(container) {
       case "CW": eventType = 'campaign-work'; break;
       case "E" : eventType = 'meetup'; break;
       case "R" : eventType = 'rally'; break;
+      case "D" : eventType = 'debate-watch'; break;
      }
 
     eventText = d.properties.eventType;
 
 
      if (d.properties.attendee_count >= d.properties.capacity && d.properties.capacity > 0) {
-          return "<h5><span class='event-item-date'>"
+          return "<h5>"
+            + "<span class='event-item-date'>"
             + (d.properties.distance && !isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
-            + (d.Date ? (" " + dateFormat(d.properties.Date)) : "")
+            + (d.properties.Date ? ("" + dateFormat(d.properties.Date)) : "")
             //+ (d.properties.TimeStart ? "" + d.properties.TimeStart + (d.properties.TimeEnd ? " - " + d.properties.TimeEnd : "") + "" : "")
-            + (d.properties.TimeStart ? d.properties.TimeStart : "")
-            + "</span></h5>"
+            + (d.properties.TimeStart ? " &nbsp;&nbsp; " + d.properties.TimeStart : "")
+            + "</span>"
+            +"</h5>"
             + "<h3><span class='event-item-name event-full'>" + d.properties.Title + " (FULL)</span></h3>"
-            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'></span><span class='event-text'>" + eventText + "</span></div>"
 
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
             + "<p><a href='javascript: void(null);' target='_blank' class='button-rsvp button-full button-disabled'>FULL</a>"
 
-            + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span></p>" )) ;;
+            + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span>" ))
+
+            + "<span class='social-buttons'>"
+            + "<a href='javascript: void(null)' onclick='bernieEvents.shareFacebook.call(this)' data-link='" + d.properties.link+ "'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/facebook.png' /></a>"
+            + "<a href='javascript: bernieEvents.shareTwitter(\"" + d.properties.link + "\", \"" + dateFormat(d.properties.Date) + "\")'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/twitter.png' /></a>"
+            + "</span>"
+
+            + "</p>"
+            ;;
+
         }
         else {
-          return "<h5><span class='event-item-date'>"
+          return "<h5>"
+            + "<span class='event-item-date'>"
             + (d.properties.distance && !isNaN(d.properties.distance) ? ("~" + d3.round(d.properties.distance,1) + "MI&nbsp;&nbsp; ") : "")
             + (d.properties.Date ? ("" + dateFormat(d.properties.Date)) : "")
             + (d.properties.TimeStart ? " &nbsp;&nbsp; " + d.properties.TimeStart : "")
-            + "</span></h5>"
+            + "</span>"
+
+            + "</h5>"
             + "<h3><a target='_blank' href='" + d.properties.link + "'><span class='event-item-name'>" + d.properties.Title + "</span></a></h3>"
-            + "<div class='event-type " + eventType + "'><span class='event-bullet'>&bull;</span><span class='event-text'>" + eventText + "</span></div>"
+            + "<div class='event-type " + eventType + "'><span class='event-bullet'></span><span class='event-text'>" + eventText + "</span></div>"
             // + (d.properties.description != "" ? ("<h4 class='event-organizer'>" + d.properties.description +"</h4>") : "")
             + "<h5 class='event-location'>" + d.properties.location + "</h5>"
             + "<p><a href='" + d.properties.link + "' target='_blank' class='button-rsvp'>RSVP</a>"
 
-            + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span></p>" )) ;
+            + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span>" ))
+            + "<span class='social-buttons'>"
+            + "<a href='javascript: bernieEvents.shareFacebook(\"" + d.properties.link+ "\")'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/facebook.png' /></a>"
+            + "<a href='javascript: bernieEvents.shareTwitter(\"" + d.properties.link + "\", \"" + dateFormat(d.properties.Date) + "\")'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/twitter.png' /></a>"
+            + "</span>"
+
+            + "</p>";
         }
   };
 
@@ -650,7 +619,7 @@ bernMap.eventList = function(container) {
                             d.properties.distance = distance;
 
                             // consoel.log(distance);
-                            return  distance <= allowedDistance;
+                            return  distance <= allowedDistance && d.show;
                         });
 
     nearByZipcodes = nearByZipcodes.map(function(d) { return { "distance" : d.properties.distance, properties: d.properties}; });
@@ -677,9 +646,16 @@ bernMap.eventList = function(container) {
     var nearByFull = nearByZipcodes.filter(function(d) {
                         return !( d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0 );
                      });
-    nearByActive.sort(function(a,b) {
-      return a.distance - b.distance;
-    });
+
+    if (bernMap.sort == "distance") {
+      nearByActive.sort(function(a,b) {
+        return a.distance - b.distance;
+      });
+    } else if (bernMap.sort == "time") {
+      nearByActive.sort(function(a,b) {
+        return a.properties.Date - b.properties.Date;
+      });
+    }
 
     //END : Separate Full events and active events;
 
@@ -747,122 +723,66 @@ var bernieEvents = new bernMap.eventList("#map-event-list");
   // d3.json("/d/july29.json",
   // function(data) {
 
-  window.dataCallback = function(){
+window.dataCallback = function(){
 
-    // bernMap.raw.workdata = d3.csv.parse(window.WORKDATA);
+  // bernMap.raw.workdata = d3.csv.parse(window.WORKDATA);
 
-    bernMap.raw.events = window.EVENT_DATA;
+  bernMap.raw.events = window.EVENT_DATA;
 
-    bernMap.d.meetupData = bernMap.raw.events.results; //.filter(function(d) { return !isNaN(d.lon) && !isNaN(d.lat); });
-    bernMap.d.rawMeetupData = bernMap.raw.events.results;
+  bernMap.d.meetupData = bernMap.raw.events.results;
+  bernMap.d.rawMeetupData = bernMap.raw.events.results;
 
-    // bernMap.d.meetupData = bernMap.raw.workdata.filter(function(d) { return d.hide !== "Y"; });
-    //bernMap.d.rawMeetupData = bernMap.d.meetupData;
+  $(bernMap.d.meetupData).each(function(i, item) {
+    item.Date = rawDateFormat.parse(item.start_day);
+    var tempTime = rawTime.parse(item.start_time);
+    item.TimeStart = timeFormat(tempTime);
+    item.TimeEnd = "";
+    item.Link1 = "RSVP at BernieSanders.com," + item.url;
+    item.link = item.url;
+    item.Title = item.name;
+    item.zip = item.venue_zip;
+    item.Zipcode = item.venue_zip;
+    item.show = true;
 
-    // $jq("#meetup-counter").text(d3format(bernMap.raw.workdata.settings.count));
-    // $jq("#rsvp-counter").text(d3format(bernMap.raw.workdata.settings.rsvp));
+    item.lat = item.latitude;
+    item.lon = item.longitude;
 
-    $(bernMap.d.meetupData).each(function(i, item) {
+    item.attendee_count = parseInt(item.attendee_count);
+    item.AttendeeCount = item.attendee_count;
+    item.capacity = parseInt(item.capacity);
 
+    // item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
+    switch(item.event_type_name) {
+      case "Iowa Event":
+      case "New Hampshire Event":
+      case "South Carolina Event":
+        // item.event_type_name =
+        item.eventType = "Official Event";
+        item.type = "CW"; break;
+      case "Rally":
+      case "Town Meeting":
+        item.eventType = item.event_type_name;
+        item.type = "R"; break;
 
-      item.Date = rawDateFormat.parse(item.start_day);
+      case "Debate Watch Parties (October 13)":
+        item.eventType = "Oct 13 - Debate Watch Party";
+        item.type = "D"; break;
+      default:
 
+        switch (item.event_type_name) {
+          case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
+          case "Volunteer meeting to get organized or learn more " : item.eventType = "Volunteer Meeting"; break;
+          case "Volunteer activity (flyering, calling, walking, etc)" : item.eventType = "Volunteer Activity"; break;
+          default: item.eventType = "Volunteer Event"; break;
+        }
+        item.type = "E"; break;
+    }
+  });
 
-
-      var tempTime = rawTime.parse(item.start_time);
-      item.TimeStart = timeFormat(tempTime);
-      item.TimeEnd = "";
-      item.Link1 = "RSVP at BernieSanders.com," + item.url;
-      item.link = item.url;
-      item.OrganizerWebsite = "http://www.berniesanders.com";
-      item.Organizer = "Bernie Sanders Campaign Volunteers";
-      // item.Date = rawDateFormat.parse(item.start_day);
-      item.Title = item.name;
-      item.zip = item.venue_zip;
-      item.Zipcode = item.venue_zip;
-
-      // item.Location = item.venue_addr1 + " "
-                        // + item.venue_city + " "
-                        // + item.venue_state_cd + " "
-                        // + item.venue_zip;
-      // item.location = item.Location;
-
-
-      item.lat = item.latitude;
-      item.lon = item.longitude;
-
-      item.attendee_count = parseInt(item.attendee_count);
-      item.AttendeeCount = item.attendee_count;
-      item.capacity = parseInt(item.capacity);
-
-      // item.event_type_name = parseInt(item.is_official) ? "Official Event" : item.event_type_name;
-      switch(item.event_type_name) {
-        case "Iowa Event":
-        case "New Hampshire Event":
-        case "South Carolina Event":
-          // item.event_type_name =
-          item.eventType = "Official Event";
-          item.type = "CW"; break;
-        case "Rally":
-        case "Town Meeting":
-          item.eventType = item.event_type_name;
-          item.type = "R"; break;
-        default:
-
-          switch (item.event_type_name) {
-            case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
-            case "Volunteer meeting to get organized or learn more " : item.eventType = "Volunteer Meeting"; break;
-            case "Volunteer activity (flyering, calling, walking, etc)" : item.eventType = "Volunteer Activity"; break;
-            default: item.eventType = "Volunteer Event"; break;
-          }
-          item.type = "E"; break;
-      }
-      // bernMap.d.rsvp += parseInt(item.attendee_count);
-      // bernMap.d.capacity += parseInt(item.capacity);
-
-    });
-
-    // var weekStart = rawDateFormat.parse("7/05/2015");
-    // var weekEnd = rawDateFormat.parse("7/12/2015");
-
-    // var today = new Date();
-    //     today.setDate(today.getDate() - 1);
-    //     today.setHours(0);
-    //     today.setMinutes(0);
-    //     today.setSeconds(0);
-
-    // var inTwoMonths = new Date(new Date(today).setMonth(today.getMonth()+2));
-
-    // bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d){
-    //   // return d.Date >= today;
-    //   return d.Date <= inTwoMonths && d.Date >= today;
-    // });
-
-
-    loadZipcodeData();
-
-  };
-
-
-  // var map = bernMap.d.meetupData.map(function(d) { return [d.Zipcode, d]; });
-  // bernMap.d.aggregatedRSVP = map.reduce(
-  //     function(init, next) {
-
-  //       if (init[next[0]]) {
-  //         init[next[0]].push(next[1]);
-  //       } else {
-  //         init[next[0]] = [next[1]];
-  //       }
-  //       return init;
-  //       //  = init[next[0]]
-  //       // ? init[next[0]] + parseInt(next[1])
-  //       // : [next[1]]; return init;
-  //     }
-  // , {});
-
-  // bernMap.d.meetupData
-
-// });
+  var today = new Date(); today.setDate(today.getDate() - 1); today.setHours(0); today.setMinutes(0); today.setSeconds(0);
+  bernMap.d.meetupData = bernMap.d.meetupData.filter(function(d) { return d.Date >= today; });
+  loadZipcodeData();
+};
 
 function loadZipcodeData() {
 
@@ -885,12 +805,12 @@ function loadZipcodeData() {
 
     var _features = reformat(bernMap.d.meetupData);
     _features.sort(function(a, b) { return b.properties.attendee_count - a.properties.attendee_count; });
+    bernMap.d.meetupData = _features;
+    // console.log("X");
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
     bernie.mapOffices();
     bernie.plot();
 
-
-    ////d2bq2yf31lju3q.cloudfront.net
     if (!bernMap.d.allZipcodes) {
       d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
         bernMap.d.allZipcodes = data;
@@ -900,9 +820,10 @@ function loadZipcodeData() {
 
 }
 
+/* Event listeners */
 $jq("input[name=eventtype]").on("click", function(d) {
   var $this = $(this);
-  bernie.changeVisibility($this.val(),$this[0].checked);
+  $(this).closest("form").submit();
 });
 
 $jq("input[name='entity-type']").on("change", function() {
@@ -912,18 +833,18 @@ $jq("input[name='entity-type']").on("change", function() {
 
 $jq("form input[type=radio]").on("click", function(d) {
   if( $jq("form input[name=zipcode]").val().length == 5 ) {
-    window.location.hash = $(this).closest("form").find(":not([name='eventtype'])").serialize();
+    $jq("form#zip-and-distance").trigger("submit");
   }
 });
 
 $jq("form input[name=zipcode]").on("keyup", function(e) {
-  // bernie.filter($(this).val());
   if (e.keyCode == 13|| e.which == 13) {
     return false;
   }
 
   if ( $(this).val().length == 5 ) {
-    window.location.hash = $(this).closest("form").find(":not([name='eventtype'])").serialize();
+    $jq("form#zip-and-distance").trigger("submit");
+    // window.location.hash = $(this).closest("form").serialize();
     $(this).blur();
     document.activeElement.blur();
   } else {
@@ -963,36 +884,62 @@ $jq(".daterange-options-item").on("touchend", function(e) {
 
 $jq("#daterange-opt ul li.daterange-options-item input[name='daterange']").on("change", function() {
   var value = $(this).attr("data-daterange");
-  // $jq("[name='daterange']").val(value);
-  // $jq("#daterange-opt ul").hide();
-  // $("[name='daterange']").trigger("change");
   $jq("#daterange-opt ul").hide();
   $jq("form#zip-and-distance").trigger("submit");
 });
 
-$("select[name='daterange']").on("change", function() {
-  // console.log("Hello World", $(this).val());
+//Sort..
+$jq("#sort-opt").on(
+    {
+        touchend: function(e) {
+          e.stopPropagation();
+          $jq("#sort-opt ul").show();
+        },
+        mouseover : function(e) {
+          e.stopPropagation();
+          $jq("#sort-opt ul").show();
+        },
+        mouseout : function(e) {
+          e.stopPropagation();
+          $jq("#sort-opt ul").hide();
+        }
+    }
+  );
+//For a more direct clicking of a filter...
+$jq(".sort-options-item").on("touchend", function(e) {
+  e.stopPropagation();
+  $jq("#sort-opt ul").hide();
+  $jq(this).find("label").trigger("click");
 });
 
+$jq("#sort-opt ul li.sort-options-item input[name='sort']").on("change", function() {
+  var value = $(this).attr("data-sort");
+  $jq("#sort-opt ul").hide();
+  $jq("form#zip-and-distance").trigger("submit");
+  // window.location.hash = $(this).closest("form").serialize();
+});
+
+
 $jq("form#zip-and-distance").on("submit", function() {
+
+  var serializedForm = $(this).closest("form").serialize();
+  window.location.hash = serializedForm;
+
   if ( $jq("form input[name=zipcode]").val().length == 5 ) {
+    // if( window.location.hash == "#" + serializedForm) {
+    //   $jq(window).trigger("hashchange");
+    // } else {
 
-    var serializedForm = $(this).closest("form").find(":not([name='eventtype'])").serialize();
-    if( window.location.hash == "#" + serializedForm) {
-      $jq(window).trigger("hashchange");
-    } else {
-      window.location.hash = serializedForm;
-    }
-
+    // }
+    // window.location.hash = serializedForm;
     // if mobile focus outside
     if ( $jq(window).width() < 720 ) {
       $jq("input#hidden-submit").focus();
     }
-
-    // $jq("form input[name=zipcode]").blur();
   } else {
-    window.location.hash = $(this).closest("form").find(":not([name='eventtype'])").serialize();
+    // window.location.hash = $(this).closest("form").serialize();
   }
+
   return false;
 });
 
@@ -1001,8 +948,7 @@ $jq(window).on("hashchange", function(){
   var hash = window.location.hash;
 
   if (hash.length > 1) {
-    //Set it on the form
-    var parameters = bernie._deserialize(hash.substr(1));
+    parameters = bernie._deserialize(hash.substr(1));
 
     if ($jq("input[name=distance]:checked", "form#zip-and-distance").val() != parameters.distance ) {
       $jq("form input[name=distance]").removeAttr("checked");
@@ -1014,11 +960,41 @@ $jq(window).on("hashchange", function(){
     }
 
     if ($jq("form select[name=daterange]").val() != parameters.daterange) {
-      $jq("form select[name=daterange]").val(parameters.daterange);
+      $jq("form input[name=daterange][value=" + parameters.daterange + "]").prop("checked", true);
+    }
+
+    if ($jq("form select[name=sort]").val() != parameters.sort) {
+      $jq("form input[name=sort][value=" + parameters.sort + "]").prop("checked", true);
+    }
+
+    if (parameters.eventtype && parameters.eventtype.length > 0) {
+      $jq("form input[name=eventtype]").prop("checked", false);
+      // console.log($jq("form select[name=eventtype]"));
+      parameters.eventtype.forEach(function(d) {
+        // console.log($jq("form input[name=eventtype][value=" + d + "]").prop("checked"));
+        $jq("form input[name=eventtype][value=" + d + "]").prop("checked", true);
+      });
+    }
+
+    //Listen to event types
+    if (!parameters.eventtype ||
+          $jq("form input[name=eventtype]").length != parameters.eventtype.length) {
+      $(".etype-name-vis.show-all").addClass("activated");
+      $(".etype-name-vis.hide-all").removeClass("activated");
+    }
+    else {
+      $(".etype-name-vis.hide-all").addClass("activated");
+      $(".etype-name-vis.show-all").removeClass("activated");
+    }
+
+    bernMap.sort = parameters.sort;
+    switch(bernMap.sort) {
+      case "distance": $("#sort-value").text("By Distance"); break;
+      case "time": $("#sort-value").text("By Time"); break;
     }
 
     //if bernMap daterange does not match, refilter
-    if (bernMap.daterange != parameters.daterange) {
+    // if (bernMap.daterange != parameters.daterange) {
       bernMap.daterange = parameters.daterange;
 
 
@@ -1051,48 +1027,67 @@ $jq(window).on("hashchange", function(){
 
         if (future) {
           future.setHours(23); future.setMinutes(59); future.setSeconds(59);
-          bernMap.d.meetupData = bernMap.d.rawMeetupData.filter(function(d) { return d.Date >= today && d.Date <= future; });
         }
-
-        loadZipcodeData();
       } else {
         $("#daterange-value").text("All Events");
-        bernMap.d.meetupData = bernMap.d.rawMeetupData;
-        loadZipcodeData();
+        future = null;
+        // bernMap.d.meetupData = bernMap.d.rawMeetupData;
       }
 
+    // }
+
+    //Filter by time
+    if (bernMap.d.meetupData) {
+      bernMap.d.meetupData.forEach(function(d) {
+        // console.log("XXXX");
+        if (future == null && parameters.eventtype == undefined) {
+          if (bernMap.d.initialLoad) {
+            d.show = true;
+          } else {
+            d.show = false;
+          }
+        } else if (future == null && parameters.eventtype.length == 0) {
+          d.show = true;
+        } else if (future == null) {
+          d.show = parameters.eventtype.indexOf(d.properties.type) >= 0;
+          // console.log("condition 1", parameters.eventtype, d.properties.type, parameters, parameters.eventtype.indexOf(d.type), d.show);
+        } else {
+          d.show = ((d.properties.Date >= today && d.properties.Date <= future)
+                    && parameters.eventtype.indexOf(d.properties.type) >= 0);
+
+          // console.log("Condition 2", ((d.Date >= today && d.Date <= future)
+          //           && parameters.eventtype.indexOf(d.type) >= 0));
+        }
+
+      });
+
+      bernMap.d.zipcodes.features = bernMap.d.meetupData;
     }
 
     //Will avoid focusing if zipcode is not equal to 5
     if (parameters.zipcode.length == 5) {
       if(bernMap.d.allZipcodes){
-        bernie.focusZipcode(hash.substr(1));
+        bernie.focusZipcode(parameters);
         bernieEvents.filterEvents(parameters.zipcode, parameters.distance);
       }
+    } else {
+      bernie.replot();
     }
-
 
   } else {
-    if (bernMap.daterange != "all-events") {
-      bernMap.d.meetupData = bernMap.d.rawMeetupData;
-      loadZipcodeData();
-    }
 
-
-    //http://leafletjs.com/examples/us-states.js
     if (window.MAP_CENTER) {
       bernMap.mapBox.setView(window.MAP_CENTER.latlng, window.MAP_CENTER.zoom);
     } else {
       bernMap.mapBox.setView([37.8, -96.9], 4);
     }
     var offset = bernMap.mapBox.getSize().x * 0.15;
-    bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+    if (WIDTH >= 720) {
+      bernMap.mapBox.panBy(new L.Point(offset,0), {animate: false});
+    }
+    $("form#zip-and-distance").submit();
   }
 
-});
+  bernMap.d.initialLoad = false;
 
-// if ($jq("form input[name=zipcode]").val().length != 0 ) {
-//   $jq("form#zip-and-distance").trigger("submit");
-// } else {
-//   $jq(window).trigger("hashchange");
-// }
+});

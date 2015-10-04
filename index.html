@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +10,9 @@
     <meta property="og:url" content="http://map.berniesanders.com" />
     <meta property="og:title" content="Let's Get to Work! Find Volunteer Activities, Volunteer meetings, and official Rallies for Bernie Sanders"/>
     <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
-
+    <!--[if lte IE 9]>
+      <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
+    <![endif]-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
     <link href='//d2bq2yf31lju3q.cloudfront.net/css/map.css' rel='stylesheet' />
@@ -77,14 +78,14 @@ vertical-align"> Let's get to work!</span>
         </div>
         <div id='distance-container'>
           <ul id='distance-list'>
-              <li>
-                        <input type='radio' id='mile-5' name='distance' value='5' /> <label for='mile-5'>5mi</label></li><li>
-                        <input type='radio' id='mile-10' name='distance' value='10' /> <label for='mile-10'>10mi</label></li><li>
-                        <input type='radio' id='mile-20' name='distance' value='20' /> <label for='mile-20'>20mi</label></li><li>
-                        <input type='radio' id='mile-50' name='distance' value='50'  checked='checked' /> <label for='mile-50'>50mi</label></li><li>
-                        <input type='radio' id='mile-100' name='distance' value='100' /> <label for='mile-100'>100mi</label></li><li>
-                        <input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>          </ul>
-
+            <li><input type='radio' id='mile-5' name='distance' value='5' /> <label for='mile-5'>5mi</label></li>
+            <li><input type='radio' id='mile-10' name='distance' value='10' /> <label for='mile-10'>10mi</label></li>
+            <li><input type='radio' id='mile-20' name='distance' value='20' /> <label for='mile-20'>20mi</label></li>
+            <li><input type='radio' id='mile-50' name='distance' value='50'  checked='checked' />
+                <label for='mile-50'>50mi</label></li>
+            <li><input type='radio' id='mile-100' name='distance' value='100' /> <label for='mile-100'>100mi</label></li>
+            <li><input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>
+          </ul>
         </div>
         <div class='clear'></div>
         <div id='event-type-container'>
@@ -92,23 +93,34 @@ vertical-align"> Let's get to work!</span>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
               <label for='event-R' data-tooltip="Show/Hide Official Bernie Sanders Appearances">
-                <span class='etype-bullet etype-selected'>&#9673;</span>
+                <span class='circle etype-bullet etype-selected' ></span>
                 <span class='etype-name' style="display: inline-block; text-align: left;">Bernie Event</span>
               </label>
             </li>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-CW' value='CW' />
               <label for='event-CW' data-tooltip="Show/Hide Official events">
-                <span class='etype-bullet etype-selected'>&#9673;</span>
+                <span class='circle etype-bullet etype-selected'></span>
                 <span class='etype-name'>Official Event</span>
               </label>
             </li>
             <li class='event-type-item'>
               <input type='checkbox' checked='checked' name='eventtype' id='event-E' value='E' />
               <label for='event-E' data-tooltip="Show/Hide Volunteer events">
-                <span class='etype-bullet etype-selected'>&#9673;</span>
+                <span class='circle etype-bullet etype-selected'></span>
                 <span class='etype-name'>Volunteer Event</span>
               </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-D' value='D' />
+              <label for='event-D' data-tooltip="Show/Hide Oct 13 Debate Watch Parties">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>October 13 Debate Watch Party</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+                <a href='javascript: bernie.showAll();' class='etype-name etype-name-vis show-all'>Show&nbsp;All</a>
+                <a href='javascript: bernie.hideAll();' class='etype-name etype-name-vis hide-all activated'>Hide&nbsp;All</a>
             </li>
           </ul>
         </div>
@@ -141,6 +153,21 @@ vertical-align"> Let's get to work!</span>
               <label for='daterange-all-events'>
                 <input name='daterange' type='radio' id='daterange-all-events' value='all-events' checked="checked"/>
                 All Events
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div id='sort-opt'>
+          <span id='sort-value'>By Distance</span>
+          <ul id='sort-options'>
+            <li data-sort='distance' class='sort-options-item'>
+              <label for='sort-distance'>
+                <input name='sort' type='radio' id='sort-distance' value='distance' />By Distance
+              </label>
+            </li>
+            <li data-sort='time' class='sort-options-item'>
+              <label for='sort-time'>
+                <input name='sort' type='radio' id='sort-time' value='time' />By Time
               </label>
             </li>
           </ul>
@@ -206,21 +233,16 @@ vertical-align"> Let's get to work!</span>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.gz' type='text/javascript'></script>
   <script id='zipcodes-datadump' type='text/plain'></script>
   <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
+  <script src='/js/deparam.min.gz'></script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/leaflet-bouncer.gz'></script>
-  <script src="//d2bq2yf31lju3q.cloudfront.net/js/bern-map-async.gz"></script>
+  <script src="//d2bq2yf31lju3q.cloudfront.net/js/bern-map-async.js"></script>
   <script>
     $.ajax({
-      // url: '/js/bern-july-29-data.gz',
       url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
-      // data: {
-      //   u: "https://docs.google.com/spreadsheets/d/1Ze8IkpTq2nBWKGxtd4Zxs8QH1oUoiqXbFwdqC5CzcpI/export?gid=0&format=csv"
-      // },
       dataType: 'script',
-      // dataType: 'text',
       cache: true, // otherwise will get fresh copy every page load
       success: function(data) {
-        // window.WORKDATA = data;
         window.dataCallback();
       }, error: function(a,b,c) {
         console.log("ERROR", b,c);

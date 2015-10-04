@@ -304,7 +304,7 @@ section#map-section {
             color: gray;
             font-size: 0.7em;
             text-transform: uppercase;
-            padding: 0 7px;
+            padding: 0 4px;
             cursor: pointer;
           }
         }
@@ -340,7 +340,7 @@ section#map-section {
         // #event-counter, #event-distance { font-weight: bold; font-size:}
     }
     #event-list-area {
-      max-height: 300px;
+      max-height: calc(100vh - 335px);
       overflow: auto;
 
       .event-list-item {
@@ -352,7 +352,7 @@ section#map-section {
 
   div#map {
     width: 100%;
-    height: 600px;
+    height: calc(100vh - 70px);
   }
 }
 
@@ -386,16 +386,15 @@ section#map-section {
 }
 
 footer {
-  padding-top: 10px;
-  background-color: whitesmoke;
-  text-align: center;
-  padding-top: 0;
-  padding-bottom: 10px;
+    background-color: whitesmoke;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 2px;
   sub {
 
     text-transform: uppercase;     font-weight: normal;
     letter-spacing: 0.15em;     margin: 0 0 5px 0;     color: #777777;
-    font-size: 0.7em;
+    font-size: 0.4em;
     padding-bottom: 0;
     padding-top: 0;
 

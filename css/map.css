@@ -216,7 +216,7 @@ section#map-section {
             color: gray;
             font-size: 0.7em;
             text-transform: uppercase;
-            padding: 0 7px;
+            padding: 0 4px;
             cursor: pointer; }
     section#map-section div#map-event-list h2#event-results-count {
       text-transform: uppercase;
@@ -238,7 +238,7 @@ section#map-section {
         font-size: 0.9em;
         font-weight: bold; }
     section#map-section div#map-event-list #event-list-area {
-      max-height: 300px;
+      max-height: calc(100vh - 335px);
       overflow: auto; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
         padding-bottom: 20px;
@@ -296,7 +296,7 @@ section#map-section {
           margin-top: 16px; }
   section#map-section div#map {
     width: 100%;
-    height: 600px; }
+    height: calc(100vh - 70px); }
 
 .leaflet-overlay-pane {
   position: relative; }
@@ -318,18 +318,17 @@ section#map-section {
         opacity: 1; }
 
 footer {
-  padding-top: 10px;
   background-color: whitesmoke;
   text-align: center;
   padding-top: 0;
-  padding-bottom: 10px; }
+  padding-bottom: 2px; }
   footer sub {
     text-transform: uppercase;
     font-weight: normal;
     letter-spacing: 0.15em;
     margin: 0 0 5px 0;
     color: #777777;
-    font-size: 0.7em;
+    font-size: 0.4em;
     padding-bottom: 0;
     padding-top: 0; }
   footer div#footer-area {
