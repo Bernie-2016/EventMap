@@ -30,7 +30,8 @@ var d3format = d3.format("0,000");
 //Initialize items
 $("h2#event-results-count").hide();
 
-L.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
+// L.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
+L.mapbox.accessToken = "pk.eyJ1Ijoic2Fpa2F0IiwiYSI6ImNpZmthOTYyM2MwbWlyN2x4M3Y4bWI0bHoifQ.h2Z3TGMzt9sAMIfS6bcJJg";
 var mapboxTiles = L.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 });
