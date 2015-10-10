@@ -30,8 +30,8 @@ var d3format = d3.format("0,000");
 //Initialize items
 $("h2#event-results-count").hide();
 
-// L.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
-L.mapbox.accessToken = "pk.eyJ1Ijoic2Fpa2F0IiwiYSI6ImNpZmthOTYyM2MwbWlyN2x4M3Y4bWI0bHoifQ.h2Z3TGMzt9sAMIfS6bcJJg";
+L.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
+// L.mapbox.accessToken = "pk.eyJ1Ijoic2Fpa2F0IiwiYSI6ImNpZmthOTYyM2MwbWlyN2x4M3Y4bWI0bHoifQ.h2Z3TGMzt9sAMIfS6bcJJg";
 var mapboxTiles = L.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 });
@@ -46,10 +46,10 @@ bernMap.constants.mainOffices = {"locs":[{"address":"3420 Martin Luther King Par
 
 
 if (WIDTH >= 720) {
-  // console.log("Map Center", window.MAP_CENTER);
   bernMap.mapBox = new L.Map("map", {
         center: window.MAP_CENTER?window.MAP_CENTER.latlng:[37.8, -96.9],
         zoom: window.MAP_CENTER?window.MAP_CENTER.zoom:4,
+        zoomAnimation: false,
         paddingTopLeft: [400, 0], scrollWheelZoom: false}).addLayer(mapboxTiles);
 } else {
   bernMap.mapBox = new L.Map("map", {
@@ -89,7 +89,7 @@ bernMap.draw = function() {
   this.zipcodeElements = null;
   this.mainOffices = null;
   this.centerItem = null;
-  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true, debateWatchEvent: true};
+  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true, debateWatchEvent: true, ballotAccess: true};
 
   this.currentZipcode = null;
 
@@ -127,7 +127,6 @@ bernMap.draw = function() {
   this._deserialize = function(query) {
     var params = $.deparam(query);
     if (typeof params.eventtype === "string") { params.eventtype = [params.eventtype]; }
-    // console.log(params);
     return params;
   };
 
@@ -148,6 +147,8 @@ bernMap.draw = function() {
       case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
       case "D" : return that.visibleTypes.debateWatchEvent ? "inherit" : "hidden"; break;
       case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
+      case "B" : return that.visibleTypes.ballotAccess ? "inherit" : "hidden"; break;
+
     }
   };
 
@@ -160,6 +161,7 @@ bernMap.draw = function() {
       case "E" : that.visibleTypes.grassrootsEvent = visibility; break;
       case "R" : that.visibleTypes.officialRally = visibility; break;
       case "D" : that.visibleTypes.debateWatchEvent = visibility; break;
+      case "B" : that.visibleTypes.ballotAccess = visibility; break;
     };
 
     that.replot();
@@ -201,7 +203,6 @@ bernMap.draw = function() {
         that.centerItem = L.marker([t.lat, t.lon],
                               { bounceOnAdd: true,
                                 bounceOnAddOptions: {duration: 700, height: 50}
-                                // bounceOnAddCallback: function() {console.log("done");}
                               }).addTo(bernMap.mapBox);
         that.currentZipcode = params.zipcode;
       }
@@ -260,7 +261,6 @@ bernMap.draw = function() {
                                       bernMap.mapBox.getZoom()
                                       + (bernMap.mapBox.getZoom()  * 3)]);
 
-    // console.log(bernMap.mapBox.getZoom());
     that.activityLayer.selectAll("circle").remove();
 
     that.zipcodeElements = that.activityLayer.selectAll("circle")
@@ -276,6 +276,7 @@ bernMap.draw = function() {
                                   case "E" : return "grassroots-event"; break;
                                   case "R" : return "official-rally"; break;
                                   case "D" : return "debate-watch"; break;
+                                  case "B" : return "ballot-access"; break;
                                 }
                               })
                               .style("visibility", function(d) {
@@ -284,6 +285,7 @@ bernMap.draw = function() {
                                   case "E" : return that.show ? "visible" : "hidden"; break;
                                   case "R" : return that.show ? "visible" : "hidden"; break;
                                   case "D" : return that.show ? "visible" : "hidden"; break;
+                                  case "B" : return that.show ? "visible" : "hidden"; break;
                                 }
                               })
                               .each(function(d) {
@@ -459,7 +461,6 @@ bernMap.eventList = function(container) {
   };
 
   this.shareFacebook = function(url, title) {
-    // console.log(this);
     var winWidth = 520, winHeight = 350;
     // function fbShare(url, title, descr, image, winWidth, winHeight) {
     var winTop = (screen.height / 2) - (winHeight / 2);
@@ -497,6 +498,7 @@ bernMap.eventList = function(container) {
       case "E" : eventType = 'meetup'; break;
       case "R" : eventType = 'rally'; break;
       case "D" : eventType = 'debate-watch'; break;
+      case "B" : eventType = 'ballot-access'; break;
      }
 
     eventText = d.properties.eventType;
@@ -765,14 +767,17 @@ window.dataCallback = function(){
       case "Town Meeting":
         item.eventType = item.event_type_name;
         item.type = "R"; break;
-
+      case "Volunteer to gather ballot access signatures":
+        item.eventType = "Ballot Access";
+        item.type = "B"; break;
       case "Debate Watch Parties (October 13)":
-        item.eventType = "Oct 13 - Debate Watch Party";
+        item.eventType = "Debate Watch Party";
         item.type = "D"; break;
       default:
 
         switch (item.event_type_name) {
           case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
+          case "Volunteer to gather ballot access signatures" : itemEventType = "Ballot Access"; break;
           case "Volunteer meeting to get organized or learn more " : item.eventType = "Volunteer Meeting"; break;
           case "Volunteer activity (flyering, calling, walking, etc)" : item.eventType = "Volunteer Activity"; break;
           default: item.eventType = "Volunteer Event"; break;
@@ -808,7 +813,6 @@ function loadZipcodeData() {
     var _features = reformat(bernMap.d.meetupData);
     _features.sort(function(a, b) { return b.properties.attendee_count - a.properties.attendee_count; });
     bernMap.d.meetupData = _features;
-    // console.log("X");
     bernMap.d.zipcodes = {type: "FeatureCollection", features: _features };
 
     setTimeout(function() {
@@ -817,7 +821,6 @@ function loadZipcodeData() {
     }, 0);
 
     bernie.plot();
-
 
     if (!bernMap.d.allZipcodes) {
       d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
@@ -977,9 +980,7 @@ $jq(window).on("hashchange", function(){
 
     if (parameters.eventtype && parameters.eventtype.length > 0) {
       $jq("form input[name=eventtype]").prop("checked", false);
-      // console.log($jq("form select[name=eventtype]"));
       parameters.eventtype.forEach(function(d) {
-        // console.log($jq("form input[name=eventtype][value=" + d + "]").prop("checked"));
         $jq("form input[name=eventtype][value=" + d + "]").prop("checked", true);
       });
     }
@@ -1047,7 +1048,6 @@ $jq(window).on("hashchange", function(){
     //Filter by time
     if (bernMap.d.meetupData) {
       bernMap.d.meetupData.forEach(function(d) {
-        // console.log("XXXX");
         if (future == null && parameters.eventtype == undefined) {
           if (bernMap.d.initialLoad) {
             d.show = true;
@@ -1058,13 +1058,10 @@ $jq(window).on("hashchange", function(){
           d.show = true;
         } else if (future == null) {
           d.show = parameters.eventtype.indexOf(d.properties.type) >= 0;
-          // console.log("condition 1", parameters.eventtype, d.properties.type, parameters, parameters.eventtype.indexOf(d.type), d.show);
         } else {
           d.show = ((d.properties.Date >= today && d.properties.Date <= future)
                     && parameters.eventtype.indexOf(d.properties.type) >= 0);
 
-          // console.log("Condition 2", ((d.Date >= today && d.Date <= future)
-          //           && parameters.eventtype.indexOf(d.type) >= 0));
         }
 
       });

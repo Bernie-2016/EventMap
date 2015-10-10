@@ -188,6 +188,9 @@
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='D'] + label .etype-bullet {
         background-color: #104672;
         border-color: #FFFB89; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='B'] + label .etype-bullet {
+        background-color: transparent;
+        border-color: #F55B5B; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-bullet {
         vertical-align: middle;
         font-size: 0.8em; }
@@ -254,6 +257,9 @@ div#event-list-area #event-list #footer-area {
   .event-type.debate-watch .event-bullet {
     background-color: #104672;
     border: 2px solid #FFFB89; }
+  .event-type.ballot-access .event-bullet {
+    background-color: transparent;
+    border-color: #F55B5B; }
 
 section#map-section div#map-event-list #event-list-area
 .event-list-item {
@@ -327,6 +333,11 @@ span.rsvp-counter {
   #map svg circle.debate-watch {
     fill: #104672;
     stroke: #FFFB89;
+    stroke-width: 2;
+    r: 4; }
+  #map svg circle.ballot-access {
+    fill: transparent;
+    stroke: #F55B5B;
     stroke-width: 2;
     r: 4; }
 #map svg .bernie-main-office {

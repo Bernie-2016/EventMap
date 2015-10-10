@@ -1,4 +1,3 @@
-
 $blue: #147FD7;
 $yellow: #AD50C7;
 $red: #F55B5B;
@@ -316,6 +315,7 @@ z-index: 1000;
                &[value='CW'] + label .etype-bullet { background-color: $yellow; }
                &[value='R'] + label .etype-bullet { background-color: $red; }
                &[value='D'] + label .etype-bullet { background-color: $green; border-color: $orange;}
+               &[value='B'] + label .etype-bullet { background-color: rgba(0,0,0,0); border-color: $red;}
             }
             .etype-bullet { vertical-align: middle; font-size: 0.8em; }
             .etype-name { vertical-align: middle;
@@ -443,6 +443,9 @@ div#event-list-area #event-list {
     &.debate-watch {
       .event-bullet { background-color: $green; border: 2px solid $orange;}
     }
+    &.ballot-access {
+      .event-bullet { background-color: rgba(0,0,0,0); border-color: $red; }
+    }
 }
 
 section#map-section div#map-event-list #event-list-area
@@ -519,6 +522,7 @@ section#map-section div#map-event-list #event-list-area
     &.grassroots-event { fill: $green; stroke-width: 2; r: 4;}
     &.official-rally { fill: $red !important;  r: 9; stroke-width: 2;}
     &.debate-watch { fill: $green; stroke: $orange; stroke-width: 2; r: 4; }
+    &.ballot-access { fill: rgba(0,0,0,0); stroke: $red; stroke-width: 2; r: 4; }
   }
   .bernie-main-office {
     cursor: pointer;
