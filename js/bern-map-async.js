@@ -760,6 +760,7 @@ window.dataCallback = function(){
       case "Iowa Event":
       case "New Hampshire Event":
       case "South Carolina Event":
+      case "Organizing Meeting":
         // item.event_type_name =
         item.eventType = "Official Event";
         item.type = "CW"; break;
