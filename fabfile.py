@@ -15,7 +15,8 @@ from string import Template
 
 def update_event_data():
 
-    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=4000&country=*')
+#    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=10000&country=*')
+    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=26&mime=text/json&limit=10000&country=*&date_start=1341080000')
     print "Request complete."
 
     data = json.loads(resp.text)

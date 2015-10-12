@@ -244,17 +244,20 @@ vertical-align"> Let's get to work!</span>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
   <script src='//d2bq2yf31lju3q.cloudfront.net/js/leaflet-bouncer.gz'></script>
   <script src="/js/bern-map-async.js"></script>
+  <script src="/js/event-data.js"></script>
   <script>
-    $.ajax({
-      url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
-      dataType: 'script',
-      cache: true, // otherwise will get fresh copy every page load
-      success: function(data) {
-        window.dataCallback();
-      }, error: function(a,b,c) {
-        console.log("ERROR", b,c);
-      }
-    });
+//    $.ajax({
+//      url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
+//      url: '/d/events.json',
+//      dataType: 'script',
+//      cache: true, // otherwise will get fresh copy every page load
+//      success: function(data) {
+//        window.dataCallback();
+//      }, error: function(a,b,c) {
+//        console.log("ERROR", b,c);
+//      }
+//    });
+  window.dataCallback();
   </script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
