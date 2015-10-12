@@ -10,9 +10,9 @@ use Facebook\FacebookRequest;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookSDKException;
 
-$accessToken = "CAAU0htjC8CgBAKBTtYQe4hhiAYdku4o5RyTUL33PNZCiuOj0SZAIas36Y2v5lTjK422AJZCdstZAxnXYTGXv7eAemPLzIvk6Vgtse1GiAd8CH4ZBUTxRnuwVVhb47BlzBJAwqFOxqlfmo3bZAlZBTrWGDodevuEuRm1vBmfXj5QoZAXbZAuT8IQaW";
-$appId = '1465128650469416';
-$appSecret = 'a2bd57b2e122f8b8d24392e3003c9aff';
+$accessToken = "CAAXA8FRxv7ABAJB75Ay4rixO4ZBGnU4c4ZAvQGVmbxD7XljvDka5KkMhZAyQ4zwk4gbowmWSrp9ZB4L8FBpOrMVUVNHzvWHwHOsT060b9aj3eOzDvZBEmtzT0zmhcX7Idp3Nw18JHuMB0UXBga0YAY9kMyvI1kGqLFgZCu6X6yFzyajvgh8FHZCyqzJrKfjRBkZD";
+$appId = '1619513324978096';
+$appSecret = 'a5eaf276069431fd9ba7c66bf7eb9eea';
 $callbackURL = "http://www.bernie2016events-local.org:8082/php-script/pull-group-events.php";
 
 FacebookSession::setDefaultApplication($appId, $appSecret);
@@ -41,7 +41,7 @@ if ($session && $fromRedirect) {
   $accessToken = $session->getAccessToken();
   // Exchange the short-lived token for a long-lived token.
   $longLivedAccessToken = $accessToken->extend();
-  print_r($longLivedAccessToken);
+  // print_r($longLivedAccessToken);
   // Now store the long-lived token in the database
   // . . . $db->store($longLivedAccessToken);
   // Make calls to Graph with the long-lived token.
@@ -67,8 +67,8 @@ if ($session && $fromRedirect) {
       $events = array();
       if (!isset($searchResultsArr['data']) ) continue;
       foreach($searchResultsArr['data'] as $item) {
-        // echo "[LOG] /{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only" . "\n";
-        $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only");
+        // echo "[LOG] /{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone" . "\n";
+        $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone");
 
         if (count($events) >= 50) {
           printEvents($session, $events);
@@ -109,8 +109,10 @@ function printEvents($session, $events) {
       $start_time = new DateTime($item->start_time, new DateTimeZone($item->timezone));
       $end_time = isset($item->end_time) ? new DateTime($item->end_time, new DateTimeZone($item->timezone)) : NULL;
      } else {
-      $start_time = new DateTime($item->start_time);
-      $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+        if (isset($item->start_time)) {
+          $start_time = new DateTime($item->start_time);
+          $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+        }
      }
 
     // print_r($item);

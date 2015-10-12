@@ -3,16 +3,16 @@ session_start();
 
 define('FACEBOOK_SDK_V4_SRC_DIR', '../lib/facebook-php-sdk-v4-4/src/Facebook/');
 require_once('../lib/facebook-php-sdk-v4-4/autoload.php');
-require_once('./groups.inc');
-require_once('./pages.inc');
+// require_once('./groups.inc');
+// require_once('./pages.inc');
 use Facebook\FacebookSession;
 use Facebook\FacebookRequest;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookSDKException;
 
-$accessToken = "CAAU0htjC8CgBAKBTtYQe4hhiAYdku4o5RyTUL33PNZCiuOj0SZAIas36Y2v5lTjK422AJZCdstZAxnXYTGXv7eAemPLzIvk6Vgtse1GiAd8CH4ZBUTxRnuwVVhb47BlzBJAwqFOxqlfmo3bZAlZBTrWGDodevuEuRm1vBmfXj5QoZAXbZAuT8IQaW";
-$appId = '1465128650469416';
-$appSecret = 'a2bd57b2e122f8b8d24392e3003c9aff';
+$accessToken = "CAAXA8FRxv7ABAJB75Ay4rixO4ZBGnU4c4ZAvQGVmbxD7XljvDka5KkMhZAyQ4zwk4gbowmWSrp9ZB4L8FBpOrMVUVNHzvWHwHOsT060b9aj3eOzDvZBEmtzT0zmhcX7Idp3Nw18JHuMB0UXBga0YAY9kMyvI1kGqLFgZCu6X6yFzyajvgh8FHZCyqzJrKfjRBkZD";
+$appId = '1619513324978096';
+$appSecret = 'a5eaf276069431fd9ba7c66bf7eb9eea';
 $callbackURL = "http://www.bernie2016events-local.org:8082/php-script/pull-groups.php";
 
 FacebookSession::setDefaultApplication($appId, $appSecret);
@@ -51,10 +51,26 @@ if ($session && $fromRedirect) {
   // $request = new FacebookRequest($session, 'GET', '/search?q=Bernie+Sanders&type=event&limit=5000&since=' . $today->getTimestamp());
 
 
-  // $PAGES = json_decode($DATAPAGES);
-  $PAGES = json_decode($DATAGROUPS);
+  // $file = file_get_contents("./pages.json");
+  $file = file_get_contents("./groups.json");
 
-  foreach($PAGES->data as $page) {
+  $pages = json_decode(trim($file));
+  // $pages = $file;
+//   $json_errors = array(
+//     JSON_ERROR_NONE => 'No error has occurred',
+//     JSON_ERROR_DEPTH => 'The maximum stack depth has been exceeded',
+//     JSON_ERROR_CTRL_CHAR => 'Control character error, possibly incorrectly encoded',
+//     JSON_ERROR_SYNTAX => 'Syntax error',
+// );
+//  echo 'Last error : ', $json_errors[json_last_error()], PHP_EOL, PHP_EOL;
+
+  // var_dump($pages);
+
+//   print_r($pages);
+
+  // echo "XXX";
+
+  foreach($pages->data as $page) {
     try {
       // echo "[LOG] " . '/' . $page->id . '/events?limit=5000&since=' . $today->getTimestamp() . "\n";
       $request = new FacebookRequest($session, 'GET', '/' . $page->id . '/events?limit=5000&since=' . $today->getTimestamp());
@@ -67,8 +83,8 @@ if ($session && $fromRedirect) {
       $events = array();
       if (!isset($searchResultsArr['data']) ) continue;
       foreach($searchResultsArr['data'] as $item) {
-        // echo "[LOG] /{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only" . "\n";
-        $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only");
+        // echo "[LOG] /{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone" . "\n";
+        $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone");
 
         if (count($events) >= 50) {
           printEvents($session, $events);
@@ -109,8 +125,10 @@ function printEvents($session, $events) {
       $start_time = new DateTime($item->start_time, new DateTimeZone($item->timezone));
       $end_time = isset($item->end_time) ? new DateTime($item->end_time, new DateTimeZone($item->timezone)) : NULL;
      } else {
-      $start_time = new DateTime($item->start_time);
-      $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+      if (isset($item->start_time)) {
+        $start_time = new DateTime($item->start_time);
+        $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+      } else {}
      }
 
     // print_r($item);

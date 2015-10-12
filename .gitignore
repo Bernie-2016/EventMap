@@ -1,3 +1,6 @@
 .sass-cache
 lib
 d/july29.json
+index.html.orig
+*.orig
+*/*.orig

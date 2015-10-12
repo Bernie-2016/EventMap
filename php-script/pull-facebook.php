@@ -10,9 +10,9 @@ use Facebook\FacebookRequest;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookSDKException;
 
-$accessToken = "CAAU0htjC8CgBAKBTtYQe4hhiAYdku4o5RyTUL33PNZCiuOj0SZAIas36Y2v5lTjK422AJZCdstZAxnXYTGXv7eAemPLzIvk6Vgtse1GiAd8CH4ZBUTxRnuwVVhb47BlzBJAwqFOxqlfmo3bZAlZBTrWGDodevuEuRm1vBmfXj5QoZAXbZAuT8IQaW";
-$appId = '1465128650469416';
-$appSecret = 'a2bd57b2e122f8b8d24392e3003c9aff';
+$accessToken = "CAAXA8FRxv7ABAAiyNGHNm9bQz3thGfJgr0WyGBvZB8bAoZCbjJJyM2YMewcGwEEcPFo7f7hZBxjGOUssB8WieAHYUJnmE9mllWEtvYvZBwbtYZC3NN7FcCEQLHzRAZBnpHVql66khSu4Y0UTpCxNINpuhxBi8HQvnPZBg1ZAVAGt8giSHxZA7L021YUtnc32y4swZD";
+$appId = '1619513324978096';
+$appSecret = 'a5eaf276069431fd9ba7c66bf7eb9eea';
 $callbackURL = "http://www.bernie2016events-local.org:8082/php-script/pull-facebook.php";
 
 FacebookSession::setDefaultApplication($appId, $appSecret);
@@ -58,7 +58,7 @@ if ($session && $fromRedirect) {
 
   $events = array();
   foreach($searchResultsArr['data'] as $item) {
-    $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only");
+    $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone");
 
     if (count($events) >= 50) {
       printEvents($session, $events);
@@ -93,8 +93,13 @@ function printEvents($session, $events) {
       $start_time = new DateTime($item->start_time, new DateTimeZone($item->timezone));
       $end_time = isset($item->end_time) ? new DateTime($item->end_time, new DateTimeZone($item->timezone)) : NULL;
      } else {
-      $start_time = new DateTime($item->start_time);
-      $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+      if (isset($item->start_time)) {
+        $start_time = new DateTime($item->start_time);
+        $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+      } else {
+        $start_time = new DateTime();
+        $end_time = isset($item->end_time) ? new DateTime($item->end_time) : NULL;
+      }
      }
 
     // print_r($item);

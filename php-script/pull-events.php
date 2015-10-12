@@ -9,9 +9,9 @@
   use Facebook\FacebookRequestException;
   use Facebook\FacebookRequest;
 
-  $appId = '1465128650469416';
-  $appSecret = 'a2bd57b2e122f8b8d24392e3003c9aff';
-  $callbackURL = "http://www.bernie2016events-local.org:8082/bernie-events/php-script/pull-events.php";
+  $appId = '1619513324978096';
+  $appSecret = 'a5eaf276069431fd9ba7c66bf7eb9eea';
+  $callbackURL = "http://www.bernie2016events-local.org:8082/php-script/pull-events.php";
   FacebookSession::setDefaultApplication($appId, $appSecret);
 
   $helper = new FacebookRedirectLoginHelper($callbackURL, $appId, $appSecret);

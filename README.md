@@ -2,8 +2,30 @@
 Events for Bernie
 All events related to Bernie. Townhall meetings, meetups, etc. Click on state to filter results.
 
-## When using:
-- change `d/july29.sample-data.json` to `d/july29.json`
+# Events Scraper
+
+Make sure you have www.bernie2016events-local.org as a hostname
+
+If possible set port to 8082
+
+All Grups and pages in `./php-script/groups.json` and `./php-script/pages.json`
+
+## To get Facebook data
+
+* http://www.bernie2016events-local.org:8082/php-script/pull-groups.php -- MUCH PREFERRED!
+* http://www.bernie2016events-local.org:8082/php-script/pull-group-events.php
+
+Note: in `pull-groups.php` interchange LINE `54` and `55` for different data sources.
+
+## To get Meetup Data
+
+* http://www.bernie2016events-local.org:8082/php-script/pull-meetup.php
+
+## Post-process
+
+1. Replace <TAB> with \t in Sublime2 or any text processor,
+2. Post in Google Spreadsheet or any spreadsheet
+
 
 ## Datasource
 
