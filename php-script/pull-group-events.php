@@ -56,7 +56,7 @@ if ($session && $fromRedirect) {
 
   foreach($PAGES->data as $page) {
     try {
-      echo "[LOG] " . '/' . $page->id . '/events?limit=5000&since=' . $today->getTimestamp() . "\n";
+      // echo "[LOG] " . '/' . $page->id . '/events?limit=5000&since=' . $today->getTimestamp() . "\n";
       $request = new FacebookRequest($session, 'GET', '/' . $page->id . '/events?limit=5000&since=' . $today->getTimestamp());
       $response = $request->execute();
 
@@ -67,7 +67,7 @@ if ($session && $fromRedirect) {
       $events = array();
       if (!isset($searchResultsArr['data']) ) continue;
       foreach($searchResultsArr['data'] as $item) {
-        echo "[LOG] /{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only" . "\n";
+        // echo "[LOG] /{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only" . "\n";
         $events[] = array("method" => "GET", "relative_url" => "/{$item->id}?fields=place,start_time,end_time,name,owner,parent_group,timezone,is_date_only");
 
         if (count($events) >= 50) {
