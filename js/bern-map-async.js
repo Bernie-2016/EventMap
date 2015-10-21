@@ -768,7 +768,7 @@ window.dataCallback = function(){
       case "Town Meeting":
         item.eventType = item.event_type_name;
         item.type = "R"; break;
-      case "Volunteer to gather ballot access signatures":
+      case "Gather ballot access signatures":
         item.eventType = "Ballot Access";
         item.type = "B"; break;
       case "Debate Watch Parties (October 13)":
@@ -778,7 +778,7 @@ window.dataCallback = function(){
 
         switch (item.event_type_name) {
           case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
-          case "Volunteer to gather ballot access signatures" : itemEventType = "Ballot Access"; break;
+          case "Gather ballot access signatures" : itemEventType = "Ballot Access"; break;
           case "Volunteer meeting to get organized or learn more " : item.eventType = "Volunteer Meeting"; break;
           case "Volunteer activity (flyering, calling, walking, etc)" : item.eventType = "Volunteer Activity"; break;
           default: item.eventType = "Volunteer Event"; break;
