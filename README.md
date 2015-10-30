@@ -2,11 +2,15 @@
 
 ## Getting started
 
-To run this, simply run a simple local server.  Here's an example if you have Python installed:
+To get up and running, first install [Vagrant](https://www.vagrantup.com) and then just run:
 
-`python -c 'from SimpleHTTPServer import test; test()' 6000`
+`vagrant up`
 
-Then go to `http://localhost:6000` and you'll see the map.
+You'll be able to see the dashboard running at `http://localhost:9000`.  To stop the server (so that port 9000 becomes available again) run:
+
+`vagrant stop`
+
+Under the hood, when you run `vagrant up`, the app is using [Vagrant](https://www.vagrantup.com) to create and run inside a virtual machine.  Read more about it [here](https://docs.vagrantup.com/v2/).
 
 ## Deploying
 
