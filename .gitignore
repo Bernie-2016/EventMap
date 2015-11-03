@@ -1,6 +1,15 @@
 .sass-cache
+.vagrant
 lib
 d/july29.json
-index.html.orig
+.orig
 *.orig
-*/*.orig
+.DS_Store
+*.pyc
+index.html.BACKUP.43826.html
+index.html.BASE.43826.html
+index.html.BACKUP.43826.html
+index.html.LOCAL.43826.html
+index.html.REMOTE.43826.html
+activate
+bernieevents
