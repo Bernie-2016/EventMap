@@ -580,7 +580,7 @@ bernMap.eventList = function(container) {
     var targC = [parseFloat(target.lat), parseFloat(target.lon)];
 
     //FILTER OFFICES
-    /*
+
     var nearByOffices = bernMap.constants.mainOffices.filter (function(d) {
                             var compC = [parseFloat(d.lat), parseFloat(d.lon)];
                             var distance = that._getDistanceInMi(targC[0], targC[1], compC[0], compC[1]);
@@ -614,7 +614,7 @@ bernMap.eventList = function(container) {
       $("input#entity-type-offices").attr("disabled", "disabled");
       $("#office-counter").text("OFFICES");
     }
-*/
+
     //Filter events
     var nearByZipcodes = bernMap.d.zipcodes.features.filter(function(d) {
                             var compC = [parseFloat(d.properties.latitude), parseFloat(d.properties.longitude)];
