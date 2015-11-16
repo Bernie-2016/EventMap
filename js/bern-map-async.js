@@ -771,15 +771,20 @@ window.dataCallback = function(){
       case "Gather ballot access signatures":
         item.eventType = "Ballot Access";
         item.type = "B"; break;
-      case "Debate Watch Parties (October 13)":
-      case "Debate Watch Party (Nov 14th)":
-        item.eventType = "Debate Watch Party";
+      // case "Debate Watch Parties (October 13)":
+      // case "Debate Watch Party (Nov 14th)":
+        // item.eventType = "Debate Watch Party";
+      case "Phonebanks" :
+        item.eventType = "Phonebank";
         item.type = "D"; break;
       default:
 
         switch (item.event_type_name) {
-          case "Debate Watch Party (Nov 14th)":
-          case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
+          case "Phonebanks" :
+            item.eventType = "Phonebank";
+            break;
+          // case "Debate Watch Party (Nov 14th)":
+          // case "Debate Watch Parties (October 13)" : item.eventType = "Debate Watch Party"; break;
           case "Gather ballot access signatures" : itemEventType = "Ballot Access"; break;
           case "Volunteer meeting to get organized or learn more " : item.eventType = "Volunteer Meeting"; break;
           case "Volunteer activity (flyering, calling, walking, etc)" : item.eventType = "Volunteer Activity"; break;
