@@ -286,6 +286,7 @@ z-index: 1000;
 
         width: 285px;
         float: left;
+        position: relative;
 
 
         #event-type-list {
@@ -310,7 +311,18 @@ z-index: 1000;
                 background-color: lightgray;
                 font-size:0.7em;
             }
+
+            input[name='eventtype'] + label .yellow-star {
+              border-radius: 0;
+              background-image: url(/img/icon/star-gray.png);
+              background-size: 10px 10px;
+              width: 10px; height: 10px;
+              background-color: transparent;
+              border: 0;
+            }
+
             input[name='eventtype']:checked  {
+               &[value='O'] + label .etype-bullet { background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png); }
                &[value='E'] + label .etype-bullet { background-color: $green; }
                &[value='CW'] + label .etype-bullet { background-color: $yellow; }
                &[value='R'] + label .etype-bullet { background-color: $red; }
@@ -324,22 +336,28 @@ z-index: 1000;
             }
 
             &:last-child {
-              float: right;
+              position: absolute;
+              right: 0px;
+              bottom: -14px;
+              font-size: 14px;
+              background-color: whitesmoke;
+              color: gray;
+              padding: 0;
+              border-radius: 4px;
 
               a {
-                color: #C1C1C1;
-                // background-color: #C1C1C1;
-                padding: 3px 9px;
+                // color: #C1C1C1;
+                padding: 0px 5px;
                 margin-right: -2px;
                 border-radius: 3px;
-                // border: 1px solid #C1C1C1;
                 margin-bottom: -1px;
+                color: gray;
 
                 &:hover {
                   text-decoration: bold;
                   // transition: 0.2s background-color ease;
                   // background-color: rgba(255,255,255,0);
-                  color: gray;
+                  // color: gray;
                 }
 
                 &:not(.activated) { display: none; }

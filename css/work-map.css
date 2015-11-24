@@ -159,7 +159,8 @@
   border-radius: 3px;
   background-color: whitesmoke;
   width: 285px;
-  float: left; }
+  float: left;
+  position: relative; }
   #map-section #map-event-list #event-type-container #event-type-list {
     text-align: left; }
     #map-section #map-event-list #event-type-container #event-type-list .event-type-item {
@@ -179,6 +180,16 @@
         border: 2px solid white;
         background-color: lightgray;
         font-size: 0.7em; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] + label .yellow-star {
+        border-radius: 0;
+        background-image: url(/img/icon/star-gray.png);
+        background-size: 10px 10px;
+        width: 10px;
+        height: 10px;
+        background-color: transparent;
+        border: 0; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='O'] + label .etype-bullet {
+        background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png); }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='E'] + label .etype-bullet {
         background-color: #104672; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='CW'] + label .etype-bullet {
@@ -199,16 +210,22 @@
         text-transform: uppercase;
         font-size: 0.55em; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child {
-        float: right; }
+        position: absolute;
+        right: 0px;
+        bottom: -14px;
+        font-size: 14px;
+        background-color: whitesmoke;
+        color: gray;
+        padding: 0;
+        border-radius: 4px; }
         #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child a {
-          color: #C1C1C1;
-          padding: 3px 9px;
+          padding: 0px 5px;
           margin-right: -2px;
           border-radius: 3px;
-          margin-bottom: -1px; }
+          margin-bottom: -1px;
+          color: gray; }
           #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child a:hover {
-            text-decoration: bold;
-            color: gray; }
+            text-decoration: bold; }
           #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child a:not(.activated) {
             display: none; }
 

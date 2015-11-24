@@ -87,7 +87,7 @@ bernMap.draw = function() {
   this.zipcodeElements = null;
   this.mainOffices = null;
   this.centerItem = null;
-  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true, debateWatchEvent: true, ballotAccess: true};
+  this.visibleTypes = { volunteerWork: true, grassrootsEvent: true, officialRally: true, debateWatchEvent: true, ballotAccess: true, campaignOffice: true};
 
   this.currentZipcode = null;
 
@@ -146,6 +146,7 @@ bernMap.draw = function() {
       case "D" : return that.visibleTypes.debateWatchEvent ? "inherit" : "hidden"; break;
       case "R" : return that.visibleTypes.officialRally ? "inherit" : "hidden"; break;
       case "B" : return that.visibleTypes.ballotAccess ? "inherit" : "hidden"; break;
+      case "O" : return that.visibleTypes.campaignOffices ? "inherit" : "hidden"
 
     }
   };
@@ -160,6 +161,7 @@ bernMap.draw = function() {
       case "R" : that.visibleTypes.officialRally = visibility; break;
       case "D" : that.visibleTypes.debateWatchEvent = visibility; break;
       case "B" : that.visibleTypes.ballotAccess = visibility; break;
+      case "O" : that.visibleTypes.campaignOffices = visibility; break;
     };
 
     that.replot();
@@ -792,6 +794,11 @@ window.dataCallback = function(){
         }
         item.type = "E"; break;
     }
+
+    if ( item.is_official == "1") {
+      item.eventType = "Official Event";
+      item.type = "CW";
+    }
   });
 
   var today = new Date(); today.setDate(today.getDate() - 1); today.setHours(0); today.setMinutes(0); today.setSeconds(0);
@@ -995,6 +1002,7 @@ $jq(window).on("hashchange", function(){
       });
     }
 
+
     //Listen to event types
     if (!parameters.eventtype ||
           $jq("form input[name=eventtype]").length != parameters.eventtype.length) {
@@ -1004,6 +1012,12 @@ $jq(window).on("hashchange", function(){
     else {
       $(".etype-name-vis.hide-all").addClass("activated");
       $(".etype-name-vis.show-all").removeClass("activated");
+    }
+
+    if ((!parameters.eventtype && !bernMap.d.initialLoad) || (parameters.eventtype && parameters.eventtype.filter(function(d) { return d == "O" }).length == 0)) {
+      $(".bernie-main-office").css("visibility", "hidden");
+    } else { //bernMap.d.initialLoad || length > 1
+      $(".bernie-main-office").css("visibility", "visible");
     }
 
     bernMap.sort = parameters.sort;
