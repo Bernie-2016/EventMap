@@ -795,7 +795,9 @@ window.dataCallback = function(){
         item.type = "E"; break;
     }
 
-    if ( item.is_official == "1") {
+    if ( item.is_official == "1" &&
+          !( item.event_type_name == 'Town Meeting' ||
+             item.event_type_name == 'Rally') ) {
       item.eventType = "Official Event";
       item.type = "CW";
     }
