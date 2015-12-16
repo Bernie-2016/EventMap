@@ -1,5 +1,5 @@
 $blue: #147FD7;
-$yellow: #AD50C7;
+$purple: #AD50C7;
 $red: #F55B5B;
 $green: #104672; //Turned to dark blue
 $darkred: #ea504e;
@@ -296,7 +296,7 @@ z-index: 1000;
             // padding: none;
             margin: 0;
             display: inline-block;
-            padding: 1%;
+            padding: 0px 4px;
 
             input[name='eventtype'] { display: none; }
             input[name='eventtype'] + label {
@@ -322,17 +322,25 @@ z-index: 1000;
             }
 
             input[name='eventtype']:checked  {
-               &[value='O'] + label .etype-bullet { background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png); }
-               &[value='E'] + label .etype-bullet { background-color: $green; }
-               &[value='CW'] + label .etype-bullet { background-color: $yellow; }
+               &[value='O'] + label .etype-bullet { background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png);
+                background-color: transparent;
+
+               }
+               &[value='CW'] + label .etype-bullet { background-color: $purple; }
                &[value='R'] + label .etype-bullet { background-color: $red; }
-               &[value='D'] + label .etype-bullet { background-color: $green; border-color: $orange;}
-               &[value='B'] + label .etype-bullet { background-color: rgba(0,0,0,0); border-color: $red;}
+
+               & + label .etype-bullet  { background-color: $blue; }
+               // &[value='E'] + label .etype-bullet { background-color: $green; }
+               // &[value='D'] + label .etype-bullet { background-color: $green; border-color: $orange;}
+               // &[value='B'] + label .etype-bullet { background-color: rgba(0,0,0,0); border-color: $red;}
+               // &[value='DWP'] + label .etype-bullet { background-color: black; border-color: black}
+               // &[value='CV'] + label .etype-bullet { background-color: black; border-color: black}
+               // &[value='RV'] + label .etype-bullet { background-color: black; border-color: black;}
             }
             .etype-bullet { vertical-align: middle; font-size: 0.8em; }
             .etype-name { vertical-align: middle;
               text-transform: uppercase;
-              font-size: 0.55em;
+              font-size: 8px;
             }
 
             &:last-child {
@@ -431,7 +439,7 @@ div#event-list-area #event-list {
 
     // color: white;
     // &.campaign-work {
-    //   background-color: $yellow;
+    //   background-color: $purple;
     // }
     // &.rally {
     //   background-color: $red;
@@ -442,28 +450,41 @@ div#event-list-area #event-list {
 
     .event-bullet {
       display: inline-block;
-      width: 9px;
-      height: 9px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       border: 2px solid white;
       vertical-align: middle;
       margin-right: 4px;
+      background-color: $blue;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.2);
     }
     &.campaign-work {
-      .event-bullet { background-color: $yellow; }
+      .event-bullet { background-color: $purple; }
     }
     &.rally {
       .event-bullet { background-color: $red; }
     }
-    &.meetup {
-      .event-bullet { background-color: $green; }
+
+
+
+
+    // &.meetup {
+    //   .event-bullet { background-color: $green; }
+    // }
+    // &.debate-watch {
+    //   .event-bullet { background-color: $green; border: 2px solid $orange;}
+    // }
+    // &.ballot-access {
+    //   .event-bullet { background-color: rgba(0,0,0,0); border-color: $red; }
+    // }
+    &.event-dwp, &.event-cv, &.event-rv {
+      // background-color: rgba(0,0,0,0);
+      // background-color: black;
+      // border-color: black;
     }
-    &.debate-watch {
-      .event-bullet { background-color: $green; border: 2px solid $orange;}
-    }
-    &.ballot-access {
-      .event-bullet { background-color: rgba(0,0,0,0); border-color: $red; }
-    }
+
+
 }
 
 section#map-section div#map-event-list #event-list-area
@@ -536,11 +557,22 @@ section#map-section div#map-event-list #event-list-area
   circle {
     stroke: whitesmoke;
     stroke-width: 1px;
-    &.campaign-work { fill: $yellow; stroke-width: 2; r: 4;}
-    &.grassroots-event { fill: $green; stroke-width: 2; r: 4;}
-    &.official-rally { fill: $red !important;  r: 9; stroke-width: 2;}
-    &.debate-watch { fill: $green; stroke: $orange; stroke-width: 2; r: 4; }
-    &.ballot-access { fill: rgba(0,0,0,0); stroke: $red; stroke-width: 2; r: 4; }
+
+    fill: $blue;
+    stroke-width: 2;
+
+    &.campaign-work { fill: $purple; r: 4;}
+    &.official-rally { fill: $purple !important;  r: 9; stroke-width: 2;}
+
+    // &.event-dwp,
+    // &.event-cv,
+    // &.event-rv { fill: rgba(0,0,0,0); stroke-width: 2; r: 4;}
+    // &.event-dwp { fill: rgba(255,255,255,0.5); stroke: $blue; }
+    // &.event-cv { stroke: $purple; }
+    // &.event-rv { stroke: $green; }
+    // &.grassroots-event { fill: $green; stroke-width: 2; r: 4;}
+    // &.debate-watch { fill: $green; stroke: $orange; stroke-width: 2; r: 4; }
+    // &.ballot-access { fill: rgba(0,0,0,0); stroke: $red; stroke-width: 2; r: 4; }
   }
   .bernie-main-office {
     cursor: pointer;
@@ -638,6 +670,14 @@ $phone-max-width: 720px;
 
   section#map-section div#map-event-list {
     padding-right: 0;
+
+    #event-type-container #event-type-list .event-type-item {
+      border: none;
+      margin: 0;
+      display: inline-block;
+      padding: 1px 4px;
+      height: 21px;
+    }
   }
 
   section#map-section div#map-event-list div#event-list-area div#footer-area {
@@ -653,7 +693,7 @@ $phone-max-width: 720px;
 
       position: absolute;
 
-      bottom: -68px;
+      bottom: -80px;
       left: 2px;
   }
 
@@ -678,7 +718,7 @@ $phone-max-width: 720px;
     #map-section #map-event-list #daterange-opt {
         position: absolute;
         left: 2px;
-        bottom: -97px;
+        bottom: -110px;
         margin-top: 0;
         width: 86px;
     }
@@ -697,7 +737,7 @@ $phone-max-width: 720px;
       top: -75px;
       div#sort-opt {
       position: absolute;
-      bottom: -97px;
+      bottom: -110px;
       left: 91px;
       }
 

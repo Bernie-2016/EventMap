@@ -167,7 +167,7 @@
       border: none;
       margin: 0;
       display: inline-block;
-      padding: 1%; }
+      padding: 0px 4px; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] {
         display: none; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype'] + label {
@@ -189,26 +189,21 @@
         background-color: transparent;
         border: 0; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='O'] + label .etype-bullet {
-        background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png); }
-      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='E'] + label .etype-bullet {
-        background-color: #104672; }
+        background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png);
+        background-color: transparent; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='CW'] + label .etype-bullet {
         background-color: #AD50C7; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='R'] + label .etype-bullet {
         background-color: #F55B5B; }
-      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='D'] + label .etype-bullet {
-        background-color: #104672;
-        border-color: #FFFB89; }
-      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='B'] + label .etype-bullet {
-        background-color: transparent;
-        border-color: #F55B5B; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked + label .etype-bullet {
+        background-color: #147FD7; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-bullet {
         vertical-align: middle;
         font-size: 0.8em; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-name {
         vertical-align: middle;
         text-transform: uppercase;
-        font-size: 0.55em; }
+        font-size: 8px; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item:last-child {
         position: absolute;
         right: 0px;
@@ -259,24 +254,18 @@ div#event-list-area #event-list #footer-area {
     vertical-align: top; }
   .event-type .event-bullet {
     display: inline-block;
-    width: 9px;
-    height: 9px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     border: 2px solid white;
     vertical-align: middle;
-    margin-right: 4px; }
+    margin-right: 4px;
+    background-color: #147FD7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
   .event-type.campaign-work .event-bullet {
     background-color: #AD50C7; }
   .event-type.rally .event-bullet {
     background-color: #F55B5B; }
-  .event-type.meetup .event-bullet {
-    background-color: #104672; }
-  .event-type.debate-watch .event-bullet {
-    background-color: #104672;
-    border: 2px solid #FFFB89; }
-  .event-type.ballot-access .event-bullet {
-    background-color: transparent;
-    border-color: #F55B5B; }
 
 section#map-section div#map-event-list #event-list-area
 .event-list-item {
@@ -334,29 +323,16 @@ span.rsvp-counter {
 
 #map svg circle {
   stroke: whitesmoke;
-  stroke-width: 1px; }
+  stroke-width: 1px;
+  fill: #147FD7;
+  stroke-width: 2; }
   #map svg circle.campaign-work {
     fill: #AD50C7;
-    stroke-width: 2;
-    r: 4; }
-  #map svg circle.grassroots-event {
-    fill: #104672;
-    stroke-width: 2;
     r: 4; }
   #map svg circle.official-rally {
-    fill: #F55B5B !important;
+    fill: #AD50C7 !important;
     r: 9;
     stroke-width: 2; }
-  #map svg circle.debate-watch {
-    fill: #104672;
-    stroke: #FFFB89;
-    stroke-width: 2;
-    r: 4; }
-  #map svg circle.ballot-access {
-    fill: transparent;
-    stroke: #F55B5B;
-    stroke-width: 2;
-    r: 4; }
 #map svg .bernie-main-office {
   cursor: pointer; }
 
@@ -505,6 +481,12 @@ ul#office-list li {
 
   section#map-section div#map-event-list {
     padding-right: 0; }
+    section#map-section div#map-event-list #event-type-container #event-type-list .event-type-item {
+      border: none;
+      margin: 0;
+      display: inline-block;
+      padding: 1px 4px;
+      height: 21px; }
 
   section#map-section div#map-event-list div#event-list-area div#footer-area {
     width: 100% !important; }
@@ -515,7 +497,7 @@ ul#office-list li {
     margin: 0;
     padding-bottom: 1px;
     position: absolute;
-    bottom: -68px;
+    bottom: -80px;
     left: 2px; }
 
   section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
@@ -536,7 +518,7 @@ ul#office-list li {
   #map-section #map-event-list #daterange-opt {
     position: absolute;
     left: 2px;
-    bottom: -97px;
+    bottom: -110px;
     margin-top: 0;
     width: 86px; }
 
@@ -553,7 +535,7 @@ ul#office-list li {
     top: -75px; }
     section#map-section div#map-event-list div#sort-opt {
       position: absolute;
-      bottom: -97px;
+      bottom: -110px;
       left: 91px; }
     section#map-section div#map-event-list div#event-results-area {
       top: calc(100vh - 90px); }
