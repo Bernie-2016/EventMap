@@ -8,7 +8,7 @@ var $jq = jQuery;
 var timeFormat = d3.time.format("%I:%M %p");
 var rawDateFormat = d3.time.format("%Y-%m-%d");
 var rawTime = d3.time.format("%X");
-var dateFormat = d3.time.format("%b %d");
+var dateFormat = d3.time.format("%b %d (%a)");
 
 
 /* some minor initialization */
@@ -141,6 +141,10 @@ bernMap.draw = function() {
   this._getVisibility = function(d) {
     var that = this;
     switch (d.properties.type) {
+      case "DWP" : return that.visibleTypes.dwp ? "inherit" : "hidden"; break;
+      case "CV" : return that.visibleTypes.cv ? "inherit" : "hidden";  break;
+      case "RV" : return that.visibleTypes.rv ? "inherit" : "hidden";  break;
+
       case "CW" : return that.visibleTypes.volunteerWork ? "inherit" : "hidden"; break;
       case "E" : return that.visibleTypes.grassrootsEvent ? "inherit" : "hidden"; break;
       case "D" : return that.visibleTypes.debateWatchEvent ? "inherit" : "hidden"; break;
@@ -156,6 +160,9 @@ bernMap.draw = function() {
   this.changeVisibility = function(type, visibility) {
     var that = this;
     switch (type) {
+      case "DWP" : that.visibleTypes.dwp = visibility; break;
+      case "CV" : that.visibleTypes.cv = visibility; break;
+      case "RV" : that.visibleTypes.rv = visibility; break;
       case "CW" : that.visibleTypes.volunteerWork = visibility; break;
       case "E" : that.visibleTypes.grassrootsEvent = visibility; break;
       case "R" : that.visibleTypes.officialRally = visibility; break;
@@ -276,6 +283,9 @@ bernMap.draw = function() {
                               .attr("opacity", 0.7)
                               .attr("class", function(d) {
                                 switch (d.properties.type) {
+                                  case "DWP" : return "event-dwp"; break;
+                                  case "CV" : return "event-cv"; break;
+                                  case "RV" : return "event-rv"; break;
                                   case "CW" : return "campaign-work"; break;
                                   case "E" : return "grassroots-event"; break;
                                   case "R" : return "official-rally"; break;
@@ -285,6 +295,9 @@ bernMap.draw = function() {
                               })
                               .style("visibility", function(d) {
                                 switch (d.properties.type) {
+                                  case "DWP" : return that.show ? "visible" : "hidden"; break;
+                                  case "CV" : return that.show ? "visible" : "hidden"; break;
+                                  case "RV" : return that.show ? "visible" : "hidden"; break;
                                   case "CW" : return that.show ? "visible" : "hidden"; break;
                                   case "E" : return that.show ? "visible" : "hidden"; break;
                                   case "R" : return that.show ? "visible" : "hidden"; break;
@@ -498,6 +511,9 @@ bernMap.eventList = function(container) {
      var eventType, eventText;
 
      switch (d.properties.type) {
+      case "DWP": eventType = 'event-dwp'; break;
+      case "CV": eventType = 'event-cv'; break;
+      case "RV": eventType = 'event-rv'; break;
       case "CW": eventType = 'campaign-work'; break;
       case "E" : eventType = 'meetup'; break;
       case "R" : eventType = 'rally'; break;
@@ -776,9 +792,19 @@ window.dataCallback = function(){
       // case "Debate Watch Parties (October 13)":
       // case "Debate Watch Party (Nov 14th)":
         // item.eventType = "Debate Watch Party";
+      case "Debate Watch Party (Dec 19th)":
+        item.eventType = "Debate Watch Party";
+        item.type = "DWP"; break;
+      case "Canvass":
+        item.eventType = "Canvass";
+        item.type = "CV"; break;
       case "Phonebanks" :
         item.eventType = "Phonebank";
         item.type = "D"; break;
+      case "Registering Voters":
+        item.eventType = "Registering Voters";
+        item.type = "RV";
+        break;
       default:
 
         switch (item.event_type_name) {

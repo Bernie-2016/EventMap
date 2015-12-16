@@ -238,7 +238,7 @@ section#map-section {
         font-size: 0.9em;
         font-weight: bold; }
     section#map-section div#map-event-list #event-list-area {
-      max-height: calc(100vh - 335px);
+      max-height: calc(100vh - 365px);
       overflow: auto; }
       section#map-section div#map-event-list #event-list-area .event-list-item {
         padding-bottom: 20px;
