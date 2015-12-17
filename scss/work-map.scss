@@ -562,7 +562,7 @@ section#map-section div#map-event-list #event-list-area
     stroke-width: 2;
 
     &.campaign-work { fill: $purple; r: 4;}
-    &.official-rally { fill: $purple !important;  r: 9; stroke-width: 2;}
+    &.official-rally { fill: $red !important;  r: 9; stroke-width: 2;}
 
     // &.event-dwp,
     // &.event-cv,

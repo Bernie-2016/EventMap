@@ -330,7 +330,7 @@ span.rsvp-counter {
     fill: #AD50C7;
     r: 4; }
   #map svg circle.official-rally {
-    fill: #AD50C7 !important;
+    fill: #F55B5B !important;
     r: 9;
     stroke-width: 2; }
 #map svg .bernie-main-office {
