@@ -141,7 +141,7 @@ bernMap.draw = function() {
   this._getVisibility = function(d) {
     var that = this;
     switch (d.properties.type) {
-      case "DWP" : return that.visibleTypes.dwp ? "inherit" : "hidden"; break;
+      case "LIVESTREAM" : return that.visibleTypes.dwp ? "inherit" : "hidden"; break;
       case "CV" : return that.visibleTypes.cv ? "inherit" : "hidden";  break;
       case "RV" : return that.visibleTypes.rv ? "inherit" : "hidden";  break;
 
@@ -160,7 +160,7 @@ bernMap.draw = function() {
   this.changeVisibility = function(type, visibility) {
     var that = this;
     switch (type) {
-      case "DWP" : that.visibleTypes.dwp = visibility; break;
+      case "LIVESTREAM" : that.visibleTypes.dwp = visibility; break;
       case "CV" : that.visibleTypes.cv = visibility; break;
       case "RV" : that.visibleTypes.rv = visibility; break;
       case "CW" : that.visibleTypes.volunteerWork = visibility; break;
@@ -283,7 +283,7 @@ bernMap.draw = function() {
                               .attr("opacity", 0.7)
                               .attr("class", function(d) {
                                 switch (d.properties.type) {
-                                  case "DWP" : return "event-dwp"; break;
+                                  case "LIVESTREAM" : return "event-LIVESTREAM"; break;
                                   case "CV" : return "event-cv"; break;
                                   case "RV" : return "event-rv"; break;
                                   case "CW" : return "campaign-work"; break;
@@ -295,7 +295,7 @@ bernMap.draw = function() {
                               })
                               .style("visibility", function(d) {
                                 switch (d.properties.type) {
-                                  case "DWP" : return that.show ? "visible" : "hidden"; break;
+                                  case "LIVESTREAM" : return that.show ? "visible" : "hidden"; break;
                                   case "CV" : return that.show ? "visible" : "hidden"; break;
                                   case "RV" : return that.show ? "visible" : "hidden"; break;
                                   case "CW" : return that.show ? "visible" : "hidden"; break;
@@ -511,7 +511,7 @@ bernMap.eventList = function(container) {
      var eventType, eventText;
 
      switch (d.properties.type) {
-      case "DWP": eventType = 'event-dwp'; break;
+      case "LIVESTREAM": eventType = 'event-LIVESTREAM'; break;
       case "CV": eventType = 'event-cv'; break;
       case "RV": eventType = 'event-rv'; break;
       case "CW": eventType = 'campaign-work'; break;
@@ -797,7 +797,7 @@ window.dataCallback = function(){
         item.type = "CPOOL"; break;
       case "Jan. 23rd Nationwide Bernie Address":
         item.eventType = "Jan. 23 Address";
-        item.type = "DWP"; break;
+        item.type = "LIVESTREAM"; break;
       case "Canvass":
         item.eventType = "Canvass";
         item.type = "CV"; break;

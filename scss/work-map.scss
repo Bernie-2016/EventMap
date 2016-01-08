@@ -339,7 +339,7 @@ z-index: 1000;
                // &[value='E'] + label .etype-bullet { background-color: $green; }
                // &[value='D'] + label .etype-bullet { background-color: $green; border-color: $orange;}
                // &[value='B'] + label .etype-bullet { background-color: rgba(0,0,0,0); border-color: $red;}
-               &[value='DWP'] + label .etype-bullet { background-color: $orange; border-color: $lightorange; }
+               &[value='LIVESTREAM'] + label .etype-bullet { background-color: $orange; border-color: $lightorange; }
                // &[value='CV'] + label .etype-bullet { background-color: black; border-color: black}
                // &[value='RV'] + label .etype-bullet { background-color: black; border-color: black;}
             }
@@ -478,13 +478,13 @@ div#event-list-area #event-list {
     // &.meetup {
     //   .event-bullet { background-color: $green; }
     // }
-    &.event-dwp {
+    &.event-LIVESTREAM {
       .event-bullet { background-color: $orange; border-color: $lightorange; }
     }
     // &.ballot-access {
     //   .event-bullet { background-color: rgba(0,0,0,0); border-color: $red; }
     // }
-    &.event-dwp, &.event-cv, &.event-rv {
+    &.event-LIVESTREAM, &.event-cv, &.event-rv {
       // background-color: rgba(0,0,0,0);
       // background-color: black;
       // border-color: black;
@@ -570,10 +570,10 @@ section#map-section div#map-event-list #event-list-area
     &.campaign-work { fill: $purple; r: 4;}
     &.official-rally { fill: $red !important;  r: 9; stroke-width: 2;}
 
-    // &.event-dwp,
+    // &.event-LIVESTREAM,
     // &.event-cv,
     // &.event-rv { fill: rgba(0,0,0,0); stroke-width: 2; r: 4;}
-    &.event-dwp {
+    &.event-LIVESTREAM {
       fill: $orange;
       stroke: $lightorange;
     }

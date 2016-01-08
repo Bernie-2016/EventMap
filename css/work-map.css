@@ -197,7 +197,7 @@
         background-color: #F55B5B; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked + label .etype-bullet {
         background-color: #0367BA; }
-      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='DWP'] + label .etype-bullet {
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='LIVESTREAM'] + label .etype-bullet {
         background-color: #FE6502;
         border-color: #FFB687; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-bullet {
@@ -269,7 +269,7 @@ div#event-list-area #event-list #footer-area {
     background-color: #AD50C7; }
   .event-type.rally .event-bullet {
     background-color: #F55B5B; }
-  .event-type.event-dwp .event-bullet {
+  .event-type.event-LIVESTREAM .event-bullet {
     background-color: #FE6502;
     border-color: #FFB687; }
 
@@ -339,7 +339,7 @@ span.rsvp-counter {
     fill: #F55B5B !important;
     r: 9;
     stroke-width: 2; }
-  #map svg circle.event-dwp {
+  #map svg circle.event-LIVESTREAM {
     fill: #FE6502;
     stroke: #FFB687; }
 #map svg .bernie-main-office {
