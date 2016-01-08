@@ -196,7 +196,10 @@
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='R'] + label .etype-bullet {
         background-color: #F55B5B; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked + label .etype-bullet {
-        background-color: #147FD7; }
+        background-color: #0367BA; }
+      #map-section #map-event-list #event-type-container #event-type-list .event-type-item input[name='eventtype']:checked[value='DWP'] + label .etype-bullet {
+        background-color: #FE6502;
+        border-color: #FFB687; }
       #map-section #map-event-list #event-type-container #event-type-list .event-type-item .etype-bullet {
         vertical-align: middle;
         font-size: 0.8em; }
@@ -260,12 +263,15 @@ div#event-list-area #event-list #footer-area {
     border: 2px solid white;
     vertical-align: middle;
     margin-right: 4px;
-    background-color: #147FD7;
+    background-color: #0367BA;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
   .event-type.campaign-work .event-bullet {
     background-color: #AD50C7; }
   .event-type.rally .event-bullet {
     background-color: #F55B5B; }
+  .event-type.event-dwp .event-bullet {
+    background-color: #FE6502;
+    border-color: #FFB687; }
 
 section#map-section div#map-event-list #event-list-area
 .event-list-item {
@@ -311,7 +317,7 @@ span.rsvp-counter {
 #upcoming-event {
   width: 100%;
   padding: 4px 0;
-  background-color: #147FD7;
+  background-color: #0367BA;
   margin-top: 5px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -324,7 +330,7 @@ span.rsvp-counter {
 #map svg circle {
   stroke: whitesmoke;
   stroke-width: 1px;
-  fill: #147FD7;
+  fill: #0367BA;
   stroke-width: 2; }
   #map svg circle.campaign-work {
     fill: #AD50C7;
@@ -333,6 +339,9 @@ span.rsvp-counter {
     fill: #F55B5B !important;
     r: 9;
     stroke-width: 2; }
+  #map svg circle.event-dwp {
+    fill: #FE6502;
+    stroke: #FFB687; }
 #map svg .bernie-main-office {
   cursor: pointer; }
 
@@ -342,20 +351,23 @@ span.rsvp-counter {
   margin-top: -8px; }
   .leaflet-popup-pane .office-popup div.office-image-container {
     width: 100%;
-    height: 100px;
+    height: 150px;
     margin-bottom: 10px;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     .leaflet-popup-pane .office-popup div.office-image-container img.office-main-image {
       width: 100%;
-      transform: translate(0, -25%);
-      -ms-transform: translate(0, -25%);
+      position: absolute;
+      transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
       /* IE 9 */
-      -moz-transform: translate(0, -25%);
+      -moz-transform: translate(0, -50%);
       /* Firefox */
-      -webkit-transform: translate(0, -25%);
+      -webkit-transform: translate(0, -50%);
       /* Safari and Chrome */
-      -o-transform: translate(0, -25%);
-      /* Opera */ }
+      -o-transform: translate(0, -50%);
+      /* Opera */
+      top: 50%; }
   .leaflet-popup-pane .office-popup h3 {
     padding-left: 15px;
     padding-right: 15px; }
@@ -389,20 +401,23 @@ ul#office-list li {
     margin-top: 1em; }
     ul#office-list li .office-popup div.office-image-container {
       width: 100%;
-      height: 100px;
+      height: 150px;
       margin-bottom: 10px;
-      overflow: hidden; }
+      overflow: hidden;
+      position: relative; }
       ul#office-list li .office-popup div.office-image-container img.office-main-image {
         width: 100%;
-        transform: translate(0, -25%);
-        -ms-transform: translate(0, -25%);
+        position: absolute;
+        transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
         /* IE 9 */
-        -moz-transform: translate(0, -25%);
+        -moz-transform: translate(0, -50%);
         /* Firefox */
-        -webkit-transform: translate(0, -25%);
+        -webkit-transform: translate(0, -50%);
         /* Safari and Chrome */
-        -o-transform: translate(0, -25%);
-        /* Opera */ }
+        -o-transform: translate(0, -50%);
+        /* Opera */
+        top: 50%; }
     ul#office-list li .office-popup h3 {
       padding-left: 15px;
       padding-right: 15px; }

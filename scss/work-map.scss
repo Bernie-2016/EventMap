@@ -1,9 +1,12 @@
-$blue: #147FD7;
+// $blue: #147FD7;
+
+$blue: #0367BA;
 $purple: #AD50C7;
 $red: #F55B5B;
 $green: #104672; //Turned to dark blue
 $darkred: #ea504e;
-$orange: #FFFB89;
+$orange: #FE6502;
+$lightorange: #FFB687;
 
 @mixin translateAll($a, $b) {
   transform:translate($a,$b);
@@ -16,15 +19,18 @@ $orange: #FFFB89;
 @mixin officeItem {
   div.office-image-container {
       width: 100%;
-      height: 100px;
+      height: 150px;
       margin-bottom: 10px;
       overflow: hidden;
+      position: relative;
 
       img.office-main-image {
         width: 100%;
         // margin-left: 50%;
         // transform: translate(0, -25%);
-        @include translateAll(0, -25%);
+        position: absolute;
+        @include translateAll(0, -50%);
+        top: 50%;
       }
     }
 
@@ -333,7 +339,7 @@ z-index: 1000;
                // &[value='E'] + label .etype-bullet { background-color: $green; }
                // &[value='D'] + label .etype-bullet { background-color: $green; border-color: $orange;}
                // &[value='B'] + label .etype-bullet { background-color: rgba(0,0,0,0); border-color: $red;}
-               // &[value='DWP'] + label .etype-bullet { background-color: black; border-color: black}
+               &[value='DWP'] + label .etype-bullet { background-color: $orange; border-color: $lightorange; }
                // &[value='CV'] + label .etype-bullet { background-color: black; border-color: black}
                // &[value='RV'] + label .etype-bullet { background-color: black; border-color: black;}
             }
@@ -472,9 +478,9 @@ div#event-list-area #event-list {
     // &.meetup {
     //   .event-bullet { background-color: $green; }
     // }
-    // &.debate-watch {
-    //   .event-bullet { background-color: $green; border: 2px solid $orange;}
-    // }
+    &.event-dwp {
+      .event-bullet { background-color: $orange; border-color: $lightorange; }
+    }
     // &.ballot-access {
     //   .event-bullet { background-color: rgba(0,0,0,0); border-color: $red; }
     // }
@@ -567,7 +573,10 @@ section#map-section div#map-event-list #event-list-area
     // &.event-dwp,
     // &.event-cv,
     // &.event-rv { fill: rgba(0,0,0,0); stroke-width: 2; r: 4;}
-    // &.event-dwp { fill: rgba(255,255,255,0.5); stroke: $blue; }
+    &.event-dwp {
+      fill: $orange;
+      stroke: $lightorange;
+    }
     // &.event-cv { stroke: $purple; }
     // &.event-rv { stroke: $green; }
     // &.grassroots-event { fill: $green; stroke-width: 2; r: 4;}
