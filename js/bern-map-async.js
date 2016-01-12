@@ -801,7 +801,7 @@ window.dataCallback = function(){
       case "Canvass":
         item.eventType = "Canvass";
         item.type = "CV"; break;
-      case "Phonebanks" :
+      case "Phonebank event" :
         item.eventType = "Phonebank";
         item.type = "D"; break;
       case "Registering Voters":
@@ -811,7 +811,7 @@ window.dataCallback = function(){
       default:
 
         switch (item.event_type_name) {
-          case "Phonebanks" :
+          case "Phonebank event" :
             item.eventType = "Phonebank";
             break;
           // case "Debate Watch Party (Nov 14th)":
