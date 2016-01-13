@@ -23,7 +23,7 @@ def update_office_locations():
 
 def update_event_data():
 
-    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=4000&country=*')
+    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=10000&country=*')
     print "Request complete."
 
     data = json.loads(resp.text)
