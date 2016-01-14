@@ -662,19 +662,19 @@ bernMap.eventList = function(container) {
 
     //START : Separate Full events and active events;
     var nearByActive = nearByZipcodes.filter(function(d) {
-                        return d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0;
+                        return d.properties.attendee_count == undefined || !d.properties.attendee_count || d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0;
                       });
 
     var nearByFull = nearByZipcodes.filter(function(d) {
-                        return !( d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0 );
+                        return !( d.properties.attendee_count == undefined || !d.properties.attendee_count || d.properties.attendee_count < d.properties.capacity || d.properties.capacity == 0 );
                      });
 
     if (bernMap.sort == "distance") {
-      nearByActive.sort(function(a,b) {
+      nearByActive = nearByActive.sort(function(a,b) {
         return a.distance - b.distance;
       });
     } else if (bernMap.sort == "time") {
-      nearByActive.sort(function(a,b) {
+      nearByActive = nearByActive.sort(function(a,b) {
         return a.properties.Date - b.properties.Date;
       });
     }
