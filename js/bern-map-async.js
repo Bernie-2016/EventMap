@@ -792,7 +792,7 @@ window.dataCallback = function(){
       // case "Debate Watch Parties (October 13)":
       // case "Debate Watch Party (Nov 14th)":
         // item.eventType = "Debate Watch Party";
-      case "Carpool to an early state":
+      case "Carpool to an early primary state":
         item.eventType = "Carpool";
         item.type = "CPOOL"; break;
       case "Jan. 23rd Nationwide Bernie Address":
