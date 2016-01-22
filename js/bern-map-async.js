@@ -1118,10 +1118,15 @@ $jq(window).on("hashchange", function(){
                     && parameters.eventtype.indexOf(d.properties.type) >= 0);
         }
 
-        if (parameters.eventtype.indexOf("CW") >= 0
-            && d.properties.is_official == "1") {
-          d.show = true;
+        if (d.properties.is_official == "1" && parameters.eventtype && parameters.eventtype.indexOf("CW") >= 0) {
+            d.show = true;
         }
+
+        // if (parameters.eventtype.indexOf("CW") >= 0
+        //   && d.properties.is_official && d.properties.is_official == "1") {
+        //   console.log( d.properties );
+        //   d.show = true;
+        // }
 
       });
 
