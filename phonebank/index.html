@@ -45,6 +45,7 @@
 <section id='activity-area' class='clearfix'>
   <article id='events'>
     <div id='filters'>
+      <div id='loading-icon' class='lato'>Loading...</div>
       <h3 id='switch-link'>
         <a href='javascript: void(null)' onclick='window.mapManager.toMapView()' id='to-map-view'>Show Map</a>
         <a href='javascript: void(null)' onclick='window.mapManager.toListView()' id='to-list-view'>Show List</a>
@@ -119,7 +120,7 @@
 <script src='./js/MapManager.js'></script>
 <script type='text/javascript'>
 (function($, d3) {
-
+$("#loading-icon").show();
 $.ajax({
   url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
   dataType: 'script',
@@ -128,7 +129,6 @@ $.ajax({
 
     //Load zipcodes
     //d2bq2yf31lju3q.cloudfront.net
-    console.log("XX");
     d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
      function(zipcodes) {
 
@@ -148,7 +148,6 @@ $.ajax({
   */
 
  var params = $.deparam(window.location.hash.substring(1));
-  console.log(params);
   if (params.zipcode) { $("input[name='zipcode']").val(params.zipcode); }
   if (params.distance) { $("select[name='distance']").val(params.distance);}
   if (params.sort) { $("select[name='sort']").val(params.sort);}
@@ -166,9 +165,7 @@ $.ajax({
   }
 
   if (e.type == 'keyup' && $(this).val().length == 5) {
-    console.log(e.keyCode);
     if (! (e.keyCode >= 37 && e.keyCode <= 40) ) {
-      console.log("X");
       $(this).closest("form#filter-form").submit();
       $("#hidden-button").focus();
     }
@@ -196,7 +193,12 @@ $.ajax({
 
   var params = $.deparam(hash.substring(1));
 
-  window.mapManager.filter(params.zipcode, params.distance, params.sort);
+  $("#loading-icon").show();
+  setTimeout(function() {
+    window.mapManager.filter(params.zipcode, params.distance, params.sort);
+    $("#loading-icon").hide();
+  }, 50);
+  // $("#loading-icon").hide();
  });
 
 

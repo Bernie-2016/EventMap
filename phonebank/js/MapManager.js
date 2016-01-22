@@ -8,9 +8,27 @@ var Event = (function($) { return function(properties) {
                      parseFloat(this.properties.longitude)];
       this.startTime = moment(this.properties.start_dt)._d;
 
+      if (this.properties.capacity) {
+        this.properties.capacity = parseInt(this.properties.capacity);
+      }
+
+      if (this.properties.attendee_count) {
+        this.properties.attendee_count = parseInt(this.properties.attendee_count);
+      }
+
+      this.isFull = function() {
+        var that = this;
+        return that.properties.attendee_count &&
+          that.properties.capacity > 0 &&
+          that.properties.attendee_count >= that.properties.capacity;
+      };
+
       this.render = function (distance) {
         var that = this;
         var moreThan5RSVP = that.properties.attendee_count && parseInt(that.properties.attendee_count) > 5 ? true : false;
+
+        if (!that.properties.attendee_count) { moreThan5RSVP = false; }
+
         var datetime = moment(that.properties.start_dt).format("MMM DD (ddd) h:mma")
 
         var rendered = $("<div class='lato'/>")
@@ -26,7 +44,10 @@ var Event = (function($) { return function(properties) {
               .append(
                 $("<a class='rsvp-link' target='_blank'/>")
                   .attr("href", that.properties.url)
-                  .text("RSVP")
+                  .text(that.isFull() ? "FULL" : "RSVP")
+              )
+              .append(
+                $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")
               )
           );
 
@@ -65,7 +86,6 @@ var MapManager = (function($, d3, leaflet) {
 
 
     var _popupEvents = function(event) {
-      // console.log(.lat );
       var target = event.target._latlng;
       var filtered = eventsList.filter(function(d) {
         return target.lat == d.LatLng[0] && target.lng == d.LatLng[1];
@@ -77,7 +97,9 @@ var MapManager = (function($, d3, leaflet) {
         $("<div class='popup-list-container'/>")
           .append($("<ul class='popup-list'>")
             .append(
-              filtered.map(function(d) { return $("<li class='lato'/>").append(d.render()); })
+              filtered.map(function(d) {
+                return $("<li class='lato'/>").addClass(d.isFull()?"is-full":"not-full").append(d.render());
+              })
             )
           )
         );
@@ -114,17 +136,12 @@ var MapManager = (function($, d3, leaflet) {
             .on('click', function(e) { _popupEvents(e); })
             .addTo(centralMap);
       });
-
-
     };
 
     var toMile = function(meter) { return meter * 0.00062137; };
 
     var filterEvents = function (zipcode, distance, timespan) {
-      // console.log(latLng);
       var zipLatLng = leaflet.latLng([parseFloat(zipcode.lat), parseFloat(zipcode.lon)]);
-
-      // console.log("ZIP", leaflet.LatLng([parseFloat(zipcode.lat), parseFloat(zipcode.lon])));
 
       var filtered = eventsList.filter(function(d) {
         var dist = toMile(zipLatLng.distanceTo(d.LatLng));
@@ -148,6 +165,14 @@ var MapManager = (function($, d3, leaflet) {
           break;
       }
 
+      filteredEvents = filteredEvents.sort(function(a, b) {
+        var aFull = a.isFull();
+        var bFull = b.isFull();
+
+        if (aFull && bFull) { return 0; }
+        else if (aFull && !bFull) { return 1; }
+        else if (!aFull && bFull) { return -1; }
+      });
       //sort by fullness;
       //..
       return filteredEvents;
@@ -199,7 +224,8 @@ var MapManager = (function($, d3, leaflet) {
 
         eventList.enter()
           .append("li")
-          .attr("class", "lato")
+          .attr("class", function(d) { return d.isFull() ? 'is-full' : 'not-full' })
+          .classed("lato", true)
           .html(function(d){ return d.render(d.distance); });
 
         eventList.exit().remove();
@@ -208,8 +234,8 @@ var MapManager = (function($, d3, leaflet) {
 
     module.toMapView = function () {
       $("body").removeClass("list-view").addClass("map-view");
-      centralMap._onResize();
       centralMap.invalidateSize();
+      centralMap._onResize();
     }
     module.toListView = function () {
       $("body").removeClass("map-view").addClass("list-view");
