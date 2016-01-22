@@ -165,14 +165,14 @@ var MapManager = (function($, d3, leaflet) {
           break;
       }
 
-      filteredEvents = filteredEvents.sort(function(a, b) {
-        var aFull = a.isFull();
-        var bFull = b.isFull();
+      // filteredEvents = filteredEvents.sort(function(a, b) {
+      //   var aFull = a.isFull();
+      //   var bFull = b.isFull();
 
-        if (aFull && bFull) { return 0; }
-        else if (aFull && !bFull) { return 1; }
-        else if (!aFull && bFull) { return -1; }
-      });
+      //   if (aFull && bFull) { return 0; }
+      //   else if (aFull && !bFull) { return 1; }
+      //   else if (!aFull && bFull) { return -1; }
+      // });
       //sort by fullness;
       //..
       return filteredEvents;

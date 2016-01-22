@@ -189,7 +189,7 @@ $.ajax({
 
  $(window).on('hashchange', function(e) {
   var hash = window.location.hash;
-  if (hash.length == 0 || hash.substring(1) == 0) { return false; }
+  if (hash.length == 0 || hash.substring(1) == 0) { $("#loading-icon").hide(); return false; }
 
   var params = $.deparam(hash.substring(1));
 

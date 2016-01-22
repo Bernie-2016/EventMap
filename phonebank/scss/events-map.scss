@@ -62,6 +62,7 @@
   } // end of social area
 
   &.is-full{
+    display: none;
     * {
       color: lightgray !important;
       a.rsvp-link {
@@ -168,6 +169,11 @@ section#activity-area {
 article#map {
   float: left;
   // &.map-view {
+  .leaflet-popup-close-button { z-index: 100;
+    &:hover {
+      background-color: transparent;
+    }
+  }
   @include calc(width, '100% - 400px');
   height: 100%;
 
