@@ -827,8 +827,8 @@ window.dataCallback = function(){
     if ( item.is_official == "1" &&
           !( item.event_type_name == 'Town Meeting' ||
              item.event_type_name == 'Rally') ) {
-      item.eventType = "Official Event";
-      item.type = "CW";
+      // item.eventType = "Official Event";
+      // item.type = "CW";
     }
   });
 
@@ -1116,7 +1116,11 @@ $jq(window).on("hashchange", function(){
         } else {
           d.show = ((d.properties.Date >= today && d.properties.Date <= future)
                     && parameters.eventtype.indexOf(d.properties.type) >= 0);
+        }
 
+        if (parameters.eventtype.indexOf("CW") >= 0
+            && d.properties.is_official == "1") {
+          d.show = true;
         }
 
       });
