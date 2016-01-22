@@ -144,7 +144,7 @@ var MapManager = (function($, d3, leaflet) {
         var dist = toMile(zipLatLng.distanceTo(d.LatLng));
         if (dist < distance) {
           d.distance = Math.round(dist*10)/10;
-          return true && !d.isFull;
+          return true;
         }
       });
 
@@ -226,6 +226,9 @@ var MapManager = (function($, d3, leaflet) {
           .html(function(d){ return d.render(d.distance); });
 
         eventList.exit().remove();
+
+      //Push all full items to end of list
+      $("div#event-list-container ul#event-list li.is-full").appendTo("div#event-list-container ul#event-list");
 
     };
 
