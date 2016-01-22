@@ -16,12 +16,9 @@ var Event = (function($) { return function(properties) {
         this.properties.attendee_count = parseInt(this.properties.attendee_count);
       }
 
-      this.isFull = function() {
-        var that = this;
-        return that.properties.attendee_count &&
-          that.properties.capacity > 0 &&
-          that.properties.attendee_count >= that.properties.capacity;
-      };
+      this.isFull = this.properties.attendee_count &&
+          this.properties.capacity > 0 &&
+          this.properties.attendee_count >= this.properties.capacity;
 
       this.render = function (distance) {
         var that = this;
@@ -44,7 +41,7 @@ var Event = (function($) { return function(properties) {
               .append(
                 $("<a class='rsvp-link' target='_blank'/>")
                   .attr("href", that.properties.url)
-                  .text(that.isFull() ? "FULL" : "RSVP")
+                  .text(that.isFull ? "FULL" : "RSVP")
               )
               .append(
                 $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")
@@ -98,7 +95,7 @@ var MapManager = (function($, d3, leaflet) {
           .append($("<ul class='popup-list'>")
             .append(
               filtered.map(function(d) {
-                return $("<li class='lato'/>").addClass(d.isFull()?"is-full":"not-full").append(d.render());
+                return $("<li class='lato'/>").addClass(d.isFull?"is-full":"not-full").append(d.render());
               })
             )
           )
@@ -147,7 +144,7 @@ var MapManager = (function($, d3, leaflet) {
         var dist = toMile(zipLatLng.distanceTo(d.LatLng));
         if (dist < distance) {
           d.distance = Math.round(dist*10)/10;
-          return true;
+          return true && !d.isFull;
         }
       });
 
@@ -224,7 +221,7 @@ var MapManager = (function($, d3, leaflet) {
 
         eventList.enter()
           .append("li")
-          .attr("class", function(d) { return d.isFull() ? 'is-full' : 'not-full' })
+          .attr("class", function(d) { return d.isFull ? 'is-full' : 'not-full' })
           .classed("lato", true)
           .html(function(d){ return d.render(d.distance); });
 
