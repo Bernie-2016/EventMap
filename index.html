@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
     <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
-    <meta property="og:image" content="//d2bq2yf31lju3q.cloudfront.net/img/volunteer-map.png" />
+    <meta property="og:image" content="http://map.berniesanders.com/img/volunteer-map.png" />
     <meta property="og:url" content="http://map.berniesanders.com" />
-    <meta property="og:title" content="Let's Get to Work! Find Volunteer Activities, Volunteer meetings, and official Rallies for Bernie Sanders"/>
+    <meta property="og:title" content="Let's Organize and Help Bernie Win"/>
     <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
     <!--[if lte IE 9]>
       <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
     <![endif]-->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@BernieSanders">
+    <meta name="twitter:creator" content="@BernieSanders">
+    <meta name="twitter:title" content="Let's Organize and Help Bernie Win">
+    <meta name="twitter:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
+    <meta name="twitter:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/volunteer-map.png">
+
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
     <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
     <link href='//d2bq2yf31lju3q.cloudfront.net/css/map.css' rel='stylesheet' />
@@ -44,13 +52,15 @@
 
 https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events
     -->
-
+<!--[if lte IE 9]>
+       <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
+     <![endif]-->
   </div>
 
   <nav>
     <ul id="nav">
       <li>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="I'm going to a volunteer event for Bernie Sanders! Find events near you!" data-related="BernieSanders" data-count="none">Tweet</a>
+        <a href="https://twitter.com/intent/tweet?url=http://map.berniesanders.com" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="I'm going to a volunteer event for Bernie Sanders! Find events near you!" data-related="BernieSanders" data-count="none">Tweet</a>
         <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button"></div>
       </li>
       <li><a href='https://go.berniesanders.com/page/event/create' class='contribute contribute-big' target='_blank'>Host an Event</a></li>
@@ -340,7 +350,8 @@ vertical-align"> Let's get to work!</span>
   <script>
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '1465128650469416',
+        // appId      : '1465128650469416',
+        appId      : '1619513324978096',
         xfbml      : true,
         version    : 'v2.3'
       });

@@ -76,9 +76,9 @@ html, body {
   *  footer
   */ }
   html *.lato, body *.lato {
-    font-family: 'lato', serif; }
+    font-family: 'lato', Arial, sans-serif; }
   html *.merriweather, body *.merriweather {
-    font-family: 'merriweather', sans-serif; }
+    font-family: 'merriweather', serif; }
   html a, body a {
     text-decoration: none;
     color: #147FD7; }
