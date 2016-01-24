@@ -512,7 +512,7 @@ ul#office-list li {
     margin: 0;
     padding-bottom: 1px;
     position: absolute;
-    bottom: -100px;
+    bottom: -80px;
     left: 2px; }
 
   section#map-section div#map-event-list form#zip-and-distance div#zipcode-container {
@@ -533,7 +533,7 @@ ul#office-list li {
   #map-section #map-event-list #daterange-opt {
     position: absolute;
     left: 2px;
-    bottom: -130px;
+    bottom: -110px;
     margin-top: 0;
     width: 86px; }
 
@@ -550,7 +550,7 @@ ul#office-list li {
     top: -75px; }
     section#map-section div#map-event-list div#sort-opt {
       position: absolute;
-      bottom: -130px;
+      bottom: -110px;
       left: 91px; }
     section#map-section div#map-event-list div#event-results-area {
       top: calc(100vh - 90px); }
