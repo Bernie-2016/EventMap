@@ -1,0 +1,39 @@
+@mixin coverImg {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin compat($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin calc($property, $value) {
+  #{$property}: -webkit-calc(#{$value});
+  #{$property}: -moz-calc(#{$value});
+  #{$property}: -o-calc(#{$value});
+  #{$property}: -ms-calc(#{$value});
+  #{$property}: calc(#{$value});
+}
+
+@mixin ribbonFlap($size, $color) {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -#{$size};
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    border-right: 0 solid transparent;
+    border-top: $size solid $color;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  }
+}

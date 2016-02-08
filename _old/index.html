@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name='google-site-verification' content='-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
+    <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, #bernie2016, #feelthebern, #westandtogether">
+    <meta property="og:image" content="http://map.berniesanders.com/img/volunteer-map.png" />
+    <meta property="og:url" content="http://map.berniesanders.com" />
+    <meta property="og:title" content="Let's Organize and Help Bernie Win"/>
+    <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
+    <!--[if lte IE 9]>
+      <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
+    <![endif]-->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@BernieSanders">
+    <meta name="twitter:creator" content="@BernieSanders">
+    <meta name="twitter:title" content="Let's Organize and Help Bernie Win">
+    <meta name="twitter:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
+    <meta name="twitter:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/volunteer-map.png">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800">
+    <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+    <link href='//d2bq2yf31lju3q.cloudfront.net/css/map.css' rel='stylesheet' />
+    <link href='//d2bq2yf31lju3q.cloudfront.net/css/custom.css' rel="stylesheet" type="text/css" />
+    <!-- //d2bq2yf31lju3q.cloudfront.net -->
+    <link href='//d2bq2yf31lju3q.cloudfront.net/css/work-map.css' rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="//d2bq2yf31lju3q.cloudfront.net/favicon.ico">
+
+    <title>Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders.</title>
+  </head>
+  <body>
+
+
+
+
+<div id='header'>
+  <a id='header-logo' href='http://www.berniesanders.com' ><img src='//d2bq2yf31lju3q.cloudfront.net/img/logo.png' style='float: left; margin-left: 10px;' /></a>
+
+  <div class='main-title-area'>
+    <div style='margin-bottom: 4px;'>
+    <strong>Join the political revolution!</strong><br/>
+    Find the nearest volunteer activity or meeting near you.
+
+    </div>
+
+        <!-- <span>Sign up to attend a July 29 Organizing Kickoff event! &nbsp;&nbsp;</span> -->
+        <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="I'm attending a July 29 meeting for Bernie Sanders' campaign for president! See events near you:" data-related="BernieSanders" data-count="none">Tweet</a>
+      <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button"></div>
+
+https://secure.actblue.com/contribute/page/lets-go-bernie?refcode=heroku_events
+    -->
+<!--[if lte IE 9]>
+       <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
+     <![endif]-->
+  </div>
+
+  <nav>
+    <ul id="nav">
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http://map.berniesanders.com" class="twitter-share-button" data-url="http://map.berniesanders.com" data-text="I'm going to a volunteer event for Bernie Sanders! Find events near you!" data-related="BernieSanders" data-count="none">Tweet</a>
+        <div class="fb-share-button" data-href="http://map.berniesanders.com" data-layout="button"></div>
+      </li>
+      <li><a href='https://go.berniesanders.com/page/event/create' class='contribute contribute-big' target='_blank'>Host an Event</a></li>
+    </ul>
+  </nav>
+  <div style='clear: both'></div>
+</div>
+<div></div>
+<section id='map-section' />
+  <div id='map'></div>
+  <div id='map-event-list'>
+    <div id='map-instructions'>
+      <span style="vertical-align: middle;font-weight: 600;"></span>  <img src="//d2bq2yf31lju3q.cloudfront.net/img/logo.png" style="
+    height: 20px;
+
+    vertical-align: middle;
+"> <span style="
+
+vertical-align"> Let's get to work!</span>
+    </div>
+      <form id='zip-and-distance' action="#">
+        <div id="error-box"></div>
+        <div id='zipcode-container'>
+          <input type='text' name='zipcode' id='input-text-zipcode' value='' placeholder='Zipcode' maxlength='5'/>
+          <input type='submit' id='hidden-submit' style='visibility: hidden; position: absolute; right:0;top:0; z-index: -1;'/>
+        </div>
+        <div id='distance-container'>
+          <ul id='distance-list'>
+            <li><input type='radio' id='mile-5' name='distance' value='5' /> <label for='mile-5'>5mi</label></li>
+            <li><input type='radio' id='mile-10' name='distance' value='10' /> <label for='mile-10'>10mi</label></li>
+            <li><input type='radio' id='mile-20' name='distance' value='20' /> <label for='mile-20'>20mi</label></li>
+            <li><input type='radio' id='mile-50' name='distance' value='50'  checked='checked' />
+                <label for='mile-50'>50mi</label></li>
+            <li><input type='radio' id='mile-100' name='distance' value='100' /> <label for='mile-100'>100mi</label></li>
+            <li><input type='radio' id='mile-250' name='distance' value='250' /> <label for='mile-250'>250mi</label></li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+        <div id='event-type-container'>
+          <ul id='event-type-list'>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-R' value='R' />
+              <label for='event-R' data-tooltip="Show/Hide Official Bernie Sanders Appearances">
+                <span class='circle etype-bullet etype-selected' ></span>
+                <span class='etype-name' style="display: inline-block; text-align: left;">Bernie Event</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-CW' value='CW' />
+              <label for='event-CW' data-tooltip="Show/Hide Official events">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Official Event</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-O' value='O' />
+              <label for='event-O' data-tooltip="Show/Hide Campaign Offices">
+                <span class='yellow-star etype-bullet etype-selected'></span>
+                <span class='etype-name'>Campaign Office</span>
+              </label>
+            </li>
+
+            <!-- 2nd row -->
+            <!-- <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-LIVESTREAM' value='LIVESTREAM' />
+              <label for='event-LIVESTREAM' data-tooltip="Show/Hide January 23rd National Livestream">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name' style='font-size: 9px; font-weight: 600;'>January 23rd National Livestream with Bernie</span>
+              </label>
+            </li> -->
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-D' value='D' />
+              <!-- <label for='event-D' data-tooltip="Show/Hide Debate Watch Parties"> -->
+              <label for='event-D' data-tooltip="Show/Hide Phonebank events">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Phonebank</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-CV' value='CV' />
+              <label for='event-CV' data-tooltip="Show/Hide Canvassing">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Canvassing</span>
+              </label>
+            </li>
+
+            <!-- 3rd row -->
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-B' value='B' />
+              <label for='event-B' data-tooltip="Show/Hide Collecting Signatures for Ballot Access">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Ballot Access</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-CPOOL' value='CPOOL' />
+              <label for='event-CPOOL' data-tooltip="Show/Hide Carpool events">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Carpool</span>
+              </label>
+            </li>
+
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-RV' value='RV' />
+              <label for='event-RV' data-tooltip="Show/Hide Registering">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Register Voters</span>
+              </label>
+            </li>
+            <li class='event-type-item'>
+              <input type='checkbox' checked='checked' name='eventtype' id='event-E' value='E' />
+              <label for='event-E' data-tooltip="Show/Hide Volunteer events">
+                <span class='circle etype-bullet etype-selected'></span>
+                <span class='etype-name'>Other</span>
+              </label>
+            </li>
+
+            <li class='event-type-item'>
+                <a href='javascript: bernie.showAll();' class='etype-name etype-name-vis show-all'>Show&nbsp;All</a>
+                <a href='javascript: bernie.hideAll();' class='etype-name etype-name-vis hide-all activated'>Hide&nbsp;All</a>
+            </li>
+          </ul>
+        </div>
+        <div id='daterange-opt'>
+          <span id='daterange-value'>All Events</span>
+          <ul id='daterange-options'>
+            <li data-daterange='today' class='daterange-options-item'>
+              <label for='daterange-today'>
+                <input name='daterange' type='radio' id='daterange-today' value='today' />Today
+              </label>
+            </li>
+            <li data-daterange='this-week' class='daterange-options-item'>
+              <label for='daterange-this-week'>
+                <input name='daterange' type='radio' id='daterange-this-week' value='this-week' />This Week
+              </label>
+            </li>
+            <li data-daterange='in-2-weeks' class='daterange-options-item'>
+              <label for='daterange-in-2-weeks'>
+                <input name='daterange' type='radio' id='daterange-in-2-weeks' value='in-2-weeks'/>
+                In 2 Weeks
+              </label>
+            </li>
+            <li data-daterange='this-month' class='daterange-options-item'>
+              <label for='daterange-this-month'>
+                <input name='daterange' type='radio' id='daterange-this-month' value='this-month'/>
+                This Month
+              </label>
+            </li>
+            <li data-daterange='all-events' class='daterange-options-item'>
+              <label for='daterange-all-events'>
+                <input name='daterange' type='radio' id='daterange-all-events' value='all-events' checked="checked"/>
+                All Events
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div id='sort-opt'>
+          <span id='sort-value'>By Distance</span>
+          <ul id='sort-options'>
+            <li data-sort='distance' class='sort-options-item'>
+              <label for='sort-distance'>
+                <input name='sort' type='radio' id='sort-distance' value='distance' checked='checked' />By Distance
+              </label>
+            </li>
+            <li data-sort='time' class='sort-options-item'>
+              <label for='sort-time'>
+                <input name='sort' type='radio' id='sort-time' value='time' />By Time
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+        </form>
+
+
+      <div id='event-results-area'>
+        <h2 id='event-results-count' style='display: none'> <span>within</span> <span id='event-distance'></span> <span>of</span>
+          <span id="event-city"></span>
+          <ul id='event-or-office'>
+            <li><input type='radio' name='entity-type' value='events' checked='checked' id='entity-type-events'/><label for='entity-type-events'><span id='event-counter'></span></label></li>
+            <li><input type='radio' name='entity-type' value='offices' id='entity-type-offices' /><label for='entity-type-offices'><span id='office-counter'>3 offices</span></label></li>
+          </ul>
+        </h2>
+        <div id='event-list-area'>
+          <ul id='office-list'>
+          </ul>
+          <ul id='event-list'>
+          </ul>
+          <div id="footer-area" style="text-align: center; margin-top: 20px; border: solid 3px #EEEEEE; border-width: 3px 0 0 0; padding-top: 10px;">
+            <h5>Bernie 2016</h5>
+            <h5>PO BOx 905</h5>
+            <h5>Burlington, VT 05402</h5>
+
+            <div id="paid-for-bernie-box">
+              Paid for By Bernie 2016
+            </div>
+            <div id="footer-billionaire" style="margin-bottom: 30px;">
+              <svg width="200" height="40">
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="//d2bq2yf31lju3q.cloudfront.net/img/billionaires.svg" width="200" height="40" x="0"></image>
+              </svg>
+            </div>
+
+            <sub>&copy; Bernie 2016 | <a href="https://berniesanders.com/privacy-policy/">Privacy Policy</a></sub>
+          </div>
+        </div>
+  </div>
+</section>
+<footer>
+  <div id='footer-area' >
+    <h5>Bernie 2016</h5>
+    <h5>PO BOx 905</h5>
+    <h5>Burlington, VT 05402</h5>
+
+    <div id='paid-for-bernie-box'>
+      Paid for By Bernie 2016
+    </div>
+    <div id='footer-billionaire' style="margin-bottom: 30px;">
+      <svg width="200" height="40">
+          <image xlink:href="//d2bq2yf31lju3q.cloudfront.net/img/billionaires.svg" width="200" height="40"
+            x="0"
+          />
+      </svg>
+    </div>
+
+    <sub>&copy; Bernie 2016 | <a href='https://berniesanders.com/privacy-policy/'>Privacy Policy</a></sub>
+  </div>
+
+</footer>
+
+  <script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.gz' type='text/javascript'></script>
+  <script id='zipcodes-datadump' type='text/plain'></script>
+  <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
+  <script src='//d2bq2yf31lju3q.cloudfront.net/js/deparam.min.gz'></script>
+  <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
+  <script src='//d2bq2yf31lju3q.cloudfront.net/js/leaflet-bouncer.gz'></script>
+  <script src="/js/bern-map-async.js"></script>
+  <script>
+  // $.ajax({
+   //    url: 'https://sheetsu.com/apis/e80a02d5',
+   //    jsonpCallback: 'window.loadCampaignOffices',
+   //    contentType: "application/json",
+   //    dataType: 'json',
+   //    async: false,
+   //    cache: true, //
+   //    success: function(data) {
+   //      window.loadCampaignOffices(data.result);
+   //    }, error: function(a,b,c) {
+   //      console.log("ERROR", a,b,c);
+   //    }
+   //  });
+
+    $.ajax({
+      url: '//d2bq2yf31lju3q.cloudfront.net/d/campaign-offices.csv',
+      // url: 'https://s3-us-west-2.amazonaws.com/map.berniesanders.com/d/campaign-offices.csv',
+      dataType: 'text',
+      async: false,
+      cache: true,
+      success: function(data) {
+        // console.log(data);
+        var result = d3.csv.parse(data);
+        // console.log(result)
+        window.loadCampaignOffices(result);
+      }
+    });
+
+    $.ajax({
+      url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
+      dataType: 'script',
+      cache: true, // otherwise will get fresh copy every page load
+      success: function(data) {
+        window.dataCallback();
+      }, error: function(a,b,c) {
+        console.log("ERROR", b,c);
+      }
+    });
+
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58354050-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        // appId      : '1465128650469416',
+        appId      : '1619513324978096',
+        xfbml      : true,
+        version    : 'v2.3'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</body>
+</html>
