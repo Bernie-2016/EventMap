@@ -58,7 +58,17 @@ table {
   display: none; }
   @media screen and (max-width: 600px) {
     .mobile-only {
-      display: block; } }
+      display: inline-block;
+      background-color: #147FD7;
+      margin: 5%;
+      padding: 5%;
+      border-radius: 7px;
+      font-size: 30px;
+      color: white;
+      font-weight: 100;
+      line-height: 1.25; }
+      .mobile-only strong {
+        font-weight: 600; } }
 
 html, body {
   height: 100%;
@@ -274,6 +284,25 @@ html, body {
       position: absolute;
       top: 6px;
       right: 7px; }
+      html section#header nav .fb-share-button, body section#header nav .fb-share-button {
+        display: inline-block;
+        font-family: 'lato', sans-serif;
+        font-weight: bold; }
+        html section#header nav .fb-share-button a, body section#header nav .fb-share-button a {
+          padding: 3px 5px;
+          background-color: #3C5A96;
+          border-radius: 3px;
+          display: inline-block;
+          color: white;
+          font-weight: 400;
+          font-size: 12px;
+          margin-right: 1px; }
+          html section#header nav .fb-share-button a *, body section#header nav .fb-share-button a * {
+            vertical-align: middle; }
+          html section#header nav .fb-share-button a img, body section#header nav .fb-share-button a img {
+            width: 14px;
+            height: 14px;
+            margin-right: 2px; }
       html section#header nav #nav li, body section#header nav #nav li {
         display: inline-block;
         margin-left: 10px; }
@@ -338,6 +367,8 @@ html, body {
         max-height: 230px;
         overflow: auto; }
         html section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office img, body section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office img {
+          display: none; }
+        html section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office .time-info, body section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office .time-info {
           display: none; }
         html section#activity-area article#map div.popup-list-container ul li, body section#activity-area article#map div.popup-list-container ul li {
           position: relative;
@@ -414,7 +445,7 @@ html, body {
             border: none; }
   html article#events, body article#events {
     float: right;
-    border-left: 2px solid #146BB2;
+    border-left: 2px solid #DCDCDC;
     width: 398px;
     height: 100%;
     background-color: whitesmoke; }
@@ -425,13 +456,13 @@ html, body {
       display: inline-block;
       text-align: center;
       padding: 5px;
-      background-color: #796B38;
+      background-color: #147FD7;
       margin: 10px 0;
       border-radius: 2px;
       color: white;
-      box-shadow: 1px 1px rgba(0, 0, 0, 0.5); }
+      box-shadow: 1px 1px rgba(0, 0, 0, 0.01); }
       html article#events .filter-button:hover, body article#events .filter-button:hover {
-        background-color: #4E4523; }
+        background-color: #33495A; }
     html article#events.show-type-filter .filter-button.show-filter, body article#events.show-type-filter .filter-button.show-filter {
       display: none; }
     html article#events.show-type-filter #filter-popup-area #filter-list-area, body article#events.show-type-filter #filter-popup-area #filter-list-area {
@@ -440,9 +471,39 @@ html, body {
         box-shadow: -1px -1px 1px rgba(255, 255, 255, 0.6);
         padding: 6px;
         border-radius: 4px;
-        background-color: #f7f1df; }
+        background-color: white; }
         html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li *, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li * {
           vertical-align: middle; }
+        html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type {
+          display: none; }
+        html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label {
+          cursor: pointer; }
+          html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label *, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label * {
+            vertical-align: middle; }
+          html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .filter-on, html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .filter-off, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .filter-on, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .filter-off {
+            margin-right: 4px; }
+          html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .map-red-circle, html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .circle-button, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .map-red-circle, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .circle-button {
+            vertical-align: top;
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            border: 2px white solid;
+            border-radius: 17px;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2); }
+          html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .map-red-circle, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .map-red-circle {
+            background-color: #F55B5B; }
+          html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .circle-button.default-on, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .circle-button.default-on {
+            background-color: #147FD7; }
+          html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .circle-button.default-off, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li label .circle-button.default-off {
+            background-color: lightgray; }
+        html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type + label .filter-on, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type + label .filter-on {
+          display: none; }
+        html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type + label .filter-off, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type + label .filter-off {
+          display: inline-block; }
+        html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type:checked + label .filter-on, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type:checked + label .filter-on {
+          display: inline-block; }
+        html article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type:checked + label .filter-off, body article#events.show-type-filter #filter-popup-area #filter-list-area div#f-container ul li input.filter-type:checked + label .filter-off {
+          display: none; }
     @media screen and (min-width: 600px) {
       html article#events.show-type-filter #event-list-container, body article#events.show-type-filter #event-list-container {
         height: -webkit-calc(100% - 314px);
@@ -565,15 +626,16 @@ html, body {
             background-color: #1270BE; }
     html article#events div#filters, body article#events div#filters {
       min-height: 90px;
-      background-color: #33495A;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      background-color: #EBEBEB;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
       margin-top: -15px;
       border-radius: 10px 0px 0 0;
       margin-left: -2px;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 5px;
-      position: relative; }
+      position: relative;
+      border-top: 1px #CCCCCC solid; }
       html article#events div#filters div#loading-icon, body article#events div#filters div#loading-icon {
         display: none;
         position: absolute;
@@ -594,7 +656,7 @@ html, body {
         display: none; }
       html article#events div#filters h4, body article#events div#filters h4 {
         font-size: 15px;
-        color: white;
+        color: #333333;
         padding: 4px 0;
         margin-bottom: 10px;
         font-weight: 600;
@@ -603,7 +665,7 @@ html, body {
         border-bottom: 1px dotted rgba(255, 255, 255, 0.7); }
       html article#events div#filters h5, body article#events div#filters h5 {
         font-family: 'Lato', sans-serif;
-        color: white;
+        color: #333333;
         font-size: 13px;
         font-weight: 300;
         text-transform: uppercase;
@@ -619,8 +681,9 @@ html, body {
         width: 130px;
         border-radius: 2px; }
       html article#events div#filters form select, body article#events div#filters form select {
-        color: white;
-        background-color: #33495A;
+        color: #333333;
+        /*background-color: $darkdarkblue;*/
+        background-color: white;
         font-size: 18px;
         border-radius: 0;
         border: 1px solid rgba(255, 255, 255, 0.7); }
@@ -734,9 +797,17 @@ html, body {
     visibility: hidden;
     z-index: -1; }
 
+  html article#events div#filters, body article#events div#filters {
+    background-color: #3c6c92; }
+    html article#events div#filters h5, body article#events div#filters h5 {
+      color: white; }
+
   html article#events div#filters h4, body article#events div#filters h4 {
     border-bottom: none;
-    font-weight: 300; } }
+    font-weight: 300;
+    color: white;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+    display: inline-block; } }
 @media screen and (min-width: 1650px) {
   body section#header {
     height: 8%;

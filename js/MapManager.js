@@ -109,6 +109,8 @@ var MapManager = (function($, d3, leaflet) {
   return (
     function(eventData, campaignOffices, zipcodes, options) {
 
+    var allFilters = window.eventTypeFilters.map(function(i) { return i.id; });
+
     var popup = L.popup();
     var options = options;
     var zipcodes = zipcodes.reduce(function(zips, item) { zips[item.zip] = item; return zips; }, {});
@@ -122,12 +124,20 @@ var MapManager = (function($, d3, leaflet) {
     leaflet.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
     var mapboxTiles = leaflet.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + leaflet.mapbox.accessToken, { attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'});
 
+    var CAMPAIGN_OFFICE_ICON = L.icon({
+        iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png',
+        iconSize:     [14, 14], // size of the icon
+        // shadowSize:   [50, 64], // size of the shadow
+        // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        // shadowAnchor: [4, 62],  // the same for the shadow
+        // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
     var centralMap =  new leaflet.Map("map-container", {
     center: [37.8, -96.9],
     zoom: 4}).addLayer(mapboxTiles);
 
-
     var overlays = L.layerGroup().addTo(centralMap);
+    var offices = L.layerGroup().addTo(centralMap);
 
     var campaignOfficeLayer = L.layerGroup().addTo(centralMap);
 
@@ -138,8 +148,14 @@ var MapManager = (function($, d3, leaflet) {
 
     var _popupEvents = function(event) {
       var target = event.target._latlng;
+      // console.log(current_filters);
+
       var filtered = eventsList.filter(function(d) {
-        return target.lat == d.LatLng[0] && target.lng == d.LatLng[1];
+        // console.log($(d.properties.filters).not(current_filters),)
+        return target.lat == d.LatLng[0] && 
+               target.lng == d.LatLng[1] &&
+               (!current_filters || current_filters.length == 0 
+                  || $(d.properties.filters).not(current_filters).length != d.properties.filters.length);
       }).sort(function(a, b) { return a.startTime - b.startTime; });
 
       var div = $("<div />")
@@ -169,37 +185,63 @@ var MapManager = (function($, d3, leaflet) {
      */
     var initialize = function() {
       var uniqueLocs = eventsList.reduce(function(arr, item){
-        if ( arr.indexOf(item.properties.latitude + "||" + item.properties.longitude) >= 0 ) {
+        var className = item.properties.filters.join(" ");
+        if ( arr.indexOf(item.properties.latitude + "||" + item.properties.longitude + "||" + className) >= 0 ) {
           return arr;
         } else {
-          arr.push(item.properties.latitude  + "||" +  item.properties.longitude);
+          arr.push(item.properties.latitude  + "||" +  item.properties.longitude + "||" + className);
           return arr;
         }
       }, []);
 
+      // console.log(uniqueLocs);
+
       uniqueLocs = uniqueLocs.map(function(d) {
         var split = d.split("||");
-        return [parseFloat(split[0]), parseFloat(split[1])];
+        return { latLng: [ parseFloat(split[0]), parseFloat(split[1])],
+                 className: split[2] };
       });
 
       uniqueLocs.forEach(function(item) {
-          L.circle(item, 100, { className: item.className, color: 'blue', stroke: '#33495A' })
-            .on('click', function(e) { _popupEvents(e); })
-            .addTo(overlays);
+
+          if (item.className == "campaign-office") {
+            L.marker(item.latLng, {icon: CAMPAIGN_OFFICE_ICON, className: item.className})
+              .on('click', function(e) { _popupEvents(e); })
+              .addTo(offices);
+          } else if (item.className.match(/bernie\-event/ig)) {
+            L.circleMarker(item.latLng, { radius: 12, className: item.className, color: 'white', fillColor: '#F55B5B', opacity: 0.8, fillOpacity: 0.7, weight: 2 })
+              .on('click', function(e) { _popupEvents(e); })
+              .addTo(overlays);
+          } else {
+            L.circleMarker(item.latLng, { radius: 5, className: item.className, color: 'white', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2 })
+              .on('click', function(e) { _popupEvents(e); })
+              .addTo(overlays);
+          }
       });
+
+      // console.log($(".leaflet-overlay-pane").find(".bernie-event").parent());
+      // $(".leaflet-overlay-pane").find(".bernie-event").parent().prependTo('.leaflet-zoom-animated');
     };
 
     var toMile = function(meter) { return meter * 0.00062137; };
 
-    var filterEvents = function (zipcode, distance, timespan) {
+    var filterEvents = function (zipcode, distance, filterTypes) {
       var zipLatLng = leaflet.latLng([parseFloat(zipcode.lat), parseFloat(zipcode.lon)]);
 
       var filtered = eventsList.filter(function(d) {
         var dist = toMile(zipLatLng.distanceTo(d.LatLng));
         if (dist < distance) {
           d.distance = Math.round(dist*10)/10;
+
+          //If no filter was a match on the current filter
+          // console.log(d);
+          if($(d.properties.filters).not(filterTypes).length == d.properties.filters.length) {
+            return false;
+          }
+
           return true;
         }
+        return false;
       });
 
       return filtered;
@@ -244,24 +286,47 @@ var MapManager = (function($, d3, leaflet) {
 
     module.filterByType = function(type) {
       if ($(filters).not(type).length != 0 || $(type).not(filters).length != 0) {
-        filters = type;
+        current_filters = type;
 
         //Filter only items in the list
-        eventsList = originalEventList.filter(function(eventItem) {
-          var unmatch = $(eventItem.properties.filters).not(filters);
-          return unmatch.length != eventItem.properties.filters.length;
-        });
+        // eventsList = originalEventList.filter(function(eventItem) {
+        //   var unmatch = $(eventItem.properties.filters).not(filters);
+        //   return unmatch.length != eventItem.properties.filters.length;
+        // });
+  
 
-        _refreshMap();
+      // console.log(type.map(function(i) { return "." + i }));
+      // var target = type.map(function(i) { return "." + i }).join(",");
+      // $(".leaflet-overlay-pane").find("path:not("+type.map(function(i) { return "." + i }).join(",") + ")")
+
+      var toHide = $(allFilters).not(type);
+
+      if (toHide && toHide.length > 0) {
+        toHide = toHide.splice(0,toHide.length);
+        $(".leaflet-overlay-pane").find("." + toHide.join(",.")).hide();
       }
 
-      return;
-    };
+      if (type && type.length > 0) {
+        $(".leaflet-overlay-pane").find("." + type.join(",.")).show();
+        // _refreshMap();
+      }
+
+      //Specifically for campaign office
+      if (!type) {
+        centralMap.removeLayer(offices);
+      } else if (type &&  type.indexOf('campaign-office') < 0) {
+        centralMap.removeLayer(offices);
+      } else {
+        centralMap.addLayer(offices);
+      }
+    }
+    return;
+  };
 
     /***
      * FILTER()  -- When the user submits query, we will look at this.
      */
-    module.filter = function(zipcode, distance, sort) {
+    module.filter = function(zipcode, distance, sort, filterTypes) {
       //Check type filter
 
       if (!zipcode || zipcode == "") { return; };
@@ -299,11 +364,11 @@ var MapManager = (function($, d3, leaflet) {
         centralMap.setView([parseFloat(targetZipcode.lat), parseFloat(targetZipcode.lon)], zoom);
       }
       
-      var filtered = filterEvents(targetZipcode, parseInt(distance));
+      var filtered = filterEvents(targetZipcode, parseInt(distance), filterTypes);
 
 
       //Sort event
-      filtered = sortEvents(filtered, sort);
+      filtered = sortEvents(filtered, sort, filterTypes);
 
       //Render event
       var eventList = d3.select("#event-list")
