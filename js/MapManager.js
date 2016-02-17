@@ -39,6 +39,8 @@ var Event = (function($) { return function(properties) {
             .append($("<span/>").addClass("label-icon"))
             .append($("<h5 class='event-type'/>").text(that.properties.event_type_name))
             .append($("<p/>").text(that.properties.location))
+            .append(that.properties.is_campaign_office && that.properties.phone ? 
+                      $("<p/>").text("Phone: " + that.properties.phone) : "")
             .append(
               $("<div class='social-area'/>")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")

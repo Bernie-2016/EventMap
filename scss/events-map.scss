@@ -381,12 +381,12 @@ article#map {
     }
   }
   div.popup-list-container {
-    max-height: 230px;
+    max-height: 310px;
     overflow: auto;
 
     ul.popup-list {
       div.campaign-office {
-        img { display: none; }
+        img { /*display: none;*/ width: 100%; }
         .time-info {
           display: none;
         }

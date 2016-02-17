@@ -364,10 +364,11 @@ html, body {
             letter-spacing: 1px;
             border-radius: 10px 10px 0 0; }
       html section#activity-area article#map div.popup-list-container, body section#activity-area article#map div.popup-list-container {
-        max-height: 230px;
+        max-height: 310px;
         overflow: auto; }
         html section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office img, body section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office img {
-          display: none; }
+          /*display: none;*/
+          width: 100%; }
         html section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office .time-info, body section#activity-area article#map div.popup-list-container ul.popup-list div.campaign-office .time-info {
           display: none; }
         html section#activity-area article#map div.popup-list-container ul li, body section#activity-area article#map div.popup-list-container ul li {
