@@ -54,12 +54,12 @@ var Event = (function($) { return function(properties) {
                 )
             )
           );
-        rendered.onmouseover = function(){console.log("rawr")}
         return rendered.html();
       };
     }
   })(jQuery); //End of events
 
+var highlightedMarker;
 // /****
 //  *  Campaign Offices
 //  */
@@ -336,6 +336,11 @@ var MapManager = (function($, d3, leaflet) {
     module.filter = function(zipcode, distance, sort, filterTypes) {
       //Check type filter
 
+      // clear highlighted marker each time filter is applied
+      if (highlightedMarker){
+      	centralMap.removeLayer(highlightedMarker)
+      }
+
       if (!zipcode || zipcode == "") { return; };
 
       //Start if other filters changed
@@ -392,7 +397,7 @@ var MapManager = (function($, d3, leaflet) {
 
 			//add a highlighted marker 
     	function addhighlightedMarker(lat,lon){
-    		var highlightedMarker = new L.circleMarker([lat,lon],{radius: 5, color: '#ea504e', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2}).addTo(centralMap);
+    		highlightedMarker = new L.circleMarker([lat,lon],{radius: 18, color: '#F55B5B', fillColor: 'white', opacity: 0.8, fillOpacity: 0.2, weight: 2}).addTo(centralMap);
     		// event listener to remove highlighted markers
     		$(".not-full").mouseout(function(){
     			centralMap.removeLayer(highlightedMarker)
