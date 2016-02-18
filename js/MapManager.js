@@ -54,7 +54,7 @@ var Event = (function($) { return function(properties) {
                 )
             )
           );
-        rendered.onmouseover = function(){console.log("rawr")}
+        rendered.onmouseover = function(){/*console.log("rawr") */}
         return rendered.html();
       };
     }
