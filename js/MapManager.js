@@ -28,10 +28,12 @@ var Event = (function($) { return function(properties) {
         if (!that.properties.attendee_count) { moreThan5RSVP = false; }
 
         var datetime = moment(that.properties.start_dt).format("MMM DD (ddd) h:mma")
-
+        var lat = that.properties.latitude
+        var lon = that.properties.longitude
+        // console.log(hello)
         var rendered = $("<div class='lato'/>")
           .addClass('event-item ' + that.className)
-          .append($("<div />").addClass('event-item lato ' + that.className)
+          .append($("<div />").addClass('event-item lato ' + that.className+'').attr("lat",lat).attr("lon",lon) //appended lat-lon attributes to this class for marker highlighting
             .append(that.properties.is_campaign_office ? $("<a class='office-image' href='" + that.properties.url + "' />").append($("<img src='" + that.properties.image + "'>")) : "")
             .append($("<h5 class='time-info'/>").html((distance ? (distance + "mi &nbsp;&nbsp;") : "") + datetime))
             .append($("<h3/>").html("<a target='_blank' href='" + that.properties.url + "'>" + that.properties.name + "</a>"))
@@ -39,8 +41,6 @@ var Event = (function($) { return function(properties) {
             .append($("<span/>").addClass("label-icon"))
             .append($("<h5 class='event-type'/>").text(that.properties.event_type_name))
             .append($("<p/>").text(that.properties.location))
-            .append(that.properties.is_campaign_office && that.properties.phone ? 
-                      $("<p/>").text("Phone: " + that.properties.phone) : "")
             .append(
               $("<div class='social-area'/>")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
@@ -54,7 +54,7 @@ var Event = (function($) { return function(properties) {
                 )
             )
           );
-
+        rendered.onmouseover = function(){console.log("rawr")}
         return rendered.html();
       };
     }
@@ -182,6 +182,9 @@ var MapManager = (function($, d3, leaflet) {
         }
       , 100);
     };
+
+
+
     /***
      * Initialization
      */
@@ -223,6 +226,7 @@ var MapManager = (function($, d3, leaflet) {
 
       // console.log($(".leaflet-overlay-pane").find(".bernie-event").parent());
       // $(".leaflet-overlay-pane").find(".bernie-event").parent().prependTo('.leaflet-zoom-animated');
+
     };
 
     var toMile = function(meter) { return meter * 0.00062137; };
@@ -284,6 +288,7 @@ var MapManager = (function($, d3, leaflet) {
     var _refreshMap = function() {
       overlays.clearLayers();
       initialize();
+
     };
 
     module.filterByType = function(type) {
@@ -384,6 +389,24 @@ var MapManager = (function($, d3, leaflet) {
           .html(function(d){ return d.render(d.distance); });
 
         eventList.exit().remove();
+
+			//add a highlighted marker 
+    	function addhighlightedMarker(lat,lon){
+    		var highlightedMarker = new L.circleMarker([lat,lon],{radius: 5, color: '#ea504e', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2}).addTo(centralMap);
+    		// event listener to remove highlighted markers
+    		$(".not-full").mouseout(function(){
+    			centralMap.removeLayer(highlightedMarker)
+    		})
+    	} 
+
+    	// event listener to get the mouseover
+  		$(".not-full" ).mouseover(function(){
+  					$(this).toggleClass("highlight")
+  					var cMarkerLat = $(this).children('div').attr('lat')
+  					var cMarkerLon = $(this).children('div').attr('lon')
+  					// function call to add highlighted marker
+  					addhighlightedMarker(cMarkerLat,cMarkerLon);
+        })
 
       //Push all full items to end of list
       $("div#event-list-container ul#event-list li.is-full").appendTo("div#event-list-container ul#event-list");
