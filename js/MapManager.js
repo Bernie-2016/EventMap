@@ -30,7 +30,7 @@ var Event = (function($) { return function(properties) {
         var datetime = moment(that.properties.start_dt).format("MMM DD (ddd) h:mma")
         var lat = that.properties.latitude
         var lon = that.properties.longitude
-        // console.log(hello)
+
         var rendered = $("<div class='lato'/>")
           .addClass('event-item ' + that.className)
           .append($("<div />").addClass('event-item lato ' + that.className+'').attr("lat",lat).attr("lon",lon) //appended lat-lon attributes to this class for marker highlighting
@@ -41,6 +41,7 @@ var Event = (function($) { return function(properties) {
             .append($("<span/>").addClass("label-icon"))
             .append($("<h5 class='event-type'/>").text(that.properties.event_type_name))
             .append($("<p/>").text(that.properties.location))
+            .append(that.properties.phone && that.properties.phone != "-" ? $("<p/>").text("Phone: " + that.properties.phone) : "")
             .append(
               $("<div class='social-area'/>")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
