@@ -134,6 +134,11 @@ var MapManager = (function($, d3, leaflet) {
         // shadowAnchor: [4, 62],  // the same for the shadow
         // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
+    var BernieLocation = L.icon({
+      // need to change this icon on the official website cloudfront
+        iconUrl: 'http://sandbox.idre.ucla.edu/testroom/bmap/img/icon/bernie-4.png',
+        iconSize:     [18, 18]
+   });    
     var centralMap =  new leaflet.Map("map-container", {
     center: [37.8, -96.9],
     zoom: 4}).addLayer(mapboxTiles);
@@ -397,7 +402,7 @@ var MapManager = (function($, d3, leaflet) {
 
 			//add a highlighted marker 
     	function addhighlightedMarker(lat,lon){
-    		highlightedMarker = new L.circleMarker([lat,lon],{radius: 18, color: '#F55B5B', fillColor: 'white', opacity: 0.8, fillOpacity: 0.2, weight: 2}).addTo(centralMap);
+    		highlightedMarker = new L.Marker([lat,lon],{icon:BernieLocation}).addTo(centralMap);
     		// event listener to remove highlighted markers
     		$(".not-full").mouseout(function(){
     			centralMap.removeLayer(highlightedMarker)
