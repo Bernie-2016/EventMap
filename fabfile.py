@@ -3,6 +3,7 @@ import hashlib
 import hmac
 import json
 import os
+import pytz
 import random
 import string
 import sys
@@ -23,9 +24,16 @@ def update_office_locations():
 
 def update_event_data():
 
-    print "Getting Data"
-    resp = requests.get('https://go.berniesanders.com/page/event/search_results?format=json&wrap=no&orderby[0]=date&orderby[1]=desc&event_type=0&mime=text/json&limit=6500&country=*')
-    print resp
+    eastern = pytz.timezone('US/Eastern')
+
+    start_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+    end_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=21), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds() - 1)
+
+    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=10000&format=json' % {'start_date': start_date, 'end_date': end_date}
+
+    print "Fetching events from %s" % events_url
+
+    resp = requests.get(events_url)
     print "Request complete."
 
     data = json.loads(resp.text)
