@@ -26,7 +26,7 @@
 <!--[if lte IE 9]>
        <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
      <![endif]-->
-<body class='list-view'>
+<body class='list-view initial-view'>
 <section id='header'>
 <div id="header" class='lato'>
   <a id="header-logo" href="http://www.berniesanders.com"><img src="//d2bq2yf31lju3q.cloudfront.net/img/logo.png" style="float: left; margin-left: 10px;"></a>
@@ -94,10 +94,10 @@
         </table>
         <div id='filter-popup-area' class='lato'>
           <a href='javascript: void(null)' class='filter-button show-filter' onclick='$("#events").addClass("show-type-filter");'>
-            Filter by Type
+            Search by Event
           </a>
           <div id='filter-list-area'>
-            <h5>Filter by Type</h5>
+            <h5>Search by Event</h5>
             <div id='f-container'>
               <div id='filter-list-container'>
                 <ul id='filter-list'></ul>
@@ -196,7 +196,7 @@ window.eventTypeFilters = [
     id: 'phonebank'
   },
   {
-    name: 'Get out the Vote',
+    name: 'Get Out The Vote',
     id: 'gotv'
   },
   {
@@ -214,6 +214,10 @@ window.eventTypeFilters = [
   {
     name: 'Register Voters',
     id: 'register-voters'
+  },
+  {
+    name: 'Barnstorm',
+    id: 'barnstorm'
   },
   {
     name: 'Other',
@@ -249,6 +253,7 @@ $.ajax({
               // case "Organizing Meeting": d.filters.push("official-event"); break;
               case "Rally":
               case "Town Meeting": d.filters.push("bernie-event"); break;
+              case "Barnstorm": d.filters.push("barnstorm"); break;
               case "Get Out the Vote" : d.filters.push("gotv"); break;
               case "Gather ballot access signatures": d.filters.push("ballot-access"); break;
               case "Carpool to an early primary state": d.filters.push("carpool"); break;
@@ -374,6 +379,13 @@ $("#filter-list").append(
   }, 50);
   // $("#loading-icon").hide();
  });
+
+  if ($("body").hasClass("initial-view")) {
+    if (window.location.hash === "" && $(window).width() >= 600) {
+      $("#events").addClass("show-type-filter");
+    }
+    $("body").removeClass("initial-view");
+  }
 
 
 })(jQuery, d3);
