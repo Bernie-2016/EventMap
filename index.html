@@ -112,7 +112,7 @@
             <p align='right'>
               <a href='javascript: void(null)' class='filter-button' 
                  onclick='$("#events").removeClass("show-type-filter");'>
-                Hide Type Filter
+                Hide Legend
               </a>
             </p>
           </div>
@@ -378,13 +378,17 @@ $("#filter-list").append(
     $("#loading-icon").hide();
   }, 50);
   // $("#loading-icon").hide();
+  if (params.zipcode.length == 5 && $("body").hasClass("initial-view")) {
+    $("#events").removeClass("show-type-filter");
+    $("body").removeClass("initial-view"); 
+  }
  });
 
+  var pre = $.deparam(window.location.hash.substring(1));
   if ($("body").hasClass("initial-view")) {
-    if (window.location.hash === "" && $(window).width() >= 600) {
+    if (pre && pre.zipcode.length != 5 && $(window).width() >= 600) {
       $("#events").addClass("show-type-filter");
     }
-    $("body").removeClass("initial-view");
   }
 
 
