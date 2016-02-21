@@ -386,7 +386,7 @@ $("#filter-list").append(
 
   var pre = $.deparam(window.location.hash.substring(1));
   if ($("body").hasClass("initial-view")) {
-    if (pre && pre.zipcode.length != 5 && $(window).width() >= 600) {
+    if ($(window).width() >= 600 && (!pre.zipcode || pre && pre.zipcode.length != 5)) {
       $("#events").addClass("show-type-filter");
     }
   }
