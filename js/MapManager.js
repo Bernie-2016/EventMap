@@ -42,6 +42,7 @@ var Event = (function($) { return function(properties) {
             .append($("<h5 class='event-type'/>").text(that.properties.event_type_name))
             .append($("<p/>").text(that.properties.location))
             .append(that.properties.phone && that.properties.phone != "-" ? $("<p/>").text("Phone: " + that.properties.phone) : "")
+            .append(that.properties.notes ? that.properties.notes : "")
             .append(
               $("<div class='social-area'/>")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
