@@ -103,7 +103,7 @@
               <div id='filter-list-container'>
                 <ul id='filter-list'></ul>
               </div>
-              <div style='text-align: center'>
+              <div style='text-align: center; font-size: 11px; margin-top: 10px; color: lightgray;'>
               <a href='javascript: void(null)' id='show-all' 
                  onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", true).trigger("change");'>Show All</a> &bull; 
               <a href='javascript: void(null)'
@@ -177,25 +177,25 @@
 <script src='../js/MapManager.js'></script>
 <script type='text/javascript'>
 window.eventTypeFilters = [
-  {
+   {
     name: 'Campaign Office',
     id: 'campaign-office',
     onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png' />",
     offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
   },
-  {
-    name: 'Bernie Event',
-    id: 'bernie-event',
-    onItem: "<span class='map-red-circle'></span>",
-  },
-  {
-    name: 'Official Event',
-    id: 'official-event',
-  },
-  {
-    name: 'Phonebank',
-    id: 'phonebank'
-  },
+  // {
+  //   name: 'Bernie Event',
+  //   id: 'bernie-event',
+  //   onItem: "<span class='map-red-circle'></span>",
+  // },
+  // {
+  //   name: 'Official Event',
+  //   id: 'official-event',
+  // },
+  // {
+  //   name: 'Phonebank',
+  //   id: 'phonebank'
+  // },
   {
     name: 'Get Out The Vote',
     id: 'gotv'
@@ -204,26 +204,26 @@ window.eventTypeFilters = [
     name: 'Canvassing',
     id: 'canvassing'
   },
-  {
-    name: 'Ballot Access',
-    id: 'ballot-access'
-  },
+  // {
+  //   name: 'Ballot Access',
+  //   id: 'ballot-access'
+  // },
   {
     name: 'Carpool',
     id: 'carpool'
   },
-  {
-    name: 'Register Voters',
-    id: 'register-voters'
-  },
-  {
-    name: 'Barnstorm',
-    id: 'barnstorm'
-  },
-  {
-    name: 'Other',
-    id: 'other'
-  }
+  // {
+  //   name: 'Register Voters',
+  //   id: 'register-voters'
+  // },
+  // {
+  //   name: 'Barnstorm',
+  //   id: 'barnstorm'
+  // },
+  // {
+  //   name: 'Other',
+  //   id: 'other'
+  // }
 ];
 </script>
 <script type='text/javascript'>
@@ -246,38 +246,54 @@ $.ajax({
         d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
          function(zipcodes) {
           //Clean data
-          // data.result.forEach(function(d) {
-          //   d.filters = [];
-          //   //Set filter info
-          //   switch(d.event_type_name) {
-          //     case "Iowa Event":
-          //     case "New Hampshire Event":
-          //     case "South Carolina Event":
-          //     case "Nevada Event":
-          //     // case "Organizing Meeting": d.filters.push("official-event"); break;
-          //     case "Rally":
-          //     case "Town Meeting": d.filters.push("bernie-event"); break;
-          //     case "Barnstorm": d.filters.push("barnstorm"); break;
-          //     case "Get Out the Vote" : d.filters.push("gotv"); break;
-          //     case "Gather ballot access signatures": d.filters.push("ballot-access"); break;
-          //     case "Carpool to an early primary state": d.filters.push("carpool"); break;
-          //     case "Canvass": d.filters.push("canvassing"); break;
-          //     case "Phonebank event" : d.filters.push("phonebank"); break;
-          //     case "Registering Voters": d.filters.push('register-voters'); break;
-          //     default: d.filters.push('other'); break;
-          //   }
 
-          //   d.is_official = d.is_official == "1";
-          //   if (d.is_official) { d.filters.push("official-event"); }
-          // });
-          // window.EVENT_DATA = {};
+          console.log(window.EVENT_DATA.results.length);
           window.EVENT_DATA.results = window.EVENT_DATA.results.filter(function(d) {
-            return d.event_type_name == "Get Out the Vote";
+            // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]));
+
+            // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]) == 1);
+            return d.event_type_name == "Get Out the Vote"
+                  || d.event_type_name == "Canvass"
+                  || d.event_type_name == "Carpool to an early primary state";
+              // $.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]) == 1;
           });
+
+          // console.log(x);
+          // window.EVENT_DATA.results = x;
+          // console.log(window.EVENT_DATA.results.length);
 
           window.EVENT_DATA.results.forEach(function(d) {
-            d.filters = ["gotv"];
+            d.filters = [];
+            //Set filter info
+            switch(d.event_type_name) {
+              case "Iowa Event":
+              case "New Hampshire Event":
+              case "South Carolina Event":
+              case "Nevada Event":
+              // case "Organizing Meeting": d.filters.push("official-event"); break;
+              case "Rally":
+              case "Town Meeting": d.filters.push("bernie-event"); break;
+              case "Barnstorm": d.filters.push("barnstorm"); break;
+              case "Get Out the Vote" : d.filters.push("gotv"); break;
+              case "Gather ballot access signatures": d.filters.push("ballot-access"); break;
+              case "Carpool to an early primary state": d.filters.push("carpool"); break;
+              case "Canvass": d.filters.push("canvassing"); break;
+              case "Phonebank event" : d.filters.push("phonebank"); break;
+              case "Registering Voters": d.filters.push('register-voters'); break;
+              default: d.filters.push('other'); break;
+            }
+
+            d.is_official = d.is_official == "1";
+            if (d.is_official) { d.filters.push("official-event"); }
           });
+          // window.EVENT_DATA = {};
+          
+
+          // window.EVENT_DATA.results.forEach(function(d) {
+          //   d.filters = ["gotv"];
+          // });
+
+          console.log(window.EVENT_DATA.results);
 
           window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.result.map(function(d){ 
               return {
