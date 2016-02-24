@@ -198,11 +198,13 @@ window.eventTypeFilters = [
   // },
   {
     name: 'Get Out The Vote',
-    id: 'gotv'
+    id: 'gotv',
+    checked: false
   },
   {
     name: 'Canvassing',
-    id: 'canvassing'
+    id: 'canvassing',
+    checked: false
   },
   // {
   //   name: 'Ballot Access',
@@ -210,7 +212,8 @@ window.eventTypeFilters = [
   // },
   {
     name: 'Carpool',
-    id: 'carpool'
+    id: 'carpool',
+    checked: false
   },
   // {
   //   name: 'Register Voters',
@@ -246,8 +249,6 @@ $.ajax({
         d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
          function(zipcodes) {
           //Clean data
-
-          console.log(window.EVENT_DATA.results.length);
           window.EVENT_DATA.results = window.EVENT_DATA.results.filter(function(d) {
             // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]));
 
@@ -293,8 +294,6 @@ $.ajax({
           //   d.filters = ["gotv"];
           // });
 
-          console.log(window.EVENT_DATA.results);
-
           window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.result.map(function(d){ 
               return {
                 filters: ["campaign-office"],
@@ -317,7 +316,8 @@ $.ajax({
 
           window.mapManager = MapManager(window.EVENT_DATA.results, [], zipcodes);
 
-          $(window).trigger("hashchange");
+          // $(window).trigger("hashchange");
+           $("#filter-form").trigger("submit");
         });
       }
     });
@@ -338,13 +338,16 @@ $.ajax({
 /* Prepare filters */
 $("#filter-list").append(
   window.eventTypeFilters.map(function(d) {
+    console.log(d.checked !== undefined ? d.checked : true);
     return $("<li />")
               .append(
                 $("<input type='checkbox' class='filter-type' />")
                     .attr('name', 'f[]')
                     .attr("value", d.id)
                     .attr("id", d.id)
-                    .prop("checked", !params.f ? true : $.inArray(d.id, params.f) >= 0)
+                    .prop("checked", 
+
+                        !params.f ? (d.checked !== undefined ? d.checked : true) : $.inArray(d.id, params.f) >= 0)
               )
               .append($("<label />").attr('for', d.id).append($("<span />").addClass('filter-on')
                         .append(d.onItem ? d.onItem : $("<span>").addClass('circle-button default-on')))
