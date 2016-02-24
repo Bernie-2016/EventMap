@@ -7,7 +7,7 @@
 <meta name="keywords" content="Bernie Sanders, FeelTheBern, Events, Bernie, Volunteer for Bernie, Phonebank for Bernie, Canvassing for Bernie, Bernie Rallies, Bernie Townhall #bernie2016, #feelthebern, #westandtogether">
 <meta property="og:image" content="http://map.berniesanders.com/img/map-v-2.png" />
 <meta property="og:url" content="http://map.berniesanders.com/" />
-<meta property="og:title" content="Let's Organize and Help Bernie Win"/>
+<meta property="og:title" content="Go the Distance For Bernie!"/>
 <meta property="og:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!"/>
 <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@BernieSanders">
 <meta name="twitter:creator" content="@BernieSanders">
-<meta name="twitter:title" content="Let's Organize and Help Bernie Win">
+<meta name="twitter:title" content="Go the Distance For Bernie!">
 <meta name="twitter:description" content="We want Bernie Sanders to be president. Now it's time to get up and make that happen. Volunteer work and grassroots events are being organized everyday in the US. It is time to do everything we can to bring him to the White House. Let's do this!">
 <meta name="twitter:image" content="http://map.berniesanders.com/img/map-v-2.png">
 
@@ -45,8 +45,8 @@
   <nav>
     <ul id="nav">
       <li>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com/" data-text="I'm going to a volunteer event for Bernie Sanders! Find events near you!" data-related="BernieSanders" data-count="none">Tweet</a>&nbsp;&nbsp;<div class="fb-share-button" data-href="http://www.bernkit.com/" data-layout="button">
-        <a href="javascript:fbShare('http://map.berniesanders.com/', 'Fb Share', 'Facebook share popup', 'http://www.bernkit.com/img/fb.png', 520, 350)"><img src='./img/icon/fb.png' /><span>Share</span></a></div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://map.berniesanders.com/go-the-distance" data-text="I'm going to a volunteer event for Bernie Sanders! Find events near you!" data-related="BernieSanders" data-count="none">Tweet</a>&nbsp;&nbsp;<div class="fb-share-button" data-href="http://map.berniesanders.com/go-the-distance" data-layout="button">
+        <a href="javascript:fbShare('http://map.berniesanders.com/go-the-distance', 'Fb Share', 'Facebook share popup', 'http://map.berniesanders.com/img/fb.png', 520, 350)"><img src='../img/icon/fb.png' /><span>Share</span></a></div>
         <!-- div class="fb-share-button" data-href="http://map.berniesanders.com/phonebank/" data-layout="button"></div -->
       </li>
       <li><a href="https://go.berniesanders.com/page/event/create" class="contribute contribute-big" target="_blank">Host an Event</a></li>
@@ -236,8 +236,11 @@ $.ajax({
   cache: true, // otherwise will get fresh copy every page load
   success: function(data) {
 
-    // d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/campaign-offices.csv',
-    //   function(campaignOffices) {
+    $.ajax({
+      url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
+      dataType: 'script',
+      cache: true, // otherwise will get fresh copy every page load
+      success: function(data2) {
         //Load zipcodes
         //d2bq2yf31lju3q.cloudfront.net
         d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
@@ -267,8 +270,16 @@ $.ajax({
           //   d.is_official = d.is_official == "1";
           //   if (d.is_official) { d.filters.push("official-event"); }
           // });
-          window.EVENT_DATA = {};
-          window.EVENT_DATA.results = data.result.map(function(d){ 
+          // window.EVENT_DATA = {};
+          window.EVENT_DATA.results = window.EVENT_DATA.results.filter(function(d) {
+            return d.event_type_name == "Get Out the Vote";
+          });
+
+          window.EVENT_DATA.results.forEach(function(d) {
+            d.filters = ["gotv"];
+          });
+
+          window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.result.map(function(d){ 
               return {
                 filters: ["campaign-office"],
                 url: "https://maps.google.com?saddr=Current+Location&daddr=" + encodeURIComponent(d.address),
@@ -285,15 +296,15 @@ $.ajax({
                 is_campaign_office: true,
                 notes: "<div class='days-hours'>" + d.DaysHours + "</div><div class='notes'>" + d.Notes + "</div>"
               };
-            })
+            }))
           // );
 
           window.mapManager = MapManager(window.EVENT_DATA.results, [], zipcodes);
 
           $(window).trigger("hashchange");
         });
-      // }
-    // );
+      }
+    });
   }, error: function(a,b,c) {
     console.log("ERROR", b,c);
   }
