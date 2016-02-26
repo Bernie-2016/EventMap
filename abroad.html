@@ -212,7 +212,7 @@ $.ajax({
         d3.csv('./d/countries.csv',
          function(zipcodes) {
           //Clean data
-          console.log(zipcodes);
+          // console.log(zipcodes);
           americansAbroad.result.forEach(function(d) {
             d.filters = [];
             //Set filter info
@@ -251,13 +251,13 @@ $.ajax({
                 location: address, 
                 event_type_name: "Americans Abroad",
                 capacity: 0,
-                id_obfuscated: d.Address,
+                id_obfuscated: d.Address  + moment(d.Date + " " + d.StartTime, "D/M/YYYY Hmm")._d,
                 phone: "",
                 is_official: false,
                 image: "",
                 is_campaign_office: true,
-                start_dt: moment(d.Date + " " + d.StartTime, "D/M/YYYY HHmm")._d,
-                end_dt: moment(d.Date + " " + d.EndTime, "D/M/YYYY HHmm")._d
+                start_dt: moment(d.Date + " " + d.StartTime, "D/M/YYYY Hmm")._d,
+                end_dt: moment(d.Date + " " + d.EndTime, "D/M/YYYY Hmm")._d
               };
             })
           );
