@@ -1,0 +1,10 @@
+@import 'partial/reset';
+@import 'partial/variables';
+@import 'partial/mixins';
+
+.time-info-dist { display: none; }
+
+html article#events.show-type-filter #event-list-container, 
+body article#events.show-type-filter #event-list-container { 
+@include calc(height, '100% - 81px');
+}

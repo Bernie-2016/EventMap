@@ -7,6 +7,7 @@ var Event = (function($) { return function(properties) {
       this.LatLng = [parseFloat(this.properties.latitude),
                      parseFloat(this.properties.longitude)];
       this.startTime = moment(this.properties.start_dt)._d;
+      this.endTime = this.properties.end_dt ? moment(this.properties.end_dt)._d : null;
       this.visible = true;
 
       if (this.properties.capacity) {
@@ -31,11 +32,13 @@ var Event = (function($) { return function(properties) {
         var lat = that.properties.latitude
         var lon = that.properties.longitude
 
+        var endtime = that.endTime ? moment(that.endTime).format("h:mma") : null;
+
         var rendered = $("<div class='lato'/>")
           .addClass('event-item ' + that.className)
           .append($("<div />").addClass('event-item lato ' + that.className+'').attr("lat",lat).attr("lon",lon) //appended lat-lon attributes to this class for marker highlighting
             .append(that.properties.is_campaign_office ? $("<a class='office-image' href='" + that.properties.url + "' />").append($("<img src='" + that.properties.image + "'>")) : "")
-            .append($("<h5 class='time-info'/>").html((distance ? (distance + "mi &nbsp;&nbsp;") : "") + datetime))
+            .append($("<h5 class='time-info'/>").html((distance ? ("<span class='time-info-dist'>" + distance + "mi &nbsp;&nbsp;</span>") : "") + datetime + (endtime ? " - " + endtime : "" )))
             .append($("<h3/>").html("<a target='_blank' href='" + that.properties.url + "'>" + that.properties.name + "</a>"))
             .append(that.properties.is_official ? $("<h5 class='official-tag'/>").text("Official Event") : "")
             .append($("<span/>").addClass("label-icon"))
@@ -136,9 +139,10 @@ var MapManager = (function($, d3, leaflet) {
         // shadowAnchor: [4, 62],  // the same for the shadow
         // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-    var centralMap =  new leaflet.Map("map-container", {
-    center: [37.8, -96.9],
-    zoom: 4}).addLayer(mapboxTiles);
+    var defaultCoord = {center: [37.8, -96.9], zoom: 4};
+    var centralMap =  new leaflet
+                          .Map("map-container", window.customMapCoord ? window.customMapCoord : defaultCoord)
+                          .addLayer(mapboxTiles);
 
     var overlays = L.layerGroup().addTo(centralMap);
     var offices = L.layerGroup().addTo(centralMap);
@@ -209,6 +213,7 @@ var MapManager = (function($, d3, leaflet) {
                  className: split[2] };
       });
 
+      // console.log(uniqueLocs);
       uniqueLocs.forEach(function(item) {
 
           if (item.className == "campaign-office") {
@@ -220,6 +225,7 @@ var MapManager = (function($, d3, leaflet) {
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
           } else {
+            // console.log(item.latLng);
             L.circleMarker(item.latLng, { radius: 5, className: item.className, color: 'white', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2 })
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
@@ -362,6 +368,11 @@ var MapManager = (function($, d3, leaflet) {
         case 50: zoom = 9; break;
         case 100: zoom = 8; break;
         case 250: zoom = 7; break;
+        case 500: zoom = 5; break;
+        case 750: zoom = 5; break;
+        case 1000: zoom = 4; break;
+        case 2000: zoom = 4; break;
+        case 3000: zoom = 3; break;
       }
       if (!(targetZipcode.lat && targetZipcode.lat != "")) {
         return;
