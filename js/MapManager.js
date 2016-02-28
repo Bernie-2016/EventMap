@@ -235,7 +235,7 @@ var MapManager = (function($, d3, leaflet) {
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
           }
-        }, 1);
+        }, 5);
       });
 
 
