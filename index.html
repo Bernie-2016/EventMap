@@ -1,4 +1,4 @@
-<!doctype html>
+  <!doctype html>
 
 <meta charset="utf-8" />
 <meta name='google-site-verification' content='-jE-f4Gbpim9_feo74iK5zP_-tegU7xvV89-yqFy7ZI' />
@@ -23,6 +23,7 @@
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Merriweather:400,900,700' />
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:100,900,700,400,300' />
 <title>Let's Get to Work! Find Volunteer Work, Grassroots events, and official Rallies for Bernie Sanders.</title>
+
 <!--[if lte IE 9]>
        <meta http-equiv="refresh" content="0; url=https://go.berniesanders.com/page/event/search_simple" />
      <![endif]-->
@@ -165,14 +166,13 @@
     </div>
   </div>
 </section>
-
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.js' type='text/javascript'></script>
+<script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
+<script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.gz' type='text/javascript'></script>
 <script id='zipcodes-datadump' type='text/plain'></script>
-<script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.js"></script>
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/deparam.min.js'></script>
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.js'></script>
+<script src='//d2bq2yf31lju3q.cloudfront.net/js/deparam.min.gz'></script>
+<script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
 <!-- <script src='/js/leaflet-bouncer.js'></script> -->
-<script src='./js/moment.min.js'></script>
+<script src='//d2bq2yf31lju3q.cloudfront.net/js/moment.min.js'></script>
 <script src='./js/MapManager.js'></script>
 <script type='text/javascript'>
 window.eventTypeFilters = [
@@ -227,14 +227,13 @@ window.eventTypeFilters = [
 </script>
 <script type='text/javascript'>
 (function($, d3) {
-
+var date = new Date();
 $("#loading-icon").show();
 $.ajax({
   url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
   dataType: 'script',
   cache: true, // otherwise will get fresh copy every page load
   success: function(data) {
-
     d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/campaign-offices.csv',
       function(campaignOffices) {
         //Load zipcodes
@@ -266,6 +265,8 @@ $.ajax({
             d.is_official = d.is_official == "1";
             if (d.is_official) { d.filters.push("official-event"); }
           });
+          
+          var oldDate = new Date()
 
           window.EVENT_DATA.results = window.EVENT_DATA.results.concat(
             campaignOffices.map(function(d){ 
@@ -288,7 +289,6 @@ $.ajax({
           );
 
           window.mapManager = MapManager(window.EVENT_DATA.results, campaignOffices, zipcodes);
-
           $(window).trigger("hashchange");
         });
       }
@@ -371,12 +371,13 @@ $("#filter-list").append(
 
   var params = $.deparam(hash.substring(1));
 
-  $("#loading-icon").show();
+  
   setTimeout(function() {
+    $("#loading-icon").show();
     window.mapManager.filterByType(params.f);
     window.mapManager.filter(params.zipcode, params.distance, params.sort, params.f);
     $("#loading-icon").hide();
-  }, 50);
+  }, 10);
   // $("#loading-icon").hide();
   if (params.zipcode.length == 5 && $("body").hasClass("initial-view")) {
     $("#events").removeClass("show-type-filter");
@@ -406,21 +407,21 @@ $("#filter-list").append(
   ga('send', 'pageview');
   </script>
   <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1747464662152148',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
+  // window.fbAsyncInit = function() {
+  //   FB.init({
+  //     appId      : '1747464662152148',
+  //     xfbml      : true,
+  //     version    : 'v2.5'
+  //   });
+  // };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+  // (function(d, s, id){
+  //    var js, fjs = d.getElementsByTagName(s)[0];
+  //    if (d.getElementById(id)) {return;}
+  //    js = d.createElement(s); js.id = id;
+  //    js.src = "//connect.facebook.net/en_US/sdk.js";
+  //    fjs.parentNode.insertBefore(js, fjs);
+  //  }(document, 'script', 'facebook-jssdk'));
 </script>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
