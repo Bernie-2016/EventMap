@@ -240,6 +240,7 @@ $.ajax({
         //d2bq2yf31lju3q.cloudfront.net
         d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
          function(zipcodes) {
+           $("#loading-icon").hide();
           //Clean data
           window.EVENT_DATA.results.forEach(function(d) {
             d.filters = [];
