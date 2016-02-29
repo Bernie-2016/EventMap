@@ -140,9 +140,12 @@ var MapManager = (function($, d3, leaflet) {
         // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     var defaultCoord = {center: [37.8, -96.9], zoom: 4};
+
+
     var centralMap =  new leaflet
                           .Map("map-container", window.customMapCoord ? window.customMapCoord : defaultCoord)
                           .addLayer(mapboxTiles);
+    if(centralMap) {}
 
     var overlays = L.layerGroup().addTo(centralMap);
     var offices = L.layerGroup().addTo(centralMap);
@@ -195,6 +198,7 @@ var MapManager = (function($, d3, leaflet) {
      * Initialization
      */
     var initialize = function() {
+
       var uniqueLocs = eventsList.reduce(function(arr, item){
         var className = item.properties.filters.join(" ");
         if ( arr.indexOf(item.properties.latitude + "||" + item.properties.longitude + "||" + className) >= 0 ) {
@@ -204,8 +208,9 @@ var MapManager = (function($, d3, leaflet) {
           return arr;
         }
       }, []);
-
       // console.log(uniqueLocs);
+
+      // console.log("Timestamp :: ", new Date() - date);
 
       uniqueLocs = uniqueLocs.map(function(d) {
         var split = d.split("||");
@@ -213,9 +218,11 @@ var MapManager = (function($, d3, leaflet) {
                  className: split[2] };
       });
 
+      // console.log("Timestamp :: ", new Date() - date);
+
       // console.log(uniqueLocs);
       uniqueLocs.forEach(function(item) {
-
+         // setTimeout(function() {
           if (item.className == "campaign-office") {
             L.marker(item.latLng, {icon: CAMPAIGN_OFFICE_ICON, className: item.className})
               .on('click', function(e) { _popupEvents(e); })
@@ -230,12 +237,14 @@ var MapManager = (function($, d3, leaflet) {
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
           }
+        // }, 10);
       });
+
 
       // console.log($(".leaflet-overlay-pane").find(".bernie-event").parent());
       // $(".leaflet-overlay-pane").find(".bernie-event").parent().prependTo('.leaflet-zoom-animated');
 
-    };
+    }; // End of initialize
 
     var toMile = function(meter) { return meter * 0.00062137; };
 
@@ -285,7 +294,10 @@ var MapManager = (function($, d3, leaflet) {
       return filteredEvents;
     };
 
-    initialize();
+    setTimeout(function(){
+       initialize();
+    }, 10);
+    
 
     module._eventsList = eventsList;
     module._zipcodes = zipcodes;
