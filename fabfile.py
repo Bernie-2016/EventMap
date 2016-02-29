@@ -14,6 +14,7 @@ from fabric.api import *
 from fabric.operations import local
 from string import Template
 
+
 def update_office_locations():
 
     print "started downloading Campaign Offices"
@@ -21,6 +22,16 @@ def update_office_locations():
     local('cd d; curl "https://docs.google.com/spreadsheets/d/1hJadb6JyDekHf5Vzx-77h7sdJRCOB01XUPvEpKIckDs/pub?gid=0&single=true&output=csv" > campaign-offices.csv')
 
     print "Finished Downloading campaign offices"
+
+
+def update_go_the_distance_offices():
+
+    print "started downloading Go the Distance Offices"
+
+    local('cd d; curl "https://sheetsu.com/apis/b835e696" > go-the-distance-offices.csv')
+
+    print "Finished Downloading Go the Distance offices"
+
 
 def update_event_data():
 
@@ -103,10 +114,12 @@ def update_event_data():
 def deploy_event_data():
     update_event_data()
     update_office_locations()
+    update_go_the_distance_offices()
 
     local("aws s3 cp js/event-data.gz s3://map.berniesanders.com/js/event-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
     local("aws s3 cp d/events.json s3://map.berniesanders.com/d/events.json --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
     local("aws s3 cp d/campaign-offices.csv s3://map.berniesanders.com/d/campaign-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
+    local("aws s3 cp d/go-the-distance-offices.csv s3://map.berniesanders.com/d/go-the-distance-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
 
     invalidate_cloudfront_event_cache()
 
