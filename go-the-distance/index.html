@@ -233,99 +233,89 @@ window.eventTypeFilters = [
 (function($, d3) {
 
 $("#loading-icon").show();
-$.ajax({
-  url: '//d2bq2yf31lju3q.cloudfront.net/d/go-the-distance-offices.csv',
-  dataType: 'json',
-  cache: true, // otherwise will get fresh copy every page load
-  success: function(data) {
+d3.csv('/d/go-the-distance.csv', function(data) {
+  $.ajax({
+    url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
+    dataType: 'script',
+    cache: true, // otherwise will get fresh copy every page load
+    success: function(data2) {
+      //Load zipcodes
+      //d2bq2yf31lju3q.cloudfront.net
+      d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
+       function(zipcodes) {
 
-    $.ajax({
-      url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
-      dataType: 'script',
-      cache: true, // otherwise will get fresh copy every page load
-      success: function(data2) {
-        //Load zipcodes
-        //d2bq2yf31lju3q.cloudfront.net
-        d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
-         function(zipcodes) {
+         $("#loading-icon").hide();
+        //Clean data
+        window.EVENT_DATA.results = window.EVENT_DATA.results.filter(function(d) {
+          // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]));
 
-           $("#loading-icon").hide();
-          //Clean data
-          window.EVENT_DATA.results = window.EVENT_DATA.results.filter(function(d) {
-            // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]));
-
-            // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]) == 1);
-            return d.event_type_name == "Get Out the Vote"
-                  || d.event_type_name == "Canvass"
-                  || d.event_type_name == "Carpool to an early primary state";
-              // $.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]) == 1;
-          });
-
-          // console.log(x);
-          // window.EVENT_DATA.results = x;
-          // console.log(window.EVENT_DATA.results.length);
-
-          window.EVENT_DATA.results.forEach(function(d) {
-            d.filters = [];
-            //Set filter info
-            switch(d.event_type_name) {
-              case "Iowa Event":
-              case "New Hampshire Event":
-              case "South Carolina Event":
-              case "Nevada Event":
-              // case "Organizing Meeting": d.filters.push("official-event"); break;
-              case "Rally":
-              case "Town Meeting": d.filters.push("bernie-event"); break;
-              case "Barnstorm": d.filters.push("barnstorm"); break;
-              case "Get Out the Vote" : d.filters.push("gotv"); break;
-              case "Gather ballot access signatures": d.filters.push("ballot-access"); break;
-              case "Carpool to an early primary state": d.filters.push("carpool"); break;
-              case "Canvass": d.filters.push("canvassing"); break;
-              case "Phonebank event" : d.filters.push("phonebank"); break;
-              case "Registering Voters": d.filters.push('register-voters'); break;
-              default: d.filters.push('other'); break;
-            }
-
-            d.is_official = d.is_official == "1";
-            if (d.is_official) { d.filters.push("official-event"); }
-          });
-          // window.EVENT_DATA = {};
-          
-
-          // window.EVENT_DATA.results.forEach(function(d) {
-          //   d.filters = ["gotv"];
-          // });
-
-          window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.result.map(function(d){ 
-              return {
-                filters: ["campaign-office"],
-                url: "https://maps.google.com?saddr=Current+Location&daddr=" + encodeURIComponent(d.address),
-                longitude: d.lon,
-                latitude: d.lat,
-                name: d.name,
-                location: d.address, 
-                event_type_name: "Campaign Office",
-                capacity: 0,
-                id_obfuscated: d.address,
-                phone: d.phone,
-                is_official: false,
-                image: d.photo,
-                is_campaign_office: true,
-                notes: "<div class='days-hours'>" + d.DaysHours + "</div><div class='notes'>" + d.Notes + "</div>"
-              };
-            }))
-          // );
-
-          window.mapManager = MapManager(window.EVENT_DATA.results, [], zipcodes);
-
-          // $(window).trigger("hashchange");
-           $("#filter-form").trigger("submit");
+          // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]) == 1);
+          return d.event_type_name == "Get Out the Vote"
+                || d.event_type_name == "Canvass"
+                || d.event_type_name == "Carpool to an early primary state";
+            // $.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]) == 1;
         });
-      }
-    });
-  }, error: function(a,b,c) {
-    console.log("ERROR", b,c);
-  }
+
+        // console.log(x);
+        // window.EVENT_DATA.results = x;
+        // console.log(window.EVENT_DATA.results.length);
+
+        window.EVENT_DATA.results.forEach(function(d) {
+          d.filters = [];
+          //Set filter info
+          switch(d.event_type_name) {
+            case "Iowa Event":
+            case "New Hampshire Event":
+            case "South Carolina Event":
+            case "Nevada Event":
+            // case "Organizing Meeting": d.filters.push("official-event"); break;
+            case "Rally":
+            case "Town Meeting": d.filters.push("bernie-event"); break;
+            case "Barnstorm": d.filters.push("barnstorm"); break;
+            case "Get Out the Vote" : d.filters.push("gotv"); break;
+            case "Gather ballot access signatures": d.filters.push("ballot-access"); break;
+            case "Carpool to an early primary state": d.filters.push("carpool"); break;
+            case "Canvass": d.filters.push("canvassing"); break;
+            case "Phonebank event" : d.filters.push("phonebank"); break;
+            case "Registering Voters": d.filters.push('register-voters'); break;
+            default: d.filters.push('other'); break;
+          }
+
+          d.is_official = d.is_official == "1";
+          if (d.is_official) { d.filters.push("official-event"); }
+        });
+        // window.EVENT_DATA = {};
+        
+
+        // window.EVENT_DATA.results.forEach(function(d) {
+        //   d.filters = ["gotv"];
+        // });
+
+        window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.map(function(d){ 
+            return {
+              filters: ["campaign-office"],
+              url: "https://maps.google.com?saddr=Current+Location&daddr=" + encodeURIComponent(d.address),
+              longitude: d.lon,
+              latitude: d.lat,
+              name: d.name,
+              location: d.address, 
+              event_type_name: "Campaign Office",
+              capacity: 0,
+              id_obfuscated: d.address,
+              phone: d.phone,
+              is_official: false,
+              image: d.photo,
+              is_campaign_office: true,
+              notes: "<div class='days-hours'>" + d.DaysHours + "</div><div class='notes'>" + d.Notes + "</div>"
+            };
+          }))
+
+        window.mapManager = MapManager(window.EVENT_DATA.results, [], zipcodes);
+        $(window).trigger("hashchange");
+         $("#filter-form").trigger("submit");
+      });
+    }
+  });
 });
 
 
@@ -336,11 +326,9 @@ $.ajax({
   if (params.zipcode) { $("input[name='zipcode']").val(params.zipcode); }
   if (params.distance) { $("select[name='distance']").val(params.distance);}
   if (params.sort) { $("select[name='sort']").val(params.sort);}
-
 /* Prepare filters */
 $("#filter-list").append(
   window.eventTypeFilters.map(function(d) {
-    console.log(d.checked !== undefined ? d.checked : true);
     return $("<li />")
               .append(
                 $("<input type='checkbox' class='filter-type' />")
