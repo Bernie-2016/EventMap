@@ -248,6 +248,8 @@ $.ajax({
         //d2bq2yf31lju3q.cloudfront.net
         d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
          function(zipcodes) {
+
+           $("#loading-icon").hide();
           //Clean data
           window.EVENT_DATA.results = window.EVENT_DATA.results.filter(function(d) {
             // console.log($.inArray(d.event_type_name, ["Get Out the Vote", "Canvass", "Carpool to an early primary state"]));
