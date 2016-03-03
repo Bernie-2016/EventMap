@@ -284,7 +284,8 @@ $.ajax({
                 phone: d.phone,
                 is_official: false,
                 image: d.photo,
-                is_campaign_office: true
+                is_campaign_office: true,
+                opening_event: d.opening_event == "" ? null : d.opening_event
               };
             })
           );

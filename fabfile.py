@@ -21,6 +21,8 @@ def update_office_locations():
 
     local('cd d; curl "https://docs.google.com/spreadsheets/d/1hJadb6JyDekHf5Vzx-77h7sdJRCOB01XUPvEpKIckDs/pub?gid=0&single=true&output=csv" > campaign-offices.csv')
 
+    local('cd d; curl "https://docs.google.com/spreadsheets/d/1rRexu31MYdff4PLwgPW1A8TMXkFBLmBxU444khLhWaQ/pub?gid=0&single=true&output=csv" > go-the-distance.csv')
+    
     print "Finished Downloading campaign offices"
 
 
@@ -40,7 +42,7 @@ def update_event_data():
     start_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
     end_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=21), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds() - 1)
 
-    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=10000&format=json' % {'start_date': start_date, 'end_date': end_date}
+    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=5000&format=json' % {'start_date': start_date, 'end_date': end_date}
 
     print "Fetching events from %s" % events_url
 
@@ -119,7 +121,8 @@ def deploy_event_data():
     local("aws s3 cp js/event-data.gz s3://map.berniesanders.com/js/event-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
     local("aws s3 cp d/events.json s3://map.berniesanders.com/d/events.json --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
     local("aws s3 cp d/campaign-offices.csv s3://map.berniesanders.com/d/campaign-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
-    local("aws s3 cp d/go-the-distance-offices.csv s3://map.berniesanders.com/d/go-the-distance-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
+    local("aws s3 cp d/go-the-distance.csv s3://map.berniesanders.com/d/go-the-distance.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
+    local("aws s3 cp d/go-the-distance-offices.csv s3://map.berniesanders.com/d/go-the-distance-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
 
     invalidate_cloudfront_event_cache()
 
