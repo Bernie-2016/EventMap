@@ -347,6 +347,7 @@ section#header {
 section#activity-area {
   @include calc(height, '100% - 70px');
 article#map {
+  position: relative;
   div#map-container { width: 100%; height: 100%;}
   float: left;
   // &.map-view {
@@ -357,6 +358,16 @@ article#map {
   }
   @include calc(width, '100% - 400px');
   height: 100%;
+
+  div#announcement {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    text-align: center;
+    background-color: $red;
+     color: white;
+     padding: 5px 0;
+  }
 
   background-color: whitesmoke;
   // }
@@ -743,6 +754,19 @@ footer {
 
 @media only screen
   and (max-width: 600px) {
+    #announcement{
+      bottom: 0; 
+      z-index: 3000 !important;
+      font-size: 11px;
+    }
+    #mobile-announcement {
+      position: absolute;
+      font-size: 14px;
+      font-weight: 600;
+      bottom: -60px;
+      color: $red;
+    }
+
     body {
       section#header {
         display: none;
