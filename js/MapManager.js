@@ -37,9 +37,9 @@ var Event = (function($) { return function(properties) {
         var rendered = $("<div class='lato'/>")
           .addClass('event-item ' + that.className)
           .append($("<div />").addClass('event-item lato ' + that.className+'').attr("lat",lat).attr("lon",lon) //appended lat-lon attributes to this class for marker highlighting
-            .append(that.properties.is_campaign_office ? $("<a class='office-image' href='" + that.properties.url + "' />").append($("<img src='" + that.properties.image + "'>")) : "")
+            .append(that.properties.is_campaign_office ? $("<a class='office-image' href='" + (that.properties.opening_event ? that.properties.opening_event : that.properties.url) + "' />").append($("<img src='" + that.properties.image + "'>")) : "")
             .append($("<h5 class='time-info'/>").html((distance ? ("<span class='time-info-dist'>" + distance + "mi &nbsp;&nbsp;</span>") : "") + datetime + (endtime ? " - " + endtime : "" )))
-            .append($("<h3/>").html("<a target='_blank' href='" + that.properties.url + "'>" + that.properties.name + "</a>"))
+            .append($("<h3/>").html("<a target='_blank' href='" +  (that.properties.opening_event ? that.properties.opening_event : that.properties.url) + "'>" + that.properties.name + "</a>"))
             .append(that.properties.is_official ? $("<h5 class='official-tag'/>").text("Official Event") : "")
             .append($("<span/>").addClass("label-icon"))
             .append($("<h5 class='event-type'/>").text(that.properties.event_type_name))
@@ -51,8 +51,8 @@ var Event = (function($) { return function(properties) {
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
                 .append(
                   $("<a class='rsvp-link' target='_blank'/>")
-                    .attr("href", that.properties.url)
-                    .text(that.isFull ? "FULL" : that.properties.is_campaign_office ? "Get Directions" : "RSVP")
+                    .attr("href", (that.properties.opening_event ? that.properties.opening_event : that.properties.url))
+                    .text(that.isFull ? "FULL" : that.properties.is_campaign_office ? (that.properties.opening_event ? "RSVP" : "Get Directions") : "RSVP")
                 )
                 .append(
                   $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")

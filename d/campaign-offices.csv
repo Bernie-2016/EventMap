@@ -1,108 +1,93 @@
-name,state,address,phone,lat,lon,photo
-Birmingham,AL,"1813 4th Ave. N., Birmingham, AL 35203",(205) 518-8811,33.516023,-86.809728,http://i.imgur.com/YGRaXGC.png
-Montgomery,AL,"2101 Eastern Blvd., Montgomery, AL 36117",(334) 239-0303,32.351347,-86.218621,http://i.imgur.com/s6X1FgY.png
-Fayetteville,AR,"546 W. Center St., Fayetteville, AR 72701",(501) 607-0009,36.063204,-94.166665,http://i.imgur.com/bhQu2OP.png
-Little Rock,AR,"721 W. 2nd St., Little Rock, AR 72201",(501) 517-1947,34.748019,-92.278702,http://i.imgur.com/zJbMnEw.png
-Phoenix,AZ,"1301 E. Washington St., Phoenix, AZ 85034",(602) 354-5179,33.447948,-112.053936,http://i.imgur.com/qdEZ7Pl.png
-Tucson,AZ,"1832 East 6th St., Tucson, AZ 85719",-,32.22758,-110.944296,http://i.imgur.com/x3mk6mF.png
-Colorado Springs,CO,"3 S. Tejon St., Colorado Springs, CO 80903",(719) 471-6918,38.833637,-104.823312,http://i.imgur.com/YZ0xyr7.png
-Denver,CO,"5705 W 25th Ave., Edgewater, CO 80214",(303) 238-0166,39.753135,-105.059607,http://i.imgur.com/cw5GSIy.png
-East Denver,CO,"7235 E Colfax Ave., Denver, CO 80220",(303) 321-0089,39.740504,-104.90419,http://i.imgur.com/j1GzpG8.png
-Fort Collins,CO,"1200 S College Ave., Fort Collins, CO 80524",(970) 449-4276,40.571671,-105.076652,http://i.imgur.com/9mYRLCO.png
-"Washington, D.C.",DC,"312 Massachusetts Ave. NE, Washington, DC 20002",(202) 506-5831,38.8943255,-77.0013426,http://imgur.com/zJuvxXJ.png
-Athens,GA,"297 Prince Ave., Athens, GA 31621 (Suite 15)",(706) 521-9292,33.960118,-83.383213,http://i.imgur.com/Itfnmya.png
-Atlanta,GA,"236 Auburn Ave., Atlanta, GA 30303 (Suite 204)",(470) 725-3093,33.755676,-84.379878,http://i.imgur.com/XLfWywb.png
-Savannah,GA,"127 Abercorn St., Savannah, GA 31401 (Suite 403B)",(912) 659.2746,32.077328,-81.090702,http://i.imgur.com/JfCzZNZ.png
-Council Bluffs,IA,"500 West Broadway, Council Bluffs, IA 51503",(712) 323-7232,41.2612218,-95.8499378,http://i.imgur.com/F9AExrf.png
-Davenport,IA,"736 Federal St., Davenport, IA 52801",(563) 323-0559,41.5247596,-90.5633143,http://i.imgur.com/zAxjGHT.png
-Des Moines,IA,"3839 Merle Hay, Des Moines, IA 50310",(515) 251-6335,41.6308099,-93.697183,http://i.imgur.com/BVPuA37.png
-Batavia,IL,"144 W. Wilson St., Batavia, IL 60510",(630) 406-5035 ,41.849871,-88.309993,http://i.imgur.com/PQj0oRO.png
-Berwyn,IL,"6902 Cermak Rd., Berwyn, IL 60402",(708) 317-4550,41.850704,-87.796034,http://i.imgur.com/OjujDdA.png
-Champaign-Urbana,IL,"1717 Philo Rd., Urbana, IL 61802 (Suite 12)",(217) 693-7068,40.097017,-88.192353,http://i.imgur.com/XPljMT8.png
-Chicago,IL,"600 W Roosevelt Rd., Chicago, IL 60607",(312) 877-5318,41.867602,-87.642415,http://i.imgur.com/toHoTM6.png
-Chicago - South Side,IL,"705 E. 75th St., Chicago, IL 60619",(773) 962-2298,41.758309,-87.607474,http://i.imgur.com/zAjm1Ed.png
-Collinsville,IL,"114 W Main St., Collinsville, IL 62234",(618) 855-8757,38.6697,-89.986851,http://i.imgur.com/JgQbDLN.png
-DeKalb,IL,"217 Franklin St., DeKalb, IL 60115",(815) 754-0704,41.928334,-88.752934,http://i.imgur.com/c0BvrV3.png
-Evanston,IL,"516 Dempster Ave., Evanston, IL 60202",(847) 856-6812,42.041015,-87.679873,http://i.imgur.com/uiqPeMM.png
-Joliet,IL,"58 N Chicago St., Joliet, IL 60432",(779) 379-5775,41.525252,-88.081342,http://i.imgur.com/h55kG2E.png
-Lombard,IL,"112 S. Main St., Lombard, IL 60148",-,41.885883,-88.018536,http://i.imgur.com/C2FGyYJ.png
-Rockford,IL,"309 Mulberry St., Rockford, IL",(779) 210-7434,42.272395,-89.094244,http://i.imgur.com/MUTSWMG.png
-Springfield,IL,"1535 W Wabash Ave., Springfield, IL 62901",(773) 962-2298,39.76456,-89.67928,http://i.imgur.com/0q2DL7K.png
-Waukegan,IL,"1534 Washington St., Waukegan, IL 60085",(224) 637-8590,42.359692,-87.851007,http://i.imgur.com/Ipsa8pq.png
-Quad Cities,IL,"918 15th Ave., East Moline, IL 61244",(309) 755-2628,41.515828,-90.440135,http://i.imgur.com/LSJxRkX.png
-Kansas City,KS,"12009 Johnson Dr., Shawnee, KS 66212",(913) 333-6120,39.022651,-94.726133,http://i.imgur.com/xXdhgf7.png
-Lawrence,KS,"925 Iowa St., Lawrence, KS 66044",(785) 766-5390,38.96725,-95.262252,http://i.imgur.com/HYJoWoZ.png
-Wichita,KS,"1716 E. Douglas Ave., Wichita, KS 67214",(316) 680-0304,37.686378,-97.316515,http://i.imgur.com/mXbUuHn.png
-New Orleans,LA,"3200 Ridgelake Dr., Metairie, LA 70002",(504) 475-6603,30.007899,-90.15397,http://i.imgur.com/fhJ1lP1.png
-Boston,MA,"89 Cambridge St., Charlestown, MA 02129",(617) 433-8683,42.382785,-71.078241,http://i.imgur.com/yJTj6mp.png
-Lawrence,MA,"60 Island St., Lawrence, MA 01840",(617) 433-8683,42.70568,-71.15306,http://i.imgur.com/ExyGVoz.png
-New Bedford,MA,"556 Pleasant St., New Bedford, MA 02740",(617) 433-8683,41.634427,-70.926816,http://i.imgur.com/mvG7f1y.png
-Springfield,MA,"1349 Allen St., Springfield, MA 01118",(413) 348-1120,42.094603,-72.515467,http://i.imgur.com/9OgPqTb.png
-Worcester,MA,"256 Park Ave., Worcester, MA 01609",(508) 341-4876,42.264765,-71.819492,http://i.imgur.com/paELDGH.png
-Augusta,ME,"6 Chestnut St., Augusta, ME 04330",(207) 712-9644,44.313324,-69.768306,http://i.imgur.com/1zG178X.png
-Bangor,ME,"6 State St., Bangor, ME 04401 (Suite 314)",(207) 227-0196,44.802292,-68.770071,http://i.imgur.com/HmKi1PW.png
-Lewiston,ME,"110 Lisbon St., Lewiston, ME 04240",(207) 650-9025,44.096876,-70.21732,http://i.imgur.com/Ldk9qxC.png
-Portland,ME,"465 Congress St., Portland, ME 04101",(207) 956-3979,43.657448,-70.259479,http://i.imgur.com/4QVKdfj.png
-Ann Arbor,MI,"4072 Packard Rd., Ann Arbor, MI 48108",(734) 358-6741,42.24546,-83.679144,http://i.imgur.com/fkFMlYh.png
-Dearborn,MI,"4907 Schaefer Rd., Dearborn, MI 48126",(603) 493-7715,42.322913,-83.176284,http://i.imgur.com/AyosNUz.png
-Detroit,MI,"7500 Oakland St., Detroit MI 48211",(313) 826-2434,42.375522,-83.065255,http://i.imgur.com/JsXJSjX.png
-Flint,MI,"600 Harrison St., Flint, MI 48502",(989) 859-6649,43.015388,-83.688789,http://i.imgur.com/7uYEPPX.png
-Grand Rapids,MI,"3446 Plainfield Ave. NE, Grand Rapids, MI 49525",(845) 901-5659,43.026333,-85.632427,http://i.imgur.com/R5vuVYW.png
-Kalamazoo,MI,"4038 N Westnedge Ave., Kalamazoo, MI 49094",(603) 998-4415,42.331313,-85.588239,http://i.imgur.com/iNNRnAE.png
-Lansing,MI,"2722 E Michigan Ave., Lansing, MI 48912 (Suite 101)",(540) 532-2222,42.733068,-84.512831,http://i.imgur.com/Qwd4VuQ.png
-Pontiac,MI,"4 North Saginaw St., Pontiac, MI 48342",(603) 851-5420,42.636867,-83.2915,http://i.imgur.com/SfODkNx.png
-Saginaw,MI,"1614 Mershon St., Saginaw, MI 48602",(248) 210-0455,43.430944,-83.963733,http://i.imgur.com/2Mp4ut9.png
-Westland,MI,"5818 N Wayne Rd., Westland, MI",(845) 901-5659,42.326473,-83.388647,http://i.imgur.com/9lKVyrV.png
-Bloomington,MN,"7760 France Ave. S., Bloomington, MN 55435 (11th Floor)",(612) 408-2412,44.860925,-93.330944,http://i.imgur.com/u6LeDXD.png
-Duluth,MN,"318 North Central Ave., Duluth, MN 55807",(218) 606-1211,46.738404,-92.166102,http://i.imgur.com/NKfzD63.png
-Minneapolis,MN,"2400 N 2nd St., Minneapolis, MN 55411 (Suite 303)",(612) 223-8266,45.004081,-93.27937,http://i.imgur.com/Judlt9n.png
-Rochester,MN,"2130 S Broadway, Rochester, MN 55904",(507) 258-7747,43.990723,-92.461246,http://i.imgur.com/fgwHPkD.png
-Saint Cloud,MN,"11 7th Ave. N., St. Cloud, MN 56303",(320) 774-2427,45.560469,-94.161167,http://i.imgur.com/ye3Yu84.png
-Saint Paul,MN,"2233 University Ave. W., Saint Paul, MN 55114",(651) 330-0560,44.962524,-93.191944,http://i.imgur.com/mP1CLhs.png
-Ferguson,MO,"14 Church St., Ferguson MO 63135",-,38.744931,-90.304639,http://i.imgur.com/kLBHtjo.png
-Kansas City,MO,"3600 Broadway, Kansas City, MO 64111",(573) 489-5233,39.062155,-94.59048,http://i.imgur.com/QzDXOTb.png
-St. Louis,MO,"2626 Cherokee St., St. Louis, MO 63118",-,38.593204,-90.226917,http://i.imgur.com/tQYY9Cv.png
-Jackson (Opening Jan. 28th),MS,"824 Foley St., Jackson, MS 39202",-,32.307355,-90.166297,http://i.imgur.com/JxoAzGt.png
-Asheville,NC,"2296 US 70 Hwy., Swannanoa, NC 28778",-,35.599755,-82.407745,http://i.imgur.com/QfTtzcg.png
-Charlotte,NC,"2424 N. Davidson St., Charlotte, NC 28205",(980) 272-1417,35.239994,-80.811127,http://i.imgur.com/0x1vWVg.png
-Durham,NC,"207 N. Church St., Durham, NC 27701",-,35.995271,-78.899002,http://i.imgur.com/XVehuEY.png
-Wilmington,NC," 2106 Rhodes Ave., Wilmington, NC 28405",-,34.241721,-77.922424,http://i.imgur.com/54xyiR8.png
-Winston-Salem,NC,"95 Waughtown St., Winston-Salem, NC 27127",-,36.079276,-80.237869,http://i.imgur.com/OIRAiR8.png
-Lincoln,NE,"211 N. 14th St., Lincoln, NE 68508",(480) 239-3889,40.814956,-96.701454,http://i.imgur.com/y1Gblem.png
-Omaha,NE,"6004 Pine St., Omaha, NE 68106",(402) 880-4076,41.244322,-96.005219,http://i.imgur.com/SassxOP.png
-Manchester,NH,"835 Hanover St., Manchester, NH 03104",(603) 935-9084 ,42.9873012,-71.4294765,http://i.imgur.com/t8aTBLA.png
-Reno,NV,"1155 West 4th St., Reno, NV 89503",(775) 857-7104,39.526454,-119.828996,http://i.imgur.com/EpaCQYi.png
-Las Vegas,NV,"4440 S. Maryland Parkway, Las Vegas, NV 89119",-,36.10884,-115.137068,http://i.imgur.com/2sEjkZ4.png
-Cleveland (Opening March 2nd),OH,"2020 Euclid Ave., Cleveland, OH 44115",-,41.501464,-81.67617,http://i.imgur.com/TrU8HCg.png
-Columbus,OH,"1181 E. Main St., Columbus, OH 43205",(540) 998-9425,39.957172,-82.967561,http://imgur.com/CcyKVUR.png
-Toledo (Opening March 2nd),OH,"807 Lime City Rd., Rossford, OH 43460 ",-,41.590027,-83.566635,http://i.imgur.com/adlY3Yj.png
-Tulsa,OK,"1408 South Denver Ave., Tulsa, OK 74119",(918) 402-0385,36.142082,-95.99241,http://i.imgur.com/H19HZ03.png
-Norman,OK,"420 E. Main St., Norman, OK 73071",(405) 213-9568,35.222817,-97.438229,http://i.imgur.com/NVe7RB8.png
-Anderson,SC,"115 N Main St., Anderson, SC 29621",(864) 328-3050,34.504267,-82.650627,http://i.imgur.com/L9NPrPY.png
-Beaufort,SC,"422 Parris Island Gtwy., Beaufort, SC 29906",(510) 304-4222,32.407825,-80.734302,http://i.imgur.com/3FwO4hD.png
-Charleston,SC,"821 Orleans Rd., Suite 104, Charleston, SC 29407",(843) 207-4566,32.793268,-80.028071,http://i.imgur.com/xwFVJGJ.png
-Columbia,SC,"2145 Bull St., Columbia, SC 29201",(803) 814-0088,34.016525,-81.035307,http://i.imgur.com/6yeMX70.png
-Florence,SC,"2047 W Evans St., Florence, SC 29501",(843) 621-0219,34.194002,-79.80759,http://i.imgur.com/9Jrcngu.png
-Greenville,SC,"730 S. Pleasantburg Dr., Greenville, SC 29607",(864) 568-5188,34.821447,-82.36987,http://i.imgur.com/o2FZkug.png
-Lancaster,SC,"212 S Main St., Lancaster, SC 29720",(803) 391-0269,34.718246,-80.769935,http://i.imgur.com/aBkCqu6.png
-Myrtle Beach,SC,"4007 Hwy 17 S., North Myrtle Beach, SC 29582",(843) 907-4960,33.801789,-78.72949,http://i.imgur.com/v5DNzvN.png
-Rock Hill,SC,"2371 Cherry Rd., Rock Hill, SC 29732",(803) 391-0269,34.968723,-80.993821,http://i.imgur.com/PLpIfK0.png
-Chattanooga,TN,"16 E 11th St., Chattanooga, TN 37402 (3rd Floor)",(615) 924-7993,35.043737,-85.308865,http://i.imgur.com/E0VinTs.png
-Johnson City,TN,"1611 W. Market St., Johnson City, TN 37614",(423) 895-3635,36.312899,-82.382479,http://i.imgur.com/NKDfRNY.png
-Knoxville,TN,"428 E Scott Ave., Knoxville, TN 37917",(865) 313-1957,35.986597,-83.926795,http://i.imgur.com/xYHXNXw.png
-Memphis,TN,"2869 Poplar Ave., Memphis, TN 38111",(901) 410-6147,35.134267,-89.965759,http://i.imgur.com/B9zbGvp.png
-Nashville,TN,"136 Rosa L Parks Blvd., Nashville, TN 37203",(615) 424-0710,36.160156,-86.782478,http://i.imgur.com/7JyLqep.png
-Austin - 6th St.,TX,"1105 E. 6th St., Austin, TX 78702",(512) 769-2513,30.264533,-97.731283,http://i.imgur.com/oFnyHGw.png
-Austin - 7th St.,TX,"1309 E. 7th St. Austin, TX 78702",(512) 769-2513,30.264578,-97.728452,http://i.imgur.com/NTgXJl1.png
-Corpus Christi,TX,"3819 South Staples St., Corpus Christi, TX 78411",(361) 460-2060,27.738032,-97.387426,http://i.imgur.com/zmK2eQk.png
-Dallas,TX,"1408 N. Washington Ave., Dallas, TX 78204",(469) 708-2376,32.796036,-96.783307,http://i.imgur.com/xycNKT2.png
-El Paso,TX,"119 Los Angeles Dr., El Paso, TX 79902",(281) 610-0762,31.759498,-106.497902,http://i.imgur.com/ihTWBSZ.png
-Houston,TX,"1629 Bonnie Brae St., Houston TX 77006",(832) 791-2376,29.733293,-95.400869,http://i.imgur.com/lwVvNC7.png
-Rio Grande Valley,TX,"106 South 12th St., Edinburg, TX 78539",(956) 357-4851,26.300994,-98.16111,http://i.imgur.com/91q3sOe.png
-San Antonio,TX,"3000 Interstate 10 Frontage Rd., San Antonio, TX 78201",(575) 937-4813,29.456631,-98.516209,http://i.imgur.com/YtCpHBw.png
-Charlottesville,VA,"314 Water St. East, Charlottesville, VA 22902",(617) 599-3151,38.029258,-78.479976,http://i.imgur.com/vnAcU8g.png
-Norfolk,VA,"547 East Little Creek Rd., Norfolk, VA 23505",(757) 710-3802,36.916719,-76.256875,http://i.imgur.com/DcY9SPk.png
-Oakton,VA,"2952 Chain Bridge Rd., Oakton, VA 22124",(703) 938-1078,38.881246,-77.302935,http://i.imgur.com/i3yL5jF.png
-Richmond,VA,"217 W Grace St., Richmond, VA 23220",(804) 296-5624,37.545968,-77.445349,http://i.imgur.com/nB6myC3.png
-Roanoke,VA,"1927 Franklin Rd. SW, Roanoke, VA 24014 - Room #113",(540) 342-4221,37.254639,-79.950899,http://i.imgur.com/Gj9RQsR.png
-Burlington,VT,"131 Church St., Burlington, VT 05401",(855) 423-7643,44.476761,-73.212811,http://i.imgur.com/ZdZHJ6C.png
+name,state,address,phone,lat,lon,photo,opening_event
+Birmingham,AL,"1813 4th Ave. N., Birmingham, AL 35203",(205) 518-8811,33.516023,-86.809728,http://i.imgur.com/YGRaXGC.png,
+Montgomery,AL,"2101 Eastern Blvd., Montgomery, AL 36117",(334) 239-0303,32.351347,-86.218621,http://i.imgur.com/s6X1FgY.png,
+Fayetteville,AR,"546 W. Center St., Fayetteville, AR 72701",(501) 607-0009,36.063204,-94.166665,http://i.imgur.com/bhQu2OP.png,
+Little Rock,AR,"721 W. 2nd St., Little Rock, AR 72201",(501) 517-1947,34.748019,-92.278702,http://i.imgur.com/zJbMnEw.png,
+Phoenix,AZ,"1301 E. Washington St., Phoenix, AZ 85034",(602) 354-5179,33.447948,-112.053936,http://i.imgur.com/qdEZ7Pl.png,
+Tucson,AZ,"1832 East 6th St., Tucson, AZ 85719",(626) 485-3422,32.22758,-110.944296,http://i.imgur.com/x3mk6mF.png,
+Colorado Springs,CO,"3 S. Tejon St., Colorado Springs, CO 80903",(719) 471-6918,38.833637,-104.823312,http://i.imgur.com/YZ0xyr7.png,
+Denver,CO,"5705 W 25th Ave., Edgewater, CO 80214",(303) 238-0166,39.753135,-105.059607,http://i.imgur.com/cw5GSIy.png,
+East Denver,CO,"7235 E Colfax Ave., Denver, CO 80220",(303) 321-0089,39.740504,-104.90419,http://i.imgur.com/j1GzpG8.png,
+Fort Collins,CO,"1200 S College Ave., Fort Collins, CO 80524",(970) 449-4276,40.571671,-105.076652,http://i.imgur.com/9mYRLCO.png,
+"Washington, D.C.",DC,"312 Massachusetts Ave. NE, Washington, DC 20002",(202) 506-5831,38.8943255,-77.0013426,http://imgur.com/zJuvxXJ.png,
+Jacksonville (Opening March 4th - Click Here to RSVP),FL,"1710 Main St. N, Jacksonville, FL 32206",(904) 805-2180,30.344662,-81.654256,http://i.imgur.com/vuqXq5C.png,https://goo.gl/IenOHS
+Miami (Opening March 4th - Click Here to RSVP),FL,"48 NW 25th St., Miami, FL 33127",(786) 600-3734,25.800521,-80.195925,http://i.imgur.com/W3vsscN.png,https://goo.gl/ubaAow
+Orlando (Opening March 4th - Click Here to RSVP),FL,"1200 E. Hillcrest St., Orlando, FL 32803",(954) 895-1622,28.552045,-81.364015,http://i.imgur.com/WXsZZhf.png,https://goo.gl/We1iOj
+Athens,GA,"297 Prince Ave., Athens, GA 31621 (Suite 15)",(706) 521-9292,33.960118,-83.383213,http://i.imgur.com/Itfnmya.png,
+Atlanta,GA,"236 Auburn Ave., Atlanta, GA 30303 (Suite 204)",(470) 725-3093,33.755676,-84.379878,http://i.imgur.com/XLfWywb.png,
+Savannah,GA,"127 Abercorn St., Savannah, GA 31401 (Suite 403B)",(912) 659.2746,32.077328,-81.090702,http://i.imgur.com/JfCzZNZ.png,
+Council Bluffs,IA,"500 West Broadway, Council Bluffs, IA 51503",(712) 323-7232,41.2612218,-95.8499378,http://i.imgur.com/F9AExrf.png,
+Davenport,IA,"736 Federal St., Davenport, IA 52801",(563) 323-0559,41.5247596,-90.5633143,http://i.imgur.com/zAxjGHT.png,
+Des Moines,IA,"3839 Merle Hay, Des Moines, IA 50310",(515) 251-6335,41.6308099,-93.697183,http://i.imgur.com/BVPuA37.png,
+Batavia,IL,"144 W. Wilson St., Batavia, IL 60510",(630) 406-5035 ,41.849871,-88.309993,http://i.imgur.com/PQj0oRO.png,
+Berwyn,IL,"6902 Cermak Rd., Berwyn, IL 60402",(708) 317-4550,41.850704,-87.796034,http://i.imgur.com/OjujDdA.png,
+Carbondale,IL,"715 S University Ave., Carbondale, IL 62901",(603) 851-6003,37.720141,-89.217459,http://i.imgur.com/rdvwDp1.png,
+Champaign-Urbana,IL,"1717 Philo Rd., Urbana, IL 61802 (Suite 12)",(217) 693-7068,40.097017,-88.192353,http://i.imgur.com/XPljMT8.png,
+Chicago,IL,"600 W Roosevelt Rd., Chicago, IL 60607",(312) 877-5318,41.867602,-87.642415,http://i.imgur.com/toHoTM6.png,
+Chicago - South Side,IL,"705 E. 75th St., Chicago, IL 60619",(773) 962-2298,41.758309,-87.607474,http://i.imgur.com/zAjm1Ed.png,
+Collinsville,IL,"114 W Main St., Collinsville, IL 62234",(618) 855-8757,38.6697,-89.986851,http://i.imgur.com/JgQbDLN.png,
+DeKalb,IL,"217 Franklin St., DeKalb, IL 60115",(815) 754-0704,41.928334,-88.752934,http://i.imgur.com/c0BvrV3.png,
+Evanston,IL,"516 Dempster Ave., Evanston, IL 60202",(847) 856-6812,42.041015,-87.679873,http://i.imgur.com/uiqPeMM.png,
+Joliet,IL,"58 N Chicago St., Joliet, IL 60432",(779) 379-5775,41.525252,-88.081342,http://i.imgur.com/h55kG2E.png,
+Lombard,IL,"112 S. Main St., Lombard, IL 60148",(630) 709-5754,41.885883,-88.018536,http://i.imgur.com/C2FGyYJ.png,
+Rockford,IL,"309 Mulberry St., Rockford, IL",(779) 210-7434,42.272395,-89.094244,http://i.imgur.com/MUTSWMG.png,
+Springfield,IL,"1535 W Wabash Ave., Springfield, IL 62704",(773) 962-2298,39.76456,-89.67928,http://i.imgur.com/0q2DL7K.png,
+Waukegan,IL,"1534 Washington St., Waukegan, IL 60085",(224) 637-8590,42.359692,-87.851007,http://i.imgur.com/Ipsa8pq.png,
+Quad Cities,IL,"918 15th Ave., East Moline, IL 61244",(309) 755-2628,41.515828,-90.440135,http://i.imgur.com/LSJxRkX.png,
+Kansas City,KS,"12009 Johnson Dr., Shawnee, KS 66212",(913) 333-6120,39.022651,-94.726133,http://i.imgur.com/xXdhgf7.png,
+Lawrence,KS,"925 Iowa St., Lawrence, KS 66044",(785) 766-5390,38.96725,-95.262252,http://i.imgur.com/HYJoWoZ.png,
+Wichita,KS,"1716 E. Douglas Ave., Wichita, KS 67214",(316) 680-0304,37.686378,-97.316515,http://i.imgur.com/mXbUuHn.png,
+New Orleans,LA,"3200 Ridgelake Dr., Metairie, LA 70002",(504) 475-6603,30.007899,-90.15397,http://i.imgur.com/fhJ1lP1.png,
+Augusta,ME,"6 Chestnut St., Augusta, ME 04330",(207) 712-9644,44.313324,-69.768306,http://i.imgur.com/1zG178X.png,
+Bangor,ME,"6 State St., Bangor, ME 04401 (Suite 314)",(207) 227-0196,44.802292,-68.770071,http://i.imgur.com/HmKi1PW.png,
+Lewiston,ME,"110 Lisbon St., Lewiston, ME 04240",(207) 650-9025,44.096876,-70.21732,http://i.imgur.com/Ldk9qxC.png,
+Portland,ME,"465 Congress St., Portland, ME 04101",(207) 956-3979,43.657448,-70.259479,http://i.imgur.com/4QVKdfj.png,
+Ann Arbor / Ypsi,MI,"4072 Packard Rd., Ann Arbor, MI 48108",(734) 548-7864,42.24546,-83.679144,http://i.imgur.com/fkFMlYh.png,
+Dearborn,MI,"4907 Schaefer Rd., Dearborn, MI 48126",(603) 493-7715,42.322913,-83.176284,http://i.imgur.com/AyosNUz.png,
+Detroit,MI,"7500 Oakland St., Detroit MI 48211",(313) 826-2434,42.375522,-83.065255,http://i.imgur.com/JsXJSjX.png,
+Flint,MI,"600 Harrison St., Flint, MI 48502",(989) 859-6649,43.015388,-83.688789,http://i.imgur.com/7uYEPPX.png,
+Grand Rapids,MI,"3446 Plainfield Ave. NE, Grand Rapids, MI 49525",(845) 901-5659,43.026333,-85.632427,http://i.imgur.com/R5vuVYW.png,
+Kalamazoo,MI,"4038 N Westnedge Ave., Kalamazoo, MI 49094",(603) 998-4415,42.331313,-85.588239,http://i.imgur.com/iNNRnAE.png,
+Lansing,MI,"2722 E Michigan Ave., Lansing, MI 48912 (Suite 101)",(540) 532-2222,42.733068,-84.512831,http://i.imgur.com/Qwd4VuQ.png,
+Pontiac,MI,"4 North Saginaw St., Pontiac, MI 48342",(603) 851-5420,42.636867,-83.2915,http://i.imgur.com/SfODkNx.png,
+Saginaw,MI,"1614 Mershon St., Saginaw, MI 48602",(248) 210-0455,43.430944,-83.963733,http://i.imgur.com/2Mp4ut9.png,
+Traverse City,MI,"1000 Milliken Dr.,Traverse City, MI 49686",(603) 851-5993,44.767101,-85.590009,http://i.imgur.com/hWkN1vt.png,
+Westland,MI,"5818 N Wayne Rd., Westland, MI",(845) 901-5659,42.326473,-83.388647,http://i.imgur.com/9lKVyrV.png,
+Cape Girardeau,MO,"823 Broadway St., Cape Girardeau, MO 63701",-,37.306729,-89.529209,http://i.imgur.com/swkLZDN.png,
+Columbia,MO,"15 S 10th St., Columbia, MO 65201",(603) 851-5912,38.950906,-92.326806,http://i.imgur.com/sRLXGg7.png,
+Ferguson,MO,"14 Church St., Ferguson, MO 63135",-,38.744931,-90.304639,http://i.imgur.com/kLBHtjo.png,
+Kansas City,MO,"3600 Broadway, Kansas City, MO 64111",(573) 489-5233,39.062155,-94.59048,http://i.imgur.com/QzDXOTb.png,
+St. Louis - Cherokee St.,MO,"2626 Cherokee St., St. Louis, MO 63118",-,38.593204,-90.226917,http://i.imgur.com/tQYY9Cv.png,
+St. Louis - Garrison Ave.,MO,"509 N Garrison Ave., St Louis, MO 63103",-,38.636165,-90.22172,http://i.imgur.com/QM4yXn4.png,
+St. Louis - Greer Ave.,MO,"3911 Greer Ave., St. Louis, MO 63107",-,38.660387,-90.225627,http://i.imgur.com/CeraJ4O.png,
+Jackson,MS,"824 Foley St., Jackson, MS 39202",(769) 524-7362,32.307355,-90.166297,http://i.imgur.com/JxoAzGt.png,
+Asheville,NC,"2296 US 70 Hwy., Swannanoa, NC 28778",(828) 581-4311,35.599755,-82.407745,http://i.imgur.com/QfTtzcg.png,
+Charlotte,NC,"2424 N. Davidson St., Charlotte, NC 28205",(980) 272-1417,35.239994,-80.811127,http://i.imgur.com/0x1vWVg.png,
+Durham,NC,"207 N. Church St., Durham, NC 27701",(919) 972-8407,35.995271,-78.899002,http://i.imgur.com/XVehuEY.png,
+Wilmington,NC," 2106 Rhodes Ave., Wilmington, NC 28405",(910) 742-0946,34.241721,-77.922424,http://i.imgur.com/54xyiR8.png,
+Winston-Salem,NC,"95 Waughtown St., Winston-Salem, NC 27127",(336) 283-6098,36.079276,-80.237869,http://i.imgur.com/OIRAiR8.png,
+Lincoln,NE,"211 N. 14th St., Lincoln, NE 68508",(480) 239-3889,40.814956,-96.701454,http://i.imgur.com/y1Gblem.png,
+Omaha,NE,"6004 Pine St., Omaha, NE 68106",(402) 880-4076,41.244322,-96.005219,http://i.imgur.com/SassxOP.png,
+Manchester,NH,"835 Hanover St., Manchester, NH 03104",(603) 935-9084 ,42.9873012,-71.4294765,http://i.imgur.com/t8aTBLA.png,
+Reno,NV,"1155 West 4th St., Reno, NV 89503",(775) 857-7104,39.526454,-119.828996,http://i.imgur.com/EpaCQYi.png,
+Las Vegas,NV,"4440 S. Maryland Parkway, Las Vegas, NV 89119",-,36.10884,-115.137068,http://i.imgur.com/2sEjkZ4.png,
+Canton (Opening March 6th - Click Here to RSVP),OH,"131 Cleveland Ave. S.W., Canton, OH 44702",-,40.798393,-81.376869,http://i.imgur.com/6iEQmQX.png,http://goo.gl/0iAlnM
+Cleveland,OH,"2020 Euclid Ave., Cleveland, OH 44115",(440) 315-2852,41.501464,-81.67617,http://i.imgur.com/TrU8HCg.png,
+Columbus,OH,"1181 E. Main St., Columbus, OH 43205",(540) 998-9425,39.957172,-82.967561,http://imgur.com/CcyKVUR.png,
+Toledo,OH,"807 Lime City Rd., Rossford, OH 43460 ",(567) 202-7340,41.590027,-83.566635,http://i.imgur.com/adlY3Yj.png,
+Youngstown / Niles,OH,"950 Youngstown Warren Rd., Niles, OH 44446",(951) 852-1455,41.199041,-80.732408,http://i.imgur.com/aEwJcNa.png,
+Chattanooga,TN,"16 E 11th St., Chattanooga, TN 37402 (3rd Floor)",(615) 924-7993,35.043737,-85.308865,http://i.imgur.com/E0VinTs.png,
+Johnson City,TN,"1611 W. Market St., Johnson City, TN 37614",(423) 895-3635,36.312899,-82.382479,http://i.imgur.com/NKDfRNY.png,
+Knoxville,TN,"428 E Scott Ave., Knoxville, TN 37917",(865) 313-1957,35.986597,-83.926795,http://i.imgur.com/xYHXNXw.png,
+Memphis,TN,"2869 Poplar Ave., Memphis, TN 38111",(901) 410-6147,35.134267,-89.965759,http://i.imgur.com/B9zbGvp.png,
+Nashville,TN,"136 Rosa L Parks Blvd., Nashville, TN 37203",(615) 424-0710,36.160156,-86.782478,http://i.imgur.com/7JyLqep.png,
+Austin - 6th St.,TX,"1105 E. 6th St., Austin, TX 78702",(512) 769-2513,30.264533,-97.731283,http://i.imgur.com/oFnyHGw.png,
+Austin - 7th St.,TX,"1309 E. 7th St. Austin, TX 78702",(512) 769-2513,30.264578,-97.728452,http://i.imgur.com/NTgXJl1.png,
+Corpus Christi,TX,"3819 South Staples St., Corpus Christi, TX 78411",(361) 460-2060,27.738032,-97.387426,http://i.imgur.com/zmK2eQk.png,
+Dallas,TX,"1408 N. Washington Ave., Dallas, TX 78204",(469) 708-2376,32.796036,-96.783307,http://i.imgur.com/xycNKT2.png,
+El Paso,TX,"119 Los Angeles Dr., El Paso, TX 79902",(281) 610-0762,31.759498,-106.497902,http://i.imgur.com/ihTWBSZ.png,
+Houston,TX,"1629 Bonnie Brae St., Houston TX 77006",(512) 938-8517 ,29.733293,-95.400869,http://i.imgur.com/lwVvNC7.png,
+Rio Grande Valley,TX,"106 South 12th St., Edinburg, TX 78539",(956) 357-4851,26.300994,-98.16111,http://i.imgur.com/91q3sOe.png,
+San Antonio,TX,"3000 Interstate 10 Frontage Rd., San Antonio, TX 78201",(575) 937-4813,29.456631,-98.516209,http://i.imgur.com/YtCpHBw.png,
+Salt Lake City,UT,"17 400 S, Salt Lake City, UT 84111",(385) 212-4186,40.760939,-111.890384,http://i.imgur.com/FvoyGBM.png,
+Burlington,VT,"131 Church St., Burlington, VT 05401",(855) 423-7643,44.476761,-73.212811,http://i.imgur.com/ZdZHJ6C.png,

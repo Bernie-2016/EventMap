@@ -233,7 +233,7 @@ window.eventTypeFilters = [
 (function($, d3) {
 
 $("#loading-icon").show();
-d3.csv('/d/go-the-distance.csv', function(data) {
+d3.csv('http://map.berniesanders.com/d/go-the-distance.csv', function(data) {
   $.ajax({
     url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
     dataType: 'script',

@@ -129,7 +129,8 @@
           <span class='hide-offices'>&#8883; Hide Offices</span>
         </a>
       </div>
-      <ul id='event-list'><li class='mobile-only lato'>Please type in your <strong>zipcode</strong> to view nearby events.</li></ul>
+      <ul id='event-list'><li class='mobile-only lato'>Please type in your <strong>zipcode</strong> to view nearby events.
+      </li></ul>
       <footer>
         <div id='footer-area' >
           <h5>Bernie 2016</h5>
@@ -284,7 +285,8 @@ $.ajax({
                 phone: d.phone,
                 is_official: false,
                 image: d.photo,
-                is_campaign_office: true
+                is_campaign_office: true,
+                opening_event: d.opening_event == "" ? null : d.opening_event
               };
             })
           );
