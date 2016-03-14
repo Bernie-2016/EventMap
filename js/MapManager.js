@@ -52,7 +52,7 @@ var Event = (function($) { return function(properties) {
                 .append(
                   $("<a class='rsvp-link' target='_blank'/>")
                     .attr("href", (that.properties.opening_event ? that.properties.opening_event : that.properties.url))
-                    .text(that.isFull ? "FULL" : that.properties.is_campaign_office ? (that.properties.opening_event ? "RSVP" : "Get Directions") : "RSVP")
+                    .text(that.isFull ? "FULL" : that.properties.is_campaign_office||that.properties.is_gotv_center ? (that.properties.opening_event ? "RSVP" : "Get Directions") : "RSVP")
                 )
                 .append(
                   $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")

@@ -291,6 +291,7 @@ $.ajax({
                 is_official: false,
                 image: d.type == 'office' ? d.photo : null,
                 is_campaign_office: d.type == 'office',
+                is_gotv_center: d.type == 'gotv',
                 opening_event: d.opening_event == "" ? null : d.opening_event
               };
             })
