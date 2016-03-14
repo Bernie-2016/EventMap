@@ -183,6 +183,11 @@ window.eventTypeFilters = [
     onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png' />",
     offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
   },
+  { name: 'GOTV Center',
+    id: 'gotv-center',
+    onItem: "<img style='width: 14px; height: 14px;' src='./img/icon/gotv-star.png' />",
+    offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
+  },
   {
     name: 'Bernie Event',
     id: 'bernie-event',
@@ -235,7 +240,7 @@ $.ajax({
   dataType: 'script',
   cache: true, // otherwise will get fresh copy every page load
   success: function(data) {
-    d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/campaign-offices.csv',
+    d3.csv('./d/gotv-sample.csv',
       function(campaignOffices) {
         //Load zipcodes
         //d2bq2yf31lju3q.cloudfront.net
@@ -273,18 +278,18 @@ $.ajax({
           window.EVENT_DATA.results = window.EVENT_DATA.results.concat(
             campaignOffices.map(function(d){ 
               return {
-                filters: ["campaign-office"],
+                filters: d.type == 'office' ? ["campaign-office"] : ["gotv-center"],
                 url: "https://maps.google.com?saddr=Current+Location&daddr=" + encodeURIComponent(d.address),
                 longitude: d.lon,
                 latitude: d.lat,
                 name: d.name,
                 location: d.address, 
-                event_type_name: "Campaign Office",
+                event_type_name: d.type == 'office' ? "Campaign Office" : "GOTV Center",
                 capacity: 0,
                 id_obfuscated: d.address,
                 phone: d.phone,
                 is_official: false,
-                image: d.photo,
+                image: d.type == 'office' ? d.photo : null,
                 is_campaign_office: true,
                 opening_event: d.opening_event == "" ? null : d.opening_event
               };

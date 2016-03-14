@@ -133,11 +133,15 @@ var MapManager = (function($, d3, leaflet) {
 
     var CAMPAIGN_OFFICE_ICON = L.icon({
         iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png',
-        iconSize:     [14, 14], // size of the icon
+        iconSize:     [17, 14], // size of the icon
         // shadowSize:   [50, 64], // size of the shadow
         // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
         // shadowAnchor: [4, 62],  // the same for the shadow
         // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    var GOTV_CENTER_ICON = L.icon({
+        iconUrl: './img/icon/gotv-star.png',
+        iconSize:     [10, 10], // size of the icon
     });
     var defaultCoord = {center: [37.8, -96.9], zoom: 4};
 
@@ -149,6 +153,7 @@ var MapManager = (function($, d3, leaflet) {
 
     var overlays = L.layerGroup().addTo(centralMap);
     var offices = L.layerGroup().addTo(centralMap);
+    var gotvCenter = L.layerGroup().addTo(centralMap);
 
     var campaignOfficeLayer = L.layerGroup().addTo(centralMap);
 
@@ -227,7 +232,11 @@ var MapManager = (function($, d3, leaflet) {
             L.marker(item.latLng, {icon: CAMPAIGN_OFFICE_ICON, className: item.className})
               .on('click', function(e) { _popupEvents(e); })
               .addTo(offices);
-          } else if (item.className.match(/bernie\-event/ig)) {
+          } else if (item.className == "gotv-center") { 
+            L.marker(item.latLng, {icon: GOTV_CENTER_ICON, className: item.className})
+              .on('click', function(e) { _popupEvents(e); })
+              .addTo(gotvCenter);
+          }else if (item.className.match(/bernie\-event/ig)) {
             L.circleMarker(item.latLng, { radius: 12, className: item.className, color: 'white', fillColor: '#F55B5B', opacity: 0.8, fillOpacity: 0.7, weight: 2 })
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
@@ -345,6 +354,15 @@ var MapManager = (function($, d3, leaflet) {
         centralMap.removeLayer(offices);
       } else {
         centralMap.addLayer(offices);
+      }
+
+      //For gotv-centers
+      if (!type) {
+        centralMap.removeLayer(gotvCenter);
+      } else if (type &&  type.indexOf('gotv-center') < 0) {
+        centralMap.removeLayer(gotvCenter);
+      } else {
+        centralMap.addLayer(gotvCenter);
       }
     }
     return;
