@@ -185,7 +185,7 @@ window.eventTypeFilters = [
   },
   { name: 'GOTV Center',
     id: 'gotv-center',
-    onItem: "<img style='width: 14px; height: 14px;' src='./img/icon/gotv-star.png' />",
+    onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png' />",
     offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
   },
   {
@@ -240,7 +240,7 @@ $.ajax({
   dataType: 'script',
   cache: true, // otherwise will get fresh copy every page load
   success: function(data) {
-    d3.csv('./d/gotv-sample.csv',
+    d3.csv('/d/campaign-offices.csv',
       function(campaignOffices) {
         //Load zipcodes
         //d2bq2yf31lju3q.cloudfront.net

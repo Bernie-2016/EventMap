@@ -140,7 +140,7 @@ var MapManager = (function($, d3, leaflet) {
         // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     var GOTV_CENTER_ICON = L.icon({
-        iconUrl: './img/icon/gotv-star.png',
+        iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png',
         iconSize:     [13, 10], // size of the icon
     });
     var defaultCoord = {center: [37.8, -96.9], zoom: 4};
