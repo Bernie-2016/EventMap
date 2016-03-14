@@ -141,7 +141,7 @@ var MapManager = (function($, d3, leaflet) {
     });
     var GOTV_CENTER_ICON = L.icon({
         iconUrl: './img/icon/gotv-star.png',
-        iconSize:     [10, 10], // size of the icon
+        iconSize:     [13, 10], // size of the icon
     });
     var defaultCoord = {center: [37.8, -96.9], zoom: 4};
 
