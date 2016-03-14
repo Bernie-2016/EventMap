@@ -167,6 +167,7 @@
     </div>
   </div>
 </section>
+
 <script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
 <script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.gz' type='text/javascript'></script>
 <script id='zipcodes-datadump' type='text/plain'></script>
@@ -174,6 +175,7 @@
 <script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
 <!-- <script src='/js/leaflet-bouncer.js'></script> -->
 <script src='//d2bq2yf31lju3q.cloudfront.net/js/moment.min.js'></script>
+<script src='./js/js-cookie.js'></script>
 <script src='./js/MapManager.js'></script>
 <script type='text/javascript'>
 window.eventTypeFilters = [
@@ -292,7 +294,13 @@ $.ajax({
           );
 
           window.mapManager = MapManager(window.EVENT_DATA.results, campaignOffices, zipcodes);
-          $(window).trigger("hashchange");
+
+          if($("input[name='zipcode']").val() == '' && Cookies.get('zipcode') && window.location.hash == '') {
+            $("input[name='zipcode']").val(Cookies.get('zipcode')); 
+            window.location.hash = $("#filter-form").serialize();
+          } else {
+            $(window).trigger("hashchange");
+          }
         });
       }
     );
@@ -306,7 +314,10 @@ $.ajax({
   */
 
  var params = $.deparam(window.location.hash.substring(1));
-  if (params.zipcode) { $("input[name='zipcode']").val(params.zipcode); }
+  if (params.zipcode) { 
+    $("input[name='zipcode']").val(params.zipcode); 
+  } 
+
   if (params.distance) { $("select[name='distance']").val(params.distance);}
   if (params.sort) { $("select[name='sort']").val(params.sort);}
 
@@ -397,6 +408,7 @@ $("#filter-list").append(
 
 
 })(jQuery, d3);
+
 </script>
 
 <!-- SOCIAL -->

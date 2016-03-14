@@ -42,7 +42,7 @@ def update_event_data():
     start_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
     end_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=21), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds() - 1)
 
-    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=5000&format=json' % {'start_date': start_date, 'end_date': end_date}
+    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&limit=7000&format=json' % {'start_date': start_date, 'end_date': end_date}
 
     print "Fetching events from %s" % events_url
 

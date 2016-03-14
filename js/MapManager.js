@@ -22,7 +22,7 @@ var Event = (function($) { return function(properties) {
           this.properties.capacity > 0 &&
           this.properties.attendee_count >= this.properties.capacity;
 
-      this.render = function (distance) {
+      this.render = function (distance, zipcode) {
         var that = this;
         var moreThan5RSVP = that.properties.attendee_count && parseInt(that.properties.attendee_count) > 5 ? true : false;
 
@@ -46,24 +46,41 @@ var Event = (function($) { return function(properties) {
             .append($("<p/>").text(that.properties.location))
             .append(that.properties.phone && that.properties.phone != "-" ? $("<p/>").text("Phone: " + that.properties.phone) : "")
             .append(that.properties.notes ? that.properties.notes : "")
+            //Append RSVP Form
+            .append($("<div class='event-rsvp-activity' />")
+                      .append($("<form class='event-form lato'>")
+                             .append($("<h4/>").html("RSVP to <strong>" + that.properties.name + "</strong>"))
+                             .append($("<div class='event-error' />"))
+                             .append($("<input type='hidden' name='zipcode'/>").val(zipcode?zipcode:that.properties.venue_zip))
+                             .append($("<input type='hidden' name='id_obfuscated'/>").val(that.properties.id_obfuscated))
+                             .append($("<input type='text' name='phone' placeholder='Phone#'/>"))
+                             .append($("<input type='text' name='email' placeholder='Email Address'/>"))
+                             .append($("<input type='submit' class='lato' value='Confirm RSVP' />"))
+                      )
+                   )
             .append(
               $("<div class='social-area'/>")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
                 .append(
                   $("<a class='rsvp-link' target='_blank'/>")
-                    .attr("href", (that.properties.opening_event ? that.properties.opening_event : that.properties.url))
+                    .attr("href", that.properties.is_campaign_office ? (that.properties.opening_event ? that.properties.opening_event : that.properties.url) : "javascript: void(null) ")
+                    .attr("onclick", that.properties.is_campaign_office ? null: "$('.event-rsvp-activity').hide(); $(document).trigger('show-event-form', [this])")
+                    .attr("data-id", that.properties.id_obfuscated)
+                    .attr("data-url", (that.properties.opening_event ? that.properties.opening_event : that.properties.url))
                     .text(that.isFull ? "FULL" : that.properties.is_campaign_office ? (that.properties.opening_event ? "RSVP" : "Get Directions") : "RSVP")
                 )
                 .append(
                   $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")
                 )
             )
+            .append($("<div class='rsvp-attending'/>").text('You are attending this event'))
           );
-        rendered.onmouseover = function(){/*console.log("rawr") */}
+        
         return rendered.html();
       };
     }
   })(jQuery); //End of events
+
 
 // /****
 //  *  Campaign Offices
@@ -176,7 +193,17 @@ var MapManager = (function($, d3, leaflet) {
           .append($("<ul class='popup-list'>")
             .append(
               filtered.map(function(d) {
-                return $("<li class='lato'/>").addClass(d.isFull?"is-full":"not-full").addClass(d.visible ? "is-visible" : "not-visible").append(d.render());
+                return $("<li class='lato'/>")
+                          .attr('data-attending', (function(prop) {
+                              var email = Cookies.get('map.bernie.email');
+                              var events_attended_raw = Cookies.get('map.bernie.eventsJoined.' + email);
+                              var events_attended = events_attended_raw ? JSON.parse(events_attended_raw) : [];
+                              return $.inArray(prop.id_obfuscated, events_attended) > -1;
+
+                            })(d.properties))
+                          .addClass(d.isFull?"is-full":"not-full")
+                          .addClass(d.visible ? "is-visible" : "not-visible")
+                          .append(d.render());
               })
             )
           )
@@ -402,6 +429,11 @@ var MapManager = (function($, d3, leaflet) {
       //Sort event
       filtered = sortEvents(filtered, sort, filterTypes);
 
+      //Check cookies
+      var email = Cookies.get('map.bernie.email');
+      var events_attended_raw = Cookies.get('map.bernie.eventsJoined.' + email);
+      var events_attended = events_attended_raw ? JSON.parse(events_attended_raw) : [];
+
       //Render event
       var eventList = d3.select("#event-list")
         .selectAll("li")
@@ -409,6 +441,7 @@ var MapManager = (function($, d3, leaflet) {
 
         eventList.enter()
           .append("li")
+          .attr("data-attending", function(d, id) {  return $.inArray(d.properties.id_obfuscated, events_attended) > -1;  })
           .attr("class", function(d) { return (d.isFull ? 'is-full' : 'not-full') + " " + (this.visible ? "is-visible" : "not-visible")})
           .classed("lato", true)
           .html(function(d){ return d.render(d.distance); });
@@ -463,3 +496,85 @@ var MapManager = (function($, d3, leaflet) {
   });
 
 })(jQuery, d3, L);
+
+
+// More events
+(function($) {
+  $(document).on("click", function(event, params) {
+    $(".event-rsvp-activity").hide();
+  });
+
+  $(document).on("click", ".rsvp-link, .event-rsvp-activity", function(event, params) {
+    event.stopPropagation();
+  });
+
+  //Show email
+  $(document).on("show-event-form", function(events, target) {
+    var form = $(target).closest(".event-item").find(".event-rsvp-activity");
+      if (Cookies.get('email')) {
+        form.find("input[name=email]").val(Cookies.get('email'));
+      }
+
+      if (Cookies.get('phone')) {
+        form.find("input[name=phone]").val(Cookies.get('phone'));
+      }
+
+      form.fadeIn(100);
+  });
+
+  $(document).on("submit", "form.event-form", function() {
+    var query = $.deparam($(this).serialize());
+    var params = $.deparam(window.location.hash.substring(1) || "");
+    query['zipcode'] = params['zipcode'] || query['zipcode'];
+
+    var $error = $(this).find(".event-error");
+    var $container = $(this).closest(".event-rsvp-activity");
+
+    if (!query['email'] || query['email'] == '') {
+      $error.text("Email is required").show();
+      return false;
+    } 
+
+    if (!query['email'].toUpperCase().match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/)) {
+      $error.text("Please input valid email").show();
+      return false;
+    }
+
+    $(this).find(".event-error").hide();
+
+    $.ajax({
+      type: 'POST',
+      url: 'https://bernie-ground-control-staging.herokuapp.com/events/add-rsvp', 
+      crossDomain: true,
+      dataType: 'json',
+      data: JSON.stringify({
+        phone: query['phone'],
+        email: query['email'],
+        zip: query['zipcode'],
+        event_id_obfuscated: query['id_obfuscated']
+      }), 
+      success: function(data) {
+        console.log(data);
+        Cookies.set('map.bernie.zipcode', query['zipcode'], {expires: 7});
+        Cookies.set('map.bernie.email', query['email'], {expires: 7});
+        if (query['phone'] != '') {
+          Cookies.set('map.bernie.phone', query['email'], {expires: 7});
+        }
+
+        //Storing the events joined
+        var events_joined = JSON.parse(Cookies.get('map.bernie.eventsJoined.' + query['email'])) || [];
+
+        events_joined.push(query['id_obfuscated']);
+        Cookies.set('map.bernie.eventsJoined.' + query['email'], events_joined, {expires: 7});
+
+        $(this).closest("li").attr("data-attending", true);
+
+        $(this).html("<h4 style='border-bottom: none'>RSVP Successful! Thank you for joining to this event!</h4>");
+        $container.delay(1000).fadeOut('fast')
+      }
+    })
+
+
+    return false;
+  });
+})(jQuery);
