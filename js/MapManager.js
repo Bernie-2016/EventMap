@@ -28,7 +28,7 @@ var Event = (function($) { return function(properties) {
 
         if (!that.properties.attendee_count) { moreThan5RSVP = false; }
 
-        var datetime = moment(that.properties.start_dt).format("MMM DD (ddd) h:mma")
+        var datetime = that.properties.id_obfuscated && that.properties.id_obfuscated == '4gw5k' ? 'Mar 20 (Sun) 11:00am' : moment(that.properties.start_dt).format("MMM DD (ddd) h:mma")
         var lat = that.properties.latitude
         var lon = that.properties.longitude
 
@@ -43,7 +43,7 @@ var Event = (function($) { return function(properties) {
             .append(that.properties.is_official ? $("<h5 class='official-tag'/>").text("Official Event") : "")
             .append($("<span/>").addClass("label-icon"))
             .append($("<h5 class='event-type'/>").text(that.properties.event_type_name))
-            .append($("<p/>").text(that.properties.location))
+            .append($("<p/>").html(that.properties.location))
             .append(that.properties.phone && that.properties.phone != "-" ? $("<p/>").text("Phone: " + that.properties.phone) : "")
             .append(that.properties.notes ? that.properties.notes : "")
             .append(
