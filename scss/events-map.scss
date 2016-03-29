@@ -431,6 +431,7 @@ article#map {
         &:last-child { padding-bottom: 0; border: none;}
 
         div.rsvp-attending {
+          a { color: white;}
           line-height: 1;
           &:after {
             left: 128px;
@@ -739,6 +740,8 @@ article#events {
 li {
   &[data-attending=true] {
     div.rsvp-attending {
+
+      a { color: white;}
       position: relative;
       background-color: #147FD7;
       display: inline-block;

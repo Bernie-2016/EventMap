@@ -74,7 +74,7 @@ var Event = (function($) { return function(properties) {
                   $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")
                 )
             )
-            .append($("<div class='rsvp-attending'/>").text('You are attending this event'))
+            .append($("<div class='rsvp-attending'/>").html('<a href="https://go.berniesanders.com/page/event/myevents" target="_blank">You are attending this event</a>'))
           );
         
         return rendered.html();
@@ -582,7 +582,7 @@ var MapManager = (function($, d3, leaflet) {
         event_id_obfuscated: query['id_obfuscated']
       }, 
       success: function(data) {
-        console.log(data);
+        // console.log(data);
         Cookies.set('map.bernie.zipcode', query['zipcode'], {expires: 7});
         Cookies.set('map.bernie.email', query['email'], {expires: 7});
         Cookies.set('map.bernie.name', query['name'], {expires: 7});
@@ -597,7 +597,7 @@ var MapManager = (function($, d3, leaflet) {
         events_joined.push(query['id_obfuscated']);
         Cookies.set('map.bernie.eventsJoined.' + query['email'], events_joined, {expires: 7});
 
-        console.log(Cookies.get('map.bernie.zipcode'), Cookies.get('map.bernie.email'))
+        // console.log(Cookies.get('map.bernie.zipcode'), Cookies.get('map.bernie.email'))
         $this.closest("li").attr("data-attending", true);
 
         $this.html("<h4 style='border-bottom: none'>RSVP Successful! Thank you for joining to this event!</h4>");

@@ -463,6 +463,8 @@ html, body {
             border: none; }
           html section#activity-area article#map div.popup-list-container ul li div.rsvp-attending, body section#activity-area article#map div.popup-list-container ul li div.rsvp-attending {
             line-height: 1; }
+            html section#activity-area article#map div.popup-list-container ul li div.rsvp-attending a, body section#activity-area article#map div.popup-list-container ul li div.rsvp-attending a {
+              color: white; }
             html section#activity-area article#map div.popup-list-container ul li div.rsvp-attending:after, body section#activity-area article#map div.popup-list-container ul li div.rsvp-attending:after {
               left: 128px;
               bottom: 0px; }
@@ -741,6 +743,8 @@ html, body {
     padding: 3px;
     font-size: 10px;
     color: white; }
+    html li[data-attending=true] div.rsvp-attending a, body li[data-attending=true] div.rsvp-attending a {
+      color: white; }
     html li[data-attending=true] div.rsvp-attending:after, body li[data-attending=true] div.rsvp-attending:after {
       content: '';
       display: block;
