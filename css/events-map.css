@@ -365,6 +365,7 @@ html, body {
       html section#activity-area article#map .leaflet-popup-content-wrapper, body section#activity-area article#map .leaflet-popup-content-wrapper {
         border-top: 2px solid #147FD7; }
         html section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content, body section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content {
+          min-height: 170px;
           position: relative; }
           html section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content h3.sched-count, body section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content h3.sched-count {
             margin: -5px 0 0 -5px;

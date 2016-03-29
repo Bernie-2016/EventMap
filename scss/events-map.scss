@@ -380,8 +380,10 @@ article#map {
   background-color: whitesmoke;
   // }
   .leaflet-popup-content-wrapper {
+
     border-top: 2px solid #147FD7;
     .leaflet-popup-content {
+      min-height: 170px;
       position: relative;
       h3.sched-count {
         margin: -5px 0 0 -5px;

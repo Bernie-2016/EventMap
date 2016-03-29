@@ -54,7 +54,7 @@ var Event = (function($) { return function(properties) {
                              // .append($("<input type='text' name='name' placeholder='Name'/>"))
                              .append($("<input type='hidden' name='zipcode'/>").val(zipcode?zipcode:that.properties.venue_zip))
                              .append($("<input type='hidden' name='id_obfuscated'/>").val(that.properties.id_obfuscated))
-                             .append($("<input type='text' name='phone' placeholder='Phone#'/>"))
+                             .append($("<input type='text' name='phone' placeholder='Phone Number'/>"))
                              .append($("<input type='text' name='email' placeholder='Email Address'/>"))
                              .append($("<input type='submit' class='lato' value='Confirm RSVP' />"))
                       )
