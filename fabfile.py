@@ -44,7 +44,7 @@ def update_event_data():
 
     # events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=10000&format=json' % {'start_date': start_date, 'end_date': end_date}
 
-    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&limit=10000&format=json'
+    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&limit=7000&format=json'
 
     print "Fetching events from %s" % events_url
 
