@@ -163,14 +163,6 @@ html,body {
     &:hover { background-color: $darkred; }
   }
 
-
-.gotv-center {
-  .time-info { display: none !important;}
-  .office-image {
-    display: none !important;
-  }
-}
-
 section#campaign-offices {
 
     position: absolute;
@@ -441,12 +433,13 @@ article#map {
         div.rsvp-attending {
           line-height: 1;
           &:after {
-            left: 129px;
+            left: 128px;
             bottom: 0px;
           }
         }
 
         div.event-rsvp-activity {
+          top: auto;
           bottom: 1px;
           left: 0px;
         }
@@ -615,6 +608,27 @@ article#events {
 
     @include calc(height, '100% - 110px');
 
+    div#new-feature-notice {
+      display: none;
+      background-color: #DBE3D0;
+      padding: 10px;
+      width: 350px;
+      margin: 13px 10px;
+      border: #5C842B solid 1px;
+      font-family: 'lato';
+      font-size: 12px;
+      position: relative;
+      color: #333333;
+
+      a {
+        position: absolute;
+        top: 0;
+        right: 2px;
+        color: #333333;
+      }
+
+    }
+
     ul#event-list {
       li {
         @include eventListItem;
@@ -739,8 +753,8 @@ li {
         height: 0;
         position: absolute;
         border-right: 8px solid transparent;
-        border-top: 8px solid #147FD7;
-        left: 129px;
+        border-top: 7px solid #147FD7;
+        left: 128px;
         bottom: 0px;      
         border-bottom: 9px solid #147FD7;
       }
@@ -758,10 +772,10 @@ div.event-item {
   div.event-rsvp-activity {
     display: none;
     position: absolute;
-    bottom: 8px;
+    top: 8px;
     left: 3px;
     background-color: whitesmoke;
-    width: 240px;
+    width: 260px;
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     z-index: 1000;
@@ -780,23 +794,35 @@ div.event-item {
       }
 
       h4 {
-        font-size: 11px;
+        font-size: 14px;
         padding-bottom: 4px;
         margin-bottom: 4px;
         border-bottom: 1px solid lightgray;
         color: $bernieblue;
-        line-height: 1;
+        line-height: 1.25;
 
         strong { font-weight: 600;}
       }
-      input[name='phone'] {
-        font-size: 10px;
-        width: 30%;
+      input[type='text'] {
+        font-size: 12px;
+        display: block;
+        width: 98%;
+        margin-bottom: 3px;
       }
       input[name='email'] {
-        font-size: 10px;
-        width: 64%;
+        font-size: 12px;
+        display: block;
+        width: 98%;
+      }
+
+      input[name='name'] {
+        width: 60%;
+        display: inline-block;
+      }
+      input[name='zipcode'] {
+        @include calc(width, "35% - 2px");
         margin-left: 2px;
+        display: inline-block;
       }
       input[type='submit'] {
         width: 100%;
@@ -892,6 +918,7 @@ div.event-item {
             div.event-rsvp-activity { 
               left: 0px;
               bottom: 28px;
+
             }
             div.more-event-info {
               float: left;
@@ -1134,6 +1161,7 @@ footer {
           a#to-map-view { display: inline-block; }
           a#to-list-view { display: none; }
         }
+
         section#activity-area > article#event-list { display: block; }
         section#activity-area > article#map { visibility: hidden; z-index: -1; }
       }

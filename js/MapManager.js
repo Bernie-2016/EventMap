@@ -51,6 +51,7 @@ var Event = (function($) { return function(properties) {
                       .append($("<form class='event-form lato'>")
                              .append($("<h4/>").html("RSVP to <strong>" + that.properties.name + "</strong>"))
                              .append($("<div class='event-error' />"))
+                             // .append($("<input type='text' name='name' placeholder='Name'/>"))
                              .append($("<input type='hidden' name='zipcode'/>").val(zipcode?zipcode:that.properties.venue_zip))
                              .append($("<input type='hidden' name='id_obfuscated'/>").val(that.properties.id_obfuscated))
                              .append($("<input type='text' name='phone' placeholder='Phone#'/>"))
@@ -62,7 +63,7 @@ var Event = (function($) { return function(properties) {
               $("<div class='social-area'/>")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
                 .append(
-                  $("<a class='rsvp-link' target='_blank'/>")
+                  $("<a class='rsvp-link'/>")
                     .attr("href", that.properties.is_campaign_office ? (that.properties.opening_event ? that.properties.opening_event : that.properties.url) : "javascript: void(null) ")
                     .attr("onclick", that.properties.is_campaign_office ? null: "$('.event-rsvp-activity').hide(); $(document).trigger('show-event-form', [this])")
                     .attr("data-id", that.properties.id_obfuscated)
@@ -529,14 +530,17 @@ var MapManager = (function($, d3, leaflet) {
   //Show email
   $(document).on("show-event-form", function(events, target) {
     var form = $(target).closest(".event-item").find(".event-rsvp-activity");
-      if (Cookies.get('email')) {
-        form.find("input[name=email]").val(Cookies.get('email'));
+      if (Cookies.get('map.bernie.email')) {
+        form.find("input[name=email]").val(Cookies.get('map.bernie.email'));
       }
 
-      if (Cookies.get('phone')) {
-        form.find("input[name=phone]").val(Cookies.get('phone'));
+      if (Cookies.get('map.bernie.phone')) {
+        form.find("input[name=phone]").val(Cookies.get('map.bernie.phone'));
       }
 
+      // var params =  $.deparam(window.location.hash.substring(1) || "");
+      // form.find("input[name=zipcode]").val(params.zipcode ? params.zipcode : Cookies.get('map.bernie.zipcode'));
+      
       form.fadeIn(100);
   });
 
@@ -558,36 +562,45 @@ var MapManager = (function($, d3, leaflet) {
       return false;
     }
 
-    $(this).find(".event-error").hide();
+    // if (!query['name'] || query['name'] == "") {
+    //   $error.text("Please include your name").show();
+    //   return false;
+    // }
 
+    $(this).find(".event-error").hide();
+    var $this = $(this)
     $.ajax({
       type: 'POST',
-      url: 'https://bernie-ground-control-staging.herokuapp.com/events/add-rsvp', 
+      url: 'https://organize.berniesanders.com/events/add-rsvp', 
       crossDomain: true,
       dataType: 'json',
-      data: JSON.stringify({
+      data: {
+        // name: query['name'],
         phone: query['phone'],
         email: query['email'],
         zip: query['zipcode'],
         event_id_obfuscated: query['id_obfuscated']
-      }), 
+      }, 
       success: function(data) {
         console.log(data);
         Cookies.set('map.bernie.zipcode', query['zipcode'], {expires: 7});
         Cookies.set('map.bernie.email', query['email'], {expires: 7});
+        Cookies.set('map.bernie.name', query['name'], {expires: 7});
+
         if (query['phone'] != '') {
-          Cookies.set('map.bernie.phone', query['email'], {expires: 7});
+          Cookies.set('map.bernie.phone', query['phone'], {expires: 7});
         }
 
         //Storing the events joined
-        var events_joined = JSON.parse(Cookies.get('map.bernie.eventsJoined.' + query['email'])) || [];
+        var events_joined = JSON.parse(Cookies.get('map.bernie.eventsJoined.' + query['email']) || "[]") || [];
 
         events_joined.push(query['id_obfuscated']);
         Cookies.set('map.bernie.eventsJoined.' + query['email'], events_joined, {expires: 7});
 
-        $(this).closest("li").attr("data-attending", true);
+        console.log(Cookies.get('map.bernie.zipcode'), Cookies.get('map.bernie.email'))
+        $this.closest("li").attr("data-attending", true);
 
-        $(this).html("<h4 style='border-bottom: none'>RSVP Successful! Thank you for joining to this event!</h4>");
+        $this.html("<h4 style='border-bottom: none'>RSVP Successful! Thank you for joining to this event!</h4>");
         $container.delay(1000).fadeOut('fast')
       }
     })

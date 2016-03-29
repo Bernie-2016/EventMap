@@ -301,8 +301,8 @@ $.ajax({
 
           window.mapManager = MapManager(window.EVENT_DATA.results, campaignOffices, zipcodes);
 
-          if($("input[name='zipcode']").val() == '' && Cookies.get('zipcode') && window.location.hash == '') {
-            $("input[name='zipcode']").val(Cookies.get('zipcode')); 
+          if($("input[name='zipcode']").val() == '' && Cookies.get('map.bernie.zipcode') && window.location.hash == '') {
+            $("input[name='zipcode']").val(Cookies.get('map.bernie.zipcode')); 
             window.location.hash = $("#filter-form").serialize();
           } else {
             $(window).trigger("hashchange");
