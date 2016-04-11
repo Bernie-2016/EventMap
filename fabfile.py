@@ -39,12 +39,15 @@ def update_event_data():
 
     eastern = pytz.timezone('US/Eastern')
 
-    # start_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
-    # end_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=21), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds() - 1)
+    THREE_WEEK_LIMIT = True
 
-    # events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=10000&format=json' % {'start_date': start_date, 'end_date': end_date}
+    if THREE_WEEK_LIMIT:
+        start_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+        end_date = int((eastern.localize(datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=21), is_dst=None) - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds() - 1)
+        events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=10000&format=json' % {'start_date': start_date, 'end_date': end_date}
 
-    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&limit=10000&format=json'
+    else:
+        events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&limit=10000&format=json'
 
     print "Fetching events from %s" % events_url
 
