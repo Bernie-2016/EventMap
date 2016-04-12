@@ -211,10 +211,10 @@ window.eventTypeFilters = [
     name: 'Canvassing',
     id: 'canvassing'
   },
-  {
-    name: 'Ballot Access',
-    id: 'ballot-access'
-  },
+  // {
+  //   name: 'Ballot Access',
+  //   id: 'ballot-access'
+  // },
   {
     name: 'Carpool',
     id: 'carpool'
@@ -242,7 +242,7 @@ $.ajax({
   dataType: 'script',
   cache: true, // otherwise will get fresh copy every page load
   success: function(data) {
-    d3.csv('/d/campaign-offices.csv',
+    d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/campaign-offices.csv',
       function(campaignOffices) {
         //Load zipcodes
         //d2bq2yf31lju3q.cloudfront.net

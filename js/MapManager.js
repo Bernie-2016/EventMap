@@ -34,6 +34,29 @@ var Event = (function($) { return function(properties) {
 
         var endtime = that.endTime ? moment(that.endTime).format("h:mma") : null;
 
+        // console.log(that.properties.shift_details);
+
+        var shiftElems = null;
+        if ( that.properties.shift_details ) {
+
+          var shiftList = that.properties.shift_details.map(
+                             function(item) { 
+                               var current = moment();
+                               var start = moment(item.start);
+                               var end = moment(item.end);
+
+                               if (end.isBefore(current)) { return; }
+
+                               return $("<li />")
+                                 .append($("<input type='checkbox' value='" + item.event_shift_id + "' id='" + item.event_shift_id + "' name='shift_id[]'>"))
+                                 .append("<label for='" + item.event_shift_id + "'>" + start.format("h:mma") + " - " + end.format("h:mma"))
+                             }
+                           );
+          shiftElems = $("<div class='shift-details'/>")
+                         .append("<h5>Shifts</h5>")
+                         .append($("<ul/>").append(shiftList))
+        } // end of creating shift items
+
         var rendered = $("<div class='lato'/>")
           .addClass('event-item ' + that.className)
           .append($("<div />").addClass('event-item lato ' + that.className+'').attr("lat",lat).attr("lon",lon) //appended lat-lon attributes to this class for marker highlighting
@@ -51,7 +74,9 @@ var Event = (function($) { return function(properties) {
                       .append($("<form class='event-form lato'>")
                              .append($("<h4/>").html("RSVP to <strong>" + that.properties.name + "</strong>"))
                              .append($("<div class='event-error' />"))
+                             .append(shiftElems ? shiftElems : "")
                              // .append($("<input type='text' name='name' placeholder='Name'/>"))
+                             .append($("<input type='hidden' name='has_shift'/>").val(shiftElems != null))
                              .append($("<input type='hidden' name='zipcode'/>").val(zipcode?zipcode:that.properties.venue_zip))
                              .append($("<input type='hidden' name='id_obfuscated'/>").val(that.properties.id_obfuscated))
                              .append($("<input type='text' name='phone' placeholder='Phone Number'/>"))
@@ -549,8 +574,27 @@ var MapManager = (function($, d3, leaflet) {
     var params = $.deparam(window.location.hash.substring(1) || "");
     query['zipcode'] = params['zipcode'] || query['zipcode'];
 
+
+
     var $error = $(this).find(".event-error");
     var $container = $(this).closest(".event-rsvp-activity");
+
+    // console.log(query);
+    if (query['has_shift'] == 'true' && (!query['shift_id'] || query['shift_id'].length == 0)) {
+      $error.text("You must pick a shift").show();
+      return false;
+    }
+
+    var shifts = null;
+    var guests = 0;
+    if (query['shift_id']) {
+      shifts = query['shift_id'].join();
+    }
+
+    if (!query['phone'] || query['phone'] == '') {
+      $error.text("Phone number is required").show();
+      return false;
+    } 
 
     if (!query['email'] || query['email'] == '') {
       $error.text("Email is required").show();
@@ -572,6 +616,7 @@ var MapManager = (function($, d3, leaflet) {
     $.ajax({
       type: 'POST',
       url: 'https://organize.berniesanders.com/events/add-rsvp', 
+      // url: 'https://bernie-ground-control-staging.herokuapp.com/events/add-rsvp',
       crossDomain: true,
       dataType: 'json',
       data: {
@@ -579,6 +624,7 @@ var MapManager = (function($, d3, leaflet) {
         phone: query['phone'],
         email: query['email'],
         zip: query['zipcode'],
+        shift_ids: shifts,  
         event_id_obfuscated: query['id_obfuscated']
       }, 
       success: function(data) {

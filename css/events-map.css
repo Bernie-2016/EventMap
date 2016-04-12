@@ -199,7 +199,13 @@ html, body {
             margin: 4px 0; }
           html section#campaign-offices .viewport .container ul h5, body section#campaign-offices .viewport .container ul h5 {
             font-weight: 300;
-            color: gray; }
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 4px; }
+          html section#campaign-offices .viewport .container ul h3, body section#campaign-offices .viewport .container ul h3 {
+            font-size: 18px; }
+          html section#campaign-offices .viewport .container ul p, body section#campaign-offices .viewport .container ul p {
+            margin: 10px 0 5px; }
           html section#campaign-offices .viewport .container ul:last-child, body section#campaign-offices .viewport .container ul:last-child {
             border: none; }
           html section#campaign-offices .viewport .container ul div.social-area a.rsvp-link, body section#campaign-offices .viewport .container ul div.social-area a.rsvp-link {
@@ -409,7 +415,13 @@ html, body {
             margin: 4px 0; }
           html section#activity-area article#map div.popup-list-container ul li h5, body section#activity-area article#map div.popup-list-container ul li h5 {
             font-weight: 300;
-            color: gray; }
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 4px; }
+          html section#activity-area article#map div.popup-list-container ul li h3, body section#activity-area article#map div.popup-list-container ul li h3 {
+            font-size: 18px; }
+          html section#activity-area article#map div.popup-list-container ul li p, body section#activity-area article#map div.popup-list-container ul li p {
+            margin: 10px 0 5px; }
           html section#activity-area article#map div.popup-list-container ul li:last-child, body section#activity-area article#map div.popup-list-container ul li:last-child {
             border: none; }
           html section#activity-area article#map div.popup-list-container ul li div.social-area a.rsvp-link, body section#activity-area article#map div.popup-list-container ul li div.social-area a.rsvp-link {
@@ -611,7 +623,13 @@ html, body {
           margin: 4px 0; }
         html article#events div#event-list-container ul#event-list li h5, body article#events div#event-list-container ul#event-list li h5 {
           font-weight: 300;
-          color: gray; }
+          color: gray;
+          font-size: 14px;
+          margin-bottom: 4px; }
+        html article#events div#event-list-container ul#event-list li h3, body article#events div#event-list-container ul#event-list li h3 {
+          font-size: 18px; }
+        html article#events div#event-list-container ul#event-list li p, body article#events div#event-list-container ul#event-list li p {
+          margin: 10px 0 5px; }
         html article#events div#event-list-container ul#event-list li:last-child, body article#events div#event-list-container ul#event-list li:last-child {
           border: none; }
         html article#events div#event-list-container ul#event-list li div.social-area a.rsvp-link, body article#events div#event-list-container ul#event-list li div.social-area a.rsvp-link {
@@ -790,11 +808,22 @@ html, body {
     html div.event-item div.event-rsvp-activity form.event-form, body div.event-item div.event-rsvp-activity form.event-form {
       position: relative; }
       html div.event-item div.event-rsvp-activity form.event-form .event-error, body div.event-item div.event-rsvp-activity form.event-form .event-error {
-        display: none;
-        color: red;
-        padding: 2px 0px 4px;
+        color: #F55B5B;
         font-size: 9px;
-        text-decoration: underline; }
+        text-decoration: none;
+        padding: 2px 0;
+        margin-bottom: 4px; }
+      html div.event-item div.event-rsvp-activity form.event-form .shift-details ul, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul {
+        margin-bottom: 5px; }
+        html div.event-item div.event-rsvp-activity form.event-form .shift-details ul li, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul li {
+          border: none !important;
+          display: inline-block;
+          width: 50%;
+          padding: 0 !important;
+          font-size: 11px;
+          margin-bottom: 5px; }
+          html div.event-item div.event-rsvp-activity form.event-form .shift-details ul li label, html div.event-item div.event-rsvp-activity form.event-form .shift-details ul li input, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul li label, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul li input {
+            cursor: pointer; }
       html div.event-item div.event-rsvp-activity form.event-form h4, body div.event-item div.event-rsvp-activity form.event-form h4 {
         font-size: 14px;
         padding-bottom: 4px;
