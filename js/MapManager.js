@@ -85,14 +85,14 @@ var Event = (function($) { return function(properties) {
                       )
                    )
             .append(
-              $("<div class='social-area' style='display: block !important;'/>")
+              $("<div class='social-area' />")
                 .addClass(moreThan5RSVP ? "more-than-5" : "")
                 .append(
                   $("<a class='rsvp-link'/>")
-                    // .attr("href", that.properties.is_campaign_office ? (that.properties.opening_event ? that.properties.opening_event : that.properties.url) : "javascript: void(null) ")
-                    // .attr("onclick", that.properties.is_campaign_office ? null: "$('.event-rsvp-activity').hide(); $(document).trigger('show-event-form', [this])")
-                    .attr('target', 'blank')
-                    .attr("href", that.properties.is_campaign_office ? (that.properties.opening_event ? that.properties.opening_event : that.properties.url) : that.properties.url)
+                    .attr("href", that.properties.is_campaign_office ? (that.properties.opening_event ? that.properties.opening_event : that.properties.url) : "javascript: void(null) ")
+                    .attr("onclick", that.properties.is_campaign_office ? null: "$('.event-rsvp-activity').hide(); $(document).trigger('show-event-form', [this])")
+                    // .attr('target', 'blank')
+                    // .attr("href", that.properties.is_campaign_office ? (that.properties.opening_event ? that.properties.opening_event : that.properties.url) : that.properties.url)
                     .attr("data-id", that.properties.id_obfuscated)
                     .attr("data-url", (that.properties.opening_event ? that.properties.opening_event : that.properties.url))
                     .text(that.isFull ? "FULL" : that.properties.is_campaign_office ? (that.properties.opening_event ? "RSVP" : "Get Directions") : "RSVP")
@@ -101,7 +101,7 @@ var Event = (function($) { return function(properties) {
                   $("<span class='rsvp-count'/>").text(that.properties.attendee_count + " SIGN UPS")
                 )
             )
-            // .append($("<div class='rsvp-attending'/>").html('<a href="https://go.berniesanders.com/page/event/myevents" target="_blank">You are attending this event</a>'))
+            .append($("<div class='rsvp-attending'/>").html('<a href="https://go.berniesanders.com/page/event/myevents" target="_blank">You are attending this event</a>'))
           );
         
         return rendered.html();
