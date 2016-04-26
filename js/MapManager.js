@@ -34,13 +34,13 @@ var Event = (function($) { return function(properties) {
 
         var endtime = that.endTime ? moment(that.endTime).format("h:mma") : null;
 
-        // console.log(that.properties.shift_details);
+
 
         var shiftElems = null;
         if ( that.properties.shift_details ) {
 
           var shiftList = that.properties.shift_details.map(
-                             function(item) { 
+                             function(item) {
                                var current = moment();
                                var start = moment(item.start);
                                var end = moment(item.end);
@@ -103,7 +103,7 @@ var Event = (function($) { return function(properties) {
             )
             .append($("<div class='rsvp-attending'/>").html('<a href="https://go.berniesanders.com/page/event/myevents" target="_blank">You are attending this event</a>'))
           );
-        
+
         return rendered.html();
       };
     }
@@ -113,7 +113,7 @@ var Event = (function($) { return function(properties) {
 // /****
 //  *  Campaign Offices
 //  */
-// var CampaignOffices = (function($) { 
+// var CampaignOffices = (function($) {
 //   return function(properties) {
 //     this.properties = properties;
 
@@ -166,6 +166,7 @@ var MapManager = (function($, d3, leaflet) {
     var popup = L.popup();
     var options = options;
     var zipcodes = zipcodes.reduce(function(zips, item) { zips[item.zip] = item; return zips; }, {});
+
     var current_filters = [], current_zipcode = "", current_distance = "", current_sort = "";
 
     var originalEventList = eventData.map(function(d) { return new Event(d); });
@@ -209,13 +210,13 @@ var MapManager = (function($, d3, leaflet) {
 
     var _popupEvents = function(event) {
       var target = event.target._latlng;
-      // console.log(current_filters);
+
 
       var filtered = eventsList.filter(function(d) {
-        // console.log($(d.properties.filters).not(current_filters),)
-        return target.lat == d.LatLng[0] && 
+
+        return target.lat == d.LatLng[0] &&
                target.lng == d.LatLng[1] &&
-               (!current_filters || current_filters.length == 0 
+               (!current_filters || current_filters.length == 0
                   || $(d.properties.filters).not(current_filters).length != d.properties.filters.length);
       }).sort(function(a, b) { return a.startTime - b.startTime; });
 
@@ -268,9 +269,9 @@ var MapManager = (function($, d3, leaflet) {
           return arr;
         }
       }, []);
-      // console.log(uniqueLocs);
 
-      // console.log("Timestamp :: ", new Date() - date);
+
+
 
       uniqueLocs = uniqueLocs.map(function(d) {
         var split = d.split("||");
@@ -278,16 +279,16 @@ var MapManager = (function($, d3, leaflet) {
                  className: split[2] };
       });
 
-      // console.log("Timestamp :: ", new Date() - date);
 
-      // console.log(uniqueLocs);
+
+
       uniqueLocs.forEach(function(item) {
          // setTimeout(function() {
           if (item.className == "campaign-office") {
             L.marker(item.latLng, {icon: CAMPAIGN_OFFICE_ICON, className: item.className})
               .on('click', function(e) { _popupEvents(e); })
               .addTo(offices);
-          } else if (item.className == "gotv-center") { 
+          } else if (item.className == "gotv-center") {
             L.marker(item.latLng, {icon: GOTV_CENTER_ICON, className: item.className})
               .on('click', function(e) { _popupEvents(e); })
               .addTo(gotvCenter);
@@ -296,7 +297,7 @@ var MapManager = (function($, d3, leaflet) {
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
           } else {
-            // console.log(item.latLng);
+
             L.circleMarker(item.latLng, { radius: 5, className: item.className, color: 'white', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2 })
               .on('click', function(e) { _popupEvents(e); })
               .addTo(overlays);
@@ -305,7 +306,7 @@ var MapManager = (function($, d3, leaflet) {
       });
 
 
-      // console.log($(".leaflet-overlay-pane").find(".bernie-event").parent());
+
       // $(".leaflet-overlay-pane").find(".bernie-event").parent().prependTo('.leaflet-zoom-animated');
 
     }; // End of initialize
@@ -321,7 +322,7 @@ var MapManager = (function($, d3, leaflet) {
           d.distance = Math.round(dist*10)/10;
 
           //If no filter was a match on the current filter
-          // console.log(d);
+
           if($(d.properties.filters).not(filterTypes).length == d.properties.filters.length) {
             return false;
           }
@@ -361,7 +362,7 @@ var MapManager = (function($, d3, leaflet) {
     setTimeout(function(){
        initialize();
     }, 10);
-    
+
 
     module._eventsList = eventsList;
     module._zipcodes = zipcodes;
@@ -384,9 +385,9 @@ var MapManager = (function($, d3, leaflet) {
         //   var unmatch = $(eventItem.properties.filters).not(filters);
         //   return unmatch.length != eventItem.properties.filters.length;
         // });
-  
 
-      // console.log(type.map(function(i) { return "." + i }));
+
+
       // var target = type.map(function(i) { return "." + i }).join(",");
       // $(".leaflet-overlay-pane").find("path:not("+type.map(function(i) { return "." + i }).join(",") + ")")
 
@@ -468,7 +469,7 @@ var MapManager = (function($, d3, leaflet) {
         current_distance = distance;
         centralMap.setView([parseFloat(targetZipcode.lat), parseFloat(targetZipcode.lon)], zoom);
       }
-      
+
       var filtered = filterEvents(targetZipcode, parseInt(distance), filterTypes);
 
 
@@ -494,14 +495,14 @@ var MapManager = (function($, d3, leaflet) {
 
         eventList.exit().remove();
 
-			//add a highlighted marker 
+			//add a highlighted marker
     	function addhighlightedMarker(lat,lon){
     		var highlightedMarker = new L.circleMarker([lat,lon],{radius: 5, color: '#ea504e', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2}).addTo(centralMap);
     		// event listener to remove highlighted markers
     		$(".not-full").mouseout(function(){
     			centralMap.removeLayer(highlightedMarker)
     		})
-    	} 
+    	}
 
     	// event listener to get the mouseover
   		$(".not-full" ).mouseover(function(){
@@ -515,8 +516,8 @@ var MapManager = (function($, d3, leaflet) {
       //Push all full items to end of list
       $("div#event-list-container ul#event-list li.is-full").appendTo("div#event-list-container ul#event-list");
 
-      //Move campaign offices to 
-      // console.log($("div#event-list-container ul#event-list li .campaign-office").length);
+      //Move campaign offices to
+
       var officeCount = $("div#event-list-container ul#event-list li .campaign-office").length;
       $("#hide-show-office").attr("data-count", officeCount);
       $("#campaign-off-count").text(officeCount);
@@ -535,7 +536,7 @@ var MapManager = (function($, d3, leaflet) {
     }
 
     module.getMap = function() {
-      return centralMap;  
+      return centralMap;
     }
 
     return module;
@@ -543,6 +544,60 @@ var MapManager = (function($, d3, leaflet) {
 
 })(jQuery, d3, L);
 
+var VotingInfoManager = (function($) {
+  return (function(votingInfo) {
+    var votingInfo = votingInfo;
+    var module = {};
+
+    function buildRegistrationMessage(state) {
+      var $msg = $("<div class='registration-msg'/>").append($("<h3/>").text("Registration deadline: " + moment(new Date(state.registration_deadline)).format("MMM D")))
+                    .append($("<p />").html(state.name + " has <strong>" + state.is_open + " " + state.type + "</strong>. " + state.you_must))
+                    .append($("<p />").html("Find out where and how to register at <a target='_blank' href='https://vote.berniesanders.com/" + state.state + "'>vote.berniesanders.com</a>"))
+
+      return $msg;
+    }
+
+    function buildPrimaryInfo(state) {
+
+      var $msg = $("<div class='registration-msg'/>").append($("<h3/>").text("Primary day: " + moment(new Date(state.voting_day)).format("MMM D")))
+                    .append($("<p />").html(state.name + " has <strong>" + state.is_open + " " + state.type + "</strong>. "  + state.you_must))
+                    .append($("<p />").html("Find out where and how to vote at <a target='_blank' href='https://vote.berniesanders.com/" + state.state + "'>vote.berniesanders.com</a>"))
+
+      return $msg;
+
+    }
+
+    function buildCaucusInfo(state) {
+      var $msg = $("<div class='registration-msg'/>").append($("<h3/>").text("Caucus day: " + moment(new Date(state.voting_day)).format("MMM D")))
+                    .append($("<p />").html(state.name + " has <strong>" + state.is_open + " " + state.type + "</strong>. " + state.you_must))
+                    .append($("<p />").html("Find out where and how to caucus at <a target='_blank' href='https://vote.berniesanders.com/" + state.state + "'>vote.berniesanders.com</a>"))
+
+      return $msg;
+    }
+
+    module.getInfo = function(state) {
+      var targetState = votingInfo.filter(function(d) { return d.state == state })[0]; //return first
+      if(!targetState) return null;
+
+      var today = new Date();
+      today.setDate(today.getDate() - 1);
+
+      if(today <= new Date(targetState.registration_deadline)) {
+        return buildRegistrationMessage(targetState);
+      } else if (today <= new Date(targetState.voting_day)) {
+        if (targetState.type == "primaries") {
+          return buildPrimaryInfo(targetState);
+        } else { //
+          return buildCaucusInfo(targetState);
+        }
+      } else {
+        return null;
+      }
+    }
+
+    return module;
+  });
+})(jQuery);
 
 // More events
 (function($) {
@@ -567,7 +622,7 @@ var MapManager = (function($, d3, leaflet) {
 
       // var params =  $.deparam(window.location.hash.substring(1) || "");
       // form.find("input[name=zipcode]").val(params.zipcode ? params.zipcode : Cookies.get('map.bernie.zipcode'));
-      
+
       form.fadeIn(100);
   });
 
@@ -581,7 +636,6 @@ var MapManager = (function($, d3, leaflet) {
     var $error = $(this).find(".event-error");
     var $container = $(this).closest(".event-rsvp-activity");
 
-    // console.log(query);
     if (query['has_shift'] == 'true' && (!query['shift_id'] || query['shift_id'].length == 0)) {
       $error.text("You must pick a shift").show();
       return false;
@@ -596,12 +650,12 @@ var MapManager = (function($, d3, leaflet) {
     if (!query['phone'] || query['phone'] == '') {
       $error.text("Phone number is required").show();
       return false;
-    } 
+    }
 
     if (!query['email'] || query['email'] == '') {
       $error.text("Email is required").show();
       return false;
-    } 
+    }
 
     if (!query['email'].toUpperCase().match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/)) {
       $error.text("Please input valid email").show();
@@ -617,7 +671,7 @@ var MapManager = (function($, d3, leaflet) {
     var $this = $(this)
     $.ajax({
       type: 'POST',
-      url: 'https://organize.berniesanders.com/events/add-rsvp', 
+      url: 'https://organize.berniesanders.com/events/add-rsvp',
       // url: 'https://bernie-ground-control-staging.herokuapp.com/events/add-rsvp',
       crossDomain: true,
       dataType: 'json',
@@ -626,11 +680,10 @@ var MapManager = (function($, d3, leaflet) {
         phone: query['phone'],
         email: query['email'],
         zip: query['zipcode'],
-        shift_ids: shifts,  
+        shift_ids: shifts,
         event_id_obfuscated: query['id_obfuscated']
-      }, 
+      },
       success: function(data) {
-        // console.log(data);
         Cookies.set('map.bernie.zipcode', query['zipcode'], {expires: 7});
         Cookies.set('map.bernie.email', query['email'], {expires: 7});
         Cookies.set('map.bernie.name', query['name'], {expires: 7});
@@ -645,7 +698,7 @@ var MapManager = (function($, d3, leaflet) {
         events_joined.push(query['id_obfuscated']);
         Cookies.set('map.bernie.eventsJoined.' + query['email'], events_joined, {expires: 7});
 
-        // console.log(Cookies.get('map.bernie.zipcode'), Cookies.get('map.bernie.email'))
+
         $this.closest("li").attr("data-attending", true);
 
         $this.html("<h4 style='border-bottom: none'>RSVP Successful! Thank you for joining to this event!</h4>");

@@ -104,14 +104,14 @@
                 <ul id='filter-list'></ul>
               </div>
               <div style='text-align: center; font-size: 11px; margin-top: 10px; color: lightgray;'>
-              <a href='javascript: void(null)' id='show-all' 
-                 onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", true).trigger("change");'>Show All</a> &bull; 
+              <a href='javascript: void(null)' id='show-all'
+                 onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", true).trigger("change");'>Show All</a> &bull;
               <a href='javascript: void(null)'
                  onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", false).trigger("change")'>Hide All</a>
               </div>
             </div>
             <p align='right'>
-              <a href='javascript: void(null)' class='filter-button' 
+              <a href='javascript: void(null)' class='filter-button'
                  onclick='$("#events").removeClass("show-type-filter");'>
                 Hide Legend
               </a>
@@ -274,18 +274,18 @@ $.ajax({
             d.is_official = d.is_official == "1";
             if (d.is_official) { d.filters.push("official-event"); }
           });
-          
+
           var oldDate = new Date()
 
           window.EVENT_DATA.results = window.EVENT_DATA.results.concat(
-            campaignOffices.map(function(d){ 
+            campaignOffices.map(function(d){
               return {
                 filters: d.type == 'office' ? ["campaign-office"] : ["gotv-center"],
                 url: "https://maps.google.com?saddr=Current+Location&daddr=" + encodeURIComponent(d.address),
                 longitude: d.lon,
                 latitude: d.lat,
                 name: d.name,
-                location: d.address, 
+                location: d.address,
                 event_type_name: d.type == 'office' ? "Campaign Office" : "GOTV Center",
                 capacity: 0,
                 id_obfuscated: d.address,
@@ -302,7 +302,7 @@ $.ajax({
           window.mapManager = MapManager(window.EVENT_DATA.results, campaignOffices, zipcodes);
 
           if($("input[name='zipcode']").val() == '' && Cookies.get('map.bernie.zipcode') && window.location.hash == '') {
-            $("input[name='zipcode']").val(Cookies.get('map.bernie.zipcode')); 
+            $("input[name='zipcode']").val(Cookies.get('map.bernie.zipcode'));
             window.location.hash = $("#filter-form").serialize();
           } else {
             $(window).trigger("hashchange");
@@ -315,14 +315,18 @@ $.ajax({
   }
 });
 
+// Registration Data items
+d3.csv('./d/registration-data.csv', function(votinginfo) {
+  window.votingInfoManager = VotingInfoManager(votinginfo);
+})
 
  /** initial loading before activating listeners...
   */
 
  var params = $.deparam(window.location.hash.substring(1));
-  if (params.zipcode) { 
-    $("input[name='zipcode']").val(params.zipcode); 
-  } 
+  if (params.zipcode) {
+    $("input[name='zipcode']").val(params.zipcode);
+  }
 
   if (params.distance) { $("select[name='distance']").val(params.distance);}
   if (params.sort) { $("select[name='sort']").val(params.sort);}
@@ -370,11 +374,11 @@ $("#filter-list").append(
     $(this).closest("form#filter-form").submit();
   });
 
-  /** 
+  /**
   * On filter type change
   */
   $(".filter-type").on('change', function(e) {
-    $(this).closest("form#filter-form").submit();    
+    $(this).closest("form#filter-form").submit();
   })
 
  //On submit
@@ -391,17 +395,23 @@ $("#filter-list").append(
 
   var params = $.deparam(hash.substring(1));
 
-  
+
   setTimeout(function() {
     $("#loading-icon").show();
     window.mapManager.filterByType(params.f);
     window.mapManager.filter(params.zipcode, params.distance, params.sort, params.f);
     $("#loading-icon").hide();
+
+    var $info = window.votingInfoManager.getInfo(window.mapManager._zipcodes[params.zipcode].state);
+    console.log($info);
+    $(".registration-msg").remove();
+    $info.prependTo("#event-list-container");
+
   }, 10);
   // $("#loading-icon").hide();
   if (params.zipcode.length == 5 && $("body").hasClass("initial-view")) {
     $("#events").removeClass("show-type-filter");
-    $("body").removeClass("initial-view"); 
+    $("body").removeClass("initial-view");
   }
  });
 

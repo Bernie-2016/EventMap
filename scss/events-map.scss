@@ -267,7 +267,7 @@ section#campaign-offices {
         min-width: auto;
         max-height: 100%;
 
-        ul li {    
+        ul li {
           display: inline-block;
           width: calc(100% - 20px);
           /*margin-right: 17px;*/
@@ -497,7 +497,7 @@ article#events {
     #filter-popup-area {
       #filter-list-area {
         display: block;
-        div#f-container {    
+        div#f-container {
           box-shadow: -1px -1px 1px rgba(255,255,255,0.6);
           padding: 6px;
           border-radius: 4px;
@@ -505,14 +505,14 @@ article#events {
           ul li {
             * { vertical-align: middle; }
             input.filter-type { display: none; }
-            label { 
+            label {
               * { vertical-align: middle; }
               cursor: pointer;
               .filter-on,.filter-off {
                 margin-right: 4px;
               }
 
-              .map-red-circle, .circle-button { 
+              .map-red-circle, .circle-button {
                 vertical-align: top;
                 display: inline-block;
                 width: 11px;
@@ -533,7 +533,7 @@ article#events {
                   background-color: lightgray;
                 }
               }
-              
+
             }
 
             input.filter-type + label {
@@ -546,13 +546,13 @@ article#events {
               .filter-off { display: none; }
             }
 
-            
+
           }
         }
       }
     }
 
-    @media screen and (min-width: 600px) { 
+    @media screen and (min-width: 600px) {
       #event-list-container {
         @include calc(height, '100% - 314px');
       }
@@ -572,13 +572,13 @@ article#events {
   }
 
   //For normal view
-  @media screen and (min-width: 600px) { 
+  @media screen and (min-width: 600px) {
     #filter-popup-area {
 
       #filter-list-area {
         margin-top: 10px;
         ul {
-          li { 
+          li {
             display: inline-block;
             width: calc(50% - 20px);
             padding: 5px 5px;
@@ -609,10 +609,53 @@ article#events {
   }
 
   div#event-list-container {
+
+    div.registration-msg {
+
+      padding: 20px;
+      background-color: $red;
+      margin-bottom: 20px;
+
+      h3 {
+
+            color: white;
+            font-size: 20px;
+            font-family: 'lato';
+            font-weight: 600;
+            margin-bottom: 5px;
+
+      }
+      p {
+
+
+            font-size: 12px;
+            color: white;
+            font-family: lato;
+            line-height: 1.25;
+            margin-top: 5px;
+
+        strong {
+
+              font-weight: 600;
+              text-decoration: underline;
+
+        }
+        a {
+
+    background-color: white;
+    display: inline-block;
+    padding: 2px 4px;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-left: 4px;
+
+        }
+      }
+    }
     #hide-show-office[data-count="0"] { display: none;}
 
     background-color: whitesmoke;
-    
+
     overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
 
@@ -649,7 +692,7 @@ article#events {
       text-align: left;
       margin-bottom: 5px;
 
-      a {    
+      a {
         display: inline-block;
         margin: 10px 15px 0px;
         padding: 6px 7px;
@@ -767,14 +810,14 @@ li {
         border-right: 8px solid transparent;
         border-top: 7px solid #147FD7;
         left: 128px;
-        bottom: 0px;      
+        bottom: 0px;
         border-bottom: 9px solid #147FD7;
       }
     }
     div.social-area { display: none; }
   }
 
-  &[data-attending=false] { 
+  &[data-attending=false] {
     div.rsvp-attending { display: none; };
     div.social-area { display: block; }
   }
@@ -909,7 +952,7 @@ div.event-item {
           top: 50%;
           height: 77%;
           width: 77%;
-          
+
           border-radius:35px;
           border: solid 25px rgb(181, 188, 193);
           background-color: white;
@@ -943,8 +986,8 @@ div.event-item {
               font-size: 0.9em;
 
             }
-            
-            div.event-rsvp-activity { 
+
+            div.event-rsvp-activity {
               left: 0px;
               bottom: 28px;
 
@@ -981,7 +1024,7 @@ div.event-item {
                 }
               }
             }
-            
+
 
             div.rsvp-area {
               float: right;
@@ -1099,7 +1142,7 @@ footer {
 @media only screen
   and (max-width: 600px) {
     #announcement{
-      bottom: 0; 
+      bottom: 0;
       z-index: 3000 !important;
       font-size: 11px;
     }
