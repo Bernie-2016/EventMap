@@ -403,9 +403,10 @@ $("#filter-list").append(
     $("#loading-icon").hide();
 
     var $info = window.votingInfoManager.getInfo(window.mapManager._zipcodes[params.zipcode].state);
-    console.log($info);
     $(".registration-msg").remove();
-    $info.prependTo("#event-list-container");
+    if ($info) {
+      $info.prependTo("#event-list-container");
+    }
 
   }, 10);
   // $("#loading-icon").hide();

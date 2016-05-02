@@ -56,7 +56,6 @@ var Event = (function($) { return function(properties) {
                          .append("<h5>Shifts</h5>")
                          .append($("<ul/>").append(shiftList))
         } // end of creating shift items
-
         var rendered = $("<div class='lato'/>")
           .addClass('event-item ' + that.className)
           .append($("<div />").addClass('event-item lato ' + that.className+'').attr("lat",lat).attr("lon",lon) //appended lat-lon attributes to this class for marker highlighting
