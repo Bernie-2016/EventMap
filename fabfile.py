@@ -22,7 +22,7 @@ def update_office_locations():
     local('cd d; curl "https://docs.google.com/spreadsheets/d/1hJadb6JyDekHf5Vzx-77h7sdJRCOB01XUPvEpKIckDs/pub?gid=0&single=true&output=csv" > campaign-offices.csv')
 
     local('cd d; curl "https://docs.google.com/spreadsheets/d/1rRexu31MYdff4PLwgPW1A8TMXkFBLmBxU444khLhWaQ/pub?gid=0&single=true&output=csv" > go-the-distance.csv')
-    
+
     print "Finished Downloading campaign offices"
 
 
@@ -44,7 +44,7 @@ def update_event_data():
 
     # events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&date_start=%(start_date)s&date_end=%(end_date)s&limit=10000&format=json' % {'start_date': start_date, 'end_date': end_date}
 
-    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&limit=7000&format=json'
+    events_url = 'http://go.berniesanders.com/page/event/search_results?country=US&limit=5000&format=json'
 
     print "Fetching events from %s" % events_url
 
@@ -56,6 +56,11 @@ def update_event_data():
 
     global rsvp_count
     rsvp_count = 0
+
+    events_url_PR = 'http://go.berniesanders.com/page/event/search_results?country=PR&limit=100&format=json'
+    print "Fetching events from %s" % events_url_PR
+    resp_PR = requests.get(events_url_PR)
+    data_PR = json.loads(resp_PR.text)
 
     def clean_result(row):
         global rsvp_count
@@ -85,7 +90,7 @@ def update_event_data():
                 return False
         return True
 
-    data_out = {'results': map(clean_result, filter(remove_the_mormons, data['results']))}
+    data_out = {'results': map(clean_result, filter(remove_the_mormons, data['results'] + data_PR['results']))}
 
 
     data['settings']['rsvp'] = rsvp_count
@@ -95,8 +100,8 @@ def update_event_data():
 
     data_out['settings'] = data['settings']
 
-    json_dump = json.dumps(data)
-    eventsjson = json.dumps(data)
+    json_dump = json.dumps(data_out)
+    eventsjson = json.dumps(data_out)
 
     jsonfile = open('d/events.json', 'w')
     jsonfile.write(eventsjson)
