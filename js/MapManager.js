@@ -159,98 +159,96 @@ var Event = (function($) { return function(properties) {
 var MapManager = (function($, d3, leaflet) {
   return (
     function(eventData, campaignOffices, zipcodes, options) {
+      var allFilters = window.eventTypeFilters.map(function(i) { return i.id; });
 
-    var allFilters = window.eventTypeFilters.map(function(i) { return i.id; });
+      var popup = L.popup();
+      var options = options;
+      var zipcodes = zipcodes.reduce(function(zips, item) { zips[item.zip] = item; return zips; }, {});
 
-    var popup = L.popup();
-    var options = options;
-    var zipcodes = zipcodes.reduce(function(zips, item) { zips[item.zip] = item; return zips; }, {});
+      var current_filters = [], current_zipcode = "", current_distance = "", current_sort = "";
 
-    var current_filters = [], current_zipcode = "", current_distance = "", current_sort = "";
+      var originalEventList = eventData.map(function(d) { return new Event(d); });
+      var eventsList = originalEventList.slice(0);
 
-    var originalEventList = eventData.map(function(d) { return new Event(d); });
-    var eventsList = originalEventList.slice(0);
+      // var officeList = campaignOffices.map(function(d) { return new CampaignOffices(d); });
 
-    // var officeList = campaignOffices.map(function(d) { return new CampaignOffices(d); });
+      leaflet.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
+      var mapboxTiles = leaflet.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + leaflet.mapbox.accessToken, { attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'});
 
-    leaflet.mapbox.accessToken = "pk.eyJ1IjoiemFja2V4bGV5IiwiYSI6Ijc2OWFhOTE0ZDllODZiMTUyNDYyOGM5MTk1Y2NmZmEyIn0.mfl6MGaSrMmNv5o5D5WBKw";
-    var mapboxTiles = leaflet.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + leaflet.mapbox.accessToken, { attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'});
+      var CAMPAIGN_OFFICE_ICON = L.icon({
+          iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png',
+          iconSize:     [17, 14], // size of the icon
+          // shadowSize:   [50, 64], // size of the shadow
+          // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+          // shadowAnchor: [4, 62],  // the same for the shadow
+          // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+      });
+      var GOTV_CENTER_ICON = L.icon({
+          iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png',
+          iconSize:     [13, 10], // size of the icon
+      });
+      var defaultCoord = options&&options.defaultCoord ? options.defaultCoord : {center: [37.8, -96.9], zoom: 4};
 
-    var CAMPAIGN_OFFICE_ICON = L.icon({
-        iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png',
-        iconSize:     [17, 14], // size of the icon
-        // shadowSize:   [50, 64], // size of the shadow
-        // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        // shadowAnchor: [4, 62],  // the same for the shadow
-        // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-    var GOTV_CENTER_ICON = L.icon({
-        iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png',
-        iconSize:     [13, 10], // size of the icon
-    });
-    var defaultCoord = {center: [37.8, -96.9], zoom: 4};
+      var centralMap =  new leaflet
+                            .Map("map-container", window.customMapCoord ? window.customMapCoord : defaultCoord)
+                            .addLayer(mapboxTiles);
+      if(centralMap) {}
 
+      var overlays = L.layerGroup().addTo(centralMap);
+      var offices = L.layerGroup().addTo(centralMap);
+      var gotvCenter = L.layerGroup().addTo(centralMap);
 
-    var centralMap =  new leaflet
-                          .Map("map-container", window.customMapCoord ? window.customMapCoord : defaultCoord)
-                          .addLayer(mapboxTiles);
-    if(centralMap) {}
+      var campaignOfficeLayer = L.layerGroup().addTo(centralMap);
 
-    var overlays = L.layerGroup().addTo(centralMap);
-    var offices = L.layerGroup().addTo(centralMap);
-    var gotvCenter = L.layerGroup().addTo(centralMap);
-
-    var campaignOfficeLayer = L.layerGroup().addTo(centralMap);
-
-    //initialize map
-    var filteredEvents = [];
-    var module = {};
+      //initialize map
+      var filteredEvents = [];
+      var module = {};
 
 
-    var _popupEvents = function(event) {
-      var target = event.target._latlng;
+      var _popupEvents = function(event) {
+        var target = event.target._latlng;
 
 
-      var filtered = eventsList.filter(function(d) {
+        var filtered = eventsList.filter(function(d) {
 
-        return target.lat == d.LatLng[0] &&
-               target.lng == d.LatLng[1] &&
-               (!current_filters || current_filters.length == 0
-                  || $(d.properties.filters).not(current_filters).length != d.properties.filters.length);
-      }).sort(function(a, b) { return a.startTime - b.startTime; });
+          return target.lat == d.LatLng[0] &&
+                 target.lng == d.LatLng[1] &&
+                 (!current_filters || current_filters.length == 0
+                    || $(d.properties.filters).not(current_filters).length != d.properties.filters.length);
+        }).sort(function(a, b) { return a.startTime - b.startTime; });
 
-      var div = $("<div />")
-        .append(filtered.length > 1 ? "<h3 class='sched-count'>" + filtered.length + " Scheduled Events</h3>" : "")
-        .append(
-        $("<div class='popup-list-container'/>")
-          .append($("<ul class='popup-list'>")
-            .append(
-              filtered.map(function(d) {
-                return $("<li class='lato'/>")
-                          .attr('data-attending', (function(prop) {
-                              var email = Cookies.get('map.bernie.email');
-                              var events_attended_raw = Cookies.get('map.bernie.eventsJoined.' + email);
-                              var events_attended = events_attended_raw ? JSON.parse(events_attended_raw) : [];
-                              return $.inArray(prop.id_obfuscated, events_attended) > -1;
+        var div = $("<div />")
+          .append(filtered.length > 1 ? "<h3 class='sched-count'>" + filtered.length + " Scheduled Events</h3>" : "")
+          .append(
+          $("<div class='popup-list-container'/>")
+            .append($("<ul class='popup-list'>")
+              .append(
+                filtered.map(function(d) {
+                  return $("<li class='lato'/>")
+                            .attr('data-attending', (function(prop) {
+                                var email = Cookies.get('map.bernie.email');
+                                var events_attended_raw = Cookies.get('map.bernie.eventsJoined.' + email);
+                                var events_attended = events_attended_raw ? JSON.parse(events_attended_raw) : [];
+                                return $.inArray(prop.id_obfuscated, events_attended) > -1;
 
-                            })(d.properties))
-                          .addClass(d.isFull?"is-full":"not-full")
-                          .addClass(d.visible ? "is-visible" : "not-visible")
-                          .append(d.render());
-              })
+                              })(d.properties))
+                            .addClass(d.isFull?"is-full":"not-full")
+                            .addClass(d.visible ? "is-visible" : "not-visible")
+                            .append(d.render());
+                })
+              )
             )
-          )
-        );
+          );
 
 
-      setTimeout(
-        function() { L.popup()
-          .setLatLng(event.target._latlng)
-          .setContent(div.html())
-          .openOn(centralMap);
-        }
-      , 100);
-    };
+        setTimeout(
+          function() { L.popup()
+            .setLatLng(event.target._latlng)
+            .setContent(div.html())
+            .openOn(centralMap);
+          }
+        , 100);
+      };
 
 
 
@@ -312,8 +310,8 @@ var MapManager = (function($, d3, leaflet) {
 
     var toMile = function(meter) { return meter * 0.00062137; };
 
-    var filterEvents = function (zipcode, distance, filterTypes) {
-      var zipLatLng = leaflet.latLng([parseFloat(zipcode.lat), parseFloat(zipcode.lon)]);
+    var filterEventsByCoords = function (center, distance, filterTypes) {
+      var zipLatLng = leaflet.latLng(center);
 
       var filtered = eventsList.filter(function(d) {
         var dist = toMile(zipLatLng.distanceTo(d.LatLng));
@@ -321,6 +319,9 @@ var MapManager = (function($, d3, leaflet) {
           d.distance = Math.round(dist*10)/10;
 
           //If no filter was a match on the current filter
+          if (options.defaultCoord && !filterTypes) {
+            return true;
+          }
 
           if($(d.properties.filters).not(filterTypes).length == d.properties.filters.length) {
             return false;
@@ -334,13 +335,16 @@ var MapManager = (function($, d3, leaflet) {
       return filtered;
     };
 
+    var filterEvents = function (zipcode, distance, filterTypes) {
+      return filterEventsByCoords([parseFloat(zipcode.lat), parseFloat(zipcode.lon)], distance, filterTypes)
+    };
+
     var sortEvents = function(filteredEvents, sortType) {
       switch (sortType) {
         case 'distance':
-
           filteredEvents = filteredEvents.sort(function(a,b) { return a.distance - b.distance; });
           break;
-        case 'time':
+        default:
           filteredEvents = filteredEvents.sort(function(a,b) { return a.startTime - b.startTime; });
           break;
       }
@@ -365,6 +369,7 @@ var MapManager = (function($, d3, leaflet) {
 
     module._eventsList = eventsList;
     module._zipcodes = zipcodes;
+    module._options = options;
 
     /*
     * Refresh map with new events map
@@ -422,6 +427,65 @@ var MapManager = (function($, d3, leaflet) {
     }
     return;
   };
+
+    module.filterByCoords = function(coords, distance, sort, filterTypes) {
+      //Remove list
+      d3.select("#event-list")
+        .selectAll("li").remove();
+
+      var filtered = filterEventsByCoords(coords, parseInt(distance), filterTypes);
+      //Sort event
+      filtered = sortEvents(filtered, sort, filterTypes);
+
+      //Check cookies
+      var email = Cookies.get('map.bernie.email');
+      var events_attended_raw = Cookies.get('map.bernie.eventsJoined.' + email);
+      var events_attended = events_attended_raw ? JSON.parse(events_attended_raw) : [];
+
+      //Render event
+      var eventList = d3.select("#event-list")
+        .selectAll("li")
+        .data(filtered, function(d){ return d.properties.id_obfuscated; });
+
+        eventList.enter()
+          .append("li")
+          .attr("data-attending", function(d, id) {  return $.inArray(d.properties.id_obfuscated, events_attended) > -1;  })
+          .attr("class", function(d) { return (d.isFull ? 'is-full' : 'not-full') + " " + (this.visible ? "is-visible" : "not-visible")})
+          .classed("lato", true)
+          .html(function(d){ return d.render(d.distance); });
+
+        eventList.exit().remove();
+
+      //add a highlighted marker
+      function addhighlightedMarker(lat,lon){
+        var highlightedMarker = new L.circleMarker([lat,lon],{radius: 5, color: '#ea504e', fillColor: '#1462A2', opacity: 0.8, fillOpacity: 0.7, weight: 2}).addTo(centralMap);
+        // event listener to remove highlighted markers
+        $(".not-full").mouseout(function(){
+          centralMap.removeLayer(highlightedMarker)
+        })
+      }
+
+      // event listener to get the mouseover
+      $(".not-full" ).mouseover(function(){
+            $(this).toggleClass("highlight")
+            var cMarkerLat = $(this).children('div').attr('lat')
+            var cMarkerLon = $(this).children('div').attr('lon')
+            // function call to add highlighted marker
+            addhighlightedMarker(cMarkerLat,cMarkerLon);
+        })
+
+      //Push all full items to end of list
+      $("div#event-list-container ul#event-list li.is-full").appendTo("div#event-list-container ul#event-list");
+
+      //Move campaign offices to
+
+      var officeCount = $("div#event-list-container ul#event-list li .campaign-office").length;
+      $("#hide-show-office").attr("data-count", officeCount);
+      $("#campaign-off-count").text(officeCount);
+      $("section#campaign-offices ul#campaign-office-list *").remove();
+      $("div#event-list-container ul#event-list li .campaign-office").parent().appendTo("section#campaign-offices ul#campaign-office-list");
+
+    }
 
     /***
      * FILTER()  -- When the user submits query, we will look at this.
