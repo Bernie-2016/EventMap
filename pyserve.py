@@ -17,6 +17,22 @@ class GZipFriendlyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                 'Content-Encoding': 'gzip',
                 'Content-Type': 'text/javascript'  
             }
+            '/js/jquery.gz': {
+                'Content-Encoding': 'gzip',
+                'Content-Type': 'text/javascript'
+            },
+            '/js/d3.gz': {
+                'Content-Encoding': 'gzip',
+                'Content-Type': 'text/javascript'
+            },
+            '/js/deparam.min.gz': {
+                'Content-Encoding': 'gzip',
+                'Content-Type': 'text/javascript'
+            },
+            '/js/mapbox.gz': {
+                'Content-Encoding': 'gzip',
+                'Content-Type': 'text/javascript'
+            },
         }
 
         if self.path in MONKEYPATCHED_HEADERS:
