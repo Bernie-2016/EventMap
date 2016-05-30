@@ -15,8 +15,8 @@ class GZipFriendlyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             },
             '/js/event-data.gz': {
                 'Content-Encoding': 'gzip',
-                'Content-Type': 'text/javascript'  
-            }
+                'Content-Type': 'text/javascript'
+            },
             '/js/jquery.gz': {
                 'Content-Encoding': 'gzip',
                 'Content-Type': 'text/javascript'

@@ -319,7 +319,7 @@ var MapManager = (function($, d3, leaflet) {
           d.distance = Math.round(dist*10)/10;
 
           //If no filter was a match on the current filter
-          if (options.defaultCoord && !filterTypes) {
+          if (options && options.defaultCoord && !filterTypes) {
             return true;
           }
 
