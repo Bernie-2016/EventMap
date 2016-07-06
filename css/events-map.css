@@ -841,9 +841,13 @@ html, body {
     color: white;
     border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
     display: inline-block; } }
-@media screen and (min-width: 1650px) {
+/*@media screen and (min-width: 1650px) {
   body {
-    /*section#activity-area {
+    section#header {
+      height: 8%;
+      zoom: 110%;
+    }
+    section#activity-area {
       height: 92%;
 
       article#map {
@@ -855,9 +859,8 @@ html, body {
           zoom: 105%;
         }
       }
-    }*/ }
-    body section#header {
-      height: 8%;
-      zoom: 110%; } }
+    }
+  }
+}*/
 
 /*# sourceMappingURL=events-map.css.map */
