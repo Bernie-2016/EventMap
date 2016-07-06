@@ -684,7 +684,7 @@ html, body {
         font-weight: 300;
         text-transform: uppercase;
         margin-bottom: 4px; }
-      html article#events div#filters form input[type='text'], body article#events div#filters form input[type='text'] {
+      html article#events div#filters form input[type='text'], html article#events div#filters form input[type='number'], body article#events div#filters form input[type='text'], body article#events div#filters form input[type='number'] {
         margin-right: 15px;
         padding: 5px 0;
         color: #33495A;
@@ -694,6 +694,13 @@ html, body {
         font-size: 16px;
         width: 130px;
         border-radius: 2px; }
+      html article#events div#filters form input[name='zipcode']::-webkit-outer-spin-button,
+      html article#events div#filters form input[name='zipcode']::-webkit-inner-spin-button, body article#events div#filters form input[name='zipcode']::-webkit-outer-spin-button,
+      body article#events div#filters form input[name='zipcode']::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0;
+        /* <-- Apparently some margin are still there even though it's hidden */ }
       html article#events div#filters form select, body article#events div#filters form select {
         color: #333333;
         /*background-color: $darkdarkblue;*/
