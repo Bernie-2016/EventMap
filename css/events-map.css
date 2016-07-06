@@ -842,16 +842,22 @@ html, body {
     border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
     display: inline-block; } }
 @media screen and (min-width: 1650px) {
-  body section#header {
-    height: 8%;
-    zoom: 110%; }
-  body section#activity-area {
-    height: 92%; }
-    body section#activity-area article#map {
-      width: 70%; }
-    body section#activity-area article#events {
-      width: calc(30% - 3px); }
-      body section#activity-area article#events * {
-        zoom: 105%; } }
+  body {
+    /*section#activity-area {
+      height: 92%;
+
+      article#map {
+        width: 70%;
+      }
+      article#events {
+        width: calc(30% - 3px);
+        * {
+          zoom: 105%;
+        }
+      }
+    }*/ }
+    body section#header {
+      height: 8%;
+      zoom: 110%; } }
 
 /*# sourceMappingURL=events-map.css.map */
