@@ -671,7 +671,7 @@ article#events {
     }
 
     form {
-      input[type='text'] {
+      input[type='text'], input[type='number'] {
         margin-right: 15px;
         padding: 5px 0;
         color: $darkdarkblue;
@@ -681,6 +681,12 @@ article#events {
         font-size: 16px;
         width: 130px;
         border-radius: 2px;
+      }
+      input[name='zipcode']::-webkit-outer-spin-button,
+      input[name='zipcode']::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
       }
       select { color: #333333;
         /*background-color: $darkdarkblue;*/
@@ -875,7 +881,7 @@ footer {
 }
 
 
-@media screen and (min-width: 1650px) {
+/*@media screen and (min-width: 1650px) {
   body {
     section#header {
       height: 8%;
@@ -895,4 +901,4 @@ footer {
       }
     }
   }
-}
+}*/
