@@ -54,6 +54,14 @@ table {
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
 
+.clearfix:after {
+  content: " ";
+  /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
 .mobile-only {
   display: none; }
   @media screen and (max-width: 600px) {
@@ -123,10 +131,6 @@ html, body {
     text-transform: uppercase; }
     html .contribute.contribute-big:hover, body .contribute.contribute-big:hover {
       background-color: #ea504e; }
-  html .gotv-center .time-info, body .gotv-center .time-info {
-    display: none !important; }
-  html .gotv-center .office-image, body .gotv-center .office-image {
-    display: none !important; }
   html section#campaign-offices, body section#campaign-offices {
     position: absolute;
     right: 395px;
@@ -195,7 +199,13 @@ html, body {
             margin: 4px 0; }
           html section#campaign-offices .viewport .container ul h5, body section#campaign-offices .viewport .container ul h5 {
             font-weight: 300;
-            color: gray; }
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 4px; }
+          html section#campaign-offices .viewport .container ul h3, body section#campaign-offices .viewport .container ul h3 {
+            font-size: 18px; }
+          html section#campaign-offices .viewport .container ul p, body section#campaign-offices .viewport .container ul p {
+            margin: 10px 0 5px; }
           html section#campaign-offices .viewport .container ul:last-child, body section#campaign-offices .viewport .container ul:last-child {
             border: none; }
           html section#campaign-offices .viewport .container ul div.social-area a.rsvp-link, body section#campaign-offices .viewport .container ul div.social-area a.rsvp-link {
@@ -361,6 +371,7 @@ html, body {
       html section#activity-area article#map .leaflet-popup-content-wrapper, body section#activity-area article#map .leaflet-popup-content-wrapper {
         border-top: 2px solid #147FD7; }
         html section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content, body section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content {
+          min-height: 170px;
           position: relative; }
           html section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content h3.sched-count, body section#activity-area article#map .leaflet-popup-content-wrapper .leaflet-popup-content h3.sched-count {
             margin: -5px 0 0 -5px;
@@ -404,7 +415,13 @@ html, body {
             margin: 4px 0; }
           html section#activity-area article#map div.popup-list-container ul li h5, body section#activity-area article#map div.popup-list-container ul li h5 {
             font-weight: 300;
-            color: gray; }
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 4px; }
+          html section#activity-area article#map div.popup-list-container ul li h3, body section#activity-area article#map div.popup-list-container ul li h3 {
+            font-size: 18px; }
+          html section#activity-area article#map div.popup-list-container ul li p, body section#activity-area article#map div.popup-list-container ul li p {
+            margin: 10px 0 5px; }
           html section#activity-area article#map div.popup-list-container ul li:last-child, body section#activity-area article#map div.popup-list-container ul li:last-child {
             border: none; }
           html section#activity-area article#map div.popup-list-container ul li div.social-area a.rsvp-link, body section#activity-area article#map div.popup-list-container ul li div.social-area a.rsvp-link {
@@ -457,6 +474,17 @@ html, body {
           html section#activity-area article#map div.popup-list-container ul li:last-child, body section#activity-area article#map div.popup-list-container ul li:last-child {
             padding-bottom: 0;
             border: none; }
+          html section#activity-area article#map div.popup-list-container ul li div.rsvp-attending, body section#activity-area article#map div.popup-list-container ul li div.rsvp-attending {
+            line-height: 1; }
+            html section#activity-area article#map div.popup-list-container ul li div.rsvp-attending a, body section#activity-area article#map div.popup-list-container ul li div.rsvp-attending a {
+              color: white; }
+            html section#activity-area article#map div.popup-list-container ul li div.rsvp-attending:after, body section#activity-area article#map div.popup-list-container ul li div.rsvp-attending:after {
+              left: 128px;
+              bottom: 0px; }
+          html section#activity-area article#map div.popup-list-container ul li div.event-rsvp-activity, body section#activity-area article#map div.popup-list-container ul li div.event-rsvp-activity {
+            top: auto;
+            bottom: 1px;
+            left: 0px; }
   html article#events, body article#events {
     float: right;
     border-left: 2px solid #DCDCDC;
@@ -550,15 +578,59 @@ html, body {
     html article#events h4.title #mobile-title, body article#events h4.title #mobile-title {
       display: none; }
     html article#events div#event-list-container, body article#events div#event-list-container {
-      overflow: auto;
       background-color: whitesmoke;
+      overflow-y: scroll;
+      /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
       height: -webkit-calc(100% - 110px);
       height: -moz-calc(100% - 110px);
       height: -o-calc(100% - 110px);
       height: -ms-calc(100% - 110px);
       height: calc(100% - 110px); }
+      html article#events div#event-list-container div.registration-msg, body article#events div#event-list-container div.registration-msg {
+        padding: 20px;
+        background-color: #F55B5B;
+        margin-bottom: 20px; }
+        html article#events div#event-list-container div.registration-msg h3, body article#events div#event-list-container div.registration-msg h3 {
+          color: white;
+          font-size: 20px;
+          font-family: 'lato';
+          font-weight: 600;
+          margin-bottom: 5px; }
+        html article#events div#event-list-container div.registration-msg p, body article#events div#event-list-container div.registration-msg p {
+          font-size: 12px;
+          color: white;
+          font-family: lato;
+          line-height: 1.25;
+          margin-top: 5px; }
+          html article#events div#event-list-container div.registration-msg p strong, body article#events div#event-list-container div.registration-msg p strong {
+            font-weight: 600;
+            text-decoration: underline; }
+          html article#events div#event-list-container div.registration-msg p a, body article#events div#event-list-container div.registration-msg p a {
+            background-color: white;
+            display: inline-block;
+            padding: 2px 4px;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-left: 4px; }
       html article#events div#event-list-container #hide-show-office[data-count="0"], body article#events div#event-list-container #hide-show-office[data-count="0"] {
         display: none; }
+      html article#events div#event-list-container div#new-feature-notice, body article#events div#event-list-container div#new-feature-notice {
+        display: none;
+        background-color: #DBE3D0;
+        padding: 10px;
+        width: 350px;
+        margin: 13px 10px;
+        border: #5C842B solid 1px;
+        font-family: 'lato';
+        font-size: 12px;
+        position: relative;
+        color: #333333; }
+        html article#events div#event-list-container div#new-feature-notice a, body article#events div#event-list-container div#new-feature-notice a {
+          position: absolute;
+          top: 0;
+          right: 2px;
+          color: #333333; }
       html article#events div#event-list-container ul#event-list li, body article#events div#event-list-container ul#event-list li {
         position: relative;
         padding: 10px 6px 10px 10px;
@@ -577,7 +649,13 @@ html, body {
           margin: 4px 0; }
         html article#events div#event-list-container ul#event-list li h5, body article#events div#event-list-container ul#event-list li h5 {
           font-weight: 300;
-          color: gray; }
+          color: gray;
+          font-size: 14px;
+          margin-bottom: 4px; }
+        html article#events div#event-list-container ul#event-list li h3, body article#events div#event-list-container ul#event-list li h3 {
+          font-size: 18px; }
+        html article#events div#event-list-container ul#event-list li p, body article#events div#event-list-container ul#event-list li p {
+          margin: 10px 0 5px; }
         html article#events div#event-list-container ul#event-list li:last-child, body article#events div#event-list-container ul#event-list li:last-child {
           border: none; }
         html article#events div#event-list-container ul#event-list li div.social-area a.rsvp-link, body article#events div#event-list-container ul#event-list li div.social-area a.rsvp-link {
@@ -710,6 +788,256 @@ html, body {
         border: 1px solid rgba(255, 255, 255, 0.7); }
         html article#events div#filters form select[name='distance'], body article#events div#filters form select[name='distance'] {
           margin-right: 15px; }
+  html li[data-attending=true] div.rsvp-attending, body li[data-attending=true] div.rsvp-attending {
+    position: relative;
+    background-color: #147FD7;
+    display: inline-block;
+    padding: 3px;
+    font-size: 10px;
+    color: white; }
+    html li[data-attending=true] div.rsvp-attending a, body li[data-attending=true] div.rsvp-attending a {
+      color: white; }
+    html li[data-attending=true] div.rsvp-attending:after, body li[data-attending=true] div.rsvp-attending:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      border-right: 8px solid transparent;
+      border-top: 7px solid #147FD7;
+      left: 128px;
+      bottom: 0px;
+      border-bottom: 9px solid #147FD7; }
+  html li[data-attending=true] div.social-area, body li[data-attending=true] div.social-area {
+    display: none; }
+  html li[data-attending=false] div.rsvp-attending, body li[data-attending=false] div.rsvp-attending {
+    display: none; }
+  html li[data-attending=false] div.social-area, body li[data-attending=false] div.social-area {
+    display: block; }
+  html div.event-item div.event-rsvp-activity, body div.event-item div.event-rsvp-activity {
+    display: none;
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    background-color: whitesmoke;
+    width: 260px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    border: 3px solid #C8C8C8;
+    padding: 7px;
+    /*&:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+      border-top: 8px solid #147FD7;
+      left: 21px;
+      bottom: -10px;
+    }*/ }
+    html div.event-item div.event-rsvp-activity form.event-form, body div.event-item div.event-rsvp-activity form.event-form {
+      position: relative; }
+      html div.event-item div.event-rsvp-activity form.event-form .event-error, body div.event-item div.event-rsvp-activity form.event-form .event-error {
+        color: #F55B5B;
+        font-size: 9px;
+        text-decoration: none;
+        padding: 2px 0;
+        margin-bottom: 4px; }
+      html div.event-item div.event-rsvp-activity form.event-form .shift-details ul, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul {
+        margin-bottom: 5px; }
+        html div.event-item div.event-rsvp-activity form.event-form .shift-details ul li, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul li {
+          border: none !important;
+          display: inline-block;
+          width: 50%;
+          padding: 0 !important;
+          font-size: 11px;
+          margin-bottom: 5px; }
+          html div.event-item div.event-rsvp-activity form.event-form .shift-details ul li label, html div.event-item div.event-rsvp-activity form.event-form .shift-details ul li input, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul li label, body div.event-item div.event-rsvp-activity form.event-form .shift-details ul li input {
+            cursor: pointer; }
+      html div.event-item div.event-rsvp-activity form.event-form h4, body div.event-item div.event-rsvp-activity form.event-form h4 {
+        font-size: 14px;
+        padding-bottom: 4px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid lightgray;
+        color: #147FD7;
+        line-height: 1.25; }
+        html div.event-item div.event-rsvp-activity form.event-form h4 strong, body div.event-item div.event-rsvp-activity form.event-form h4 strong {
+          font-weight: 600; }
+      html div.event-item div.event-rsvp-activity form.event-form input[type='text'], body div.event-item div.event-rsvp-activity form.event-form input[type='text'] {
+        font-size: 12px;
+        display: block;
+        width: 98%;
+        margin-bottom: 3px; }
+      html div.event-item div.event-rsvp-activity form.event-form input[name='email'], body div.event-item div.event-rsvp-activity form.event-form input[name='email'] {
+        font-size: 12px;
+        display: block;
+        width: 98%; }
+      html div.event-item div.event-rsvp-activity form.event-form input[name='name'], body div.event-item div.event-rsvp-activity form.event-form input[name='name'] {
+        width: 60%;
+        display: inline-block; }
+      html div.event-item div.event-rsvp-activity form.event-form input[name='zipcode'], body div.event-item div.event-rsvp-activity form.event-form input[name='zipcode'] {
+        width: -webkit-calc(35% - 2px);
+        width: -moz-calc(35% - 2px);
+        width: -o-calc(35% - 2px);
+        width: -ms-calc(35% - 2px);
+        width: calc(35% - 2px);
+        margin-left: 2px;
+        display: inline-block; }
+      html div.event-item div.event-rsvp-activity form.event-form input[type='submit'], body div.event-item div.event-rsvp-activity form.event-form input[type='submit'] {
+        width: 100%;
+        padding: 3px 0;
+        border: none;
+        background-color: #F55B5B;
+        color: white;
+        margin-top: 4px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+        html div.event-item div.event-rsvp-activity form.event-form input[type='submit']:hover, body div.event-item div.event-rsvp-activity form.event-form input[type='submit']:hover {
+          background-color: #ea504e; }
+  html #events-popup, body #events-popup {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); }
+    html #events-popup .viewport, body #events-popup .viewport {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      html #events-popup .viewport .container, body #events-popup .viewport .container {
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        top: 50%;
+        height: 77%;
+        width: 77%;
+        border-radius: 35px;
+        border: solid 25px #b5bcc1;
+        background-color: white;
+        font-family: 'lato', sans-serif;
+        overflow: auto;
+        padding-bottom: 40px; }
+        html #events-popup .viewport .container .content, body #events-popup .viewport .container .content {
+          padding: 20px 20px 0;
+          width: -webkit-calc(100% - 40px);
+          width: -moz-calc(100% - 40px);
+          width: -o-calc(100% - 40px);
+          width: -ms-calc(100% - 40px);
+          width: calc(100% - 40px);
+          height: -webkit-calc(100% - 40px);
+          height: -moz-calc(100% - 40px);
+          height: -o-calc(100% - 40px);
+          height: -ms-calc(100% - 40px);
+          height: calc(100% - 40px);
+          background-color: white;
+          border-radius: 10px; }
+          html #events-popup .viewport .container .content h2.event-title, body #events-popup .viewport .container .content h2.event-title {
+            color: #147FD7;
+            font-size: 1.7em;
+            font-weight: 600;
+            line-height: 1.25;
+            width: 80%; }
+          html #events-popup .viewport .container .content p.event-details, body #events-popup .viewport .container .content p.event-details {
+            line-height: 1.5;
+            margin-top: .5em;
+            width: 80%;
+            font-size: 0.9em; }
+          html #events-popup .viewport .container .content div.event-rsvp-activity, body #events-popup .viewport .container .content div.event-rsvp-activity {
+            left: 0px;
+            bottom: 28px; }
+          html #events-popup .viewport .container .content div.more-event-info, body #events-popup .viewport .container .content div.more-event-info {
+            float: left;
+            width: -webkit-calc(100% - 360px);
+            width: -moz-calc(100% - 360px);
+            width: -o-calc(100% - 360px);
+            width: -ms-calc(100% - 360px);
+            width: calc(100% - 360px);
+            margin-top: 20px;
+            background-color: #EFF3F7;
+            padding: 10px;
+            border-left: 2px solid #A7B6C5;
+            margin-right: 1%; }
+            html #events-popup .viewport .container .content div.more-event-info ul li label, body #events-popup .viewport .container .content div.more-event-info ul li label {
+              width: -webkit-calc(30% - 10px);
+              width: -moz-calc(30% - 10px);
+              width: -o-calc(30% - 10px);
+              width: -ms-calc(30% - 10px);
+              width: calc(30% - 10px);
+              padding-right: 10px;
+              float: left;
+              text-align: right;
+              padding-top: 12px;
+              color: #F55B5B;
+              text-transform: uppercase;
+              font-size: 12px;
+              line-height: 1.5; }
+            html #events-popup .viewport .container .content div.more-event-info ul li span.info, body #events-popup .viewport .container .content div.more-event-info ul li span.info {
+              width: -webkit-calc(70% - 20px);
+              width: -moz-calc(70% - 20px);
+              width: -o-calc(70% - 20px);
+              width: -ms-calc(70% - 20px);
+              width: calc(70% - 20px);
+              padding: 10px;
+              display: inline-block;
+              font-size: 14px;
+              line-height: 1.4; }
+          html #events-popup .viewport .container .content div.rsvp-area, body #events-popup .viewport .container .content div.rsvp-area {
+            float: right;
+            width: 300px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #147FD7;
+            border-radius: 4px;
+            box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.2); }
+            html #events-popup .viewport .container .content div.rsvp-area h1, body #events-popup .viewport .container .content div.rsvp-area h1 {
+              color: white;
+              font-size: 18px;
+              font-weight: 600;
+              border-bottom: 2px solid #8ABFEB;
+              padding-bottom: 10px;
+              margin-bottom: 10px; }
+            html #events-popup .viewport .container .content div.rsvp-area form ul li, body #events-popup .viewport .container .content div.rsvp-area form ul li {
+              margin-bottom: 10px; }
+              html #events-popup .viewport .container .content div.rsvp-area form ul li label, body #events-popup .viewport .container .content div.rsvp-area form ul li label {
+                color: white;
+                font-size: 14px;
+                margin-bottom: 4px;
+                display: inline-block; }
+              html #events-popup .viewport .container .content div.rsvp-area form ul li input[type="text"], html #events-popup .viewport .container .content div.rsvp-area form ul li input[type="number"], body #events-popup .viewport .container .content div.rsvp-area form ul li input[type="text"], body #events-popup .viewport .container .content div.rsvp-area form ul li input[type="number"] {
+                font-size: 16px;
+                width: -webkit-calc(100% - 20px);
+                width: -moz-calc(100% - 20px);
+                width: -o-calc(100% - 20px);
+                width: -ms-calc(100% - 20px);
+                width: calc(100% - 20px);
+                padding: 5px; }
+              html #events-popup .viewport .container .content div.rsvp-area form ul li input[type='submit'], body #events-popup .viewport .container .content div.rsvp-area form ul li input[type='submit'] {
+                width: -webkit-calc(100% - 10px);
+                width: -moz-calc(100% - 10px);
+                width: -o-calc(100% - 10px);
+                width: -ms-calc(100% - 10px);
+                width: calc(100% - 10px);
+                padding: 10px 15px;
+                font-size: 16px;
+                background-color: #52D768;
+                border-collapse: collapse;
+                border: 0;
+                margin-top: 5px;
+                border-radius: 5px;
+                color: white;
+                letter-spacing: 1px;
+                font-family: 'lato', sans-serif;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
   html footer, body footer {
     font-family: 'lato', sans-serif;
     padding-top: 30px; }
