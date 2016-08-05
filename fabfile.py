@@ -130,6 +130,7 @@ def deploy_event_data():
     local("aws s3 cp d/campaign-offices.csv s3://map.berniesanders.com/d/campaign-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
     local("aws s3 cp d/go-the-distance.csv s3://map.berniesanders.com/d/go-the-distance.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
     local("aws s3 cp d/go-the-distance-offices.csv s3://map.berniesanders.com/d/go-the-distance-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
+    local("aws s3 cp d/registration-data.csv s3://map.berniesanders.com/d/registration-data.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
 
     invalidate_cloudfront_event_cache()
 
