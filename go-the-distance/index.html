@@ -30,7 +30,6 @@
 <body class='list-view initial-view'>
 <section id='header'>
 <div id="header" class='lato'>
-  <a id="header-logo" href="http://www.berniesanders.com"><img src="//d2bq2yf31lju3q.cloudfront.net/img/logo.png" style="float: left; margin-left: 10px;"></a>
 
   <div class="main-title-area">
     <div style="margin-bottom: 4px;">
@@ -104,14 +103,14 @@
                 <ul id='filter-list'></ul>
               </div>
               <div style='text-align: center; font-size: 11px; margin-top: 10px; color: lightgray;'>
-              <a href='javascript: void(null)' id='show-all' 
-                 onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", true).trigger("change");'>Show All</a> &bull; 
+              <a href='javascript: void(null)' id='show-all'
+                 onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", true).trigger("change");'>Show All</a> &bull;
               <a href='javascript: void(null)'
                  onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", false).trigger("change")'>Hide All</a>
               </div>
             </div>
             <p align='right'>
-              <a href='javascript: void(null)' class='filter-button' 
+              <a href='javascript: void(null)' class='filter-button'
                  onclick='$("#events").removeClass("show-type-filter");'>
                 Hide Legend
               </a>
@@ -132,12 +131,12 @@
       <ul id='event-list'><li class='mobile-only lato'>Please type in your <strong>zipcode</strong> to view nearby events.</li></ul>
       <footer>
         <div id='footer-area' >
-          <h5>Bernie 2016</h5>
-          <h5>PO BOx 905</h5>
-          <h5>Burlington, VT 05402</h5>
+          <h5>Our Revolution</h5>
+          <h5>603 2nd Street NE</h5>
+          <h5>Washington, DC 20002</h5>
 
           <div id='paid-for-bernie-box'>
-            Paid for By Bernie 2016
+            Paid for By Our Revolution
           </div>
           <div id='footer-billionaire' style="margin-bottom: 30px;">
             <svg width="200" height="40">
@@ -147,7 +146,7 @@
             </svg>
           </div>
 
-          <sub>&copy; Bernie 2016 | <a href='https://berniesanders.com/privacy-policy/'>Privacy Policy</a></sub>
+          <sub>&copy; Our Revolution | <a href='https://ourrevolution.com/privacy-policy/'>Privacy Policy</a></sub>
         </div>
 
       </footer>
@@ -285,20 +284,20 @@ d3.csv('http://map.berniesanders.com/d/go-the-distance.csv', function(data) {
           if (d.is_official) { d.filters.push("official-event"); }
         });
         // window.EVENT_DATA = {};
-        
+
 
         // window.EVENT_DATA.results.forEach(function(d) {
         //   d.filters = ["gotv"];
         // });
 
-        window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.map(function(d){ 
+        window.EVENT_DATA.results = window.EVENT_DATA.results.concat(data.map(function(d){
             return {
               filters: ["campaign-office"],
               url: "https://maps.google.com?saddr=Current+Location&daddr=" + encodeURIComponent(d.address),
               longitude: d.lon,
               latitude: d.lat,
               name: d.name,
-              location: d.address, 
+              location: d.address,
               event_type_name: "Campaign Office",
               capacity: 0,
               id_obfuscated: d.address,
@@ -335,7 +334,7 @@ $("#filter-list").append(
                     .attr('name', 'f[]')
                     .attr("value", d.id)
                     .attr("id", d.id)
-                    .prop("checked", 
+                    .prop("checked",
 
                         !params.f ? (d.checked !== undefined ? d.checked : true) : $.inArray(d.id, params.f) >= 0)
               )
@@ -371,11 +370,11 @@ $("#filter-list").append(
     $(this).closest("form#filter-form").submit();
   });
 
-  /** 
+  /**
   * On filter type change
   */
   $(".filter-type").on('change', function(e) {
-    $(this).closest("form#filter-form").submit();    
+    $(this).closest("form#filter-form").submit();
   })
 
  //On submit
@@ -401,7 +400,7 @@ $("#filter-list").append(
   // $("#loading-icon").hide();
   if (params.zipcode.length == 5 && $("body").hasClass("initial-view")) {
     $("#events").removeClass("show-type-filter");
-    $("body").removeClass("initial-view"); 
+    $("body").removeClass("initial-view");
   }
  });
 
