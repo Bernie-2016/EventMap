@@ -313,8 +313,8 @@ html, body {
         html section#header nav #nav li *, body section#header nav #nav li * {
           vertical-align: middle; }
     html section#header div#spiel, body section#header div#spiel {
-      padding-top: 10px;
-      margin-left: 10px;
+      padding-top: 15px;
+      margin-left: 15px;
       font-weight: 300;
       display: inline-block;
       color: #33495A; }
