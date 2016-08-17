@@ -178,53 +178,57 @@
 <script src='./js/MapManager.js'></script>
 <script type='text/javascript'>
 window.eventTypeFilters = [
-  {
-    name: 'Campaign Office',
-    id: 'campaign-office',
-    onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png' />",
-    offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
-  },
+  // {
+  //   name: 'Campaign Office',
+  //   id: 'campaign-office',
+  //   onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png' />",
+  //   offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
+  // },
   // { name: 'GOTV Center',
   //   id: 'gotv-center',
   //   onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png' />",
   //   offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
   // },
-  {
-    name: 'Bernie Event',
-    id: 'bernie-event',
-    onItem: "<span class='map-red-circle'></span>",
-  },
-  {
-    name: 'Official Event',
-    id: 'official-event',
-  },
-  {
-    name: 'Phonebank',
-    id: 'phonebank'
-  },
-  {
-    name: 'Get Out The Vote',
-    id: 'gotv'
-  },
-  {
-    name: 'Canvassing',
-    id: 'canvassing'
-  },
+  // {
+  //   name: 'Bernie Event',
+  //   id: 'bernie-event',
+  //   onItem: "<span class='map-red-circle'></span>",
+  // },
+  // {
+  //   name: 'Official Event',
+  //   id: 'official-event',
+  // },
+  // {
+  //   name: 'Phonebank',
+  //   id: 'phonebank'
+  // },
+  // {
+  //   name: 'Get Out The Vote',
+  //   id: 'gotv'
+  // },
+  // {
+  //   name: 'Canvassing',
+  //   id: 'canvassing'
+  // },
   // {
   //   name: 'Ballot Access',
   //   id: 'ballot-access'
   // },
+  // {
+  //   name: 'Carpool',
+  //   id: 'carpool'
+  // },
+  // {
+  //   name: 'Register Voters',
+  //   id: 'register-voters'
+  // },
+  // {
+  //   name: 'Barnstorm',
+  //   id: 'barnstorm'
+  // },
   {
-    name: 'Carpool',
-    id: 'carpool'
-  },
-  {
-    name: 'Register Voters',
-    id: 'register-voters'
-  },
-  {
-    name: 'Barnstorm',
-    id: 'barnstorm'
+    name: 'Our Revolution',
+    id: 'our-revolution'
   },
   {
     name: 'Other',
@@ -267,6 +271,7 @@ $.ajax({
               case "Canvass": d.filters.push("canvassing"); break;
               case "Phonebank event" : d.filters.push("phonebank"); break;
               case "Registering Voters": d.filters.push('register-voters'); break;
+              case "August 24th Our Revolution Organizing Kickoff": d.filters.push("our-revolution"); break;
               default: d.filters.push('other'); break;
             }
 
