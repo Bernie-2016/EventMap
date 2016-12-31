@@ -64,7 +64,7 @@
       </h3>
       <h4 class='lato title'>
         <span id='screen-title'>Filters</span>
-        <span id='mobile-title'>Volunteer</span>
+        <span id='mobile-title'>Take a Stand</span>
       </h4>
       <form id='filter-form'>
         <table>
@@ -227,8 +227,8 @@ window.eventTypeFilters = [
   //   id: 'barnstorm'
   // },
   {
-    name: 'Rally Watch Party',
-    id: 'rally-watch-party'
+    name: 'Rally',
+    id: 'rally'
   },
   {
     name: 'Other',
@@ -262,7 +262,6 @@ $.ajax({
               case "South Carolina Event":
               case "Nevada Event":
               // case "Organizing Meeting": d.filters.push("official-event"); break;
-              case "Rally":
               case "Town Meeting": d.filters.push("bernie-event"); break;
               case "Barnstorm": d.filters.push("barnstorm"); break;
               case "Get Out the Vote" : d.filters.push("gotv"); break;
@@ -271,7 +270,7 @@ $.ajax({
               case "Canvass": d.filters.push("canvassing"); break;
               case "Phonebank event" : d.filters.push("phonebank"); break;
               case "Registering Voters": d.filters.push('register-voters'); break;
-              case "Rally Watch Party": d.filters.push("rally-watch-party"); break;
+              case "Rally": d.filters.push("rally"); break;
               default: d.filters.push('other'); break;
             }
 
