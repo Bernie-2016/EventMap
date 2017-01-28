@@ -163,7 +163,7 @@ z-index: 1000;
 
       span#daterange-value {
         width: 80px;
-        background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/time.png);
+        background-image: url(http://dcxc7a0ls04u1.cloudfront.net/img/icon/time.png);
         background-repeat: no-repeat;
         background-size: 15px 15px;
         display: inline-block;
@@ -242,7 +242,7 @@ z-index: 1000;
 
       span#sort-value {
         width: 80px;
-        background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/sort.png);
+        background-image: url(http://dcxc7a0ls04u1.cloudfront.net/img/icon/sort.png);
         background-repeat: no-repeat;
         background-size: 15px 15px;
         display: inline-block;
@@ -328,7 +328,7 @@ z-index: 1000;
             }
 
             input[name='eventtype']:checked  {
-               &[value='O'] + label .etype-bullet { background-image: url(http://d2bq2yf31lju3q.cloudfront.net/img/icon/star.png);
+               &[value='O'] + label .etype-bullet { background-image: url(http://dcxc7a0ls04u1.cloudfront.net/img/icon/star.png);
                 background-color: transparent;
 
                }

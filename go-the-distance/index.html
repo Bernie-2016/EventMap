@@ -140,7 +140,7 @@
           </div>
           <div id='footer-billionaire' style="margin-bottom: 30px;">
             <svg width="200" height="40">
-                <image xlink:href="//d2bq2yf31lju3q.cloudfront.net/img/billionaires.svg" width="200" height="40"
+                <image xlink:href="//dcxc7a0ls04u1.cloudfront.net/img/billionaires.svg" width="200" height="40"
                   x="0"
                 />
             </svg>
@@ -166,11 +166,11 @@
   </div>
 </section>
 
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.gz' type='text/javascript'></script>
+<script src='//dcxc7a0ls04u1.cloudfront.net/js/d3.gz' type='text/javascript'></script>
 <script id='zipcodes-datadump' type='text/plain'></script>
-<script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.gz"></script>
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/deparam.min.gz'></script>
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.gz'></script>
+<script src="//dcxc7a0ls04u1.cloudfront.net/js/jquery.gz"></script>
+<script src='//dcxc7a0ls04u1.cloudfront.net/js/deparam.min.gz'></script>
+<script src='//dcxc7a0ls04u1.cloudfront.net/js/mapbox.gz'></script>
 <!-- <script src='/js/leaflet-bouncer.js'></script> -->
 <script src='../js/moment.min.js'></script>
 <script src='../js/MapManager.js'></script>
@@ -179,8 +179,8 @@ window.eventTypeFilters = [
    {
     name: 'Campaign Office',
     id: 'campaign-office',
-    onItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png' />",
-    offItem: "<img style='width: 14px; height: 14px;' src='//d2bq2yf31lju3q.cloudfront.net/img/icon/star-gray.png' />"
+    onItem: "<img style='width: 14px; height: 14px;' src='//dcxc7a0ls04u1.cloudfront.net/img/icon/star.png' />",
+    offItem: "<img style='width: 14px; height: 14px;' src='//dcxc7a0ls04u1.cloudfront.net/img/icon/star-gray.png' />"
   },
   // {
   //   name: 'Bernie Event',
@@ -234,13 +234,13 @@ window.eventTypeFilters = [
 $("#loading-icon").show();
 d3.csv('http://map.berniesanders.com/d/go-the-distance.csv', function(data) {
   $.ajax({
-    url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
+    url: '//dcxc7a0ls04u1.cloudfront.net/js/event-data.gz',
     dataType: 'script',
     cache: true, // otherwise will get fresh copy every page load
     success: function(data2) {
       //Load zipcodes
-      //d2bq2yf31lju3q.cloudfront.net
-      d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
+      //dcxc7a0ls04u1.cloudfront.net
+      d3.csv('//dcxc7a0ls04u1.cloudfront.net/d/us_postal_codes.gz',
        function(zipcodes) {
 
          $("#loading-icon").hide();

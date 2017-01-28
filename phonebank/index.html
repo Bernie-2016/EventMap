@@ -17,7 +17,7 @@
 <meta name="twitter:creator" content="@BernieSanders">
 <meta name="twitter:title" content="Let's Organize and Continue this Political Revolution">
 <meta name="twitter:description" content="The next step for Bernie Sanders' movement is a new group called Our Revolution, which will fight to transform America and advance the progressive agenda that we believe in. Get started by hosting an event today and let's continue this political revolution.">
-<meta name="twitter:image" content="http://d2bq2yf31lju3q.cloudfront.net/img/phonebank.png">
+<meta name="twitter:image" content="http://dcxc7a0ls04u1.cloudfront.net/img/phonebank.png">
 
 <link rel="stylesheet" type="text/css" href="./css/events-map.css">
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Merriweather:400,900,700' />
@@ -103,7 +103,7 @@
           </div>
           <div id='footer-billionaire' style="margin-bottom: 30px;">
             <svg width="200" height="40">
-                <image xlink:href="//d2bq2yf31lju3q.cloudfront.net/img/billionaires.svg" width="200" height="40"
+                <image xlink:href="//dcxc7a0ls04u1.cloudfront.net/img/billionaires.svg" width="200" height="40"
                   x="0"
                 />
             </svg>
@@ -118,11 +118,11 @@
   <article id='map'></article>
 </section>
 
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/d3.js' type='text/javascript'></script>
+<script src='//dcxc7a0ls04u1.cloudfront.net/js/d3.js' type='text/javascript'></script>
 <script id='zipcodes-datadump' type='text/plain'></script>
-<script src="//d2bq2yf31lju3q.cloudfront.net/js/jquery.js"></script>
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/deparam.min.js'></script>
-<script src='//d2bq2yf31lju3q.cloudfront.net/js/mapbox.js'></script>
+<script src="//dcxc7a0ls04u1.cloudfront.net/js/jquery.js"></script>
+<script src='//dcxc7a0ls04u1.cloudfront.net/js/deparam.min.js'></script>
+<script src='//dcxc7a0ls04u1.cloudfront.net/js/mapbox.js'></script>
 <!-- <script src='/js/leaflet-bouncer.js'></script> -->
 <script src='./js/moment.min.js'></script>
 <script src='./js/MapManager.js'></script>
@@ -130,14 +130,14 @@
 (function($, d3) {
 $("#loading-icon").show();
 $.ajax({
-  url: '//d2bq2yf31lju3q.cloudfront.net/js/event-data.gz',
+  url: '//dcxc7a0ls04u1.cloudfront.net/js/event-data.gz',
   dataType: 'script',
   cache: true, // otherwise will get fresh copy every page load
   success: function(data) {
 
     //Load zipcodes
-    //d2bq2yf31lju3q.cloudfront.net
-    d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz',
+    //dcxc7a0ls04u1.cloudfront.net
+    d3.csv('//dcxc7a0ls04u1.cloudfront.net/d/us_postal_codes.gz',
      function(zipcodes) {
 
       window.mapManager = MapManager(

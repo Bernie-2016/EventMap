@@ -127,12 +127,12 @@ def deploy_event_data():
     update_office_locations()
     update_go_the_distance_offices()
 
-    local("aws s3 cp js/event-data.gz s3://map.berniesanders.com/js/event-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
-    local("aws s3 cp d/events.json s3://map.berniesanders.com/d/events.json --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
-    local("aws s3 cp d/campaign-offices.csv s3://map.berniesanders.com/d/campaign-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
-    local("aws s3 cp d/go-the-distance.csv s3://map.berniesanders.com/d/go-the-distance.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
-    local("aws s3 cp d/go-the-distance-offices.csv s3://map.berniesanders.com/d/go-the-distance-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
-    local("aws s3 cp d/registration-data.csv s3://map.berniesanders.com/d/registration-data.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
+    local("aws s3 cp js/event-data.gz s3://events.berniesanders.com/js/event-data.gz --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp d/events.json s3://events.berniesanders.com/d/events.json --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
+    local("aws s3 cp d/campaign-offices.csv s3://events.berniesanders.com/d/campaign-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\"")
+    local("aws s3 cp d/go-the-distance.csv s3://events.berniesanders.com/d/go-the-distance.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
+    local("aws s3 cp d/go-the-distance-offices.csv s3://events.berniesanders.com/d/go-the-distance-offices.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
+    local("aws s3 cp d/registration-data.csv s3://events.berniesanders.com/d/registration-data.csv --metadata-directive REPLACE --content-type \"text/plain\" --region \"us-west-2\" --acl \"public-read\"")
 
     invalidate_cloudfront_event_cache()
 
@@ -150,10 +150,10 @@ def zip_javascript():
 
 
 def deploy():
-    local("aws s3 cp . s3://map.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --exclude \"js/event-data.gz\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
-    local("aws s3 cp . s3://map.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://events.berniesanders.com/ --recursive --exclude \"fabfile.py*\" --exclude \".git*\" --exclude \"*.sublime-*\" --exclude \".DS_Store\" --exclude \"js/event-data.gz\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://events.berniesanders.com/ --exclude \"*\" --include \"*.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://events.berniesanders.com/ --exclude \"*\" --include \"js/*.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/javascript\" --region \"us-west-2\"")
+    local("aws s3 cp . s3://events.berniesanders.com/ --exclude \"*\" --include \"d/us_postal_codes.gz\" --exclude \"js/event-data.gz\" --recursive --metadata-directive REPLACE --content-encoding \"gzip\" --content-type \"text/csv\" --region \"us-west-2\"")
     invalidate_cloudfront_cache_from_last_commit()
 
 def sign(key, msg):
@@ -176,7 +176,7 @@ def invalidate_cloudfront_cache(payload):
     service = 'cloudfront'
     host = 'cloudfront.amazonaws.com'
     region = 'us-east-1'
-    path = "/2015-04-17/distribution/%s/invalidation" % ("E2SIHVDQUPIR5Z")
+    path = "/2015-04-17/distribution/%s/invalidation" % ("ERNY6QVW5NHHQ")
     endpoint = "https://cloudfront.amazonaws.com%s" % path
     content_type = 'text/xml'
 

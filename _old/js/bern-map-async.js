@@ -228,10 +228,10 @@ bernMap.draw = function() {
           .data(bernMap.constants.mainOffices)
           .enter()
             .append("image")
-              .attr("xlink:href", "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png")
+              .attr("xlink:href", "//dcxc7a0ls04u1.cloudfront.net/img/icon/star.png")
               .attr("xlink:xlink:href", function() {
 
-                return "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png";})
+                return "//dcxc7a0ls04u1.cloudfront.net/img/icon/star.png";})
               .attr("width", "10px")
               .attr("height", "10px")
               .attr("class", "bernie-main-office")
@@ -240,7 +240,7 @@ bernMap.draw = function() {
                   d3.select(this).attr("x", coordinates[0] - 5)
                       .attr("y", coordinates[1] - 5)
                   ;
-                  d3.select(this).attr("xlink\:href", "//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png");
+                  d3.select(this).attr("xlink\:href", "//dcxc7a0ls04u1.cloudfront.net/img/icon/star.png");
               });
 
         $(".bernie-main-office").prependTo($(that.activityLayer[0]));
@@ -469,10 +469,10 @@ bernMap.eventList = function(container) {
         ))
         .append($("<h3/>").text(d.name))
         .append($("<div/>").addClass("event-type campaign-office")
-              .html('<span style="vertical-align: middle"><img src="//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png" width="14px" height="14px"></span><span class="event-text">Campaign Office</span>'))
-        .append($("<h5/>").html("<span><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/map.png'/>" + d.address + "</span>"))
-        .append((d.phone && d.phone != "-") ? $("<h5/>").html("<span><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/phone.png'/>" + d.phone + "</span>") : "")
-        .append($("<div/>").html("<a class='button-rsvp' href='https://www.google.com/maps?q=" + encodeURIComponent(d.address) + "' target='_blank'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/map-white.png'/> VIEW MAP</a>"));
+              .html('<span style="vertical-align: middle"><img src="//dcxc7a0ls04u1.cloudfront.net/img/icon/star.png" width="14px" height="14px"></span><span class="event-text">Campaign Office</span>'))
+        .append($("<h5/>").html("<span><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/map.png'/>" + d.address + "</span>"))
+        .append((d.phone && d.phone != "-") ? $("<h5/>").html("<span><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/phone.png'/>" + d.phone + "</span>") : "")
+        .append($("<div/>").html("<a class='button-rsvp' href='https://www.google.com/maps?q=" + encodeURIComponent(d.address) + "' target='_blank'><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/map-white.png'/> VIEW MAP</a>"));
 
     return $popupItem.clone().wrap('<div>').parent().html();
   };
@@ -543,8 +543,8 @@ bernMap.eventList = function(container) {
             + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span>" ))
 
             + "<span class='social-buttons'>"
-            + "<a href='javascript: void(null)' onclick='bernieEvents.shareFacebook.call(this)' data-link='" + d.properties.link+ "'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/facebook.png' /></a>"
-            + "<a href='javascript: bernieEvents.shareTwitter(\"" + d.properties.link + "\", \"" + dateFormat(d.properties.Date) + "\")'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/twitter.png' /></a>"
+            + "<a href='javascript: void(null)' onclick='bernieEvents.shareFacebook.call(this)' data-link='" + d.properties.link+ "'><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/facebook.png' /></a>"
+            + "<a href='javascript: bernieEvents.shareTwitter(\"" + d.properties.link + "\", \"" + dateFormat(d.properties.Date) + "\")'><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/twitter.png' /></a>"
             + "</span>"
 
             + "</p>"
@@ -568,8 +568,8 @@ bernMap.eventList = function(container) {
 
             + (eventType =="rally" || d.properties.attendee_count <= 5 || isNaN(d.properties.attendee_count) ? "" : ("<span class='rsvp-counter'>" + d.properties.attendee_count + " SIGN UPS</span>" ))
             + "<span class='social-buttons'>"
-            + "<a href='javascript: bernieEvents.shareFacebook(\"" + d.properties.link+ "\")'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/facebook.png' /></a>"
-            + "<a href='javascript: bernieEvents.shareTwitter(\"" + d.properties.link + "\", \"" + dateFormat(d.properties.Date) + "\")'><img src='//d2bq2yf31lju3q.cloudfront.net/img/icon/twitter.png' /></a>"
+            + "<a href='javascript: bernieEvents.shareFacebook(\"" + d.properties.link+ "\")'><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/facebook.png' /></a>"
+            + "<a href='javascript: bernieEvents.shareTwitter(\"" + d.properties.link + "\", \"" + dateFormat(d.properties.Date) + "\")'><img src='//dcxc7a0ls04u1.cloudfront.net/img/icon/twitter.png' /></a>"
             + "</span>"
 
             + "</p>";
@@ -871,7 +871,7 @@ function loadZipcodeData() {
     if (bernMap.constants.mainOffices) { bernie.mapOffices(); }
 
     if (!bernMap.d.allZipcodes) {
-      d3.csv('//d2bq2yf31lju3q.cloudfront.net/d/us_postal_codes.gz', function(data) {
+      d3.csv('//dcxc7a0ls04u1.cloudfront.net/d/us_postal_codes.gz', function(data) {
         bernMap.d.allZipcodes = data;
         $jq(window).trigger("hashchange");
       });

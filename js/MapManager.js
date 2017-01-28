@@ -176,7 +176,7 @@ var MapManager = (function($, d3, leaflet) {
       var mapboxTiles = leaflet.tileLayer('http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + leaflet.mapbox.accessToken, { attribution: '<a href="http://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'});
 
       var CAMPAIGN_OFFICE_ICON = L.icon({
-          iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/star.png',
+          iconUrl: '//dcxc7a0ls04u1.cloudfront.net/img/icon/star.png',
           iconSize:     [17, 14], // size of the icon
           // shadowSize:   [50, 64], // size of the shadow
           // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
@@ -184,7 +184,7 @@ var MapManager = (function($, d3, leaflet) {
           // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
       });
       var GOTV_CENTER_ICON = L.icon({
-          iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png',
+          iconUrl: '//dcxc7a0ls04u1.cloudfront.net/img/icon/gotv-star.png',
           iconSize:     [13, 10], // size of the icon
       });
       var defaultCoord = options&&options.defaultCoord ? options.defaultCoord : {center: [37.8, -96.9], zoom: 4};
